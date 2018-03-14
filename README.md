@@ -4,7 +4,7 @@
 
 Elevate-UI is a toolkit of React components used for the rapid prototyping and development of web applications and sites for Elm Street Technology. It seeks to establish best practices around UI/UX for both the end users as well as the developers.
 
-### Libraries
+## Libraries
 
 A number of open-source libraries have been used to accomplish this:
 
@@ -16,7 +16,7 @@ A number of open-source libraries have been used to accomplish this:
 * [yup](https://github.com/jquense/yup)– Client-side form schema validation
 * [react-jss](https://github.com/cssinjs/react-jss)– CSS-in-JS solution with theming and easy overrides
 
-### Forms
+## Forms
 
 The majority of functionality in our applications revolve around _forms_. In order to maintain organization– we'll want to utilize the library Formik. For every form in our app– we'll want to make sure that we have accounted for the following:
 
@@ -34,6 +34,6 @@ Utilizing the idealogy of CSS-in-JS helps guarantee that our components have all
 * [Benefits of using JavaScript Style Sheets](http://cssinjs.org/benefits)
 * [React: CSS in JS by vjeux (2014)](https://speakerdeck.com/vjeux/react-css-in-js)
 
-### Code-splitting with dynamic imports
+## Code-splitting with dynamic imports
 
 We are also able to utilize our Loading component, which uses [React-Loadable](https://github.com/jamiebuilds/react-loadable) and [Webpack's dynamic imports](https://webpack.js.org/guides/code-splitting/#dynamic-imports) to split our application bundle into proper chunks. This helps ensure we are delivering optimized frontend assets to our users– saving them both time and data.
