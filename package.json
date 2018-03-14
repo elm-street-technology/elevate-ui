@@ -1,0 +1,60 @@
+{
+  "name": "elevate-ui",
+  "version": "0.0.1",
+  "description": "An opinionated toolkit of customizable, easy-to-use React components for building scalable, maintainable web applications",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "deploy": "yarn run clean && yarn run build && yarn publish",
+    "deploy:demo": "yarn run clean && yarn run build && gh-pages -d demo/dist",
+    "precommit": "lint-staged",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server"
+  },
+  "dependencies": {
+    "classnames": "2.2.5",
+    "lodash": "4.17.4",
+    "prop-types": "15.6.0",
+    "react-jss": "8.1.0",
+    "react-loadable": "4.0.5"
+  },
+  "peerDependencies": {
+    "react": ">16.0.0",
+    "react-dom": ">16.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "7.2.3",
+    "eslint": "4.11.0",
+    "eslint-config-react-app": "2.0.1",
+    "eslint-plugin-flowtype": "2.39.1",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-plugin-react": "7.4.0",
+    "formik": "0.11.11",
+    "gh-pages": "1.1.0",
+    "husky": "0.14.3",
+    "lint-staged": "7.0.0",
+    "nwb": "0.21.5",
+    "prettier": "1.11.1",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-router-dom": "4.2.2",
+    "yup": "0.24.1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "ui",
+    "components"
+  ]
+}
