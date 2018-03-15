@@ -6,7 +6,7 @@ import Paper from '../../../src/components/paper';
 import Typography from '../../../src/components/typography';
 import Input from '../../../src/components/input';
 
-const InputExample = ({
+const Inputs = ({
   values,
   errors,
   touched,
@@ -62,4 +62,4 @@ const InputExample = ({
   </Paper>
 );
 
-export default InputExample;
+export default Inputs;

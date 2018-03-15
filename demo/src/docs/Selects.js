@@ -1,22 +1,23 @@
 import React from 'react';
-import { withFormik } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import Yup from 'yup';
 
 import Paper from '../../../src/components/paper';
 import Typography from '../../../src/components/typography';
-import Select from '../../../src/components/select';
+// import Select from '../../../src/components/select';
+import SelectDownshift from '../../../src/components/select-downshift';
 
 const roygbiv = [
-  'red',
-  'orange',
-  'yellow',
-  'green',
-  'blue',
-  'indigo',
-  'violet',
+  { label: 'Red', value: 'red' },
+  { label: 'Orange', value: 'orange' },
+  { label: 'Yellow', value: 'yellow' },
+  { label: 'Green', value: 'green' },
+  { label: 'Blue', value: 'blue' },
+  { label: 'Indigo', value: 'indigo' },
+  { label: 'Violet', value: 'violet' },
 ];
 
-const FormikInputExample = ({
+const Selects = ({
   values,
   errors,
   touched,
@@ -27,41 +28,43 @@ const FormikInputExample = ({
 }) => (
   <Paper>
     <Typography type="title">{`<Select />`}</Typography>
-    <form onSubmit={handleSubmit} style={{ maxWidth: '420px' }}>
-      <Select
-        id="color"
-        name="color"
-        label="Favorite Color"
-        onChange={handleChange}
-        onBlur={handleBlur}
-        value={values.color}
-        error={touched.color && errors.color}
-        required
-      >
-        {roygbiv.map(color => (
-          <option key={color} value={color}>
-            {color.charAt(0).toUpperCase()}
-            {color.slice(1)}
-          </option>
-        ))}
-      </Select>
-      <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Saving' : 'Save'}
-      </button>
-    </form>
+    <Formik
+      initialValues={{ color: '' }}
+      validationSchema={() =>
+        Yup.object().shape({
+          color: Yup.string().required('A favorite color is required'),
+        })
+      }
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }, 1000);
+      }}
+      render={({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+      }) => (
+        <Form noValidate style={{ maxWidth: '420px' }}>
+          <Field
+            id="color"
+            name="color"
+            label="Favorite Color"
+            items={roygbiv}
+            component={SelectDownshift}
+          />
+          <button type="submit" disabled={isSubmitting}>
+            Submit
+          </button>
+        </Form>
+      )}
+    />
   </Paper>
 );
 
-export default withFormik({
-  mapPropsToValues: props => ({ color: '' }),
-  validationSchema: Yup.object().shape({
-    color: Yup.string().required('A favorite color is required'),
-  }),
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000);
-  },
-  displayName: 'InputDemo',
-})(FormikInputExample);
+export default Selects;

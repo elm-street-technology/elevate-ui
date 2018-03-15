@@ -2,16 +2,16 @@
 
 ## [Docs + Demo](https://chrisheninger.com/elevate-ui)
 
-Elevate-UI is a toolkit of React components used for the rapid prototyping and development of web applications and sites for Elm Street Technology. It seeks to establish best practices around UI/UX for both the end users as well as the developers.
+Elevate-UI is a toolkit of React components used for the rapid prototyping and development of web applications and sites for Elm Street Technology. It seeks to establish best practices around UI/UX for both the platform's users as well as the developers themselves.
 
 ## Libraries
 
-A number of open-source libraries have been used to accomplish this:
+A number of open-source libraries have been used to build Elevate-UI:
 
 * [nwb](https://github.com/insin/nwb)– Toolkit for developing React components and apps
 * [eslint](https://github.com/eslint/eslint)– JavaScript linting utility
 * [eslint-config-react-app](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app)– ESLint configuration specifically for React components and apps
-* [prettier](https://github.com/prettier/prettier)– Opinionated code formatting for js/json/css/md)
+* [prettier](https://github.com/prettier/prettier)– Opinionated code formatting for js/json/css/md
 * [formik](https://github.com/jaredpalmer/formik)– Form state management and utilities
 * [yup](https://github.com/jquense/yup)– Client-side form schema validation
 * [react-jss](https://github.com/cssinjs/react-jss)– CSS-in-JS solution with theming and easy overrides
