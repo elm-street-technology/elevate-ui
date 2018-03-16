@@ -15,7 +15,7 @@ const Radios = Loadable({ loader: () => import('../docs/Radios') });
 const Buttons = Loadable({ loader: () => import('../docs/Buttons') });
 
 const Main = ({ classes }) => (
-  <Router basename="/elevate-ui">
+  <Router>
     <div className={classes.root}>
       <div className={classes.sidebar}>
         <Sidebar />

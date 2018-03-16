@@ -1,6 +1,8 @@
-[<img src="./elevate-ui-logo.png" width="280" />](https://chrisheninger.com/elevate-ui)
+<img src="./elevate-ui-logo.png" width="280" />
 
-## [Docs + Demo](https://chrisheninger.com/elevate-ui)
+<!-- [<img src="./elevate-ui-logo.png" width="280" />](https://example.com) -->
+
+<!-- ## [Docs + Demo](https://example.com) -->
 
 Elevate-UI is a toolkit of React components used for the rapid prototyping and development of web applications and sites for Elm Street Technology. It seeks to establish best practices around UI/UX for both the platform's users as well as the developers themselves.
 
