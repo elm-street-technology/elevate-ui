@@ -5,7 +5,6 @@ import Downshift from 'downshift';
 
 import Label from '../label';
 import Validation from '../validation';
-import caret from './caret.svg';
 
 const SelectDownshift = ({
   classes,
@@ -86,7 +85,9 @@ export default withStyles(theme => ({
     fontSize: '16px',
     lineHeight: '20px',
     backgroundColor: theme.colors.white,
-    backgroundImage: `url(${caret})`,
+    backgroundImage: `url('data:image/svg+xml;utf8,<svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="${
+      theme.colors.gray300
+    }" d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>')`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: '24px 24px',
     backgroundPosition: 'right 8px center',
@@ -124,5 +125,5 @@ export default withStyles(theme => ({
     fontWeight: '600',
     color: theme.colors.white,
     backgroundColor: theme.colors.secondary,
-  }
+  },
 }))(SelectDownshift);
