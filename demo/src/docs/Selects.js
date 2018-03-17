@@ -6,6 +6,7 @@ import Paper from '../../../src/components/paper';
 import Typography from '../../../src/components/typography';
 // import Select from '../../../src/components/select';
 import SelectDownshift from '../../../src/components/select-downshift';
+import Button from '../../../src/components/button';
 
 const roygbiv = [
   { label: 'Red', value: 'red' },
@@ -58,9 +59,9 @@ const Selects = ({
             items={roygbiv}
             component={SelectDownshift}
           />
-          <button type="submit" disabled={isSubmitting}>
+          <Button type="submit" disabled={isSubmitting}>
             Submit
-          </button>
+          </Button>
         </Form>
       )}
     />

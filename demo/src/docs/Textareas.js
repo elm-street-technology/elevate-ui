@@ -5,6 +5,7 @@ import Yup from 'yup';
 import Paper from '../../../src/components/paper';
 import Typography from '../../../src/components/typography';
 import Textarea from '../../../src/components/textarea';
+import Button from '../../../src/components/button';
 
 const FormikTextareaExample = ({
   values,
@@ -27,9 +28,9 @@ const FormikTextareaExample = ({
         value={values.notes}
         error={touched.notes && errors.notes}
       />
-      <button type="submit" disabled={isSubmitting}>
+      <Button type="submit" disabled={isSubmitting}>
         Submit
-      </button>
+      </Button>
     </form>
   </Paper>
 );

@@ -5,6 +5,7 @@ import Yup from 'yup';
 import Paper from '../../../src/components/paper';
 import Typography from '../../../src/components/typography';
 import Input from '../../../src/components/input';
+import Button from '../../../src/components/button';
 
 const Inputs = ({
   values,
@@ -53,9 +54,9 @@ const Inputs = ({
             type="password"
             component={Input}
           />
-          <button type="submit" disabled={isSubmitting}>
+          <Button type="submit" disabled={isSubmitting}>
             Submit
-          </button>
+          </Button>
         </Form>
       )}
     />

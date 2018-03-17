@@ -2,6 +2,7 @@ import React from 'react';
 
 import Paper from '../../../src/components/paper';
 import Typography from '../../../src/components/typography';
+import Button from '../../../src/components/button';
 
 const ButtonExample = ({
   values,
@@ -14,7 +15,7 @@ const ButtonExample = ({
 }) => (
   <Paper>
     <Typography type="title">{`<Button />`}</Typography>
-    <button type="button">Save</button>
+    <Button type="button">Save</Button>
   </Paper>
 );
 

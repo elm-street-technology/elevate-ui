@@ -7,7 +7,6 @@ import Label from '../label';
 import Validation from '../validation';
 import caret from './caret.svg';
 
-const itemToString = item => (item ? item : '')
 const SelectDownshift = ({
   classes,
   className,
@@ -20,7 +19,6 @@ const SelectDownshift = ({
   const error = errors[name];
   return (
     <Downshift
-      itemToString={itemToString}
       onChange={selection => setFieldValue(name, selection)}
       selectedItem={value}
       render={({
@@ -50,19 +48,19 @@ const SelectDownshift = ({
             <div className={classes.dropdown}>
               {items
                 .filter(i => !inputValue || i.value.includes(inputValue))
-                .map(({value, label}, index) => (
+                .map((item, index) => (
                   <div
                     className={classNames({
                       [classes.dropdownItem]: true,
                       [classes.dropdownItemActive]: highlightedIndex === index,
                     })}
                     {...getItemProps({
-                      key: value,
+                      key: item.value,
                       index,
-                      item: value,
+                      item: item.value,
                     })}
                   >
-                    {label}
+                    {item.label}
                   </div>
                 ))}
             </div>
