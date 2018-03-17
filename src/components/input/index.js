@@ -50,6 +50,7 @@ Input.defaultProps = {
 
 export default withStyles(theme => ({
   scaffold: {
+    width: '100%',
     margin: '8px auto 16px',
   },
   root: {

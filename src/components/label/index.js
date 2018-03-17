@@ -14,6 +14,7 @@ export default withStyles(theme => ({
   root: {
     display: 'flex',
     alignItems: 'center',
+    width: '100%',
     fontSize: '14px',
     lineHeight: '18px',
     fontWeight: '700',
