@@ -6,6 +6,18 @@ import Downshift from 'downshift';
 import Label from '../label';
 import Validation from '../validation';
 
+type Item = {
+  label: string,
+  value: string,
+};
+
+type Props = {
+  classes: Object,
+  className: string,
+  items: Array<Item>,
+  label: string,
+};
+
 const SelectDownshift = ({
   classes,
   className,
@@ -18,6 +30,7 @@ const SelectDownshift = ({
   const error = errors[name];
   return (
     <Downshift
+      itemToString={item => (item ? String(item.label) : '')}
       onChange={selection => setFieldValue(name, selection)}
       selectedItem={value}
       render={({
@@ -46,17 +59,20 @@ const SelectDownshift = ({
           {isOpen && (
             <div className={classes.dropdown}>
               {items
-                .filter(i => !inputValue || i.value.includes(inputValue))
+                .filter(
+                  i => !inputValue || i.value.includes(inputValue.toLowerCase())
+                )
                 .map((item, index) => (
                   <div
                     className={classNames({
                       [classes.dropdownItem]: true,
                       [classes.dropdownItemActive]: highlightedIndex === index,
+                      [classes.dropdownItemSelected]: selectedItem === item,
                     })}
                     {...getItemProps({
                       key: item.value,
                       index,
-                      item: item.value,
+                      item,
                     })}
                   >
                     {item.label}
@@ -117,14 +133,19 @@ export default withStyles(theme => ({
     marginTop: '-1px', // force overlapping border with input
   },
   dropdownItem: {
-    fontWeight: '400',
     fontSize: '16px',
     lineHeight: '20px',
+    fontWeight: '400',
     padding: '8px',
   },
   dropdownItemActive: {
     fontWeight: '600',
     color: theme.colors.white,
     backgroundColor: theme.colors.secondary,
+  },
+  dropdownItemSelected:{
+    fontWeight: '600',
+    color: theme.colors.white,
+    backgroundColor: theme.colors.secondaryDark,
   },
 }))(SelectDownshift);
