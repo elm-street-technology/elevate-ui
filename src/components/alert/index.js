@@ -43,7 +43,7 @@ const Alert = (props: Props) => {
 
 Alert.defaultProps = {
   element: 'div',
-  color: 'primary',
+  color: 'danger',
 };
 
 export default withStyles(theme => ({
@@ -66,5 +66,11 @@ export default withStyles(theme => ({
     lineHeight: '20px',
     fontWeight: '600',
     padding: '10px 16px',
+
+    // Override default link styling
+    '& a': {
+      color: theme.colors.white,
+      whiteSpace: 'nowrap',
+    },
   },
 }))(Alert);

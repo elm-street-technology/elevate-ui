@@ -20,15 +20,19 @@ const AlertExample = ({
         Our records indicate you are not active or eligible with the MLS due to
         your MLS subscription type or dues.
       </Typography>
-      <Typography type="body">
+      <Typography type="body" style={{ marginTop: '8px' }}>
         If you think this is a mistake, please contact{' '}
         <a
-          href="mailto:support@elmstreettechnology.com"
+          href="mailto:salessupport@elmstreettechnology.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          support@elmstreettechnology.com
-        </a>
+          salessupport@elmstreettechnology.com
+        </a>{' '}
+        or call us at{' '}
+        <a href="tel:8772189771" target="_blank" rel="noopener noreferrer">
+          877-218-9771
+        </a>.
       </Typography>
     </Alert>
   </Paper>

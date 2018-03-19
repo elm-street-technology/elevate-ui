@@ -14,6 +14,7 @@ const Checkboxes = Loadable({ loader: () => import('../docs/Checkboxes') });
 const Radios = Loadable({ loader: () => import('../docs/Radios') });
 const Buttons = Loadable({ loader: () => import('../docs/Buttons') });
 const Alerts = Loadable({ loader: () => import('../docs/Alerts') });
+const SignupForm = Loadable({ loader: () => import('../docs/SignupForm') });
 
 const Main = ({ classes }) => (
   <Router>
@@ -30,6 +31,7 @@ const Main = ({ classes }) => (
         <Route path="/radio" component={Radios} />
         <Route path="/button" component={Buttons} />
         <Route path="/alert" component={Alerts} />
+        <Route path="/signup" component={SignupForm} />
       </div>
     </div>
   </Router>

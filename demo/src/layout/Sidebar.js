@@ -64,6 +64,15 @@ const Sidebar = ({ classes }) => {
         >
           Button
         </NavLink>
+
+        <span className={classes.header}>Demos</span>
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/signup"
+        >
+          Sign up
+        </NavLink>
       </nav>
     </div>
   );
