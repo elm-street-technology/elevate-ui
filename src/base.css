@@ -32,7 +32,8 @@ html {
 /* Reset `button` to nothing */
 button {
   display: inline-block;
-  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   user-select: none;
   text-decoration: none;
   cursor: pointer;

@@ -14,10 +14,11 @@ const Typography = ({
   classes,
   component: componentProp,
   type,
+  ...rest,
 }) => {
   const Element = componentProp || typeElementMap[type] || 'span';
   return (
-    <Element className={classNames(classes.root, classes[type], className)}>
+    <Element className={classNames(classes.root, classes[type], className)} {...rest}>
       {children}
     </Element>
   );
