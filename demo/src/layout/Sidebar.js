@@ -48,6 +48,15 @@ const Sidebar = ({ classes }) => {
         >
           Radio
         </NavLink>
+
+        <span className={classes.header}>General</span>
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/alert"
+        >
+          Alert
+        </NavLink>
         <NavLink
           activeClassName={classes.active}
           className={classes.item}

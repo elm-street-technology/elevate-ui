@@ -7,7 +7,7 @@ import Typography from '../../../src/components/typography';
 import Input from '../../../src/components/input';
 import Button from '../../../src/components/button';
 
-const Inputs = ({
+const SignUpForm = ({
   values,
   errors,
   touched,
@@ -17,12 +17,16 @@ const Inputs = ({
   isSubmitting,
 }) => (
   <Paper>
-    <Typography type="title">{`<Input />`}</Typography>
+    <Typography type="title">Sign-up Form Demo</Typography>
     <Formik
       initialValues={{ name: '', email: '', password: '' }}
       validationSchema={() =>
         Yup.object().shape({
           name: Yup.string().required('Name is required'),
+          email: Yup.string()
+            .email('Invalid email address')
+            .required('Email is required'),
+          password: Yup.string().required('Password is required'),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -42,6 +46,14 @@ const Inputs = ({
       }) => (
         <Form noValidate style={{ maxWidth: '420px' }}>
           <Field id="name" name="name" label="Name" component={Input} />
+          <Field id="email" name="email" label="Email" component={Input} />
+          <Field
+            id="password"
+            name="password"
+            label="Password"
+            type="password"
+            component={Input}
+          />
           <Button type="submit" disabled={isSubmitting}>
             Submit
           </Button>
@@ -51,4 +63,4 @@ const Inputs = ({
   </Paper>
 );
 
-export default Inputs;
+export default SignUpForm;

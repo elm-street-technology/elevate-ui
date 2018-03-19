@@ -3,15 +3,24 @@ import React from 'react';
 import classNames from 'classnames';
 import withStyles from 'react-jss';
 
+import Icon from '../icons';
+
 type Props = {
   element?: string,
   children: any,
   className: string,
-  color: 'primary' | 'secondary',
+  color: 'primary' | 'secondary' | 'danger',
 };
 
 const Alert = (props: Props) => {
-  const { children, classes, className, element: Element, ...rest } = props;
+  const {
+    children,
+    classes,
+    className,
+    element: Element,
+    icon,
+    ...rest
+  } = props;
   const passthroughProps = { ...rest };
   delete passthroughProps.color;
   delete passthroughProps.theme;
@@ -22,6 +31,11 @@ const Alert = (props: Props) => {
       className={classNames(classes.root, className)}
       {...passthroughProps}
     >
+      {icon && (
+        <div className={classes.icon}>
+          <Icon icon={icon} />
+        </div>
+      )}
       <div className={classes.children}>{children}</div>
     </Element>
   );
@@ -40,7 +54,13 @@ export default withStyles(theme => ({
     backgroundColor: props => theme.colors[props.color],
     borderRadius: '2px',
   },
+  icon: {
+    flexShrink: '0',
+    color: theme.colors.white,
+    padding: '10px 0 10px 16px',
+  },
   children: {
+    width: '100%',
     color: theme.colors.white,
     fontSize: '14px',
     lineHeight: '20px',
