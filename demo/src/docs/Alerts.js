@@ -3,7 +3,6 @@ import React from 'react';
 import Paper from '../../../src/components/paper';
 import Typography from '../../../src/components/typography';
 import Alert from '../../../src/components/alert';
-import Icon from '../../../src/components/icons';
 
 const AlertExample = ({
   values,
