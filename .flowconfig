@@ -1,0 +1,15 @@
+[libs]
+flow/declarations/
+
+[options]
+module.system.node.resolve_dirname=.
+module.system.node.resolve_dirname=node_modules
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
+suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
+suppress_comment=\\(.\\|\n\\)*\\$FlowBug
+
+[ignore]
+.*/node_modules/nwb/.*
+
+[version]
+^0.68.0

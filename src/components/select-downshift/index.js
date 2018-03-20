@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
@@ -14,23 +15,26 @@ type Item = {
 type Props = {
   classes: Object,
   className: string,
+  field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   items: Array<Item>,
   label: string,
 };
 
-const SelectDownshift = ({
-  classes,
-  className,
-  field: { name, value },
-  form: { touched, errors, setFieldValue, setFieldTouched },
-  items = [],
-  label,
-  ...props
-}) => {
+const itemToString = item => (item ? item.label : '');
+const SelectDownshift = (props: Props) => {
+  const {
+    classes,
+    className,
+    field: { name, value },
+    form: { errors, setFieldValue, setFieldTouched },
+    items = [],
+    label,
+  } = props;
   const error = errors[name];
   return (
     <Downshift
-      itemToString={item => (item ? String(item.label) : '')}
+      itemToString={itemToString}
       onChange={selection => setFieldValue(name, selection)}
       selectedItem={value}
       render={({
@@ -64,18 +68,18 @@ const SelectDownshift = ({
                 )
                 .map((item, index) => (
                   <div
+                    key={item.value}
                     className={classNames({
                       [classes.dropdownItem]: true,
                       [classes.dropdownItemActive]: highlightedIndex === index,
                       [classes.dropdownItemSelected]: selectedItem === item,
                     })}
                     {...getItemProps({
-                      key: item.value,
                       index,
                       item,
                     })}
                   >
-                    {item.label}
+                    {itemToString(item)}
                   </div>
                 ))}
             </div>
@@ -143,7 +147,7 @@ export default withStyles(theme => ({
     color: theme.colors.white,
     backgroundColor: theme.colors.secondary,
   },
-  dropdownItemSelected:{
+  dropdownItemSelected: {
     fontWeight: '600',
     color: theme.colors.white,
     backgroundColor: theme.colors.secondaryDark,

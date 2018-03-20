@@ -6,6 +6,7 @@ import withStyles from 'react-jss';
 type Props = {
   element?: string,
   children: any,
+  classes: Object,
   className: string,
   color: 'primary' | 'secondary',
 };

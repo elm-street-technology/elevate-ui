@@ -6,10 +6,12 @@ import withStyles from 'react-jss';
 import Icon from '../icons';
 
 type Props = {
-  element?: string,
   children: any,
+  element?: string,
+  classes: Object,
   className: string,
   color: 'primary' | 'secondary' | 'danger',
+  icon: string,
 };
 
 const Alert = (props: Props) => {
@@ -26,7 +28,7 @@ const Alert = (props: Props) => {
   delete passthroughProps.theme;
 
   return (
-    // $FlowFixMe -- it doesn't understand the element: Element
+    // $FlowIgnore -- it doesn't understand the element: Element
     <Element
       className={classNames(classes.root, className)}
       {...passthroughProps}

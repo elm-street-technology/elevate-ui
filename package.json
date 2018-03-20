@@ -23,6 +23,7 @@
   "dependencies": {
     "classnames": "2.2.5",
     "downshift": "^1.30.0",
+    "flow-bin": "^0.68.0",
     "lodash": "4.17.4",
     "prop-types": "15.6.0",
     "react-jss": "8.1.0",
