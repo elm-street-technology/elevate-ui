@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import withStyles from 'react-jss';
 
-import Loadable from '../../../src/components/loaders/Loadable';
+import Loadable from '../../../src/components/loaders';
 
 import Sidebar from './Sidebar';
 

@@ -1,6 +1,7 @@
 export Alert from './components/alert';
 export Button from './components/button';
 export Label from './components/label';
+export Loadable from './components/loaders';
 export Input from './components/input';
 export Icon from './components/icons';
 export Paper from './components/paper';
