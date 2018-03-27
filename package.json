@@ -27,7 +27,8 @@
     "lodash": "4.17.4",
     "prop-types": "15.6.0",
     "react-jss": "8.1.0",
-    "react-loadable": "4.0.5"
+    "react-loadable": "4.0.5",
+    "react-table": "^6.8.0"
   },
   "peerDependencies": {
     "react": ">16.0.0",
