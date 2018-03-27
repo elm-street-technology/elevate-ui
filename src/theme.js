@@ -41,7 +41,7 @@ const breakpoints = {
   desktop: `@media (min-width: 1200px)`,
 };
 
-const globalBorderRadius = '0';
+const globalBorderRadius = '4px';
 const globalBoxShadow =
   '0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)';
 const globalPadding = {
