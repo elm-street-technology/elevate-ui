@@ -12,7 +12,6 @@ type Props = {
   isDisabled: true | false,
   isRounded: true | false,
   isOutlined: true | false,
-  isProcessing: true | false,
 };
 
 function getChildColor(theme, props) {
@@ -59,7 +58,6 @@ Button.defaultProps = {
   isRounded: true,
   isOutlined: false,
   isDisabled: false,
-  isProcessing: false,
 };
 
 export default withStyles(theme => ({
