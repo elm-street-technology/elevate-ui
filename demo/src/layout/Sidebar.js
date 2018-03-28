@@ -64,6 +64,13 @@ const Sidebar = ({ classes }) => {
         >
           Button
         </NavLink>
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/table"
+        >
+          Table
+        </NavLink>
 
         <span className={classes.header}>Demos</span>
         <NavLink
