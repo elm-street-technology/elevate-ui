@@ -64,7 +64,9 @@ const Select = (props: Props) => {
             <div className={classes.dropdown}>
               {items
                 .filter(
-                  i => !inputValue || i.value.includes(inputValue.toLowerCase())
+                  i =>
+                    !inputValue ||
+                    i.label.toLowerCase().includes(inputValue.toLowerCase())
                 )
                 .map((item, index) => (
                   <div

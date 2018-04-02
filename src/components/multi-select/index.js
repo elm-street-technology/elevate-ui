@@ -165,7 +165,9 @@ class MultiSelect extends Component<Props, State> {
                       i =>
                         value.findIndex(val => val.value === i.value) === -1 &&
                         (!this.state.inputValue ||
-                          i.value.includes(this.state.inputValue.toLowerCase()))
+                          i.label
+                            .toLowerCase()
+                            .includes(this.state.inputValue.toLowerCase()))
                     )
                     .map((item, index) => (
                       <div

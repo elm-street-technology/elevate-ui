@@ -59,9 +59,9 @@ export default withStyles(theme => ({
       padding: '4px',
       marginTop: '1px',
       zIndex: '99999 !important',
-      background: 'red',
-      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-      border: '1px solid #f9f9f9',
+      backgroundColor: theme.colors.white,
+      border: `1px solid ${theme.colors.gray300}`,
+      boxShadow: '0 2px 4px 0 rgba(18,24,29,.20)',
     },
     '&.rdtOpen .rdtPicker': {
       display: 'block',
@@ -72,6 +72,54 @@ export default withStyles(theme => ({
     },
     '& .rdtPicker .rdtTimeToggle': {
       textAlign: 'center',
+    },
+    '& .rdtPicker table': {
+      width: '100%',
+      margin: '0',
+    },
+    '& .rdtPicker td, & .rdtPicker th': {
+      textAlign: 'center',
+      height: '28px',
+    },
+    '& .rdtPicker td': {
+      cursor: 'pointer',
+    },
+    '& .rdtPicker td.rdtDay:hover, & .rdtPicker td.rdtHour:hover, & .rdtPicker td.rdtMinute:hover, & .rdtPicker td.rdtSecond:hover, & .rdtPicker .rdtTimeToggle:hover': {
+      background: '#eeeeee',
+      cursor: 'pointer',
+    },
+    '& .rdtPicker td.rdtOld, & .rdtPicker td.rdtNew,': {
+      color: '#999999',
+    },
+
+    '& .rdtPicker td.rdtToday': {
+      position: 'relative',
+    },
+    '& .rdtPicker td.rdtToday:before': {
+      content: "''",
+      display: 'inline-block',
+      borderLeft: '7px solid transparent',
+      borderBottom: '7px solid #428bca',
+      borderTopColor: 'rgba(0, 0, 0, 0.2)',
+      position: 'absolute',
+      bottom: '4px',
+      right: '4px',
+    },
+    '& .rdtPicker td.rdtActive, & .rdtPicker td.rdtActive:hover': {
+      backgroundColor: '#428bca',
+      color: '#fff',
+      textShadow: '0 -1px 0 rgba(0, 0, 0, 0.25)',
+    },
+    '& .rdtPicker td.rdtActive.rdtToday:before': {
+      borderBottomColor: '#fff',
+    },
+    '& .rdtPicker td.rdtDisabled, & .rdtPicker td.rdtDisabled:hover, & .rdtPicker td span.rdtDisabled, & .rdtPicker td span.rdtDisabled:hover': {
+      background: 'none',
+      color: '#999999',
+      cursor: 'not-allowed',
+    },
+    '& .rdtPicker td span.rdtOld': {
+      color: '#999999',
     },
 
     '& .form-control': {
