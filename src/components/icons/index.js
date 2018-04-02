@@ -3,6 +3,7 @@ import React from 'react';
 const icons = {
   Broken: require('./broken').default,
   ExclamationOutline: require('./exclamation-outline').default,
+  Times: require('./times').default,
 };
 
 const Icon = ({ icon, ...rest }) => {
@@ -12,7 +13,9 @@ const Icon = ({ icon, ...rest }) => {
     });
   }
 
-  return React.createElement(icons.Broken);
+  return React.createElement(icons.Broken, {
+    ...rest,
+  });
 };
 
 export default Icon;

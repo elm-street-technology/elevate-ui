@@ -4,17 +4,20 @@ import Yup from 'yup';
 
 import Paper from '../../../src/components/paper';
 import Typography from '../../../src/components/typography';
-import Input from '../../../src/components/input';
+import Datetime from '../../../src/components/datetime';
 import Button from '../../../src/components/button';
 
-const Inputs = () => (
+const Datetimes = () => (
   <Paper>
-    <Typography type="title">{`<Input />`}</Typography>
+    <Typography type="title">{`<Datetime />`}</Typography>
+    <Typography type="body">
+      The {`<Datetime />`} component is a styled wrapper around React-Datetime.
+    </Typography>
     <Formik
-      initialValues={{ name: '' }}
+      initialValues={{ startDate: null }}
       validationSchema={() =>
         Yup.object().shape({
-          name: Yup.string().required('Name is required'),
+          startDate: Yup.date().required('Start date is required'),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -31,11 +34,15 @@ const Inputs = () => (
         handleBlur,
         handleSubmit,
         isSubmitting,
-        isValid,
       }) => (
         <Form noValidate style={{ maxWidth: '420px' }}>
-          <Field id="name" name="name" label="Name" component={Input} />
-          <Button type="submit" disabled={!isValid || isSubmitting}>
+          <Field
+            id="startDate"
+            name="startDate"
+            label="Start Date"
+            component={Datetime}
+          />
+          <Button type="submit" disabled={isSubmitting}>
             Submit
           </Button>
         </Form>
@@ -44,4 +51,4 @@ const Inputs = () => (
   </Paper>
 );
 
-export default Inputs;
+export default Datetimes;
