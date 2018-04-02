@@ -1,6 +1,6 @@
 export Alert from './components/alert';
 export Button from './components/button';
-export DateTime from 'react-datetime';
+export DateTime from './components/datetime';
 export Input from './components/input';
 export Icon from './components/icons';
 export Label from './components/label';
