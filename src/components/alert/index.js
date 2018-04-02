@@ -53,17 +53,20 @@ export default withStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: props => theme.colors[props.color],
+    backgroundColor: props => theme.alertColors[props.color].backgroundColor,
     borderRadius: '2px',
+    borderColor: props => theme.alertColors[props.color].borderColor,
+    borderWidth: '1px',
+    borderStyle: 'solid',
   },
   icon: {
     flexShrink: '0',
-    color: theme.colors.white,
+    color: props => theme.alertColors[props.color].color,
     padding: '10px 0 10px 16px',
   },
   children: {
     width: '100%',
-    color: theme.colors.white,
+    color: props => theme.alertColors[props.color].color,
     fontSize: '14px',
     lineHeight: '20px',
     fontWeight: '600',
@@ -71,7 +74,7 @@ export default withStyles(theme => ({
 
     // Override default link styling
     '& a': {
-      color: theme.colors.white,
+      color: props => theme.alertColors[props.color].color,
       whiteSpace: 'nowrap',
     },
   },
