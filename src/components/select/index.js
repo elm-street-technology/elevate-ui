@@ -27,11 +27,10 @@ const Select = (props: Props) => {
     classes,
     className,
     field: { name, value },
-    form: { errors, setFieldValue, setFieldTouched },
+    form: { errors, setFieldValue, setFieldTouched, touched },
     items = [],
     label,
   } = props;
-  const error = errors[name];
   return (
     <Downshift
       itemToString={itemToString}
@@ -48,11 +47,7 @@ const Select = (props: Props) => {
         selectedItem,
       }) => (
         <div className={classNames(classes.scaffold, className)}>
-          {label && (
-            <Label error={error} {...getLabelProps()}>
-              {label}
-            </Label>
-          )}
+          {label && <Label {...getLabelProps()}>{label}</Label>}
           <input
             className={classes.root}
             {...getInputProps({
@@ -86,7 +81,7 @@ const Select = (props: Props) => {
                 ))}
             </div>
           )}
-          {error && <Validation error={error} />}
+          {touched[name] && errors[name] && <Validation error={errors[name]} />}
         </div>
       )}
     />
@@ -133,10 +128,12 @@ export default withStyles(theme => ({
     },
   },
   dropdown: {
+    maxHeight: '200px',
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
     boxShadow: '0 2px 4px 0 rgba(18,24,29,.20)',
     marginTop: '-1px', // force overlapping border with input
+    overflowY: 'scroll',
   },
   dropdownItem: {
     fontSize: '16px',
