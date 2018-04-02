@@ -1,57 +1,94 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
+import Downshift from 'downshift';
 
 import Label from '../label';
 import Validation from '../validation';
-import caret from './caret.svg';
 
-const Select = ({
-  id,
-  label,
-  error,
-  value,
-  onChange,
-  children,
-  classes,
-  className,
-  ...props
-}) => {
+type Item = {
+  label: string,
+  value: string,
+};
+
+type Props = {
+  classes: Object,
+  className: string,
+  field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  items: Array<Item>,
+  label: string,
+};
+
+const itemToString = item => (item ? item.label : '');
+const Select = (props: Props) => {
+  const {
+    classes,
+    className,
+    field: { name, value },
+    form: { errors, setFieldValue, setFieldTouched },
+    items = [],
+    label,
+  } = props;
+  const error = errors[name];
   return (
-    <div className={classNames(classes.scaffold, className)}>
-      {label && (
-        <Label htmlFor={id} error={error}>
-          {label}
-        </Label>
+    <Downshift
+      itemToString={itemToString}
+      onChange={selection => setFieldValue(name, selection)}
+      selectedItem={value}
+      render={({
+        getInputProps,
+        getItemProps,
+        getLabelProps,
+        isOpen,
+        inputValue,
+        highlightedIndex,
+        openMenu,
+        selectedItem,
+      }) => (
+        <div className={classNames(classes.scaffold, className)}>
+          {label && (
+            <Label error={error} {...getLabelProps()}>
+              {label}
+            </Label>
+          )}
+          <input
+            className={classes.root}
+            {...getInputProps({
+              onFocus: openMenu,
+            })}
+            onBlur={selection => setFieldTouched(name, selection)}
+          />
+          {isOpen && (
+            <div className={classes.dropdown}>
+              {items
+                .filter(
+                  i => !inputValue || i.value.includes(inputValue.toLowerCase())
+                )
+                .map((item, index) => (
+                  <div
+                    key={item.value}
+                    className={classNames({
+                      [classes.dropdownItem]: true,
+                      [classes.dropdownItemActive]: highlightedIndex === index,
+                      [classes.dropdownItemSelected]: selectedItem === item,
+                    })}
+                    {...getItemProps({
+                      index,
+                      item,
+                    })}
+                  >
+                    {itemToString(item)}
+                  </div>
+                ))}
+            </div>
+          )}
+          {error && <Validation error={error} />}
+        </div>
       )}
-      <select
-        id={id}
-        className={classNames(classes.root, classes.select)}
-        value={value}
-        onChange={onChange}
-        {...props}
-      >
-        {children}
-      </select>
-      {error && <Validation error={error} />}
-    </div>
+    />
   );
-};
-
-Select.propTypes = {
-  id: PropTypes.string.isRequired,
-  children: PropTypes.any.isRequired,
-  className: PropTypes.string,
-  onChange: PropTypes.func,
-  name: PropTypes.string,
-  placeholder: PropTypes.string,
-  tabIndex: PropTypes.string,
-  value: PropTypes.string,
-};
-
-Select.defaultProps = {
-  tabIndex: '0',
 };
 
 export default withStyles(theme => ({
@@ -69,6 +106,9 @@ export default withStyles(theme => ({
     fontSize: '16px',
     lineHeight: '20px',
     backgroundColor: theme.colors.white,
+    backgroundImage: `url('data:image/svg+xml;utf8,<svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="${
+      theme.colors.gray300
+    }" d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>')`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: '24px 24px',
     backgroundPosition: 'right 8px center',
@@ -90,16 +130,26 @@ export default withStyles(theme => ({
       cursor: 'not-allowed',
     },
   },
-  select: {
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${caret})`,
-    backgroundSize: '24px 24px',
-    backgroundPosition: 'right 8px center',
-    borderRadius: '0px',
-    padding: '10px 36px 10px 12px',
-
-    '::-ms-expand': {
-      display: 'none',
-    },
+  dropdown: {
+    backgroundColor: theme.colors.white,
+    border: `1px solid ${theme.colors.gray300}`,
+    boxShadow: '0 2px 4px 0 rgba(18,24,29,.20)',
+    marginTop: '-1px', // force overlapping border with input
+  },
+  dropdownItem: {
+    fontSize: '16px',
+    lineHeight: '20px',
+    fontWeight: '400',
+    padding: '8px 12px',
+  },
+  dropdownItemActive: {
+    fontWeight: '600',
+    color: theme.colors.white,
+    backgroundColor: theme.colors.secondary,
+  },
+  dropdownItemSelected: {
+    fontWeight: '600',
+    color: theme.colors.white,
+    backgroundColor: theme.colors.secondaryDark,
   },
 }))(Select);

@@ -37,6 +37,13 @@ const Sidebar = ({ classes }) => {
         <NavLink
           activeClassName={classes.active}
           className={classes.item}
+          to="/multi-select"
+        >
+          MultiSelect
+        </NavLink>
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
           to="/checkbox"
         >
           Checkbox
@@ -47,6 +54,13 @@ const Sidebar = ({ classes }) => {
           to="/radio"
         >
           Radio
+        </NavLink>
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/datetime"
+        >
+          Datetime
         </NavLink>
 
         <span className={classes.header}>General</span>

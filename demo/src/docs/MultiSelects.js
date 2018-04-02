@@ -4,7 +4,7 @@ import Yup from 'yup';
 
 import Paper from '../../../src/components/paper';
 import Typography from '../../../src/components/typography';
-import Select from '../../../src/components/select';
+import MultiSelect from '../../../src/components/multi-select';
 import Button from '../../../src/components/button';
 
 const roygbiv = [
@@ -17,7 +17,7 @@ const roygbiv = [
   { label: 'Violet', value: 'violet' },
 ];
 
-const Selects = ({
+const MultiSelects = ({
   values,
   errors,
   touched,
@@ -27,17 +27,14 @@ const Selects = ({
   isSubmitting,
 }) => (
   <Paper>
-    <Typography type="title">{`<Select />`}</Typography>
+    <Typography type="title">{`<MultiSelect />`}</Typography>
     <Formik
-      initialValues={{
-        color: {
-          label: '',
-          value: '',
-        },
-      }}
+      initialValues={{ colors: [] }}
       validationSchema={() =>
         Yup.object().shape({
-          color: Yup.object().required('A favorite color is required'),
+          colors: Yup.array()
+            .of(Yup.object())
+            .required('A color is required'),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -58,11 +55,11 @@ const Selects = ({
       }) => (
         <Form noValidate style={{ maxWidth: '420px' }}>
           <Field
-            id="color"
-            name="color"
-            label="Favorite Color"
+            id="colors"
+            name="colors"
+            label="Favorite Colors"
             items={roygbiv}
-            component={Select}
+            component={MultiSelect}
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
@@ -73,4 +70,4 @@ const Selects = ({
   </Paper>
 );
 
-export default Selects;
+export default MultiSelects;
