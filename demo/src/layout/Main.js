@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import withStyles from 'react-jss';
 
 import Loadable from '../../../src/components/loaders';
@@ -20,27 +20,25 @@ const Tables = Loadable({ loader: () => import('../docs/Tables') });
 const SignupForm = Loadable({ loader: () => import('../docs/SignupForm') });
 
 const Main = ({ classes }) => (
-  <Router>
-    <div className={classes.root}>
-      <div className={classes.sidebar}>
-        <Sidebar />
-      </div>
-      <div className={classes.children}>
-        <Route exact path="/" component={Home} />
-        <Route path="/input" component={Inputs} />
-        <Route path="/textarea" component={Textareas} />
-        <Route path="/select" component={Selects} />
-        <Route path="/multi-select" component={MultiSelects} />
-        <Route path="/checkbox" component={Checkboxes} />
-        <Route path="/radio" component={Radios} />
-        <Route path="/datetime" component={Datetimes} />
-        <Route path="/button" component={Buttons} />
-        <Route path="/alert" component={Alerts} />
-        <Route path="/table" component={Tables} />
-        <Route path="/signup" component={SignupForm} />
-      </div>
+  <div className={classes.root}>
+    <div className={classes.sidebar}>
+      <Sidebar />
     </div>
-  </Router>
+    <div className={classes.children}>
+      <Route exact path="/" component={Home} />
+      <Route path="/input" component={Inputs} />
+      <Route path="/textarea" component={Textareas} />
+      <Route path="/select" component={Selects} />
+      <Route path="/multi-select" component={MultiSelects} />
+      <Route path="/checkbox" component={Checkboxes} />
+      <Route path="/radio" component={Radios} />
+      <Route path="/datetime" component={Datetimes} />
+      <Route path="/button" component={Buttons} />
+      <Route path="/alert" component={Alerts} />
+      <Route path="/table" component={Tables} />
+      <Route path="/signup" component={SignupForm} />
+    </div>
+  </div>
 );
 
 export default withStyles(theme => ({
