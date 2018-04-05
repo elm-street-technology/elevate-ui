@@ -30,11 +30,11 @@ const Datetime = (props: Props) => {
     <div className={classNames(classes.scaffold, className)}>
       {label && <Label htmlFor={id}>{label}</Label>}
       <ReactDatetime
-        id={id}
         className={classes.root}
-        inputProps={{ id: id }}
-        onBlur={date => setFieldTouched(field.name, date)}
-        onChange={date => setFieldValue(field.name, date)}
+        inputProps={{ id: id, className: classes.input }}
+        {...field} // contains name, value, onBlur, onChange
+        onBlur={date => setFieldTouched(field.name, date)} // overrides `field.onBlur`
+        onChange={date => setFieldValue(field.name, date)} // overrides `field.onChange`
         {...rest}
       />
       {touched[field.name] &&
@@ -121,30 +121,29 @@ export default withStyles(theme => ({
     '& .rdtPicker td span.rdtOld': {
       color: '#999999',
     },
+  },
+  input: {
+    display: 'block',
+    width: '100%',
+    height: '40px',
+    color: 'inherit',
+    fontFamily: 'inherit',
+    fontWeight: '400',
+    fontSize: '16px',
+    lineHeight: '20px',
+    backgroundColor: theme.colors.white,
+    border: `1px solid ${theme.colors.gray300}`,
+    padding: '8px 12px',
+    appearance: 'none', // Reset default inputs for iOS/etc.
+    boxShadow: 'none', // Reset default inputs for mozilla
 
-    '& .form-control': {
-      display: 'block',
-      width: '100%',
-      height: '40px',
-      color: 'inherit',
-      fontFamily: 'inherit',
-      fontWeight: '400',
-      fontSize: '16px',
-      lineHeight: '20px',
-      backgroundColor: theme.colors.white,
-      border: `1px solid ${theme.colors.gray300}`,
-      padding: '8px 12px',
-      appearance: 'none', // Reset default inputs for iOS/etc.
-      boxShadow: 'none', // Reset default inputs for mozilla
+    '&:focus': {
+      outline: 'none', // Disable default focus glow
+      boxShadow: theme.globalBoxShadow, // Add back focus style
+    },
 
-      '&:focus': {
-        outline: 'none', // Disable default focus glow
-        boxShadow: theme.globalBoxShadow, // Add back focus style
-      },
-
-      '&:disabled': {
-        cursor: 'not-allowed',
-      },
+    '&:disabled': {
+      cursor: 'not-allowed',
     },
   },
 }))(Datetime);
