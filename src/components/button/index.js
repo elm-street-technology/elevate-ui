@@ -84,6 +84,7 @@ export default withStyles(theme => ({
   },
   children: {
     color: props => getChildColor(theme, props),
+    fontFamily: theme.typography.sans,
     fontSize: '14px',
     lineHeight: '20px',
     fontWeight: '600',
