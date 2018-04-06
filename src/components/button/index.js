@@ -65,6 +65,7 @@ export default withStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    textDecoration: 'none',
     backgroundColor: props =>
       props.isOutlined ? 'transparent' : theme.colors[props.color],
     borderRadius: props => (props.isRounded ? theme.globalBorderRadius : '0px'),
