@@ -131,7 +131,7 @@ export default withStyles(theme => ({
     display: 'block',
     width: '100%',
     height: '40px',
-    color: 'inherit',
+    color: theme.typography.bodyColor,
     fontFamily: 'inherit',
     fontWeight: '400',
     fontSize: '16px',

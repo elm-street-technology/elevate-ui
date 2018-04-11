@@ -59,7 +59,7 @@ export default withStyles(theme => ({
     width: '100%',
     minHeight: '120px',
     resize: 'vertical',
-    color: 'inherit',
+    color: theme.typography.bodyColor,
     fontFamily: 'inherit',
     fontWeight: '500',
     fontSize: '16px',
