@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
 import Downshift from 'downshift';
@@ -21,72 +21,106 @@ type Props = {
   label: string,
 };
 
-const itemToString = item => (item ? item.label : '');
-const Select = (props: Props) => {
-  const {
-    classes,
-    className,
-    field: { name, value },
-    form: { errors, setFieldValue, setFieldTouched, touched },
-    items = [],
-    label,
-  } = props;
-  return (
-    <Downshift
-      itemToString={itemToString}
-      onChange={selection => setFieldValue(name, selection)}
-      selectedItem={value}
-      render={({
-        getInputProps,
-        getItemProps,
-        getLabelProps,
-        isOpen,
-        inputValue,
-        highlightedIndex,
-        openMenu,
-        selectedItem,
-      }) => (
-        <div className={classNames(classes.scaffold, className)}>
-          {label && <Label {...getLabelProps()}>{label}</Label>}
-          <input
-            className={classes.root}
-            {...getInputProps({
-              onFocus: openMenu,
-            })}
-            onBlur={selection => setFieldTouched(name, selection)}
-          />
-          {isOpen && (
-            <div className={classes.dropdown}>
-              {items
-                .filter(
-                  i =>
-                    !inputValue ||
-                    i.label.toLowerCase().includes(inputValue.toLowerCase())
-                )
-                .map((item, index) => (
-                  <div
-                    key={item.value}
-                    className={classNames({
-                      [classes.dropdownItem]: true,
-                      [classes.dropdownItemActive]: highlightedIndex === index,
-                      [classes.dropdownItemSelected]: selectedItem === item,
-                    })}
-                    {...getItemProps({
-                      index,
-                      item,
-                    })}
-                  >
-                    {itemToString(item)}
-                  </div>
-                ))}
-            </div>
-          )}
-          {touched[name] && errors[name] && <Validation error={errors[name]} />}
-        </div>
-      )}
-    />
-  );
+type State = {
+  inputValue: string,
 };
+
+const itemToString = item => (item ? item.label : '');
+class Select extends Component<Props, State> {
+  state = {
+    inputValue: '',
+  };
+
+  handleStateChange = (changes, downshiftStateAndHelpers) => {
+    if (!downshiftStateAndHelpers.isOpen) {
+      this.setState({ inputValue: '' });
+    }
+    if (changes.hasOwnProperty('selectedItem')) {
+      this.onItemSelect(changes.selectedItem);
+    }
+  };
+
+  onInputChange = e => {
+    const inputValue = e.target.value;
+    this.setState({ inputValue });
+  };
+
+  onItemSelect = item => {
+    const { field: { name }, form: { setFieldValue } } = this.props;
+    setFieldValue(name, item);
+  };
+
+  render() {
+    const {
+      classes,
+      className,
+      field: { name, value },
+      form: { errors, setFieldTouched, touched },
+      items = [],
+      label,
+    } = this.props;
+    const { inputValue } = this.state;
+
+    return (
+      <Downshift
+        itemToString={itemToString}
+        onStateChange={this.handleStateChange}
+        selectedItem={value}
+        render={({
+          getInputProps,
+          getItemProps,
+          getLabelProps,
+          isOpen,
+          highlightedIndex,
+          openMenu,
+          selectedItem,
+        }) => (
+          <div className={classNames(classes.scaffold, className)}>
+            {label && <Label {...getLabelProps()}>{label}</Label>}
+            <input
+              className={classes.root}
+              {...getInputProps({
+                onChange: this.onInputChange,
+                onFocus: openMenu,
+                value: !isOpen ? value.label : inputValue,
+              })}
+              onBlur={selection => setFieldTouched(name, selection)}
+            />
+            {isOpen && (
+              <div className={classes.dropdown}>
+                {items
+                  .filter(
+                    i =>
+                      !inputValue ||
+                      i.label.toLowerCase().includes(inputValue.toLowerCase())
+                  )
+                  .map((item, index) => (
+                    <div
+                      key={item.value}
+                      className={classNames({
+                        [classes.dropdownItem]: true,
+                        [classes.dropdownItemActive]:
+                          highlightedIndex === index,
+                        [classes.dropdownItemSelected]: selectedItem === item,
+                      })}
+                      {...getItemProps({
+                        index,
+                        item,
+                      })}
+                    >
+                      {itemToString(item)}
+                    </div>
+                  ))}
+              </div>
+            )}
+            {touched[name] &&
+              errors[name] && <Validation error={errors[name]} />}
+          </div>
+        )}
+      />
+    );
+  }
+}
 
 export default withStyles(theme => ({
   scaffold: {
