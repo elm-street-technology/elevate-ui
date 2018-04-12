@@ -19,6 +19,7 @@ type Props = {
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   items: Array<Item>,
   label: string,
+  theme: Object,
 };
 
 type State = {
@@ -30,6 +31,8 @@ class Select extends Component<Props, State> {
   state = {
     inputValue: '',
   };
+  _input;
+  _inputWrapper;
 
   handleStateChange = (changes, downshiftStateAndHelpers) => {
     if (!downshiftStateAndHelpers.isOpen) {
@@ -49,6 +52,45 @@ class Select extends Component<Props, State> {
     const { field: { name }, form: { setFieldValue } } = this.props;
     setFieldValue(name, item);
   };
+
+  onWrapperClick = e => {
+    e.stopPropagation();
+    e.preventDefault();
+    this.focusOnInput();
+  };
+
+  focusOnInput() {
+    this._input.focus();
+    if (typeof this._input.getInput === 'function') {
+      this._input.getInput().focus();
+    }
+  }
+
+  inputRef = c => {
+    this._input = c;
+  };
+
+  inputWrapperRef = c => {
+    this._inputWrapper = c;
+  };
+
+  renderArrowIcon(isOpen) {
+    const { classes, theme: { colors } } = this.props;
+    return (
+      <svg
+        className={classes.arrow}
+        width={24}
+        height={24}
+        viewBox="0 0 1792 1792"
+        transform={isOpen ? 'rotate(180)' : null}
+      >
+        <path
+          fill={colors.gray300 || 'currentColor'}
+          d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"
+        />
+      </svg>
+    );
+  }
 
   render() {
     const {
@@ -77,15 +119,23 @@ class Select extends Component<Props, State> {
         }) => (
           <div className={classNames(classes.scaffold, className)}>
             {label && <Label {...getLabelProps()}>{label}</Label>}
-            <input
-              className={classes.root}
-              {...getInputProps({
-                onChange: this.onInputChange,
-                onFocus: openMenu,
-                value: !isOpen ? value.label : inputValue,
-              })}
-              onBlur={selection => setFieldTouched(name, selection)}
-            />
+            <div
+              ref={this.inputWrapperRef}
+              className={classes.wrapper}
+              onClick={this.onWrapperClick}
+            >
+              <input
+                className={classes.root}
+                {...getInputProps({
+                  ref: this.inputRef,
+                  onChange: this.onInputChange,
+                  onFocus: openMenu,
+                  value: !isOpen ? value.label : inputValue,
+                })}
+                onBlur={selection => setFieldTouched(name, selection)}
+              />
+              {this.renderArrowIcon(isOpen)}
+            </div>
             {isOpen && (
               <div className={classes.dropdown}>
                 {items
@@ -127,24 +177,16 @@ export default withStyles(theme => ({
     width: '100%',
     margin: '8px auto 16px',
   },
-  root: {
-    display: 'block',
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     width: '100%',
-    height: '40px',
-    color: theme.typography.bodyColor,
-    fontFamily: 'inherit',
-    fontWeight: '400',
-    fontSize: '16px',
-    lineHeight: '20px',
+    minHeight: '40px',
     backgroundColor: theme.colors.white,
-    backgroundImage: `url('data:image/svg+xml;utf8,<svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="${
-      theme.colors.gray300
-    }" d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>')`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: '24px 24px',
-    backgroundPosition: 'right 8px center',
     border: `1px solid ${theme.colors.gray300}`,
-    padding: '10px 36px 10px 12px',
+    padding: '0 8px',
     appearance: 'none', // Reset default Selects for iOS/etc.
     boxShadow: 'none', // Reset default Selects for mozilla
 
@@ -160,6 +202,21 @@ export default withStyles(theme => ({
     '&:disabled': {
       cursor: 'not-allowed',
     },
+  },
+  root: {
+    color: 'inherit',
+    fontFamily: 'inherit',
+    fontWeight: '400',
+    fontSize: '16px',
+    lineHeight: '20px',
+    border: 'none',
+    outline: 'none',
+    cursor: 'inherit',
+  },
+  arrow: {
+    flexShrink: '0',
+    display: 'block',
+    marginLeft: 'auto',
   },
   dropdown: {
     maxHeight: '200px',

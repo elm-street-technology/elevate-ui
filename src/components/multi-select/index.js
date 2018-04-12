@@ -21,6 +21,7 @@ type Props = {
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   items: Array<Item>,
   label: string,
+  theme: Object,
 };
 
 type State = {
@@ -109,6 +110,24 @@ class MultiSelect extends Component<Props, State> {
     this._inputWrapper = c;
   };
 
+  renderArrowIcon(isOpen) {
+    const { classes, theme: { colors } } = this.props;
+    return (
+      <svg
+        className={classes.arrow}
+        width={24}
+        height={24}
+        viewBox="0 0 1792 1792"
+        transform={isOpen ? 'rotate(180)' : null}
+      >
+        <path
+          fill={colors.gray300 || 'currentColor'}
+          d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"
+        />
+      </svg>
+    );
+  }
+
   render() {
     const {
       classes,
@@ -139,24 +158,27 @@ class MultiSelect extends Component<Props, State> {
                 className={classes.wrapper}
                 onClick={this.onWrapperClick}
               >
-                {value.map(item => (
-                  <Tag
-                    key={item.value}
-                    tag={item}
-                    onRemove={this.onRemoveTag}
+                <div className={classes.tagWrapper}>
+                  {value.map(item => (
+                    <Tag
+                      key={item.value}
+                      tag={item}
+                      onRemove={this.onRemoveTag}
+                    />
+                  ))}
+                  <AutosizeInput
+                    {...getInputProps({
+                      ref: this.inputRef,
+                      className: classes.root,
+                      onChange: this.onInputChange,
+                      onFocus: openMenu,
+                      onKeyDown: this.onInputKeyDown,
+                      value: this.state.inputValue,
+                    })}
+                    onBlur={selection => setFieldTouched(name, selection)}
                   />
-                ))}
-                <AutosizeInput
-                  {...getInputProps({
-                    ref: this.inputRef,
-                    className: classes.root,
-                    onChange: this.onInputChange,
-                    onFocus: openMenu,
-                    onKeyDown: this.onInputKeyDown,
-                    value: this.state.inputValue,
-                  })}
-                  onBlur={selection => setFieldTouched(name, selection)}
-                />
+                </div>
+                {this.renderArrowIcon(isOpen)}
               </div>
               {isOpen && (
                 <div className={classes.dropdown}>
@@ -208,20 +230,13 @@ export default withStyles(theme => ({
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'flex-start',
     alignItems: 'center',
     width: '100%',
     minHeight: '40px',
     backgroundColor: theme.colors.white,
-    backgroundImage: `url('data:image/svg+xml;utf8,<svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="${
-      theme.colors.gray300
-    }" d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg>')`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: '24px 24px',
-    backgroundPosition: 'right 8px center',
     border: `1px solid ${theme.colors.gray300}`,
-    padding: '0 32px 0 8px',
+    padding: '0 8px',
     appearance: 'none', // Reset default Selects for iOS/etc.
     boxShadow: 'none', // Reset default Selects for mozilla
 
@@ -238,6 +253,13 @@ export default withStyles(theme => ({
       cursor: 'not-allowed',
     },
   },
+  tagWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
   root: {
     '& input': {
       color: 'inherit',
@@ -249,6 +271,11 @@ export default withStyles(theme => ({
       outline: 'none',
       cursor: 'inherit',
     },
+  },
+  arrow: {
+    flexShrink: '0',
+    display: 'block',
+    marginLeft: 'auto',
   },
   dropdown: {
     maxHeight: '200px',
