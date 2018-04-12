@@ -62,7 +62,7 @@ Button.defaultProps = {
 
 export default withStyles(theme => ({
   root: {
-    display: 'flex',
+    display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
     textDecoration: 'none',

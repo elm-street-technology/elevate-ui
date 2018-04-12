@@ -14,11 +14,14 @@ const Typography = ({
   classes,
   component: componentProp,
   type,
-  ...rest,
+  ...rest
 }) => {
   const Element = componentProp || typeElementMap[type] || 'span';
   return (
-    <Element className={classNames(classes.root, classes[type], className)} {...rest}>
+    <Element
+      className={classNames(classes.root, classes[type], className)}
+      {...rest}
+    >
       {children}
     </Element>
   );
@@ -43,6 +46,7 @@ export default withStyles(theme => ({
     color: theme.colors.gray800,
   },
   body: {
+    maxWidth: '600px',
     fontSize: '14px',
     lineHeight: '18px',
   },
