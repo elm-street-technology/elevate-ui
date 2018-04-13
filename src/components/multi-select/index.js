@@ -224,6 +224,7 @@ class MultiSelect extends Component<Props, State> {
 
 export default withStyles(theme => ({
   scaffold: {
+    position: 'relative',
     width: '100%',
     margin: '8px auto 16px',
   },
@@ -236,22 +237,8 @@ export default withStyles(theme => ({
     minHeight: '40px',
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
-    padding: '0 8px',
-    appearance: 'none', // Reset default Selects for iOS/etc.
-    boxShadow: 'none', // Reset default Selects for mozilla
-
-    '&::-ms-expand': {
-      display: 'none',
-    },
-
-    '&:focus': {
-      outline: 'none', // Disable default focus glow
-      boxShadow: theme.globalBoxShadow, // Add back focus style
-    },
-
-    '&:disabled': {
-      cursor: 'not-allowed',
-    },
+    padding: '2px 12px 2px 8px',
+    cursor: props => (props.disabled ? 'not-allowed' : 'default'),
   },
   tagWrapper: {
     display: 'flex',
@@ -278,10 +265,12 @@ export default withStyles(theme => ({
     marginLeft: 'auto',
   },
   dropdown: {
+    position: 'absolute',
+    width: '100%',
     maxHeight: '200px',
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
-    boxShadow: '0 2px 4px 0 rgba(18,24,29,.20)',
+    boxShadow: theme.globalBoxShadow, // Add back focus style
     marginTop: '-1px', // force overlapping border with input
     overflowY: 'scroll',
   },

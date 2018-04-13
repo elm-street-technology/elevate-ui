@@ -74,21 +74,40 @@ class Select extends Component<Props, State> {
     this._inputWrapper = c;
   };
 
+  renderTimesIcon(onItemSelect) {
+    const { classes, theme: { colors } } = this.props;
+    return (
+      <button
+        onClick={() => onItemSelect({ label: '', value: '' })}
+        type="button"
+        className={classes.arrow}
+      >
+        <svg width={24} height={24} viewBox="0 0 24 24">
+          <path
+            fill={colors.danger || 'currentColor'}
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
+      </button>
+    );
+  }
+
   renderArrowIcon(isOpen) {
     const { classes, theme: { colors } } = this.props;
     return (
-      <svg
-        className={classes.arrow}
-        width={24}
-        height={24}
-        viewBox="0 0 1792 1792"
-        transform={isOpen ? 'rotate(180)' : null}
-      >
-        <path
-          fill={colors.gray300 || 'currentColor'}
-          d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"
-        />
-      </svg>
+      <button type="button" className={classes.arrow}>
+        <svg
+          width={24}
+          height={24}
+          viewBox="0 0 1792 1792"
+          transform={isOpen ? 'rotate(180)' : null}
+        >
+          <path
+            fill={colors.gray300 || 'currentColor'}
+            d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"
+          />
+        </svg>
+      </button>
     );
   }
 
@@ -135,6 +154,7 @@ class Select extends Component<Props, State> {
                 onBlur={selection => setFieldTouched(name, selection)}
               />
               {this.renderArrowIcon(isOpen)}
+              {value && value.value && this.renderTimesIcon(this.onItemSelect)}
             </div>
             {isOpen && (
               <div className={classes.dropdown}>
@@ -174,6 +194,7 @@ class Select extends Component<Props, State> {
 
 export default withStyles(theme => ({
   scaffold: {
+    position: 'relative',
     width: '100%',
     margin: '8px auto 16px',
   },
@@ -186,24 +207,11 @@ export default withStyles(theme => ({
     minHeight: '40px',
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
-    padding: '0 8px',
-    appearance: 'none', // Reset default Selects for iOS/etc.
-    boxShadow: 'none', // Reset default Selects for mozilla
-
-    '&::-ms-expand': {
-      display: 'none',
-    },
-
-    '&:focus': {
-      outline: 'none', // Disable default focus glow
-      boxShadow: theme.globalBoxShadow, // Add back focus style
-    },
-
-    '&:disabled': {
-      cursor: 'not-allowed',
-    },
+    padding: '0 12px',
+    cursor: props => (props.disabled ? 'not-allowed' : 'default'),
   },
   root: {
+    flexGrow: '1',
     color: 'inherit',
     fontFamily: 'inherit',
     fontWeight: '400',
@@ -215,14 +223,16 @@ export default withStyles(theme => ({
   },
   arrow: {
     flexShrink: '0',
-    display: 'block',
-    marginLeft: 'auto',
+    display: 'inline-flex',
+    marginLeft: '8px',
   },
   dropdown: {
+    position: 'absolute',
+    width: '100%',
     maxHeight: '200px',
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
-    boxShadow: '0 2px 4px 0 rgba(18,24,29,.20)',
+    boxShadow: theme.globalBoxShadow, // Add back focus style
     marginTop: '-1px', // force overlapping border with input
     overflowY: 'scroll',
   },

@@ -42,7 +42,7 @@ export default withStyles(theme => ({
     alignItems: 'center',
     border: `1px solid ${theme.colors.secondary}`,
     borderRadius: theme.globalBorderRadius,
-    margin: '4px',
+    margin: '2px',
   },
   text: {
     fontSize: '16px',
