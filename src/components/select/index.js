@@ -228,6 +228,7 @@ export default withStyles(theme => ({
   },
   dropdown: {
     position: 'absolute',
+    zIndex: '1',
     width: '100%',
     maxHeight: '200px',
     backgroundColor: theme.colors.white,
