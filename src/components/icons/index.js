@@ -1,9 +1,13 @@
 import React from 'react';
 
+import Broken from './broken';
+import ExclamationOutline from './exclamation-outline';
+import Times from './times';
+
 const icons = {
-  Broken: require('./broken').default,
-  ExclamationOutline: require('./exclamation-outline').default,
-  Times: require('./times').default,
+  Broken,
+  ExclamationOutline,
+  Times,
 };
 
 const Icon = ({ icon, ...rest }) => {
@@ -13,7 +17,7 @@ const Icon = ({ icon, ...rest }) => {
     });
   }
 
-  return React.createElement(icons.Broken, {
+  return React.createElement(icons['Broken'], {
     ...rest,
   });
 };
