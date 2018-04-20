@@ -1,6 +1,6 @@
 {
   "name": "elevate-ui",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "An opinionated toolkit of customizable, easy-to-use React components for building scalable, maintainable web applications",
   "main": "es/index.js",
   "module": "es/index.js",
