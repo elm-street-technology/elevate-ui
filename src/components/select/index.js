@@ -220,6 +220,9 @@ export default withStyles(theme => ({
     border: 'none',
     outline: 'none',
     cursor: 'inherit',
+    boxShadow: 'none', // Reset default inputs for mozilla
+    '-webkit-appearance': 'none', // Reset default browser styles
+    '-moz-appearance': 'none', // Reset default browser styles
   },
   arrow: {
     flexShrink: '0',

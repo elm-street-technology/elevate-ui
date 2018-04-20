@@ -67,8 +67,9 @@ export default withStyles(theme => ({
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
     padding: '10px 12px',
-    appearance: 'none', // Reset default Textareas for iOS/etc.
-    boxShadow: 'none', // Reset default Textareas for mozilla
+    boxShadow: 'none', // Reset default inputs for mozilla
+    '-webkit-appearance': 'none', // Reset default browser styles
+    '-moz-appearance': 'none', // Reset default browser styles
 
     '&:focus': {
       outline: 'none', // Disable default focus glow
