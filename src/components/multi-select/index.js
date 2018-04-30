@@ -17,6 +17,7 @@ type Item = {
 type Props = {
   classes: Object,
   className: string,
+  closeOnSelect: boolean,
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   items: Array<Item>,
@@ -35,6 +36,22 @@ class MultiSelect extends Component<Props, State> {
   };
   _input;
   _inputWrapper;
+
+  stateReducer = (state, changes) => {
+    // this prevents the menu from being closed when the user
+    // selects an item with a keyboard or mouse
+    switch (changes.type) {
+      case Downshift.stateChangeTypes.keyDownEnter:
+      case Downshift.stateChangeTypes.clickItem:
+        return {
+          ...changes,
+          isOpen: this.props.closeOnSelect ? false : state.isOpen,
+          highlightedIndex: state.highlightedIndex,
+        };
+      default:
+        return changes;
+    }
+  };
 
   handleStateChange = (changes, downshiftStateAndHelpers) => {
     if (!downshiftStateAndHelpers.isOpen) {
@@ -140,6 +157,7 @@ class MultiSelect extends Component<Props, State> {
     return (
       <Downshift
         itemToString={itemToString}
+        stateReducer={this.stateReducer}
         onStateChange={this.handleStateChange}
         selectedItem={value}
         render={({
