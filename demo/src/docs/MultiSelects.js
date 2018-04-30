@@ -16,6 +16,12 @@ const roygbiv = [
   { label: 'Indigo', value: 'indigo' },
   { label: 'Violet', value: 'violet' },
 ];
+const cmyk = [
+  { label: 'Cyan', value: 'cyan' },
+  { label: 'Magenta', value: 'magenta' },
+  { label: 'Yellow', value: 'yellow' },
+  { label: 'Black', value: 'black' },
+];
 
 const MultiSelects = ({
   values,
@@ -29,7 +35,7 @@ const MultiSelects = ({
   <Paper>
     <Typography type="title">{`<MultiSelect />`}</Typography>
     <Formik
-      initialValues={{ colors: [] }}
+      initialValues={{ colors: [], colors2: [] }}
       validationSchema={() =>
         Yup.object().shape({
           colors: Yup.array()
@@ -57,9 +63,17 @@ const MultiSelects = ({
           <Field
             id="colors"
             name="colors"
-            label="Favorite Colors"
+            label="Favorite Colors (default)"
             items={roygbiv}
             component={MultiSelect}
+          />
+          <Field
+            id="colors2"
+            name="colors2"
+            label="Favorite Colors (with closeOnSelect)"
+            items={cmyk}
+            component={MultiSelect}
+            closeOnSelect
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
