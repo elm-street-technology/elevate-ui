@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing, matches the snapshot 1`] = `
+<div
+  className="Input-scaffold-0-1-1"
+>
+  <input
+    className="Input-root-0-1-2"
+    id="firstName"
+    name=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    tabIndex="0"
+    type="text"
+    value={null}
+  />
+</div>
+`;

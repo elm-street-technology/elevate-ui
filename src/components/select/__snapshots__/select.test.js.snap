@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing, matches the snapshot 1`] = `
+<div
+  className="Select-scaffold-0-1-10 Select-scaffold-0-1-1"
+>
+  <div
+    className="Select-wrapper-0-1-9 Select-wrapper-0-1-2"
+    onClick={[Function]}
+  >
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-expanded={false}
+      autoComplete="off"
+      className="Select-root-0-1-11 Select-root-0-1-3"
+      id="downshift-0-input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      role="combobox"
+      value=""
+    />
+    <button
+      className="Select-arrow-0-1-12 Select-arrow-0-1-4"
+      type="button"
+    >
+      <svg
+        height={24}
+        transform={null}
+        viewBox="0 0 1792 1792"
+        width={24}
+      >
+        <path
+          d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"
+          fill="#ccd2d8"
+        />
+      </svg>
+    </button>
+    
+  </div>
+</div>
+`;
