@@ -10,7 +10,7 @@ Elevate-UI is an opinionated toolkit of React components and patterns used for t
 
 A number of open-source libraries have been used to build Elevate-UI:
 
-* [nwb](https://github.com/insin/nwb)– Toolkit for developing React components and apps
+* [babel](https://babeljs.io/)– A JavaScript compiler
 * [eslint](https://github.com/eslint/eslint)– JavaScript linting utility
 * [eslint-config-react-app](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app)– ESLint configuration specifically for React components and apps
 * [prettier](https://github.com/prettier/prettier)– Opinionated code formatting for js/json/css/md

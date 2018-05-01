@@ -2,26 +2,15 @@
   "name": "elevate-ui",
   "version": "0.0.34",
   "description": "An opinionated toolkit of customizable, easy-to-use React components for building scalable, maintainable web applications",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/elm-street-technology/elevate-ui"
-  },
-  "main": "./lib/index.js",
-  "module": "./es/index.js",
+  "main": "./index.js",
   "sideEffects": false,
-  "files": [
-    "es",
-    "lib"
-  ],
   "scripts": {
-    "build": "nwb build-react-component",
-    "clean": "nwb clean-module && nwb clean-demo",
-    "deploy": "yarn run clean && yarn run build && yarn publish",
-    "deploy:demo": "yarn run clean && yarn run build && gh-pages -d demo/dist",
-    "flow:check": "flow check",
+    "build": "yarn babel src --out-dir . --ignore setupTests.js,test.js",
+    "deploy": "yarn run build && yarn publish",
     "precommit": "lint-staged",
-    "start": "nwb serve-react-demo",
-    "test": "yarn run flow:check && yarn run test:jest",
+    "prepush": "yarn run test",
+    "test": "yarn run test:flow && yarn run test:jest",
+    "test:flow": "flow check",
     "test:jest": "jest"
   },
   "dependencies": {
@@ -43,13 +32,14 @@
     "react-dom": ">16.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "7.2.3",
-    "babel-jest": "^22.4.3",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "babel-jest": "22.4.3",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.11.0",
     "eslint-config-react-app": "2.0.1",
     "eslint-plugin-flowtype": "2.39.1",
@@ -57,17 +47,16 @@
     "eslint-plugin-jsx-a11y": "5.0.3",
     "eslint-plugin-react": "7.4.0",
     "formik": "0.11.11",
-    "gh-pages": "^1.1.0",
+    "gh-pages": "1.1.0",
     "husky": "0.14.3",
-    "jest": "^22.4.3",
+    "jest": "22.4.3",
     "lint-staged": "7.0.0",
-    "nwb": "0.22.0",
     "prettier": "1.11.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-router-dom": "4.2.2",
-    "react-test-renderer": "^16.3.2",
-    "sinon": "^5.0.1",
+    "react-test-renderer": "16.3.2",
+    "sinon": "5.0.1",
     "yup": "0.24.1"
   },
   "jest": {
@@ -78,5 +67,9 @@
     "react",
     "ui",
     "components"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elm-street-technology/elevate-ui"
+  }
 }
