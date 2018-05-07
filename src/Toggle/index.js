@@ -38,6 +38,7 @@ class Toggle extends Component {
           ref={l => {
             this.label = l;
           }}
+          onClick={() => this.checkbox.click()}
           onKeyDown={e => {
             if (e.keyCode === 32) {
               e.preventDefault();
@@ -46,7 +47,13 @@ class Toggle extends Component {
           }}
           tabIndex={passthroughProps.disabled ? null : tabIndex}
         >
-          <input {...passthroughProps} style={{ display: 'none' }} />
+          <input
+            ref={c => {
+              this.checkbox = c;
+            }}
+            {...passthroughProps}
+            style={{ display: 'none' }}
+          />
           <span className={classes.toggle}>
             {passthroughProps.checked ? checkedIcon : uncheckedIcon}
           </span>
