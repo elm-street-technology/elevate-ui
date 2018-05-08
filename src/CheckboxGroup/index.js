@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
 import Checkbox from '../Checkbox';
-import Radio from '../Radio';
 import Label from '../Label';
 import without from 'lodash/without';
 
@@ -15,52 +14,34 @@ type Props = {
   options: Array<{ label: string, value: string }>,
   label: string,
   theme: Object,
-  type: 'checkbox' | 'radio',
 };
 
-class ToggleGroup extends Component<Props> {
+class CheckboxGroup extends Component<Props> {
   static defaultProps = {
     display: 'block',
     options: [],
-    type: 'checkbox',
   };
 
   onChange = e => {
-    const {
-      field: { name, value },
-      form: { setFieldValue },
-      type,
-    } = this.props;
-    if (type === 'radio') {
-      const selectedRadio = e.target.id;
-      setFieldValue(name, selectedRadio);
-    } else if (type === 'checkbox') {
-      const selectedCheckbox = e.target.id;
+    const { field: { name, value }, form: { setFieldValue } } = this.props;
+    const selectedCheckbox = e.target.id;
 
-      let selectedCheckboxes = Array.isArray(value) ? value.slice() : [];
+    let selectedCheckboxes = Array.isArray(value) ? value.slice() : [];
 
-      if (
-        e.target.checked &&
-        selectedCheckboxes.indexOf(selectedCheckbox) === -1
-      ) {
-        selectedCheckboxes.push(selectedCheckbox);
-      } else if (!e.target.checked) {
-        selectedCheckboxes = without(selectedCheckboxes, selectedCheckbox);
-      }
-
-      setFieldValue(name, selectedCheckboxes);
+    if (
+      e.target.checked &&
+      selectedCheckboxes.indexOf(selectedCheckbox) === -1
+    ) {
+      selectedCheckboxes.push(selectedCheckbox);
+    } else if (!e.target.checked) {
+      selectedCheckboxes = without(selectedCheckboxes, selectedCheckbox);
     }
+
+    setFieldValue(name, selectedCheckboxes);
   };
 
   render() {
-    const {
-      label,
-      options,
-      classes,
-      display,
-      type,
-      field: { value },
-    } = this.props;
+    const { label, options, classes, display, field: { value } } = this.props;
     return (
       <div className={classes.scaffold}>
         {label && <Label>{label}</Label>}
@@ -71,7 +52,7 @@ class ToggleGroup extends Component<Props> {
           )}
         >
           {options.map(option =>
-            React.cloneElement(type === 'radio' ? <Radio /> : <Checkbox />, {
+            React.cloneElement(<Checkbox />, {
               key: option.value,
               id: option.value,
               label: option.label,
@@ -100,4 +81,4 @@ export default withStyles(theme => ({
   inline: {
     flexDirection: 'row',
   },
-}))(ToggleGroup);
+}))(CheckboxGroup);

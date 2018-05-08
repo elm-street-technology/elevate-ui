@@ -24,24 +24,3 @@ test('renders without crashing, matches the snapshot', () => {
   const componentJSON = component.toJSON();
   expect(componentJSON).toMatchSnapshot();
 });
-
-test('fires onChange function', () => {
-  let checked = false;
-  let spy = sinon.spy();
-  const onCheckboxToggle = e => {
-    checked = e.target.checked;
-    spy();
-  };
-
-  const component = mount(
-    <WrappedCheckbox
-      id="test-checkbox"
-      label="Test Checkbox"
-      onChange={onCheckboxToggle}
-      checked={checked}
-    />
-  );
-  component.find('input').simulate('change', { target: { checked: true } });
-  expect(spy.calledOnce).toEqual(true);
-  expect(checked).toEqual(true);
-});

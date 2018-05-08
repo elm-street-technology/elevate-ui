@@ -38,7 +38,6 @@ class Toggle extends Component {
           ref={l => {
             this.label = l;
           }}
-          onClick={() => this.checkbox.click()}
           onKeyDown={e => {
             if (e.keyCode === 32) {
               e.preventDefault();

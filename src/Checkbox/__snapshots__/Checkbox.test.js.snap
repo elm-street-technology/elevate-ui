@@ -6,7 +6,6 @@ exports[`renders without crashing, matches the snapshot 1`] = `
 >
   <label
     className="Toggle-root-0-1-2"
-    onClick={[Function]}
     onKeyDown={[Function]}
     tabIndex="0"
   >
