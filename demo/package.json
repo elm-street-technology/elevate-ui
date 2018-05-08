@@ -2,6 +2,14 @@
   "name": "elevate-ui-demo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://elm-street-technology.github.io/elevate-ui",
+  "scripts": {
+    "deploy": "yarn run build && gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "elevate-ui": "0.1.0",
     "formik": "^0.11.11",
@@ -9,13 +17,8 @@
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
   "devDependencies": {
-    "flow-bin": "^0.71.0"
+    "flow-bin": "^0.71.0",
+    "gh-pages": "^1.1.0"
   }
 }
