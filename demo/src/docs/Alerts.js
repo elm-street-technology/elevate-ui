@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Paper from '../../../src/components/paper';
-import Typography from '../../../src/components/typography';
-import Alert from '../../../src/components/alert';
+import Paper from 'elevate-ui/Paper';
+import Typography from 'elevate-ui/Typography';
+import Alert from 'elevate-ui/Alert';
 
 const AlertExample = ({
   values,

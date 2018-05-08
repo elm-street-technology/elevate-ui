@@ -2,10 +2,10 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import Yup from 'yup';
 
-import Paper from '../../../src/components/paper';
-import Typography from '../../../src/components/typography';
-import Datetime from '../../../src/components/datetime';
-import Button from '../../../src/components/button';
+import Paper from 'elevate-ui/Paper';
+import Typography from 'elevate-ui/Typography';
+import Datetime from 'elevate-ui/Datetime';
+import Button from 'elevate-ui/Button';
 
 const Datetimes = () => (
   <Paper>

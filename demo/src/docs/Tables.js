@@ -1,6 +1,6 @@
 import React from 'react';
-import Paper from '../../../src/components/paper';
-import Typography from '../../../src/components/typography';
+import Paper from 'elevate-ui/Paper';
+import Typography from 'elevate-ui/Typography';
 
 function Home() {
   return (
