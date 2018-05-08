@@ -12,6 +12,7 @@ type Props = {
   isDisabled: true | false,
   isRounded: true | false,
   isOutlined: true | false,
+  theme: Object,
 };
 
 function getChildColor(theme, props) {
@@ -38,7 +39,6 @@ const Button = (props: Props) => {
   const passthroughProps = { ...rest };
   delete passthroughProps.color;
   delete passthroughProps.theme;
-  delete passthroughProps.isRounded;
 
   return (
     // $FlowFixMe -- it doesn't understand the element: Element

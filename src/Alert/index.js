@@ -12,6 +12,7 @@ type Props = {
   className: string,
   color: 'primary' | 'secondary' | 'danger',
   icon: string,
+  theme: Object,
 };
 
 const Alert = (props: Props) => {
