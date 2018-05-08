@@ -1,11 +1,13 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # directories
-/demo/dist
-/es
-/lib
-/node_modules
-/umd
+
+/*/
+!/demo
+!/flow-typed
+!/src
+!/scripts
+/index.js
 
 # misc
 .DS_Store
