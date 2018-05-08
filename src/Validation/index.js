@@ -2,8 +2,23 @@ import React from 'react';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
 
-const Validation = ({ className, classes, color, error, theme, ...props }) => (
-  <div className={classNames(classes.root, className)} {...props}>
+type Props = {
+  classes: Object,
+  className: string,
+  color: 'primary' | 'secondary' | 'danger',
+  error: any,
+  theme: Object,
+};
+
+const Validation = ({
+  classes,
+  className,
+  color,
+  error,
+  theme,
+  ...rest
+}: Props) => (
+  <div className={classNames(classes.root, className)} {...rest}>
     {error}
   </div>
 );

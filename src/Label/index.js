@@ -2,9 +2,9 @@ import React from 'react';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
 
-const Label = ({ classes, className, children, theme, ...props }) => {
+const Label = ({ classes, className, children, theme, ...rest }) => {
   return (
-    <label className={classNames(classes.root, className)} {...props}>
+    <label className={classNames(classes.root, className)} {...rest}>
       {children}
     </label>
   );

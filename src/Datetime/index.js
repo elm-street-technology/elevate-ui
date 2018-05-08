@@ -14,34 +14,33 @@ type Props = {
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   id: string,
   label: string,
+  theme: Object,
 };
 
-const Datetime = (props: Props) => {
-  const {
-    classes,
-    className,
-    field,
-    form: { errors, setFieldValue, setFieldTouched, touched },
-    id,
-    label,
-    ...rest
-  } = props;
-  return (
-    <div className={classNames(classes.scaffold, className)}>
-      {label && <Label htmlFor={id}>{label}</Label>}
-      <ReactDatetime
-        className={classes.rdt}
-        inputProps={{ id: id, className: classes.input, autoComplete: 'off' }}
-        {...field} // contains name, value, onBlur, onChange
-        onBlur={date => setFieldTouched(field.name, date)} // overrides `field.onBlur`
-        onChange={date => setFieldValue(field.name, date)} // overrides `field.onChange`
-        {...rest}
-      />
-      {touched[field.name] &&
-        errors[field.name] && <Validation error={errors[field.name]} />}
-    </div>
-  );
-};
+const Datetime = ({
+  classes,
+  className,
+  field,
+  form: { errors, setFieldValue, setFieldTouched, touched },
+  id,
+  label,
+  theme,
+  ...rest
+}: Props) => (
+  <div className={classNames(classes.scaffold, className)}>
+    {label && <Label htmlFor={id}>{label}</Label>}
+    <ReactDatetime
+      className={classes.rdt}
+      inputProps={{ id: id, className: classes.input, autoComplete: 'off' }}
+      {...field} // contains name, value, onBlur, onChange
+      onBlur={date => setFieldTouched(field.name, date)} // overrides `field.onBlur`
+      onChange={date => setFieldValue(field.name, date)} // overrides `field.onChange`
+      {...rest}
+    />
+    {touched[field.name] &&
+      errors[field.name] && <Validation error={errors[field.name]} />}
+  </div>
+);
 
 export default withStyles(theme => ({
   scaffold: {

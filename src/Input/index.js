@@ -1,10 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
 
 import Label from '../Label';
 import Validation from '../Validation';
+
+type Props = {
+  classes: Object,
+  className: string,
+  field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  id: string,
+  label: string,
+  theme: Object,
+  type: string,
+};
 
 const Input = ({
   classes,
@@ -15,33 +25,15 @@ const Input = ({
   label,
   theme,
   type,
-  ...props
-}) => {
-  return (
-    <div className={classNames(classes.scaffold, className)}>
-      {label && <Label htmlFor={id}>{label}</Label>}
-      <input
-        id={id}
-        className={classes.root}
-        type={type}
-        {...field}
-        {...props}
-      />
-      {touched[field.name] &&
-        errors[field.name] && <Validation error={errors[field.name]} />}
-    </div>
-  );
-};
-
-Input.propTypes = {
-  className: PropTypes.string,
-  field: PropTypes.object,
-  form: PropTypes.object,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.any,
-  name: PropTypes.string,
-  type: PropTypes.string,
-};
+  ...rest
+}: Props) => (
+  <div className={classNames(classes.scaffold, className)}>
+    {label && <Label htmlFor={id}>{label}</Label>}
+    <input type={type} id={id} className={classes.root} {...field} {...rest} />
+    {touched[field.name] &&
+      errors[field.name] && <Validation error={errors[field.name]} />}
+  </div>
+);
 
 Input.defaultProps = {
   tabIndex: '0',

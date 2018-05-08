@@ -1,49 +1,43 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import withStyles from 'react-jss';
 import classNames from 'classnames';
+import withStyles from 'react-jss';
 
 import Label from '../Label';
 import Validation from '../Validation';
 
-const Textarea = ({
-  id,
-  label,
-  error,
-  value,
-  onChange,
-  classes,
-  className,
-  ...props
-}) => {
-  return (
-    <div className={classNames(classes.scaffold, className)}>
-      {label && (
-        <Label htmlFor={id} error={error}>
-          {label}
-        </Label>
-      )}
-      <textarea
-        id={id}
-        className={classNames(classes.root, classes.textarea)}
-        value={value}
-        onChange={onChange}
-        {...props}
-      />
-      {error && <Validation error={error} />}
-    </div>
-  );
+type Props = {
+  classes: Object,
+  className: string,
+  field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  id: string,
+  label: string,
+  theme: Object,
 };
 
-Textarea.propTypes = {
-  id: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  onChange: PropTypes.func,
-  name: PropTypes.string,
-  placeholder: PropTypes.string,
-  tabIndex: PropTypes.string,
-  value: PropTypes.string,
-};
+const Textarea = ({
+  classes,
+  className,
+  field,
+  form: { touched, errors },
+  id,
+  label,
+  theme,
+  type,
+  ...rest
+}: Props) => (
+  <div className={classNames(classes.scaffold, className)}>
+    {label && <Label htmlFor={id}>{label}</Label>}
+    <textarea
+      id={id}
+      className={classNames(classes.root, classes.textarea)}
+      {...field}
+      {...rest}
+    />
+    {touched[field.name] &&
+      errors[field.name] && <Validation error={errors[field.name]} />}
+  </div>
+);
 
 Textarea.defaultProps = {
   tabIndex: '0',
@@ -57,16 +51,15 @@ export default withStyles(theme => ({
   root: {
     display: 'block',
     width: '100%',
-    minHeight: '120px',
-    resize: 'vertical',
+    height: 'auto',
     color: theme.typography.bodyColor,
     fontFamily: 'inherit',
-    fontWeight: '500',
+    fontWeight: '400',
     fontSize: '16px',
     lineHeight: '20px',
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
-    padding: '10px 12px',
+    padding: '8px 12px',
     boxShadow: 'none', // Reset default inputs for mozilla
     '-webkit-appearance': 'none', // Reset default browser styles
     '-moz-appearance': 'none', // Reset default browser styles

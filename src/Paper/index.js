@@ -3,7 +3,22 @@ import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
 
-const Paper = ({ children, className, classes, element: Element, ...rest }) => (
+type Props = {
+  children: any,
+  classes: Object,
+  className: string,
+  element: string,
+  theme: Object,
+};
+
+const Paper = ({
+  children,
+  classes,
+  className,
+  element: Element,
+  theme,
+  ...rest
+}: Props) => (
   <Element className={classNames(classes.root, className)} {...rest}>
     {children}
   </Element>
