@@ -6,90 +6,12 @@ exports[`renders without crashing, matches the snapshot 1`] = `
 >
   <textarea
     className="Textarea-root-0-1-2 Textarea-textarea-0-1-3"
-    field={
-      Object {
-        "name": "",
-        "onBlur": [Function],
-        "onChange": [Function],
-        "value": null,
-      }
-    }
-    form={
-      Object {
-        "errors": Array [],
-        "setFieldTouched": [Function],
-        "setFieldValue": [Function],
-        "touched": false,
-      }
-    }
     id="summary"
-    onChange={undefined}
+    name=""
+    onBlur={[Function]}
+    onChange={[Function]}
     tabIndex="0"
-    theme={
-      Object {
-        "alertColors": Object {
-          "danger": Object {
-            "backgroundColor": "#fcf2f2",
-            "borderColor": "#f6dddd",
-            "color": "#9c2929",
-          },
-          "success": Object {
-            "backgroundColor": "#ecf8f7",
-            "borderColor": "#d2e8e6",
-            "color": "#246761",
-          },
-        },
-        "breakpoints": Object {
-          "1200": "@media (min-width: 1200px)",
-          "600": "@media (min-width: 600px)",
-          "900": "@media (min-width: 900px)",
-          "desktop": "@media (min-width: 1200px)",
-          "tabletLandscape": "@media (min-width: 900px)",
-          "tabletPortrait": "@media (min-width: 600px)",
-        },
-        "colors": Object {
-          "black": "#11181e",
-          "danger": "#9c2929",
-          "gray050": "#fbfcfd",
-          "gray100": "#edf1f4",
-          "gray200": "#dde2e7",
-          "gray300": "#ccd2d8",
-          "gray400": "#b3bac1",
-          "gray500": "#888f96",
-          "gray600": "#60686f",
-          "gray700": "#4b565f",
-          "gray800": "#5a5b5c",
-          "gray900": "#232c35",
-          "primary": "#f15953",
-          "primaryDark": "#d24f45",
-          "primaryGlow": "#d24f45",
-          "quaternary": "#ffc629",
-          "secondary": "#55c3ba",
-          "secondaryDark": "#44b0a7",
-          "tertiary": "#2e7fc2",
-          "white": "#fff",
-        },
-        "globalBorderRadius": "4px",
-        "globalBoxShadow": "0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)",
-        "globalPadding": Object {
-          "@media (min-width: 1200px)": Object {
-            "padding": "24px",
-          },
-          "@media (min-width: 600px)": Object {
-            "padding": "16px",
-          },
-          "@media (min-width: 900px)": Object {
-            "padding": "20px",
-          },
-          "padding": "12px",
-        },
-        "typography": Object {
-          "fontFamily": "\\"Open Sans\\", -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
-          "fontSize": "1rem",
-        },
-      }
-    }
-    value={undefined}
+    value={null}
   />
 </div>
 `;

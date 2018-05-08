@@ -3,6 +3,15 @@ import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
 
+type Props = {
+  children: any,
+  classes: Object,
+  className: string,
+  component: string,
+  theme: Object,
+  type: 'title' | 'body',
+};
+
 const typeElementMap = {
   title: 'h1',
   body: 'p',
@@ -10,12 +19,12 @@ const typeElementMap = {
 
 const Typography = ({
   children,
-  className,
   classes,
+  className,
   component: componentProp,
   type,
   ...rest
-}) => {
+}: Props) => {
   const Element = componentProp || typeElementMap[type] || 'span';
   return (
     <Element
@@ -25,14 +34,6 @@ const Typography = ({
       {children}
     </Element>
   );
-};
-
-Typography.propTypes = {
-  children: PropTypes.any.isRequired,
-  className: PropTypes.string,
-  classes: PropTypes.object,
-  component: PropTypes.string,
-  type: PropTypes.oneOf(['title', 'body']),
 };
 
 export default withStyles(theme => ({

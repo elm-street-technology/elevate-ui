@@ -15,34 +15,26 @@ type Props = {
   theme: Object,
 };
 
-const Alert = (props: Props) => {
-  const {
-    children,
-    classes,
-    className,
-    element: Element,
-    icon,
-    ...rest
-  } = props;
-  const passthroughProps = { ...rest };
-  delete passthroughProps.color;
-  delete passthroughProps.theme;
-
-  return (
-    // $FlowIgnore -- it doesn't understand the element: Element
-    <Element
-      className={classNames(classes.root, className)}
-      {...passthroughProps}
-    >
-      {icon && (
-        <div className={classes.icon}>
-          <Icon icon={icon} />
-        </div>
-      )}
-      <div className={classes.children}>{children}</div>
-    </Element>
-  );
-};
+const Alert = ({
+  children,
+  classes,
+  className,
+  color,
+  element: Element,
+  icon,
+  theme,
+  ...rest
+}: Props) => (
+  // $FlowIgnore -- it doesn't understand the element: Element
+  <Element className={classNames(classes.root, className)} {...rest}>
+    {icon && (
+      <div className={classes.icon}>
+        <Icon icon={icon} />
+      </div>
+    )}
+    <div className={classes.children}>{children}</div>
+  </Element>
+);
 
 Alert.defaultProps = {
   element: 'div',

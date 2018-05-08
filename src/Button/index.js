@@ -15,6 +15,36 @@ type Props = {
   theme: Object,
 };
 
+const Button = ({
+  children,
+  classes,
+  className,
+  color,
+  element: Element,
+  isDisabled,
+  isOutlined,
+  isRounded,
+  theme,
+  ...rest
+}: Props) => (
+  // $FlowFixMe -- it doesn't understand the element: Element
+  <Element
+    disabled={isDisabled}
+    className={classNames(classes.root, className)}
+    {...rest}
+  >
+    <div className={classes.children}>{children}</div>
+  </Element>
+);
+
+Button.defaultProps = {
+  element: 'button',
+  color: 'primary',
+  isRounded: true,
+  isOutlined: false,
+  isDisabled: false,
+};
+
 function getChildColor(theme, props) {
   if (props.isDisabled) {
     return theme.colors['gray300'];
@@ -24,41 +54,6 @@ function getChildColor(theme, props) {
     return theme.colors.white;
   }
 }
-
-const Button = (props: Props) => {
-  const {
-    children,
-    classes,
-    className,
-    element: Element,
-    isRounded,
-    isOutlined,
-    isDisabled,
-    ...rest
-  } = props;
-  const passthroughProps = { ...rest };
-  delete passthroughProps.color;
-  delete passthroughProps.theme;
-
-  return (
-    // $FlowFixMe -- it doesn't understand the element: Element
-    <Element
-      disabled={isDisabled}
-      className={classNames(classes.root, className)}
-      {...passthroughProps}
-    >
-      <div className={classes.children}>{children}</div>
-    </Element>
-  );
-};
-
-Button.defaultProps = {
-  element: 'button',
-  color: 'primary',
-  isRounded: true,
-  isOutlined: false,
-  isDisabled: false,
-};
 
 export default withStyles(theme => ({
   root: {
