@@ -2,10 +2,10 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import Yup from 'yup';
 
-import Paper from '../../../src/components/paper';
-import Typography from '../../../src/components/typography';
-import MultiSelect from '../../../src/components/multi-select';
-import Button from '../../../src/components/button';
+import Paper from 'elevate-ui/Paper';
+import Typography from 'elevate-ui/Typography';
+import MultiSelect from 'elevate-ui/MultiSelect';
+import Button from 'elevate-ui/Button';
 
 const roygbiv = [
   { label: 'Red', value: 'red' },

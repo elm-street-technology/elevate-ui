@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Paper from '../../../src/components/paper';
-import Typography from '../../../src/components/typography';
-import Button from '../../../src/components/button';
+import Paper from 'elevate-ui/Paper';
+import Typography from 'elevate-ui/Typography';
+import Button from 'elevate-ui/Button';
 
 const ButtonExample = ({
   values,

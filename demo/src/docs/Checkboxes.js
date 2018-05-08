@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Paper from '../../../src/components/paper';
-import Typography from '../../../src/components/typography';
-import ToggleGroup from '../../../src/components/toggle/ToggleGroup';
+import Paper from 'elevate-ui/Paper';
+import Typography from 'elevate-ui/Typography';
+import ToggleGroup from 'elevate-ui/ToggleGroup';
 
 class Checkboxes extends Component {
   state = {
