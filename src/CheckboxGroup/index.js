@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
-import Checkbox from '../Checkbox';
+import UncontrolledCheckbox from '../Checkbox/UncontrolledCheckbox';
 import Label from '../Label';
 import without from 'lodash/without';
 
@@ -52,7 +52,7 @@ class CheckboxGroup extends Component<Props> {
           )}
         >
           {options.map(option =>
-            React.cloneElement(<Checkbox />, {
+            React.cloneElement(<UncontrolledCheckbox />, {
               key: option.value,
               id: option.value,
               label: option.label,

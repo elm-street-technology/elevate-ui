@@ -69,6 +69,7 @@ const Sidebar = ({ classes }) => {
         >
           Input
         </NavLink>
+
         <NavLink
           activeClassName={classes.active}
           className={classes.item}
@@ -76,6 +77,7 @@ const Sidebar = ({ classes }) => {
         >
           Textarea
         </NavLink>
+
         <NavLink
           activeClassName={classes.active}
           className={classes.item}
@@ -83,6 +85,7 @@ const Sidebar = ({ classes }) => {
         >
           Select
         </NavLink>
+
         <NavLink
           activeClassName={classes.active}
           className={classes.item}
@@ -90,20 +93,31 @@ const Sidebar = ({ classes }) => {
         >
           MultiSelect
         </NavLink>
-        {/* <NavLink
+
+        <NavLink
           activeClassName={classes.active}
           className={classes.item}
           to="/checkbox"
         >
           Checkbox
-        </NavLink> */}
-        {/* <NavLink
+        </NavLink>
+
+        <NavLink
           activeClassName={classes.active}
           className={classes.item}
-          to="/radio"
+          to="/checkbox-group"
         >
-          Radio
-        </NavLink> */}
+          CheckboxGroup
+        </NavLink>
+
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/radio-group"
+        >
+          RadioGroup
+        </NavLink>
+
         <NavLink
           activeClassName={classes.active}
           className={classes.item}

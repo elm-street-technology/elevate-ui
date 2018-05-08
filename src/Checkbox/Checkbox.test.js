@@ -19,6 +19,18 @@ test('renders without crashing, matches the snapshot', () => {
       label="Test Checkbox"
       onChange={sinon.spy()}
       checked={true}
+      field={{
+        name: 'test-checkybox',
+        onChange: () => {},
+        onBlur: () => {},
+        value: false,
+      }}
+      form={{
+        errors: [],
+        setFieldValue: () => {},
+        setFieldTouched: () => {},
+        touched: false,
+      }}
     />
   );
   const componentJSON = component.toJSON();

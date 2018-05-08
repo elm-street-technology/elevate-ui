@@ -4,17 +4,19 @@ import Yup from 'yup';
 
 import Paper from 'elevate-ui/Paper';
 import Typography from 'elevate-ui/Typography';
-import Checkbox from 'elevate-ui/Checkbox';
+import CheckboxGroup from 'elevate-ui/CheckboxGroup';
 import Button from 'elevate-ui/Button';
 
-const Checkboxes = () => (
+const CheckboxGroups = () => (
   <Paper>
-    <Typography type="title">{`<Checkbox />`}</Typography>
+    <Typography type="title">{`<CheckboxGroup />`}</Typography>
     <Formik
-      initialValues={{ isMagic: false }}
+      initialValues={{ colors: [] }}
       validationSchema={() =>
         Yup.object().shape({
-          isMagic: Yup.boolean(),
+          colors: Yup.array()
+            .of(Yup.string())
+            .required('A color is required'),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -35,10 +37,16 @@ const Checkboxes = () => (
       }) => (
         <Form noValidate style={{ maxWidth: '420px' }}>
           <Field
-            id="isMagic"
-            name="isMagic"
-            label="Is Magic"
-            component={Checkbox}
+            id="colors"
+            name="colors"
+            label="Colors"
+            component={CheckboxGroup}
+            options={[
+              { value: 'red', label: 'Red' },
+              { value: 'green', label: 'Green' },
+              { value: 'blue', label: 'Blue' },
+              { value: 'yellow', label: 'Yellow' },
+            ]}
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
@@ -49,4 +57,4 @@ const Checkboxes = () => (
   </Paper>
 );
 
-export default Checkboxes;
+export default CheckboxGroups;
