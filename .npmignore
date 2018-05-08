@@ -1,0 +1,11 @@
+demo/**
+
+.env
+yarn-error.log
+.editorconfig
+.eslintrc
+.flowconfig
+.intstagedrc
+.prettierignore
+.prettierrc
+.travis.yml
