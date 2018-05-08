@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import withStyles from 'react-jss';
 import classNames from 'classnames';
 import Checkbox from '../Checkbox';
@@ -7,51 +6,61 @@ import Radio from '../Radio';
 import Label from '../Label';
 import without from 'lodash/without';
 
-class ToggleGroup extends Component {
-  static propTypes = {
-    display: PropTypes.oneOf(['inline', 'block']).isRequired,
-    onChange: PropTypes.func,
-    options: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-          .isRequired,
-        disabled: PropTypes.bool,
-      })
-    ),
-    type: PropTypes.oneOf(['checkbox', 'radio']).isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  };
+type Props = {
+  classes: Object,
+  className: string,
+  display: 'inline' | 'block',
+  field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  options: Array<{ label: string, value: string }>,
+  label: string,
+  theme: Object,
+  type: 'checkbox' | 'radio',
+};
 
+class ToggleGroup extends Component<Props> {
   static defaultProps = {
     display: 'block',
     options: [],
     type: 'checkbox',
-    value: [],
   };
 
   onChange = e => {
-    const { type, value } = this.props;
+    const {
+      field: { name, value },
+      form: { setFieldValue },
+      type,
+    } = this.props;
     if (type === 'radio') {
       const selectedRadio = e.target.id;
-
-      this.props.onChange(selectedRadio);
+      setFieldValue(name, selectedRadio);
     } else if (type === 'checkbox') {
       const selectedCheckbox = e.target.id;
+
       let selectedCheckboxes = Array.isArray(value) ? value.slice() : [];
 
-      if (selectedCheckboxes.indexOf(selectedCheckbox) > -1) {
-        selectedCheckboxes = without(selectedCheckboxes, selectedCheckbox);
-      } else {
+      if (
+        e.target.checked &&
+        selectedCheckboxes.indexOf(selectedCheckbox) === -1
+      ) {
         selectedCheckboxes.push(selectedCheckbox);
+      } else if (!e.target.checked) {
+        selectedCheckboxes = without(selectedCheckboxes, selectedCheckbox);
       }
 
-      this.props.onChange(selectedCheckboxes);
+      setFieldValue(name, selectedCheckboxes);
     }
   };
 
   render() {
-    const { label, options, classes, display, type, value } = this.props;
+    const {
+      label,
+      options,
+      classes,
+      display,
+      type,
+      field: { value },
+    } = this.props;
     return (
       <div className={classes.scaffold}>
         {label && <Label>{label}</Label>}
