@@ -5,7 +5,7 @@ yarn-error.log
 .editorconfig
 .eslintrc
 .flowconfig
-.intstagedrc
+.lintstagedrc
 .prettierignore
 .prettierrc
 .travis.yml
