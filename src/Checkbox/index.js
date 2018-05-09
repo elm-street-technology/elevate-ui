@@ -1,34 +1,46 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Toggle from '../Toggle';
+import React, { Component } from 'react';
+import withStyles from 'react-jss';
+import UncontrolledCheckbox from './UncontrolledCheckbox';
 
-const Checkbox = ({ checkedIcon, uncheckedIcon, ...rest }) => {
-  return (
-    <Toggle
-      type="checkbox"
-      checkedIcon={checkedIcon}
-      uncheckedIcon={uncheckedIcon}
-      {...rest}
-    />
-  );
+type Props = {
+  classes: Object,
+  className: string,
+  field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  options: Array<{ label: string, value: string }>,
+  label: string,
+  theme: Object,
 };
 
-Checkbox.propTypes = {
-  checkedIcon: PropTypes.node,
-  uncheckedIcon: PropTypes.node,
-};
+class Checkbox extends Component<Props> {
+  onChange = e => {
+    const { field: { name }, form: { setFieldValue } } = this.props;
+    setFieldValue(name, e.target.checked);
+  };
 
-Checkbox.defaultProps = {
-  checkedIcon: (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-    </svg>
-  ),
-  uncheckedIcon: (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
-    </svg>
-  ),
-};
+  render() {
+    return (
+      <UncontrolledCheckbox
+        onChange={this.onChange}
+        checked={this.props.field.value}
+        {...this.props}
+      />
+    );
+  }
+}
 
-export default Checkbox;
+export default withStyles(theme => ({
+  scaffold: {
+    margin: '8px auto 16px',
+  },
+  toggles: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    marginLeft: '-12px',
+  },
+  inline: {
+    flexDirection: 'row',
+  },
+}))(Checkbox);

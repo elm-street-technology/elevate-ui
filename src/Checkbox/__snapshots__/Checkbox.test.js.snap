@@ -2,16 +2,31 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="Toggle-scaffold-0-1-1"
+  className="Checkbox-scaffold-0-1-1"
 >
   <label
-    className="Toggle-root-0-1-2"
-    onClick={[Function]}
+    className="Toggle-root-0-1-5"
     onKeyDown={[Function]}
     tabIndex="0"
   >
     <input
       checked={true}
+      field={
+        Object {
+          "name": "test-checkybox",
+          "onBlur": [Function],
+          "onChange": [Function],
+          "value": false,
+        }
+      }
+      form={
+        Object {
+          "errors": Array [],
+          "setFieldTouched": [Function],
+          "setFieldValue": [Function],
+          "touched": false,
+        }
+      }
       id="test-checkbox"
       onChange={[Function]}
       style={
@@ -86,7 +101,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       type="checkbox"
     />
     <span
-      className="Toggle-toggle-0-1-3"
+      className="Toggle-toggle-0-1-6"
     >
       <svg
         viewBox="0 0 24 24"
@@ -98,7 +113,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       </svg>
     </span>
     <span
-      className="Toggle-label-0-1-4"
+      className="Toggle-label-0-1-7"
     >
       Test Checkbox
     </span>

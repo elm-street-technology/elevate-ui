@@ -1,29 +1,28 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
-import sinon from 'sinon';
 
 import ThemeProvider from '../ThemeProvider';
-import Checkbox from './';
+import CheckboxGroup from './';
 
-const WrappedCheckbox = props => (
+const WrappedCheckboxGroup = props => (
   <ThemeProvider>
-    <Checkbox {...props} />
+    <CheckboxGroup {...props} />
   </ThemeProvider>
 );
 
 test('renders without crashing, matches the snapshot', () => {
   const component = renderer.create(
-    <WrappedCheckbox
+    <WrappedCheckboxGroup
       id="test-checkbox"
-      label="Test Checkbox"
-      onChange={sinon.spy()}
-      checked={true}
+      options={[
+        { label: 'First', value: 'first' },
+        { label: 'Second', value: 'second' },
+      ]}
       field={{
-        name: 'test-checkybox',
+        name: '',
         onChange: () => {},
         onBlur: () => {},
-        value: false,
+        value: [],
       }}
       form={{
         errors: [],

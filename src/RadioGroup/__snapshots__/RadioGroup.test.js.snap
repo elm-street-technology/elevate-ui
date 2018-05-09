@@ -2,17 +2,16 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="ToggleGroup-scaffold-0-1-1"
+  className="RadioGroup-scaffold-0-1-1"
 >
   <div
-    className="ToggleGroup-toggles-0-1-2"
+    className="RadioGroup-toggles-0-1-2"
   >
     <div
       className="Toggle-scaffold-0-1-4"
     >
       <label
         className="Toggle-root-0-1-5"
-        onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex="0"
       >
@@ -90,7 +89,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
               },
             }
           }
-          type="checkbox"
+          type="radio"
         />
         <span
           className="Toggle-toggle-0-1-6"
@@ -100,7 +99,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
             />
           </svg>
         </span>
@@ -116,7 +115,6 @@ exports[`renders without crashing, matches the snapshot 1`] = `
     >
       <label
         className="Toggle-root-0-1-5"
-        onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex="0"
       >
@@ -194,7 +192,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
               },
             }
           }
-          type="checkbox"
+          type="radio"
         />
         <span
           className="Toggle-toggle-0-1-6"
@@ -204,7 +202,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
             />
           </svg>
         </span>

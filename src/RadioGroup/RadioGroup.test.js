@@ -1,30 +1,27 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
 import sinon from 'sinon';
 
 import ThemeProvider from '../ThemeProvider';
-import Checkbox from './';
+import RadioGroup from './';
 
-const WrappedCheckbox = props => (
+const WrappedRadioGroup = props => (
   <ThemeProvider>
-    <Checkbox {...props} />
+    <RadioGroup {...props} />
   </ThemeProvider>
 );
 
 test('renders without crashing, matches the snapshot', () => {
   const component = renderer.create(
-    <WrappedCheckbox
-      id="test-checkbox"
-      label="Test Checkbox"
+    <WrappedRadioGroup
+      id="test-radio"
+      value={''}
       onChange={sinon.spy()}
-      checked={true}
-      field={{
-        name: 'test-checkybox',
-        onChange: () => {},
-        onBlur: () => {},
-        value: false,
-      }}
+      options={[
+        { label: 'First', value: 'first' },
+        { label: 'Second', value: 'second' },
+      ]}
+      field={{ name: '', onChange: () => {}, onBlur: () => {}, value: null }}
       form={{
         errors: [],
         setFieldValue: () => {},

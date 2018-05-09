@@ -11,8 +11,13 @@ const Inputs = Loadable({ loader: () => import('../docs/Inputs') });
 const Textareas = Loadable({ loader: () => import('../docs/Textareas') });
 const Selects = Loadable({ loader: () => import('../docs/Selects') });
 const MultiSelects = Loadable({ loader: () => import('../docs/MultiSelects') });
-// const Checkboxes = Loadable({ loader: () => import('../docs/Checkboxes') });
-// const Radios = Loadable({ loader: () => import('../docs/Radios') });
+const Checkboxes = Loadable({ loader: () => import('../docs/Checkboxes') });
+const CheckboxGroups = Loadable({
+  loader: () => import('../docs/CheckboxGroups'),
+});
+const RadioGroups = Loadable({
+  loader: () => import('../docs/RadioGroups'),
+});
 const Datetimes = Loadable({ loader: () => import('../docs/Datetimes') });
 const Buttons = Loadable({ loader: () => import('../docs/Buttons') });
 const Alerts = Loadable({ loader: () => import('../docs/Alerts') });
@@ -30,8 +35,9 @@ const Main = ({ classes }) => (
       <Route path="/textarea" component={Textareas} />
       <Route path="/select" component={Selects} />
       <Route path="/multi-select" component={MultiSelects} />
-      {/* <Route path="/checkbox" component={Checkboxes} /> */}
-      {/* <Route path="/radio" component={Radios} /> */}
+      <Route path="/checkbox" component={Checkboxes} />
+      <Route path="/checkbox-group" component={CheckboxGroups} />
+      <Route path="/radio-group" component={RadioGroups} />
       <Route path="/datetime" component={Datetimes} />
       <Route path="/button" component={Buttons} />
       <Route path="/alert" component={Alerts} />
