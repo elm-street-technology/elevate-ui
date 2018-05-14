@@ -22,6 +22,7 @@ const Datetimes = Loadable({ loader: () => import('../docs/Datetimes') });
 const Buttons = Loadable({ loader: () => import('../docs/Buttons') });
 const Alerts = Loadable({ loader: () => import('../docs/Alerts') });
 const Tables = Loadable({ loader: () => import('../docs/Tables') });
+const Icons = Loadable({ loader: () => import('../docs/Icons') });
 const SignupForm = Loadable({ loader: () => import('../docs/SignupForm') });
 
 const Main = ({ classes }) => (
@@ -42,6 +43,7 @@ const Main = ({ classes }) => (
       <Route path="/button" component={Buttons} />
       <Route path="/alert" component={Alerts} />
       <Route path="/table" component={Tables} />
+      <Route path="/icon" component={Icons} />
       <Route path="/signup" component={SignupForm} />
     </div>
   </div>
