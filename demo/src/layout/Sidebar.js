@@ -134,6 +134,7 @@ const Sidebar = ({ classes }) => {
         >
           Alert
         </NavLink>
+
         <NavLink
           activeClassName={classes.active}
           className={classes.item}
@@ -141,12 +142,21 @@ const Sidebar = ({ classes }) => {
         >
           Button
         </NavLink>
+
         <NavLink
           activeClassName={classes.active}
           className={classes.item}
           to="/table"
         >
           Table
+        </NavLink>
+
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/icon"
+        >
+          Icons
         </NavLink>
 
         <span className={classes.header}>Demos</span>
