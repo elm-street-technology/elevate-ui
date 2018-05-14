@@ -8,7 +8,7 @@
   "scripts": {
     "build": "yarn babel src --out-dir . --ignore setupTests.js,test.js",
     "clean": "./scripts/clean.js",
-    "deploy": "yarn run build && yarn publish",
+    "deploy": "yarn run build && yarn publish && cd demo && yarn && yarn deploy && cd ..",
     "lint": "eslint **/*.js",
     "precommit": "lint-staged",
     "prepush": "yarn run test",
