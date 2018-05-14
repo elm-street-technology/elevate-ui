@@ -44,7 +44,7 @@ Alert.defaultProps = {
 export default withStyles(theme => ({
   root: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: props => theme.alertColors[props.color].backgroundColor,
     borderRadius: '2px',
@@ -54,6 +54,9 @@ export default withStyles(theme => ({
   },
   icon: {
     flexShrink: '0',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     color: props => theme.alertColors[props.color].color,
     padding: '10px 0 10px 16px',
   },
