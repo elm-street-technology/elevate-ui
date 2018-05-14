@@ -4,6 +4,7 @@ import Broken from './Broken';
 import Calendar from './Calendar';
 import Cart from './Cart';
 import CreditCard from './CreditCard';
+import Coupon from './Coupon';
 import ExclamationOutline from './ExclamationOutline';
 import Person from './Person';
 import Refresh from './Refresh';
@@ -14,6 +15,7 @@ const icons = {
   Calendar,
   Cart,
   CreditCard,
+  Coupon,
   ExclamationOutline,
   Person,
   Refresh,
