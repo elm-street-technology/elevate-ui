@@ -1,12 +1,13 @@
 import React from 'react';
 
-import Broken from './broken';
-import Calendar from './calendar';
-import Cart from './cart';
-import CreditCard from './credit-card';
-import ExclamationOutline from './exclamation-outline';
-import Person from './person';
-import Times from './times';
+import Broken from './Broken';
+import Calendar from './Calendar';
+import Cart from './Cart';
+import CreditCard from './CreditCard';
+import ExclamationOutline from './ExclamationOutline';
+import Person from './Person';
+import Refresh from './Refresh';
+import Times from './Times';
 
 const icons = {
   Broken,
@@ -15,6 +16,7 @@ const icons = {
   CreditCard,
   ExclamationOutline,
   Person,
+  Refresh,
   Times,
 };
 
