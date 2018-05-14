@@ -74,20 +74,30 @@ export default withStyles(theme => ({
   root: {
     display: 'inline-flex',
     alignItems: 'center',
-    // cursor: disabled ? 'not-allowed' : 'pointer',
-    // opacity: disabled ? '0.65' : '1',
+
+    '&:focus': {
+      outline: 'none',
+    },
+
+    '&:disabled': {
+      cursor: 'not-allowed',
+    },
   },
   toggle: {
     position: 'relative',
     display: 'inline-block',
     width: '44px',
     height: '40px',
+
     borderRadius: '2px',
-    padding: '10px',
+    padding: '8px 10px 12px 10px',
     flexShrink: '0',
     overflow: 'hidden',
+    fill: theme.colors.gray500,
+    '$root:focus & svg': {
+      boxShadow: theme.globalBoxShadow,
+    },
 
-    // on-click expanding-circle animation shenanigans
     ':after': {
       content: '""',
       display: 'block',
@@ -99,16 +109,13 @@ export default withStyles(theme => ({
       left: '0',
       pointerEvents: 'none',
       backgroundColor: theme.colors.primary,
-      // transform: checked ? 'scale(1, 1)' : 'scale(0, 0)',
-      // opacity: checked ? '0' : '0.4',
-      // transitionProperty: 'transform, opacity',
-      // transitionTimingFunction: 'ease-out',
-      // transitionDuration: checked ? '600ms' : '0s',
     },
   },
   label: {
+    color: theme.colors.gray500,
+    fontFamily: 'inherit',
+    fontWeight: '400',
     fontSize: '16px',
-    fontWeight: '500',
-    paddingRight: '12px', // extra hitbox padding
+    lineHeight: '20px',
   },
 }))(Toggle);
