@@ -1,6 +1,6 @@
 import React from "react";
 import Paper from "elevate-ui/Paper";
-import Table from "elevate-ui/Table";
+import CheckboxTable from "elevate-ui/Table/CheckboxTable";
 import Typography from "elevate-ui/Typography";
 
 function Tables() {
@@ -24,36 +24,42 @@ function Tables() {
   ];
   const data = [
     {
+      _id: 1,
       name: "Chris",
       animal: "Cat",
       food: "Pizza",
       startDate: "2018-01-20",
     },
     {
+      _id: 2,
       name: "Jason",
       animal: "Red Panda",
       food: "Swedish Fish",
       startDate: "2018-01-20",
     },
     {
+      _id: 3,
       name: "Matt",
       animal: "Cat",
       food: "Steak",
       startDate: "2018-01-20",
     },
     {
+      _id: 4,
       name: "Eric",
       animal: "Panda",
       food: "Pho",
       startDate: "2018-01-20",
     },
     {
+      _id: 5,
       name: "Ashley",
       animal: "Red Fox",
       food: "Buffalo Chicken",
       startDate: "2018-01-20",
     },
     {
+      _id: 6,
       name: "Maximiliano",
       animal: "Fox",
       food: "Paella",
@@ -75,7 +81,7 @@ function Tables() {
           React-Table
         </a>.
       </Typography>
-      <Table data={data} columns={columns} />
+      <CheckboxTable data={data} columns={columns} />
       {/* <link
         rel="stylesheet"
         href="https://unpkg.com/react-table@latest/react-table.css"
