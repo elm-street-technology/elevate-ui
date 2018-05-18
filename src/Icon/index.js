@@ -6,6 +6,7 @@ import Cart from './Cart';
 import CreditCard from './CreditCard';
 import Coupon from './Coupon';
 import ExclamationOutline from './ExclamationOutline';
+import Kebab from './Kebab';
 import Person from './Person';
 import Refresh from './Refresh';
 import Times from './Times';
@@ -17,6 +18,7 @@ const icons = {
   CreditCard,
   Coupon,
   ExclamationOutline,
+  Kebab,
   Person,
   Refresh,
   Times,
