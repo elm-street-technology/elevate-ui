@@ -6,17 +6,19 @@
   "private": false,
   "sideEffects": false,
   "scripts": {
-    "start": "yarn babel --watch src --out-dir . --ignore setupTests.js,test.js",
     "build": "yarn babel src --out-dir . --ignore setupTests.js,test.js",
     "clean": "./scripts/clean.js",
+    "demo": "cd demo && yarn start",
     "deploy": "yarn run build && yarn publish && cd demo && yarn && yarn deploy && cd ..",
     "lint": "eslint **/*.js",
     "precommit": "lint-staged",
     "prepush": "yarn run test",
     "prettier": "prettier --write '**/*.{js,json,css,md}'",
+    "start": "concurrently \"yarn run watch\" \"yarn run demo\"",
     "test": "yarn run test:flow && yarn run test:jest",
     "test:flow": "flow check",
-    "test:jest": "jest"
+    "test:jest": "jest",
+    "watch": "yarn babel --watch src --out-dir . --ignore setupTests.js,test.js"
   },
   "dependencies": {
     "classnames": "2.2.5",
@@ -44,6 +46,7 @@
     "babel-preset-env": "1.6.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
+    "concurrently": "^3.5.1",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.19.1",
