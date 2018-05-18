@@ -3,10 +3,16 @@ import classNames from "classnames";
 import withStyles from "react-jss";
 import ReactTable from "react-table";
 
+// Export a ref to the ReactTable component in case a component needs access
+export let TableRef;
+
 // Wraps ReactTable component `withStyles` and overrides default styling
 // https://github.com/react-tools/react-table#js-styles
 const Table = ({ classes, ...rest }) => (
   <ReactTable
+    ref={(r) => {
+      TableRef = r;
+    }}
     showPagination={false} // temporary until styles
     getProps={() => ({
       className: classes.root,
@@ -107,21 +113,23 @@ export default withStyles((theme) => ({
   thead_tr: {
     flex: "1 0 auto",
     display: "inline-flex",
+    borderBottom: `1px solid ${theme.colors.gray200}`,
   },
   thead_th: {
-    "&.-sort-asc": {
-      background: "red !important", // todo
-    },
-    "&.-sort-desc": {
-      background: "blue !important", // todo
-    },
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "18px 18px",
+    backgroundPosition: "right 8px center",
     "&.-cursor-pointer": {
       cursor: "pointer",
     },
+    "&.-sort-asc": {
+      backgroundImage: `url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="%23888f96" d="M12.66,3.32l4.16,5.33A.83.83,0,0,1,16.16,10H7.84a.83.83,0,0,1-.66-1.35l4.16-5.33A.84.84,0,0,1,12.66,3.32Z"/></svg>')`,
+    },
+    "&.-sort-desc": {
+      backgroundImage: `url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="%23888f96" d="M11.34,20.68,7.18,15.35A.83.83,0,0,1,7.84,14h8.32a.83.83,0,0,1,.66,1.35l-4.16,5.33A.84.84,0,0,1,11.34,20.68Z"/></svg>')`,
+    },
   },
-  thead_group: {
-    borderBottom: `1px solid ${theme.colors.gray200}`,
-  },
+  thead_group: {},
   thead_group_tr: {},
   thead_group_th: {},
   thead_filter: {

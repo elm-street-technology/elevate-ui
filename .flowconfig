@@ -1,5 +1,4 @@
 [libs]
-flow/declarations/
 
 [options]
 module.system.node.resolve_dirname=.
