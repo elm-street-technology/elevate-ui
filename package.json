@@ -13,6 +13,7 @@
     "lint": "eslint **/*.js",
     "precommit": "lint-staged",
     "prepush": "yarn run test",
+    "prettier": "prettier --write '**/*.{js,json,css,md}'",
     "test": "yarn run test:flow && yarn run test:jest",
     "test:flow": "flow check",
     "test:jest": "jest"
@@ -56,7 +57,7 @@
     "husky": "0.14.3",
     "jest": "22.4.3",
     "lint-staged": "7.0.0",
-    "prettier": "1.11.1",
+    "prettier": "1.12.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-router-dom": "4.2.2",
