@@ -24,37 +24,37 @@ function Tables() {
   ];
   const data = [
     {
-      name: 'Chris Heninger',
+      name: 'Chris',
       animal: 'Cat',
       food: 'Pizza',
       startDate: '2018-01-20',
     },
     {
-      name: 'Jason Walsh',
+      name: 'Jason',
       animal: 'Red Panda',
       food: 'Swedish Fish',
       startDate: '2018-01-20',
     },
     {
-      name: 'Matt Lorey',
+      name: 'Matt',
       animal: 'Cat',
       food: 'Steak',
       startDate: '2018-01-20',
     },
     {
-      name: 'Eric Vinson',
+      name: 'Eric',
       animal: 'Panda',
       food: 'Pho',
       startDate: '2018-01-20',
     },
     {
-      name: 'Ashley Fogarty',
+      name: 'Ashley',
       animal: 'Red Fox',
       food: 'Buffalo Chicken',
       startDate: '2018-01-20',
     },
     {
-      name: 'Maximiliano Korp',
+      name: 'Maximiliano',
       animal: 'Fox',
       food: 'Paella',
       startDate: '2018-01-20',
@@ -76,10 +76,10 @@ function Tables() {
         </a>.
       </Typography>
       <Table data={data} columns={columns} />
-      <link
+      {/* <link
         rel="stylesheet"
         href="https://unpkg.com/react-table@latest/react-table.css"
-      />
+      /> */}
     </Paper>
   );
 }
