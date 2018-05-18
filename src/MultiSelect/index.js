@@ -68,14 +68,20 @@ class MultiSelect extends Component<Props, State> {
   };
 
   onAddTag = (item) => {
-    const { field: { name, value }, form: { setFieldValue } } = this.props;
+    const {
+      field: { name, value },
+      form: { setFieldValue },
+    } = this.props;
     const updatedValue = [...value];
     updatedValue.push(item);
     setFieldValue(name, updatedValue);
   };
 
   onRemoveTag = (item) => {
-    const { field: { name, value }, form: { setFieldValue } } = this.props;
+    const {
+      field: { name, value },
+      form: { setFieldValue },
+    } = this.props;
     const index = value.findIndex((val) => val.value === item.value);
     const updatedValue = [...value];
     updatedValue.splice(index, 1);
@@ -100,7 +106,10 @@ class MultiSelect extends Component<Props, State> {
   };
 
   popValue() {
-    const { field: { name, value }, form: { setFieldValue } } = this.props;
+    const {
+      field: { name, value },
+      form: { setFieldValue },
+    } = this.props;
     const updatedValue = [...value];
     updatedValue.pop();
     setFieldValue(name, updatedValue);
@@ -128,7 +137,10 @@ class MultiSelect extends Component<Props, State> {
   };
 
   renderArrowIcon(isOpen) {
-    const { classes, theme: { colors } } = this.props;
+    const {
+      classes,
+      theme: { colors },
+    } = this.props;
     return (
       <svg
         className={classes.arrow}
