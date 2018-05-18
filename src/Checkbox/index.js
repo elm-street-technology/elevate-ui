@@ -14,7 +14,10 @@ type Props = {
 
 class Checkbox extends Component<Props> {
   onChange = (e) => {
-    const { field: { name }, form: { setFieldValue } } = this.props;
+    const {
+      field: { name },
+      form: { setFieldValue },
+    } = this.props;
     setFieldValue(name, e.target.checked);
   };
 

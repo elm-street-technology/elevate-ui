@@ -22,7 +22,10 @@ class RadioGroup extends Component<Props> {
   };
 
   onChange = (e) => {
-    const { field: { name }, form: { setFieldValue } } = this.props;
+    const {
+      field: { name },
+      form: { setFieldValue },
+    } = this.props;
 
     if (e.target.checked) {
       const selectedRadio = e.target.id;
@@ -31,7 +34,13 @@ class RadioGroup extends Component<Props> {
   };
 
   render() {
-    const { label, options, classes, display, field: { value } } = this.props;
+    const {
+      label,
+      options,
+      classes,
+      display,
+      field: { value },
+    } = this.props;
     return (
       <div className={classes.scaffold}>
         {label && <Label>{label}</Label>}

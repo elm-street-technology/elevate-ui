@@ -49,7 +49,10 @@ class Select extends Component<Props, State> {
   };
 
   onItemSelect = (item) => {
-    const { field: { name }, form: { setFieldValue } } = this.props;
+    const {
+      field: { name },
+      form: { setFieldValue },
+    } = this.props;
     setFieldValue(name, item);
   };
 
@@ -75,7 +78,10 @@ class Select extends Component<Props, State> {
   };
 
   renderTimesIcon(onItemSelect) {
-    const { classes, theme: { colors } } = this.props;
+    const {
+      classes,
+      theme: { colors },
+    } = this.props;
     return (
       <button
         onClick={() => onItemSelect({ label: "", value: "" })}
@@ -93,7 +99,10 @@ class Select extends Component<Props, State> {
   }
 
   renderArrowIcon(isOpen) {
-    const { classes, theme: { colors } } = this.props;
+    const {
+      classes,
+      theme: { colors },
+    } = this.props;
     return (
       <button type="button" className={classes.arrow}>
         <svg
