@@ -1,11 +1,11 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import Yup from 'yup';
+import React from "react";
+import { Formik, Form, Field } from "formik";
+import Yup from "yup";
 
-import Paper from 'elevate-ui/Paper';
-import Typography from 'elevate-ui/Typography';
-import Checkbox from 'elevate-ui/Checkbox';
-import Button from 'elevate-ui/Button';
+import Paper from "elevate-ui/Paper";
+import Typography from "elevate-ui/Typography";
+import Checkbox from "elevate-ui/Checkbox";
+import Button from "elevate-ui/Button";
 
 const Checkboxes = () => (
   <Paper>
@@ -33,7 +33,7 @@ const Checkboxes = () => (
         isSubmitting,
         isValid,
       }) => (
-        <Form noValidate style={{ maxWidth: '420px' }}>
+        <Form noValidate style={{ maxWidth: "420px" }}>
           <Field
             id="isMagic"
             name="isMagic"

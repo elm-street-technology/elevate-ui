@@ -1,17 +1,17 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import React from "react";
+import renderer from "react-test-renderer";
+import { mount } from "enzyme";
 
-import ThemeProvider from '../ThemeProvider';
-import Alert from './';
+import ThemeProvider from "../ThemeProvider";
+import Alert from "./";
 
-const WrappedAlert = props => (
+const WrappedAlert = (props) => (
   <ThemeProvider>
     <Alert {...props} />
   </ThemeProvider>
 );
 
-test('renders without crashing, matches the snapshot', () => {
+test("renders without crashing, matches the snapshot", () => {
   const component = renderer.create(
     <WrappedAlert icon="ExclamationOutline">
       Oh no! Something went terribly wrong!
@@ -21,11 +21,11 @@ test('renders without crashing, matches the snapshot', () => {
   expect(componentJSON).toMatchSnapshot();
 });
 
-test('takes an icon prop', () => {
+test("takes an icon prop", () => {
   const component = mount(
     <WrappedAlert icon="ExclamationOutline">
       Oh no! Something went terribly wrong!
     </WrappedAlert>
   );
-  expect(component.find('svg')).toHaveLength(1);
+  expect(component.find("svg")).toHaveLength(1);
 });

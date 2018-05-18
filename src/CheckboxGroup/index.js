@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import withStyles from 'react-jss';
-import classNames from 'classnames';
-import UncontrolledCheckbox from '../Checkbox/UncontrolledCheckbox';
-import Label from '../Label';
-import without from 'lodash/without';
+import React, { Component } from "react";
+import withStyles from "react-jss";
+import classNames from "classnames";
+import UncontrolledCheckbox from "../Checkbox/UncontrolledCheckbox";
+import Label from "../Label";
+import without from "lodash/without";
 
 type Props = {
   classes: Object,
   className: string,
-  display: 'inline' | 'block',
+  display: "inline" | "block",
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   options: Array<{ label: string, value: string }>,
@@ -18,11 +18,11 @@ type Props = {
 
 class CheckboxGroup extends Component<Props> {
   static defaultProps = {
-    display: 'block',
+    display: "block",
     options: [],
   };
 
-  onChange = e => {
+  onChange = (e) => {
     const { field: { name, value }, form: { setFieldValue } } = this.props;
     const selectedCheckbox = e.target.id;
 
@@ -48,10 +48,10 @@ class CheckboxGroup extends Component<Props> {
         <div
           className={classNames(
             classes.toggles,
-            display === 'inline' && classes.inline
+            display === "inline" && classes.inline
           )}
         >
-          {options.map(option =>
+          {options.map((option) =>
             React.cloneElement(<UncontrolledCheckbox />, {
               key: option.value,
               id: option.value,
@@ -67,18 +67,18 @@ class CheckboxGroup extends Component<Props> {
   }
 }
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   scaffold: {
-    margin: '8px auto 16px',
+    margin: "8px auto 16px",
   },
   toggles: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
-    marginLeft: '-12px',
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    alignItems: "flex-start",
+    marginLeft: "-12px",
   },
   inline: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
 }))(CheckboxGroup);

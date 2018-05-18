@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import withStyles from 'react-jss';
-import UncontrolledCheckbox from './UncontrolledCheckbox';
+import React, { Component } from "react";
+import withStyles from "react-jss";
+import UncontrolledCheckbox from "./UncontrolledCheckbox";
 
 type Props = {
   classes: Object,
@@ -13,7 +13,7 @@ type Props = {
 };
 
 class Checkbox extends Component<Props> {
-  onChange = e => {
+  onChange = (e) => {
     const { field: { name }, form: { setFieldValue } } = this.props;
     setFieldValue(name, e.target.checked);
   };
@@ -29,18 +29,18 @@ class Checkbox extends Component<Props> {
   }
 }
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   scaffold: {
-    margin: '8px auto 16px',
+    margin: "8px auto 16px",
   },
   toggles: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
-    marginLeft: '-12px',
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    alignItems: "flex-start",
+    marginLeft: "-12px",
   },
   inline: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
 }))(Checkbox);

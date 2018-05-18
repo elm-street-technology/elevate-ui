@@ -1,20 +1,20 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import Yup from 'yup';
+import React from "react";
+import { Formik, Form, Field } from "formik";
+import Yup from "yup";
 
-import Paper from 'elevate-ui/Paper';
-import Typography from 'elevate-ui/Typography';
-import Input from 'elevate-ui/Input';
-import Button from 'elevate-ui/Button';
+import Paper from "elevate-ui/Paper";
+import Typography from "elevate-ui/Typography";
+import Input from "elevate-ui/Input";
+import Button from "elevate-ui/Button";
 
 const Inputs = () => (
   <Paper>
     <Typography type="title">{`<Input />`}</Typography>
     <Formik
-      initialValues={{ name: '' }}
+      initialValues={{ name: "" }}
       validationSchema={() =>
         Yup.object().shape({
-          name: Yup.string().required('Name is required'),
+          name: Yup.string().required("Name is required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -33,7 +33,7 @@ const Inputs = () => (
         isSubmitting,
         isValid,
       }) => (
-        <Form noValidate style={{ maxWidth: '420px' }}>
+        <Form noValidate style={{ maxWidth: "420px" }}>
           <Field id="name" name="name" label="Name" component={Input} />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit

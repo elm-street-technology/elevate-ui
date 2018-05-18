@@ -1,25 +1,25 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import React from "react";
+import renderer from "react-test-renderer";
 
-import ThemeProvider from '../ThemeProvider';
-import CheckboxGroup from './';
+import ThemeProvider from "../ThemeProvider";
+import CheckboxGroup from "./";
 
-const WrappedCheckboxGroup = props => (
+const WrappedCheckboxGroup = (props) => (
   <ThemeProvider>
     <CheckboxGroup {...props} />
   </ThemeProvider>
 );
 
-test('renders without crashing, matches the snapshot', () => {
+test("renders without crashing, matches the snapshot", () => {
   const component = renderer.create(
     <WrappedCheckboxGroup
       id="test-checkbox"
       options={[
-        { label: 'First', value: 'first' },
-        { label: 'Second', value: 'second' },
+        { label: "First", value: "first" },
+        { label: "Second", value: "second" },
       ]}
       field={{
-        name: '',
+        name: "",
         onChange: () => {},
         onBlur: () => {},
         value: [],

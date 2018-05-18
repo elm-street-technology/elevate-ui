@@ -1,5 +1,5 @@
-import React from 'react';
-import withStyles from 'react-jss';
+import React from "react";
+import withStyles from "react-jss";
 
 /* Animated SVG thanks to @sherb at http://samherbert.net/svg-loaders/ */
 const LoadingIndicator = ({
@@ -117,7 +117,7 @@ const LoadingIndicator = ({
               />
             </rect>
           </svg>
-          <div className={classes.text}>{text || 'Loading…'}</div>
+          <div className={classes.text}>{text || "Loading…"}</div>
         </div>
       );
     } else {
@@ -132,18 +132,18 @@ const LoadingIndicator = ({
   return null;
 };
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: '1',
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    flex: "1",
   },
   text: {
     color: theme.colors.gray700,
-    fontSize: '16px',
-    fontWeight: '500',
-    marginTop: '32px',
+    fontSize: "16px",
+    fontWeight: "500",
+    marginTop: "32px",
   },
 }))(LoadingIndicator);

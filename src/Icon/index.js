@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import Broken from './Broken';
-import Calendar from './Calendar';
-import Cart from './Cart';
-import CreditCard from './CreditCard';
-import Coupon from './Coupon';
-import ExclamationOutline from './ExclamationOutline';
-import Kebab from './Kebab';
-import Person from './Person';
-import Refresh from './Refresh';
-import Times from './Times';
+import Broken from "./Broken";
+import Calendar from "./Calendar";
+import Cart from "./Cart";
+import CreditCard from "./CreditCard";
+import Coupon from "./Coupon";
+import ExclamationOutline from "./ExclamationOutline";
+import Kebab from "./Kebab";
+import Person from "./Person";
+import Refresh from "./Refresh";
+import Times from "./Times";
 
 const icons = {
   Broken,
@@ -31,7 +31,7 @@ const Icon = ({ icon, ...rest }) => {
     });
   }
 
-  return React.createElement(icons['Broken'], {
+  return React.createElement(icons["Broken"], {
     ...rest,
   });
 };

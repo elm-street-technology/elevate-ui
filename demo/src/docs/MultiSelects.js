@@ -1,26 +1,26 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import Yup from 'yup';
+import React from "react";
+import { Formik, Form, Field } from "formik";
+import Yup from "yup";
 
-import Paper from 'elevate-ui/Paper';
-import Typography from 'elevate-ui/Typography';
-import MultiSelect from 'elevate-ui/MultiSelect';
-import Button from 'elevate-ui/Button';
+import Paper from "elevate-ui/Paper";
+import Typography from "elevate-ui/Typography";
+import MultiSelect from "elevate-ui/MultiSelect";
+import Button from "elevate-ui/Button";
 
 const roygbiv = [
-  { label: 'Red', value: 'red' },
-  { label: 'Orange', value: 'orange' },
-  { label: 'Yellow', value: 'yellow' },
-  { label: 'Green', value: 'green' },
-  { label: 'Blue', value: 'blue' },
-  { label: 'Indigo', value: 'indigo' },
-  { label: 'Violet', value: 'violet' },
+  { label: "Red", value: "red" },
+  { label: "Orange", value: "orange" },
+  { label: "Yellow", value: "yellow" },
+  { label: "Green", value: "green" },
+  { label: "Blue", value: "blue" },
+  { label: "Indigo", value: "indigo" },
+  { label: "Violet", value: "violet" },
 ];
 const cmyk = [
-  { label: 'Cyan', value: 'cyan' },
-  { label: 'Magenta', value: 'magenta' },
-  { label: 'Yellow', value: 'yellow' },
-  { label: 'Black', value: 'black' },
+  { label: "Cyan", value: "cyan" },
+  { label: "Magenta", value: "magenta" },
+  { label: "Yellow", value: "yellow" },
+  { label: "Black", value: "black" },
 ];
 
 const MultiSelects = ({
@@ -40,7 +40,7 @@ const MultiSelects = ({
         Yup.object().shape({
           colors: Yup.array()
             .of(Yup.object())
-            .required('A color is required'),
+            .required("A color is required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -59,7 +59,7 @@ const MultiSelects = ({
         isSubmitting,
         isValid,
       }) => (
-        <Form noValidate style={{ maxWidth: '420px' }}>
+        <Form noValidate style={{ maxWidth: "420px" }}>
           <Field
             id="colors"
             name="colors"

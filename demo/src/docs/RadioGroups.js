@@ -1,11 +1,11 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import Yup from 'yup';
+import React from "react";
+import { Formik, Form, Field } from "formik";
+import Yup from "yup";
 
-import Paper from 'elevate-ui/Paper';
-import Typography from 'elevate-ui/Typography';
-import RadioGroup from 'elevate-ui/RadioGroup';
-import Button from 'elevate-ui/Button';
+import Paper from "elevate-ui/Paper";
+import Typography from "elevate-ui/Typography";
+import RadioGroup from "elevate-ui/RadioGroup";
+import Button from "elevate-ui/Button";
 
 const RadioGroups = () => (
   <Paper>
@@ -14,7 +14,7 @@ const RadioGroups = () => (
       initialValues={{ color: null }}
       validationSchema={() =>
         Yup.object().shape({
-          color: Yup.string().required('A color is required'),
+          color: Yup.string().required("A color is required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -33,17 +33,17 @@ const RadioGroups = () => (
         isSubmitting,
         isValid,
       }) => (
-        <Form noValidate style={{ maxWidth: '420px' }}>
+        <Form noValidate style={{ maxWidth: "420px" }}>
           <Field
             id="color"
             name="color"
             label="Color"
             component={RadioGroup}
             options={[
-              { value: 'red', label: 'Red' },
-              { value: 'green', label: 'Green' },
-              { value: 'blue', label: 'Blue' },
-              { value: 'yellow', label: 'Yellow' },
+              { value: "red", label: "Red" },
+              { value: "green", label: "Green" },
+              { value: "blue", label: "Blue" },
+              { value: "yellow", label: "Yellow" },
             ]}
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>

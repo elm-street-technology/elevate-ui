@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import Paper from 'elevate-ui/Paper';
-import Typography from 'elevate-ui/Typography';
-import Alert from 'elevate-ui/Alert';
+import Paper from "elevate-ui/Paper";
+import Typography from "elevate-ui/Typography";
+import Alert from "elevate-ui/Alert";
 
 const AlertExample = ({
   values,
@@ -28,16 +28,16 @@ const AlertExample = ({
           Our records indicate you are not active or eligible with the MLS due
           to your MLS subscription type or dues.
         </Typography>
-        <Typography type="body" style={{ marginTop: '8px' }}>
-          If you think this is a mistake, please contact{' '}
+        <Typography type="body" style={{ marginTop: "8px" }}>
+          If you think this is a mistake, please contact{" "}
           <a
             href="mailto:salessupport@elmstreettechnology.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             salessupport@elmstreettechnology.com
-          </a>{' '}
-          or call us at{' '}
+          </a>{" "}
+          or call us at{" "}
           <a href="tel:8772189771" target="_blank" rel="noopener noreferrer">
             877-218-9771
           </a>.

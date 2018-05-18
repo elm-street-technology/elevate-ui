@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import withStyles from 'react-jss';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import withStyles from "react-jss";
+import classNames from "classnames";
 
 class Toggle extends Component {
   static propTypes = {
@@ -10,13 +10,13 @@ class Toggle extends Component {
     className: PropTypes.string,
     id: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
-    type: PropTypes.oneOf(['checkbox', 'radio']).isRequired,
+    type: PropTypes.oneOf(["checkbox", "radio"]).isRequired,
     uncheckedIcon: PropTypes.node.isRequired,
   };
 
   static defaultProps = {
-    tabIndex: '0',
-    type: 'text',
+    tabIndex: "0",
+    type: "text",
   };
 
   render() {
@@ -35,10 +35,10 @@ class Toggle extends Component {
       <div className={classNames(classes.scaffold, className)}>
         <label
           className={classes.root}
-          ref={l => {
+          ref={(l) => {
             this.label = l;
           }}
-          onKeyDown={e => {
+          onKeyDown={(e) => {
             if (e.keyCode === 32) {
               e.preventDefault();
               this.label.click();
@@ -47,11 +47,11 @@ class Toggle extends Component {
           tabIndex={passthroughProps.disabled ? null : tabIndex}
         >
           <input
-            ref={c => {
+            ref={(c) => {
               this.checkbox = c;
             }}
             {...passthroughProps}
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
           />
           <span className={classes.toggle}>
             {passthroughProps.checked ? checkedIcon : uncheckedIcon}
@@ -66,38 +66,38 @@ class Toggle extends Component {
   }
 }
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   scaffold: {
-    position: 'relative',
-    display: 'flex',
+    position: "relative",
+    display: "flex",
   },
   root: {
-    display: 'inline-flex',
-    alignItems: 'center',
+    display: "inline-flex",
+    alignItems: "center",
     // cursor: disabled ? 'not-allowed' : 'pointer',
     // opacity: disabled ? '0.65' : '1',
   },
   toggle: {
-    position: 'relative',
-    display: 'inline-block',
-    width: '44px',
-    height: '40px',
-    borderRadius: '2px',
-    padding: '10px',
-    flexShrink: '0',
-    overflow: 'hidden',
+    position: "relative",
+    display: "inline-block",
+    width: "44px",
+    height: "40px",
+    borderRadius: "2px",
+    padding: "10px",
+    flexShrink: "0",
+    overflow: "hidden",
 
     // on-click expanding-circle animation shenanigans
-    ':after': {
+    ":after": {
       content: '""',
-      display: 'block',
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      borderRadius: '100%',
-      top: '0',
-      left: '0',
-      pointerEvents: 'none',
+      display: "block",
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      borderRadius: "100%",
+      top: "0",
+      left: "0",
+      pointerEvents: "none",
       backgroundColor: theme.colors.primary,
       // transform: checked ? 'scale(1, 1)' : 'scale(0, 0)',
       // opacity: checked ? '0' : '0.4',
@@ -107,8 +107,8 @@ export default withStyles(theme => ({
     },
   },
   label: {
-    fontSize: '16px',
-    fontWeight: '500',
-    paddingRight: '12px', // extra hitbox padding
+    fontSize: "16px",
+    fontWeight: "500",
+    paddingRight: "12px", // extra hitbox padding
   },
 }))(Toggle);

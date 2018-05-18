@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Toggle from '../Toggle';
+import React from "react";
+import PropTypes from "prop-types";
+import Toggle from "../Toggle";
 
 const UncontrolledCheckbox = ({ checkedIcon, uncheckedIcon, ...rest }) => {
   return (

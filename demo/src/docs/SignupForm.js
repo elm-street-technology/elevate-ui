@@ -1,11 +1,11 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import Yup from 'yup';
+import React from "react";
+import { Formik, Form, Field } from "formik";
+import Yup from "yup";
 
-import Paper from 'elevate-ui/Paper';
-import Typography from 'elevate-ui/Typography';
-import Input from 'elevate-ui/Input';
-import Button from 'elevate-ui/Button';
+import Paper from "elevate-ui/Paper";
+import Typography from "elevate-ui/Typography";
+import Input from "elevate-ui/Input";
+import Button from "elevate-ui/Button";
 
 const SignUpForm = ({
   values,
@@ -19,14 +19,14 @@ const SignUpForm = ({
   <Paper>
     <Typography type="title">Sign-up Form Demo</Typography>
     <Formik
-      initialValues={{ name: '', email: '', password: '' }}
+      initialValues={{ name: "", email: "", password: "" }}
       validationSchema={() =>
         Yup.object().shape({
-          name: Yup.string().required('Name is required'),
+          name: Yup.string().required("Name is required"),
           email: Yup.string()
-            .email('Invalid email address')
-            .required('Email is required'),
-          password: Yup.string().required('Password is required'),
+            .email("Invalid email address")
+            .required("Email is required"),
+          password: Yup.string().required("Password is required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -44,7 +44,7 @@ const SignUpForm = ({
         handleSubmit,
         isSubmitting,
       }) => (
-        <Form noValidate style={{ maxWidth: '420px' }}>
+        <Form noValidate style={{ maxWidth: "420px" }}>
           <Field id="name" name="name" label="Name" component={Input} />
           <Field id="email" name="email" label="Email" component={Input} />
           <Field

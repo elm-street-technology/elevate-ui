@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Logo = ({ width = 600, height = 160, ...rest }) => {
   return (

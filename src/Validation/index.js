@@ -1,11 +1,11 @@
-import React from 'react';
-import withStyles from 'react-jss';
-import classNames from 'classnames';
+import React from "react";
+import withStyles from "react-jss";
+import classNames from "classnames";
 
 type Props = {
   classes: Object,
   className: string,
-  color: 'primary' | 'secondary' | 'danger',
+  color: "primary" | "secondary" | "danger",
   error: any,
   theme: Object,
 };
@@ -24,21 +24,21 @@ const Validation = ({
 );
 
 Validation.defaultProps = {
-  color: 'danger',
+  color: "danger",
 };
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   root: {
-    display: 'inline-flex',
-    fontSize: '14px',
-    lineHeight: '18px',
-    color: props => theme.alertColors[props.color].color,
-    backgroundColor: props => theme.alertColors[props.color].backgroundColor,
-    borderRadius: '2px',
-    borderColor: props => theme.alertColors[props.color].borderColor,
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    marginTop: '4px',
-    padding: '2px 8px',
+    display: "inline-flex",
+    fontSize: "14px",
+    lineHeight: "18px",
+    color: (props) => theme.alertColors[props.color].color,
+    backgroundColor: (props) => theme.alertColors[props.color].backgroundColor,
+    borderRadius: "2px",
+    borderColor: (props) => theme.alertColors[props.color].borderColor,
+    borderWidth: "1px",
+    borderStyle: "solid",
+    marginTop: "4px",
+    padding: "2px 8px",
   },
 }))(Validation);

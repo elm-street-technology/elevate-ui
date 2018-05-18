@@ -1,14 +1,14 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import React from "react";
+import renderer from "react-test-renderer";
 
-import ThemeProvider from '../ThemeProvider';
-import Input from './';
+import ThemeProvider from "../ThemeProvider";
+import Input from "./";
 
-const WrappedInput = props => (
+const WrappedInput = (props) => (
   <ThemeProvider>
     <Input
       field={{
-        name: '',
+        name: "",
         onChange: () => {},
         onBlur: () => {},
         value: null,
@@ -24,7 +24,7 @@ const WrappedInput = props => (
   </ThemeProvider>
 );
 
-test('renders without crashing, matches the snapshot', () => {
+test("renders without crashing, matches the snapshot", () => {
   const component = renderer.create(<WrappedInput id="firstName" />);
   const componentJSON = component.toJSON();
   expect(componentJSON).toMatchSnapshot();

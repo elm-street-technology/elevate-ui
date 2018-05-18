@@ -1,9 +1,9 @@
-import React from 'react';
-import classNames from 'classnames';
-import withStyles from 'react-jss';
+import React from "react";
+import classNames from "classnames";
+import withStyles from "react-jss";
 
-import Label from '../Label';
-import Validation from '../Validation';
+import Label from "../Label";
+import Validation from "../Validation";
 
 type Props = {
   classes: Object,
@@ -40,41 +40,41 @@ const Textarea = ({
 );
 
 Textarea.defaultProps = {
-  tabIndex: '0',
+  tabIndex: "0",
 };
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   scaffold: {
-    width: '100%',
-    margin: '8px auto 16px',
+    width: "100%",
+    margin: "8px auto 16px",
   },
   root: {
-    display: 'block',
-    width: '100%',
-    height: 'auto',
+    display: "block",
+    width: "100%",
+    height: "auto",
     color: theme.typography.bodyColor,
-    fontFamily: 'inherit',
-    fontWeight: '400',
-    fontSize: '16px',
-    lineHeight: '20px',
+    fontFamily: "inherit",
+    fontWeight: "400",
+    fontSize: "16px",
+    lineHeight: "20px",
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
-    padding: '8px 12px',
-    boxShadow: 'none', // Reset default inputs for mozilla
-    '-webkit-appearance': 'none', // Reset default browser styles
-    '-moz-appearance': 'none', // Reset default browser styles
+    padding: "8px 12px",
+    boxShadow: "none", // Reset default inputs for mozilla
+    "-webkit-appearance": "none", // Reset default browser styles
+    "-moz-appearance": "none", // Reset default browser styles
 
-    '&:focus': {
-      outline: 'none', // Disable default focus glow
+    "&:focus": {
+      outline: "none", // Disable default focus glow
       boxShadow: theme.globalBoxShadow, // Add back focus style
     },
 
-    '&:disabled': {
-      cursor: 'not-allowed',
+    "&:disabled": {
+      cursor: "not-allowed",
     },
   },
   textarea: {
-    minHeight: '120px',
-    resize: 'vertical',
+    minHeight: "120px",
+    resize: "vertical",
   },
 }))(Textarea);
