@@ -1,3 +1,3 @@
-import withStyles from 'react-jss';
+import withStyles from "react-jss";
 
 export default withStyles;

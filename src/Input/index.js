@@ -1,9 +1,9 @@
-import React from 'react';
-import withStyles from 'react-jss';
-import classNames from 'classnames';
+import React from "react";
+import withStyles from "react-jss";
+import classNames from "classnames";
 
-import Label from '../Label';
-import Validation from '../Validation';
+import Label from "../Label";
+import Validation from "../Validation";
 
 type Props = {
   classes: Object,
@@ -36,38 +36,38 @@ const Input = ({
 );
 
 Input.defaultProps = {
-  tabIndex: '0',
-  type: 'text',
+  tabIndex: "0",
+  type: "text",
 };
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   scaffold: {
-    width: '100%',
-    margin: '8px auto 16px',
+    width: "100%",
+    margin: "8px auto 16px",
   },
   root: {
-    display: 'block',
-    width: '100%',
-    height: '40px',
+    display: "block",
+    width: "100%",
+    height: "40px",
     color: theme.typography.bodyColor,
-    fontFamily: 'inherit',
-    fontWeight: '400',
-    fontSize: '16px',
-    lineHeight: '20px',
+    fontFamily: "inherit",
+    fontWeight: "400",
+    fontSize: "16px",
+    lineHeight: "20px",
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
-    padding: '8px 12px',
-    boxShadow: 'none', // Reset default inputs for mozilla
-    '-webkit-appearance': 'none', // Reset default browser styles
-    '-moz-appearance': 'none', // Reset default browser styles
+    padding: "8px 12px",
+    boxShadow: "none", // Reset default inputs for mozilla
+    "-webkit-appearance": "none", // Reset default browser styles
+    "-moz-appearance": "none", // Reset default browser styles
 
-    '&:focus': {
-      outline: 'none', // Disable default focus glow
+    "&:focus": {
+      outline: "none", // Disable default focus glow
       boxShadow: theme.globalBoxShadow, // Add back focus style
     },
 
-    '&:disabled': {
-      cursor: 'not-allowed',
+    "&:disabled": {
+      cursor: "not-allowed",
     },
   },
 }))(Input);

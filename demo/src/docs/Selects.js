@@ -1,20 +1,20 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import Yup from 'yup';
+import React from "react";
+import { Formik, Form, Field } from "formik";
+import Yup from "yup";
 
-import Paper from 'elevate-ui/Paper';
-import Typography from 'elevate-ui/Typography';
-import Select from 'elevate-ui/Select';
-import Button from 'elevate-ui/Button';
+import Paper from "elevate-ui/Paper";
+import Typography from "elevate-ui/Typography";
+import Select from "elevate-ui/Select";
+import Button from "elevate-ui/Button";
 
 const roygbiv = [
-  { label: 'Red', value: 'red' },
-  { label: 'Orange', value: 'orange' },
-  { label: 'Yellow', value: 'yellow' },
-  { label: 'Green', value: 'green' },
-  { label: 'Blue', value: 'blue' },
-  { label: 'Indigo', value: 'indigo' },
-  { label: 'Violet', value: 'violet' },
+  { label: "Red", value: "red" },
+  { label: "Orange", value: "orange" },
+  { label: "Yellow", value: "yellow" },
+  { label: "Green", value: "green" },
+  { label: "Blue", value: "blue" },
+  { label: "Indigo", value: "indigo" },
+  { label: "Violet", value: "violet" },
 ];
 
 const Selects = ({
@@ -31,13 +31,13 @@ const Selects = ({
     <Formik
       initialValues={{
         color: {
-          label: '',
-          value: '',
+          label: "",
+          value: "",
         },
       }}
       validationSchema={() =>
         Yup.object().shape({
-          color: Yup.object().required('A favorite color is required'),
+          color: Yup.object().required("A favorite color is required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -56,7 +56,7 @@ const Selects = ({
         isSubmitting,
         isValid,
       }) => (
-        <Form noValidate style={{ maxWidth: '420px' }}>
+        <Form noValidate style={{ maxWidth: "420px" }}>
           <Field
             id="color"
             name="color"

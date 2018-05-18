@@ -1,7 +1,7 @@
-import React from 'react';
-import Paper from 'elevate-ui/Paper';
-import Typography from 'elevate-ui/Typography';
-import Button from 'elevate-ui/Button';
+import React from "react";
+import Paper from "elevate-ui/Paper";
+import Typography from "elevate-ui/Typography";
+import Button from "elevate-ui/Button";
 
 function Home() {
   return (
@@ -10,7 +10,7 @@ function Home() {
       <Typography
         type="body"
         style={{
-          margin: '8px 0 16px',
+          margin: "8px 0 16px",
         }}
       >
         Elevate-UI is an opinionated toolkit of React components and patterns

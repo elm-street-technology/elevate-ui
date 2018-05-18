@@ -1,21 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import Paper from 'elevate-ui/Paper';
-import Typography from 'elevate-ui/Typography';
-import Icon from 'elevate-ui/Icon';
+import Paper from "elevate-ui/Paper";
+import Typography from "elevate-ui/Typography";
+import Icon from "elevate-ui/Icon";
 
 const Icons = () => {
   const data = [
-    'Broken',
-    'Calendar',
-    'Cart',
-    'Coupon',
-    'CreditCard',
-    'ExclamationOutline',
-    'HTMLOptGroupElement',
-    'Person',
-    'Refresh',
-    'Times',
+    "Broken",
+    "Calendar",
+    "Cart",
+    "Coupon",
+    "CreditCard",
+    "ExclamationOutline",
+    "HTMLOptGroupElement",
+    "Person",
+    "Refresh",
+    "Times",
   ];
 
   return (
@@ -34,7 +34,7 @@ const Icons = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map(name => {
+          {data.map((name) => {
             return (
               <tr>
                 <td>

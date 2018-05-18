@@ -1,13 +1,13 @@
 // @flow
-import React, { Component } from 'react';
-import withStyles from 'react-jss';
-import classNames from 'classnames';
-import Downshift from 'downshift';
-import AutosizeInput from 'react-input-autosize';
+import React, { Component } from "react";
+import withStyles from "react-jss";
+import classNames from "classnames";
+import Downshift from "downshift";
+import AutosizeInput from "react-input-autosize";
 
-import Label from '../Label';
-import Validation from '../Validation';
-import Tag from './Tag';
+import Label from "../Label";
+import Validation from "../Validation";
+import Tag from "./Tag";
 
 type Item = {
   label: string,
@@ -29,10 +29,10 @@ type State = {
   inputValue: string,
 };
 
-const itemToString = item => (item ? item.label : '');
+const itemToString = (item) => (item ? item.label : "");
 class MultiSelect extends Component<Props, State> {
   state = {
-    inputValue: '',
+    inputValue: "",
   };
   _input;
   _inputWrapper;
@@ -55,34 +55,34 @@ class MultiSelect extends Component<Props, State> {
 
   handleStateChange = (changes, downshiftStateAndHelpers) => {
     if (!downshiftStateAndHelpers.isOpen) {
-      this.setState({ inputValue: '' });
+      this.setState({ inputValue: "" });
     }
-    if (changes.hasOwnProperty('selectedItem')) {
+    if (changes.hasOwnProperty("selectedItem")) {
       this.onAddTag(changes.selectedItem);
     }
   };
 
-  onInputChange = e => {
+  onInputChange = (e) => {
     const inputValue = e.target.value;
     this.setState({ inputValue });
   };
 
-  onAddTag = item => {
+  onAddTag = (item) => {
     const { field: { name, value }, form: { setFieldValue } } = this.props;
     const updatedValue = [...value];
     updatedValue.push(item);
     setFieldValue(name, updatedValue);
   };
 
-  onRemoveTag = item => {
+  onRemoveTag = (item) => {
     const { field: { name, value }, form: { setFieldValue } } = this.props;
-    const index = value.findIndex(val => val.value === item.value);
+    const index = value.findIndex((val) => val.value === item.value);
     const updatedValue = [...value];
     updatedValue.splice(index, 1);
     setFieldValue(name, updatedValue);
   };
 
-  onInputKeyDown = event => {
+  onInputKeyDown = (event) => {
     const currentValue = event.target.value;
     switch (event.keyCode) {
       case 8: // backspace
@@ -106,7 +106,7 @@ class MultiSelect extends Component<Props, State> {
     setFieldValue(name, updatedValue);
   }
 
-  onWrapperClick = e => {
+  onWrapperClick = (e) => {
     e.stopPropagation();
     e.preventDefault();
     this.focusOnInput();
@@ -114,16 +114,16 @@ class MultiSelect extends Component<Props, State> {
 
   focusOnInput() {
     this._input.focus();
-    if (typeof this._input.getInput === 'function') {
+    if (typeof this._input.getInput === "function") {
       this._input.getInput().focus();
     }
   }
 
-  inputRef = c => {
+  inputRef = (c) => {
     this._input = c;
   };
 
-  inputWrapperRef = c => {
+  inputWrapperRef = (c) => {
     this._inputWrapper = c;
   };
 
@@ -135,10 +135,10 @@ class MultiSelect extends Component<Props, State> {
         width={24}
         height={24}
         viewBox="0 0 1792 1792"
-        transform={isOpen ? 'rotate(180)' : null}
+        transform={isOpen ? "rotate(180)" : null}
       >
         <path
-          fill={colors.gray300 || 'currentColor'}
+          fill={colors.gray300 || "currentColor"}
           d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"
         />
       </svg>
@@ -177,7 +177,7 @@ class MultiSelect extends Component<Props, State> {
                 onClick={this.onWrapperClick}
               >
                 <div className={classes.tagWrapper}>
-                  {value.map(item => (
+                  {value.map((item) => (
                     <Tag
                       key={item.value}
                       tag={item}
@@ -193,7 +193,7 @@ class MultiSelect extends Component<Props, State> {
                       onKeyDown: this.onInputKeyDown,
                       value: this.state.inputValue,
                     })}
-                    onBlur={selection => setFieldTouched(name, selection)}
+                    onBlur={(selection) => setFieldTouched(name, selection)}
                   />
                 </div>
                 {this.renderArrowIcon(isOpen)}
@@ -202,8 +202,9 @@ class MultiSelect extends Component<Props, State> {
                 <div className={classes.dropdown}>
                   {items
                     .filter(
-                      i =>
-                        value.findIndex(val => val.value === i.value) === -1 &&
+                      (i) =>
+                        value.findIndex((val) => val.value === i.value) ===
+                          -1 &&
                         (!this.state.inputValue ||
                           i.label
                             .toLowerCase()
@@ -215,7 +216,7 @@ class MultiSelect extends Component<Props, State> {
                         className={classNames({
                           [classes.dropdownItem]: true,
                           [classes.dropdownItemSelected]:
-                            value.findIndex(val => val.value === item.value) >
+                            value.findIndex((val) => val.value === item.value) >
                             -1,
                           [classes.dropdownItemActive]:
                             highlightedIndex === index,
@@ -240,75 +241,75 @@ class MultiSelect extends Component<Props, State> {
   }
 }
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   scaffold: {
-    position: 'relative',
-    width: '100%',
-    margin: '8px auto 16px',
+    position: "relative",
+    width: "100%",
+    margin: "8px auto 16px",
   },
   wrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    width: '100%',
-    minHeight: '40px',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    width: "100%",
+    minHeight: "40px",
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
-    padding: '2px 12px 2px 8px',
-    cursor: props => (props.disabled ? 'not-allowed' : 'default'),
+    padding: "2px 12px 2px 8px",
+    cursor: (props) => (props.disabled ? "not-allowed" : "default"),
   },
   tagWrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "flex-start",
+    alignItems: "center",
   },
   root: {
-    '& input': {
-      color: 'inherit',
-      fontFamily: 'inherit',
-      fontWeight: '400',
-      fontSize: '16px',
-      lineHeight: '20px',
-      border: 'none',
-      outline: 'none',
-      cursor: 'inherit',
-      boxShadow: 'none', // Reset default inputs for mozilla
-      '-webkit-appearance': 'none', // Reset default browser styles
-      '-moz-appearance': 'none', // Reset default browser styles
+    "& input": {
+      color: "inherit",
+      fontFamily: "inherit",
+      fontWeight: "400",
+      fontSize: "16px",
+      lineHeight: "20px",
+      border: "none",
+      outline: "none",
+      cursor: "inherit",
+      boxShadow: "none", // Reset default inputs for mozilla
+      "-webkit-appearance": "none", // Reset default browser styles
+      "-moz-appearance": "none", // Reset default browser styles
     },
   },
   arrow: {
-    flexShrink: '0',
-    display: 'block',
-    marginLeft: 'auto',
+    flexShrink: "0",
+    display: "block",
+    marginLeft: "auto",
   },
   dropdown: {
-    position: 'absolute',
-    zIndex: '1',
-    width: '100%',
-    maxHeight: '200px',
+    position: "absolute",
+    zIndex: "1",
+    width: "100%",
+    maxHeight: "200px",
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
     boxShadow: theme.globalBoxShadow, // Add back focus style
-    marginTop: '-1px', // force overlapping border with input
-    overflowY: 'scroll',
+    marginTop: "-1px", // force overlapping border with input
+    overflowY: "scroll",
   },
   dropdownItem: {
-    fontSize: '16px',
-    lineHeight: '20px',
-    fontWeight: '400',
-    padding: '8px 12px',
+    fontSize: "16px",
+    lineHeight: "20px",
+    fontWeight: "400",
+    padding: "8px 12px",
   },
   dropdownItemSelected: {
-    fontWeight: '600',
+    fontWeight: "600",
     color: theme.colors.white,
     backgroundColor: theme.colors.secondaryDark,
   },
   dropdownItemActive: {
-    fontWeight: '600',
+    fontWeight: "600",
     color: theme.colors.white,
     backgroundColor: theme.colors.secondary,
   },

@@ -1,14 +1,14 @@
 // @flow
-import React from 'react';
-import classNames from 'classnames';
-import withStyles from 'react-jss';
+import React from "react";
+import classNames from "classnames";
+import withStyles from "react-jss";
 
 type Props = {
   element?: string,
   children: any,
   classes: Object,
   className: string,
-  color: 'primary' | 'secondary',
+  color: "primary" | "secondary",
   isDisabled: true | false,
   isRounded: true | false,
   isOutlined: true | false,
@@ -38,8 +38,8 @@ const Button = ({
 );
 
 Button.defaultProps = {
-  element: 'button',
-  color: 'primary',
+  element: "button",
+  color: "primary",
   isRounded: true,
   isOutlined: false,
   isDisabled: false,
@@ -47,7 +47,7 @@ Button.defaultProps = {
 
 function getChildColor(theme, props) {
   if (props.isDisabled) {
-    return theme.colors['gray300'];
+    return theme.colors["gray300"];
   } else if (props.isOutlined) {
     return theme.colors[props.color];
   } else {
@@ -55,34 +55,35 @@ function getChildColor(theme, props) {
   }
 }
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   root: {
-    display: 'inline-flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textDecoration: 'none',
-    backgroundColor: props =>
-      props.isOutlined ? 'transparent' : theme.colors[props.color],
-    borderRadius: props => (props.isRounded ? theme.globalBorderRadius : '0px'),
-    borderColor: props =>
-      props.isOutlined ? theme.colors[props.color] : 'transparent',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    '&:disabled': {
-      cursor: 'not-allowed',
-      background: props =>
-        props.isOutlined ? 'transparent' : theme.colors['gray100'],
-      color: theme.colors['gray300'],
-      borderColor: props =>
-        props.isOutlined ? theme.colors['gray200'] : 'none',
+    display: "inline-flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textDecoration: "none",
+    backgroundColor: (props) =>
+      props.isOutlined ? "transparent" : theme.colors[props.color],
+    borderRadius: (props) =>
+      props.isRounded ? theme.globalBorderRadius : "0px",
+    borderColor: (props) =>
+      props.isOutlined ? theme.colors[props.color] : "transparent",
+    borderWidth: "1px",
+    borderStyle: "solid",
+    "&:disabled": {
+      cursor: "not-allowed",
+      background: (props) =>
+        props.isOutlined ? "transparent" : theme.colors["gray100"],
+      color: theme.colors["gray300"],
+      borderColor: (props) =>
+        props.isOutlined ? theme.colors["gray200"] : "none",
     },
   },
   children: {
-    color: props => getChildColor(theme, props),
+    color: (props) => getChildColor(theme, props),
     fontFamily: theme.typography.sans,
-    fontSize: '14px',
-    lineHeight: '20px',
-    fontWeight: '600',
-    padding: '10px 16px',
+    fontSize: "14px",
+    lineHeight: "20px",
+    fontWeight: "600",
+    padding: "10px 16px",
   },
 }))(Button);

@@ -1,8 +1,8 @@
-import React from 'react';
-import classNames from 'classnames';
-import withStyles from 'react-jss';
+import React from "react";
+import classNames from "classnames";
+import withStyles from "react-jss";
 
-import Icon from '../Icon';
+import Icon from "../Icon";
 
 type Item = {
   label: string,
@@ -24,7 +24,7 @@ const Tag = (props: Props) => {
       <button
         type="button"
         className={classes.button}
-        onClick={e => {
+        onClick={(e) => {
           e.stopPropagation();
           e.preventDefault();
           onRemove(tag);
@@ -36,26 +36,26 @@ const Tag = (props: Props) => {
   );
 };
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   root: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     border: `1px solid ${theme.colors.secondary}`,
     borderRadius: theme.globalBorderRadius,
-    margin: '2px',
+    margin: "2px",
   },
   text: {
-    fontSize: '16px',
-    lineHeight: '24px',
-    fontWeight: '600',
+    fontSize: "16px",
+    lineHeight: "24px",
+    fontWeight: "600",
     color: theme.colors.secondary,
-    padding: '2px 2px 2px 8px',
+    padding: "2px 2px 2px 8px",
   },
   button: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     color: theme.colors.secondary,
-    padding: '2px',
+    padding: "2px",
   },
 }))(Tag);

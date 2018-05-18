@@ -1,24 +1,24 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import React from "react";
+import renderer from "react-test-renderer";
 
-import ThemeProvider from '../ThemeProvider';
-import MultiSelect from './';
+import ThemeProvider from "../ThemeProvider";
+import MultiSelect from "./";
 
 const roygbiv = [
-  { label: 'Red', value: 'red' },
-  { label: 'Orange', value: 'orange' },
-  { label: 'Yellow', value: 'yellow' },
-  { label: 'Green', value: 'green' },
-  { label: 'Blue', value: 'blue' },
-  { label: 'Indigo', value: 'indigo' },
-  { label: 'Violet', value: 'violet' },
+  { label: "Red", value: "red" },
+  { label: "Orange", value: "orange" },
+  { label: "Yellow", value: "yellow" },
+  { label: "Green", value: "green" },
+  { label: "Blue", value: "blue" },
+  { label: "Indigo", value: "indigo" },
+  { label: "Violet", value: "violet" },
 ];
 
-const WrappedMultiSelect = props => (
+const WrappedMultiSelect = (props) => (
   <ThemeProvider>
     <MultiSelect
       field={{
-        name: '',
+        name: "",
         onChange: () => {},
         onBlur: () => {},
         value: [],
@@ -34,7 +34,7 @@ const WrappedMultiSelect = props => (
   </ThemeProvider>
 );
 
-test('renders without crashing, matches the snapshot', () => {
+test("renders without crashing, matches the snapshot", () => {
   const component = renderer.create(
     <WrappedMultiSelect id="color" items={roygbiv} />
   );

@@ -13,7 +13,7 @@
  * https://github.com/flowtype/flow-typed
  */
 
-declare module 'formik' {
+declare module "formik" {
   declare module.exports: any;
 }
 
@@ -22,32 +22,32 @@ declare module 'formik' {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module 'formik/dist/formik.es6' {
+declare module "formik/dist/formik.es6" {
   declare module.exports: any;
 }
 
-declare module 'formik/dist/formik' {
+declare module "formik/dist/formik" {
   declare module.exports: any;
 }
 
-declare module 'formik/dist/formik.umd' {
+declare module "formik/dist/formik.umd" {
   declare module.exports: any;
 }
 
-declare module 'formik/dist/formik.umd.min' {
+declare module "formik/dist/formik.umd.min" {
   declare module.exports: any;
 }
 
 // Filename aliases
-declare module 'formik/dist/formik.es6.js' {
-  declare module.exports: $Exports<'formik/dist/formik.es6'>;
+declare module "formik/dist/formik.es6.js" {
+  declare module.exports: $Exports<"formik/dist/formik.es6">;
 }
-declare module 'formik/dist/formik.js' {
-  declare module.exports: $Exports<'formik/dist/formik'>;
+declare module "formik/dist/formik.js" {
+  declare module.exports: $Exports<"formik/dist/formik">;
 }
-declare module 'formik/dist/formik.umd.js' {
-  declare module.exports: $Exports<'formik/dist/formik.umd'>;
+declare module "formik/dist/formik.umd.js" {
+  declare module.exports: $Exports<"formik/dist/formik.umd">;
 }
-declare module 'formik/dist/formik.umd.min.js' {
-  declare module.exports: $Exports<'formik/dist/formik.umd.min'>;
+declare module "formik/dist/formik.umd.min.js" {
+  declare module.exports: $Exports<"formik/dist/formik.umd.min">;
 }

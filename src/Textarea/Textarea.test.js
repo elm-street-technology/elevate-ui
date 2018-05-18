@@ -1,14 +1,14 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import React from "react";
+import renderer from "react-test-renderer";
 
-import ThemeProvider from '../ThemeProvider';
-import Textarea from './';
+import ThemeProvider from "../ThemeProvider";
+import Textarea from "./";
 
-const WrappedTextarea = props => (
+const WrappedTextarea = (props) => (
   <ThemeProvider>
     <Textarea
       field={{
-        name: '',
+        name: "",
         onChange: () => {},
         onBlur: () => {},
         value: null,
@@ -24,7 +24,7 @@ const WrappedTextarea = props => (
   </ThemeProvider>
 );
 
-test('renders without crashing, matches the snapshot', () => {
+test("renders without crashing, matches the snapshot", () => {
   const component = renderer.create(<WrappedTextarea id="summary" />);
   const componentJSON = component.toJSON();
   expect(componentJSON).toMatchSnapshot();

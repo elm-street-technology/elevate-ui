@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import withStyles from 'react-jss';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import withStyles from "react-jss";
+import classNames from "classnames";
 
 type Props = {
   children: any,
@@ -9,12 +9,12 @@ type Props = {
   className: string,
   component: string,
   theme: Object,
-  type: 'title' | 'body',
+  type: "title" | "body",
 };
 
 const typeElementMap = {
-  title: 'h1',
-  body: 'p',
+  title: "h1",
+  body: "p",
 };
 
 const Typography = ({
@@ -25,7 +25,7 @@ const Typography = ({
   type,
   ...rest
 }: Props) => {
-  const Element = componentProp || typeElementMap[type] || 'span';
+  const Element = componentProp || typeElementMap[type] || "span";
   return (
     <Element
       className={classNames(classes.root, classes[type], className)}
@@ -36,19 +36,19 @@ const Typography = ({
   );
 };
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   root: {
-    width: '100%',
+    width: "100%",
   },
   title: {
-    fontSize: '36px',
-    lineHeight: '48px',
-    fontWeight: '600',
+    fontSize: "36px",
+    lineHeight: "48px",
+    fontWeight: "600",
     color: theme.colors.gray800,
   },
   body: {
-    maxWidth: '600px',
-    fontSize: '14px',
-    lineHeight: '18px',
+    maxWidth: "600px",
+    fontSize: "14px",
+    lineHeight: "18px",
   },
 }))(Typography);

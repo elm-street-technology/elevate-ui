@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import withStyles from 'react-jss';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import withStyles from "react-jss";
+import classNames from "classnames";
 
 type Props = {
   children: any,
@@ -32,13 +32,13 @@ Paper.propTypes = {
 };
 
 Paper.defaultProps = {
-  element: 'div',
+  element: "div",
 };
 
-export default withStyles(theme => ({
+export default withStyles((theme) => ({
   root: {
-    width: '100%',
-    height: 'auto',
+    width: "100%",
+    height: "auto",
     background: theme.colors.white,
     border: `1px solid ${theme.colors.gray200}`,
     borderRadius: theme.globalBorderRadius,
