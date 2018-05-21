@@ -14,3 +14,7 @@
 .env
 npm-debug.log
 yarn-error.log
+
+# lockfiles
+yarn.lock
+package-lock.json

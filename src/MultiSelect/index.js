@@ -5,8 +5,7 @@ import classNames from "classnames";
 import Downshift from "downshift";
 import AutosizeInput from "react-input-autosize";
 
-import Label from "../Label";
-import Validation from "../Validation";
+import Scaffold from "../Scaffold";
 import Tag from "./Tag";
 
 type Item = {
@@ -18,11 +17,12 @@ type Props = {
   classes: Object,
   className: string,
   closeOnSelect: boolean,
-  field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
-  form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  field: Object,
+  form: Object,
   items: Array<Item>,
   label: string,
   theme: Object,
+  withScaffold: boolean,
 };
 
 type State = {
@@ -141,6 +141,7 @@ class MultiSelect extends Component<Props, State> {
       classes,
       theme: { colors },
     } = this.props;
+
     return (
       <svg
         className={classes.arrow}
@@ -165,7 +166,9 @@ class MultiSelect extends Component<Props, State> {
       form: { errors, setFieldTouched, touched },
       items = [],
       label,
+      withScaffold = true,
     } = this.props;
+
     return (
       <Downshift
         itemToString={itemToString}
@@ -180,71 +183,78 @@ class MultiSelect extends Component<Props, State> {
           highlightedIndex,
           openMenu,
         }) => {
-          return (
-            <div className={classNames(classes.scaffold, className)}>
-              {label && <Label {...getLabelProps()}>{label}</Label>}
-              <div
-                ref={this.inputWrapperRef}
-                className={classes.wrapper}
-                onClick={this.onWrapperClick}
-              >
-                <div className={classes.tagWrapper}>
-                  {value.map((item) => (
-                    <Tag
-                      key={item.value}
-                      tag={item}
-                      onRemove={this.onRemoveTag}
-                    />
-                  ))}
-                  <AutosizeInput
-                    {...getInputProps({
-                      ref: this.inputRef,
-                      className: classes.root,
-                      onChange: this.onInputChange,
-                      onFocus: openMenu,
-                      onKeyDown: this.onInputKeyDown,
-                      value: this.state.inputValue,
-                    })}
-                    onBlur={(selection) => setFieldTouched(name, selection)}
+          const Input = (
+            <div
+              ref={this.inputWrapperRef}
+              className={classNames(classes.wrapper, className)}
+              onClick={this.onWrapperClick}
+            >
+              <div className={classes.tagWrapper}>
+                {value.map((item) => (
+                  <Tag
+                    key={item.value}
+                    tag={item}
+                    onRemove={this.onRemoveTag}
                   />
-                </div>
-                {this.renderArrowIcon(isOpen)}
+                ))}
+                <AutosizeInput
+                  {...getInputProps({
+                    ref: this.inputRef,
+                    className: classes.root,
+                    onChange: this.onInputChange,
+                    onFocus: openMenu,
+                    onKeyDown: this.onInputKeyDown,
+                    value: this.state.inputValue,
+                  })}
+                  onBlur={(selection) => setFieldTouched(name, selection)}
+                />
               </div>
-              {isOpen && (
-                <div className={classes.dropdown}>
-                  {items
-                    .filter(
-                      (i) =>
-                        value.findIndex((val) => val.value === i.value) ===
-                          -1 &&
-                        (!this.state.inputValue ||
-                          i.label
-                            .toLowerCase()
-                            .includes(this.state.inputValue.toLowerCase()))
-                    )
-                    .map((item, index) => (
-                      <div
-                        key={item.value}
-                        className={classNames({
-                          [classes.dropdownItem]: true,
-                          [classes.dropdownItemSelected]:
-                            value.findIndex((val) => val.value === item.value) >
-                            -1,
-                          [classes.dropdownItemActive]:
-                            highlightedIndex === index,
-                        })}
-                        {...getItemProps({
-                          index,
-                          item,
-                        })}
-                      >
-                        {itemToString(item)}
-                      </div>
-                    ))}
-                </div>
-              )}
-              {touched[name] &&
-                errors[name] && <Validation error={errors[name]} />}
+              {this.renderArrowIcon(isOpen)}
+            </div>
+          );
+
+          const Dropdown = (
+            <div className={classes.dropdown}>
+              {items
+                .filter(
+                  (i) =>
+                    value.findIndex((val) => val.value === i.value) === -1 &&
+                    (!this.state.inputValue ||
+                      i.label
+                        .toLowerCase()
+                        .includes(this.state.inputValue.toLowerCase()))
+                )
+                .map((item, index) => (
+                  <div
+                    key={item.value}
+                    className={classNames({
+                      [classes.dropdownItem]: true,
+                      [classes.dropdownItemSelected]:
+                        value.findIndex((val) => val.value === item.value) > -1,
+                      [classes.dropdownItemActive]: highlightedIndex === index,
+                    })}
+                    {...getItemProps({
+                      index,
+                      item,
+                    })}
+                  >
+                    {itemToString(item)}
+                  </div>
+                ))}
+            </div>
+          );
+
+          return withScaffold ? (
+            <div>
+              <Scaffold label={label} error={touched[name] && errors[name]}>
+                {Input}
+                {isOpen && Dropdown}
+              </Scaffold>
+            </div>
+          ) : (
+            <div>
+              {Input}
+              {isOpen && Dropdown}
             </div>
           );
         }}
@@ -254,11 +264,6 @@ class MultiSelect extends Component<Props, State> {
 }
 
 export default withStyles((theme) => ({
-  scaffold: {
-    position: "relative",
-    width: "100%",
-    margin: "8px auto 16px",
-  },
   wrapper: {
     display: "flex",
     flexDirection: "row",

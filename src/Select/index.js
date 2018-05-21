@@ -4,8 +4,7 @@ import withStyles from "react-jss";
 import classNames from "classnames";
 import Downshift from "downshift";
 
-import Label from "../Label";
-import Validation from "../Validation";
+import Scaffold from "../Scaffold";
 
 type Item = {
   label: string,
@@ -20,6 +19,7 @@ type Props = {
   items: Array<Item>,
   label: string,
   theme: Object,
+  withScaffold: boolean,
 };
 
 type State = {
@@ -128,6 +128,7 @@ class Select extends Component<Props, State> {
       form: { errors, setFieldTouched, touched },
       items = [],
       label,
+      withScaffold = true,
     } = this.props;
     const { inputValue } = this.state;
 
@@ -144,9 +145,8 @@ class Select extends Component<Props, State> {
           highlightedIndex,
           openMenu,
           selectedItem,
-        }) => (
-          <div className={classNames(classes.scaffold, className)}>
-            {label && <Label {...getLabelProps()}>{label}</Label>}
+        }) => {
+          const Input = (
             <div
               ref={this.inputWrapperRef}
               className={classes.wrapper}
@@ -165,48 +165,55 @@ class Select extends Component<Props, State> {
               {this.renderArrowIcon(isOpen)}
               {value && value.value && this.renderTimesIcon(this.onItemSelect)}
             </div>
-            {isOpen && (
-              <div className={classes.dropdown}>
-                {items
-                  .filter(
-                    (i) =>
-                      !inputValue ||
-                      i.label.toLowerCase().includes(inputValue.toLowerCase())
-                  )
-                  .map((item, index) => (
-                    <div
-                      key={item.value}
-                      className={classNames({
-                        [classes.dropdownItem]: true,
-                        [classes.dropdownItemActive]:
-                          highlightedIndex === index,
-                        [classes.dropdownItemSelected]: selectedItem === item,
-                      })}
-                      {...getItemProps({
-                        index,
-                        item,
-                      })}
-                    >
-                      {itemToString(item)}
-                    </div>
-                  ))}
-              </div>
-            )}
-            {touched[name] &&
-              errors[name] && <Validation error={errors[name]} />}
-          </div>
-        )}
+          );
+
+          const Dropdown = (
+            <div className={classes.dropdown}>
+              {items
+                .filter(
+                  (i) =>
+                    !inputValue ||
+                    i.label.toLowerCase().includes(inputValue.toLowerCase())
+                )
+                .map((item, index) => (
+                  <div
+                    key={item.value}
+                    className={classNames({
+                      [classes.dropdownItem]: true,
+                      [classes.dropdownItemActive]: highlightedIndex === index,
+                      [classes.dropdownItemSelected]: selectedItem === item,
+                    })}
+                    {...getItemProps({
+                      index,
+                      item,
+                    })}
+                  >
+                    {itemToString(item)}
+                  </div>
+                ))}
+            </div>
+          );
+
+          return withScaffold ? (
+            <div>
+              <Scaffold label={label} error={touched[name] && errors[name]}>
+                {Input}
+                {isOpen && Dropdown}
+              </Scaffold>
+            </div>
+          ) : (
+            <div>
+              {Input}
+              {isOpen && Dropdown}
+            </div>
+          );
+        }}
       />
     );
   }
 }
 
 export default withStyles((theme) => ({
-  scaffold: {
-    position: "relative",
-    width: "100%",
-    margin: "8px auto 16px",
-  },
   wrapper: {
     display: "flex",
     flexDirection: "row",

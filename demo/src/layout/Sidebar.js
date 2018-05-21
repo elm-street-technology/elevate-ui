@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import withStyles from "react-jss";
 import { Link, NavLink } from "react-router-dom";
 
@@ -172,10 +171,6 @@ const Sidebar = ({ classes }) => {
   );
 };
 
-Sidebar.propTypes = {
-  classes: PropTypes.object,
-};
-
 export default withStyles((theme) => ({
   root: {
     display: "flex",
@@ -186,7 +181,7 @@ export default withStyles((theme) => ({
   logoLink: {
     display: "flex",
     margin: "0 auto 8px",
-    padding: "32px 40px 16px",
+    padding: "32px 24px 12px",
   },
   nav: {
     display: "flex",

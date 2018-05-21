@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import withStyles from "react-jss";
 import classNames from "classnames";
+import withStyles from "react-jss";
 
 type Props = {
   children: any,
@@ -22,6 +21,7 @@ const Typography = ({
   classes,
   className,
   component: componentProp,
+  theme,
   type,
   ...rest
 }: Props) => {

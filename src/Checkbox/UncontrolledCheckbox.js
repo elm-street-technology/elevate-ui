@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Toggle from "../Toggle";
 
 const UncontrolledCheckbox = ({ checkedIcon, uncheckedIcon, ...rest }) => {
@@ -11,11 +10,6 @@ const UncontrolledCheckbox = ({ checkedIcon, uncheckedIcon, ...rest }) => {
       {...rest}
     />
   );
-};
-
-UncontrolledCheckbox.propTypes = {
-  checkedIcon: PropTypes.node,
-  uncheckedIcon: PropTypes.node,
 };
 
 UncontrolledCheckbox.defaultProps = {

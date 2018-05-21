@@ -2,18 +2,18 @@ import React from "react";
 import withStyles from "react-jss";
 import classNames from "classnames";
 
-import Label from "../Label";
-import Validation from "../Validation";
+import Scaffold from "../Scaffold";
 
 type Props = {
   classes: Object,
   className: string,
-  field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
-  form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  field: Object,
+  form: Object,
   id: string,
   label: string,
   theme: Object,
   type: string,
+  withScaffold: boolean,
 };
 
 const Input = ({
@@ -25,15 +25,32 @@ const Input = ({
   label,
   theme,
   type,
+  withScaffold = true,
   ...rest
-}: Props) => (
-  <div className={classNames(classes.scaffold, className)}>
-    {label && <Label htmlFor={id}>{label}</Label>}
-    <input type={type} id={id} className={classes.root} {...field} {...rest} />
-    {touched[field.name] &&
-      errors[field.name] && <Validation error={errors[field.name]} />}
-  </div>
-);
+}: Props) =>
+  withScaffold ? (
+    <Scaffold
+      id={id}
+      label={label}
+      error={touched[field.name] && errors[field.name]}
+    >
+      <input
+        type={type}
+        id={id}
+        className={classNames(classes.root, className)}
+        {...field}
+        {...rest}
+      />
+    </Scaffold>
+  ) : (
+    <input
+      type={type}
+      id={id}
+      className={classNames(classes.root, className)}
+      {...field}
+      {...rest}
+    />
+  );
 
 Input.defaultProps = {
   tabIndex: "0",
@@ -41,10 +58,6 @@ Input.defaultProps = {
 };
 
 export default withStyles((theme) => ({
-  scaffold: {
-    width: "100%",
-    margin: "8px auto 16px",
-  },
   root: {
     display: "block",
     width: "100%",
