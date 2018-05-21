@@ -24,46 +24,46 @@ function Tables() {
   ];
   const data = [
     {
-      _id: 1,
+      id: 1,
       name: "Chris",
       animal: "Cat",
       food: "Pizza",
       startDate: "2018-01-20",
     },
     {
-      _id: 2,
+      id: 2,
       name: "Jason",
       animal: "Red Panda",
       food: "Swedish Fish",
-      startDate: "2018-01-20",
+      startDate: "2016-05-09",
     },
     {
-      _id: 3,
+      id: 3,
       name: "Matt",
       animal: "Cat",
       food: "Steak",
-      startDate: "2018-01-20",
+      startDate: "2016-05-02",
     },
     {
-      _id: 4,
+      id: 4,
       name: "Eric",
       animal: "Panda",
       food: "Pho",
-      startDate: "2018-01-20",
+      startDate: "2016-05-09",
     },
     {
-      _id: 5,
+      id: 5,
       name: "Ashley",
       animal: "Red Fox",
       food: "Buffalo Chicken",
-      startDate: "2018-01-20",
+      startDate: "2016-05-16",
     },
     {
-      _id: 6,
+      id: 6,
       name: "Maximiliano",
       animal: "Fox",
       food: "Paella",
-      startDate: "2018-01-20",
+      startDate: "2017-01-01",
     },
   ];
 
@@ -81,7 +81,7 @@ function Tables() {
           React-Table
         </a>.
       </Typography>
-      <CheckboxTable data={data} columns={columns} />
+      <CheckboxTable data={data} columns={columns} filterable />
       {/* <link
         rel="stylesheet"
         href="https://unpkg.com/react-table@latest/react-table.css"

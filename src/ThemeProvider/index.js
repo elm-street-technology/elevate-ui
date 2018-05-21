@@ -150,6 +150,10 @@ const GlobalsAndReset = withStyles((theme) => ({
       borderColor: "transparent",
       padding: "0",
       margin: "0",
+      "&:disabled": {
+        opacity: 0.6,
+        cursor: "not-allowed",
+      },
     },
   },
 }))(({ children }) => children);

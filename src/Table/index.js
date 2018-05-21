@@ -3,7 +3,18 @@ import classNames from "classnames";
 import withStyles from "react-jss";
 import ReactTable from "react-table";
 
-// Export a ref to the ReactTable component in case a component needs access
+import { RawInput } from "../Input";
+import Pagination from "./Pagination";
+
+const Filter = ({ filter, onChange }) => (
+  <RawInput
+    type="text"
+    value={filter ? filter.value : ""}
+    onChange={(event) => onChange(event.target.value)}
+  />
+);
+
+// Export a ref to the ReactTable component in case a component needs access internals
 export let TableRef;
 
 // Wraps ReactTable component `withStyles` and overrides default styling
@@ -13,7 +24,7 @@ const Table = ({ classes, ...rest }) => (
     ref={(r) => {
       TableRef = r;
     }}
-    showPagination={false} // temporary until styles
+    // showPagination={false} // temporary until styles
     getProps={() => ({
       className: classes.root,
     })}
@@ -46,6 +57,8 @@ const Table = ({ classes, ...rest }) => (
     })}
     getTheadFilterThProps={() => ({
       className: classes.thead_filter_th,
+      role: "",
+      tabIndex: "",
     })}
     getTbodyProps={() => ({
       className: classes.tbody,
@@ -67,12 +80,23 @@ const Table = ({ classes, ...rest }) => (
     })}
     getTfootTrProps={() => ({})}
     getTfootThProps={() => ({})}
-    getPaginationProps={() => ({
-      className: classes.pagination,
+    getLoadingProps={() => ({
+      className: classes.loading,
     })}
-    getLoadingProps={() => ({})}
     getNoDataProps={() => ({})}
-    getResizerProps={() => ({})}
+    getResizerProps={() => ({
+      className: classes.resizer,
+    })}
+    defaultFilterMethod={(filter, row, column) => {
+      const id = filter.pivotId || filter.id;
+      return row[id] !== undefined
+        ? String(row[id])
+            .toLowerCase()
+            .includes(filter.value.toLowerCase())
+        : true;
+    }}
+    FilterComponent={Filter}
+    PaginationComponent={Pagination}
     {...rest}
   />
 );
@@ -118,7 +142,7 @@ export default withStyles((theme) => ({
   thead_th: {
     backgroundRepeat: "no-repeat",
     backgroundSize: "18px 18px",
-    backgroundPosition: "right 8px center",
+    backgroundPosition: "right 4px center",
     "&.-cursor-pointer": {
       cursor: "pointer",
     },
@@ -133,10 +157,23 @@ export default withStyles((theme) => ({
   thead_group_tr: {},
   thead_group_th: {},
   thead_filter: {
+    flex: "1 0 auto",
+    display: "flex",
+    flexDirection: "column",
+    userSelect: "none",
+  },
+  thead_filter_tr: {
+    flex: "1 0 auto",
+    display: "inline-flex",
     borderBottom: `1px solid ${theme.colors.gray200}`,
   },
-  thead_filter_tr: {},
-  thead_filter_th: {},
+  thead_filter_th: {
+    flex: "1 0 0",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
+    overflow: "hidden",
+    padding: "4px 8px",
+  },
   tbody: {
     flex: "99999 1 auto",
     display: "flex",
@@ -159,7 +196,9 @@ export default withStyles((theme) => ({
     display: "inline-flex",
   },
   th: {
+    position: "relative",
     flex: "1 0 0",
+    color: theme.colors.gray800,
     fontWeight: "600",
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",
@@ -167,6 +206,12 @@ export default withStyles((theme) => ({
     padding: "12px 8px",
     transition: "0.3s ease",
     transitionProperty: "width, min-width, padding, opacity",
+
+    "&:focus": {
+      outline: `1px dotted ${theme.colors.gray400}`, // Modify default focus glow
+      outlineOffset: "-4px",
+    },
+
     "&.-hidden": {
       width: "0 !important",
       minWidth: "0 !important",
@@ -183,6 +228,7 @@ export default withStyles((theme) => ({
     padding: "12px 8px",
     transition: "0.3s ease",
     transitionProperty: "width, min-width, padding, opacity",
+
     "&.-hidden": {
       width: "0 !important",
       minWidth: "0 !important",
@@ -196,10 +242,51 @@ export default withStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
-  pagination: {
-    display: "flex",
-    justifyContent: "flex-end",
-    flexWrap: "wrap",
-    padding: "8px",
+  loading: {
+    display: "block",
+    position: "absolute",
+    left: "0",
+    right: "0",
+    top: "0",
+    bottom: "0",
+    background: "rgba(255, 255, 255, 0.8)",
+    transition: "all 0.3s ease",
+    zIndex: "-1",
+    opacity: "0",
+    pointerEvents: "none",
+
+    "&.-active": {
+      opacity: "1",
+      zIndex: "2",
+      pointerEvents: "all",
+
+      "& > div": {
+        transform: "translateY(50%)",
+      },
+    },
+
+    "& > div": {
+      position: "absolute",
+      display: "block",
+      textAlign: "center",
+      width: "100%",
+      top: "50%",
+      left: "0",
+      fontSize: "15px",
+      color: "rgba(0, 0, 0, 0.6)",
+      transform: "translateY(-52%)",
+      transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+    },
+  },
+  resizer: {
+    display: "inline-block",
+    position: "absolute",
+    width: "24px",
+    top: "0",
+    bottom: "0",
+    right: "-12px",
+    cursor: "col-resize",
+    userSelect: "none",
+    zIndex: "10",
   },
 }))(Table);

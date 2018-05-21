@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import withStyles from "react-jss";
 import UncontrolledCheckbox from "./UncontrolledCheckbox";
 
 type Props = {
@@ -32,18 +31,4 @@ class Checkbox extends Component<Props> {
   }
 }
 
-export default withStyles((theme) => ({
-  scaffold: {
-    margin: "8px auto 16px",
-  },
-  toggles: {
-    display: "flex",
-    flexDirection: "column",
-    flexWrap: "wrap",
-    alignItems: "flex-start",
-    marginLeft: "-12px",
-  },
-  inline: {
-    flexDirection: "row",
-  },
-}))(Checkbox);
+export default Checkbox;

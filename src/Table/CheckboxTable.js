@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Table, { TableRef } from "./";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
 import Checkbox from "../Checkbox/UncontrolledCheckbox";
+import Button from "../Button";
 
 const WrappedTable = checkboxHOC(Table);
 const CheckboxInput = (props) => {
@@ -12,6 +13,7 @@ const CheckboxInput = (props) => {
       onChange={() => {
         props.onClick(props.id, null, props.row);
       }}
+      withPadding={false}
     />
   );
 };
@@ -62,7 +64,7 @@ class CheckboxTable extends Component {
       const currentRecords = wrappedInstance.getResolvedState().sortedData;
       // we just push all the IDs onto the selection array
       currentRecords.forEach((item) => {
-        selection.push(item._original._id);
+        selection.push(item._original.id);
       });
     }
     this.setState({ selectAll, selection });
@@ -82,35 +84,32 @@ class CheckboxTable extends Component {
   };
 
   render() {
-    const { toggleSelection, toggleAll, isSelected, logSelection } = this;
     const { selectAll } = this.state;
 
     const checkboxProps = {
+      keyField: "id",
       selectAll,
-      isSelected,
-      toggleSelection,
-      toggleAll,
+      isSelected: this.isSelected,
+      toggleSelection: this.toggleSelection,
+      toggleAll: this.toggleAll,
       selectType: "checkbox",
-      selectWidth: 48,
+      selectWidth: 32,
       SelectInputComponent: CheckboxInput,
       SelectAllInputComponent: CheckboxInput,
-      // getTrProps: (s, r) => {
-      //   // someone asked for an example of a background color change
-      //   // here it is...
-      //   const selected = this.isSelected(r.original._id);
-      //   return {
-      //     style: {
-      //       backgroundColor: selected ? "lightgreen" : "inherit",
-      //       // color: selected ? 'white' : 'inherit',
-      //     },
-      //   };
-      // },
     };
 
     return (
-      <div>
-        <button onClick={logSelection}>Log Selection</button>
-        <WrappedTable defaultPageSize={10} {...this.props} {...checkboxProps} />
+      <div style={{ width: "100%", marginTop: "24px" }}>
+        <Button
+          type="button"
+          onClick={this.logSelection}
+          color="secondary"
+          isOutlined
+          style={{ float: "right", marginBottom: "4px" }}
+        >
+          Log Selection
+        </Button>
+        <WrappedTable {...checkboxProps} {...this.props} />
       </div>
     );
   }
