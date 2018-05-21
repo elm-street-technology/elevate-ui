@@ -1,9 +1,10 @@
 import React from "react";
 import Paper from "elevate-ui/Paper";
+import Table from "elevate-ui/Table";
 import CheckboxTable from "elevate-ui/Table/CheckboxTable";
 import Typography from "elevate-ui/Typography";
 
-function Tables() {
+const Tables = () => {
   const columns = [
     {
       Header: "Name",
@@ -71,23 +72,33 @@ function Tables() {
     <Paper>
       <Typography type="title">{`<Table />`}</Typography>
       <Typography type="body">
-        The {`<Table />`} component is a styled wrapper around the open-source,
-        datagrid{" "}
+        The {`<Table />`} component extends{" "}
         <a
           href="https://react-table.js.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           React-Table
-        </a>.
+        </a>{" "}
+        with an opinionated default configuration and styling.
       </Typography>
-      <CheckboxTable data={data} columns={columns} filterable />
-      {/* <link
-        rel="stylesheet"
-        href="https://unpkg.com/react-table@latest/react-table.css"
-      /> */}
+      <Table
+        data={data}
+        columns={columns}
+        defaultPageSize={10}
+        filterable
+        style={{ marginTop: "24px", marginBottom: "24px" }}
+      />
+      <Typography type="title">{`<CheckboxTable />`}</Typography>
+      <CheckboxTable
+        data={data}
+        columns={columns}
+        defaultPageSize={10}
+        filterable
+        style={{ marginTop: "24px" }}
+      />
     </Paper>
   );
-}
+};
 
 export default Tables;

@@ -93,7 +93,7 @@ class CheckboxTable extends Component {
       toggleSelection: this.toggleSelection,
       toggleAll: this.toggleAll,
       selectType: "checkbox",
-      selectWidth: 32,
+      selectWidth: 36,
       SelectInputComponent: CheckboxInput,
       SelectAllInputComponent: CheckboxInput,
     };
