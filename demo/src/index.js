@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import ThemeProvider from "elevate-ui/ThemeProvider";
 import { BrowserRouter as Router } from "react-router-dom";
-import registerServiceWorker from "./registerServiceWorker";
+import { unregister } from "./registerServiceWorker";
 
 import Main from "./layout/Main";
 
@@ -19,4 +19,4 @@ render(
   document.getElementById("root")
 );
 
-registerServiceWorker();
+unregister();
