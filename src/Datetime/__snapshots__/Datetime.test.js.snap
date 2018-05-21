@@ -2,14 +2,14 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="Datetime-scaffold-0-1-1"
+  className="Scaffold-root-0-1-3"
 >
   <div
-    className="rdt Datetime-rdt-0-1-3"
+    className="rdt Datetime-rdt-0-1-2"
   >
     <input
       autoComplete="off"
-      className="Datetime-input-0-1-2"
+      className="Datetime-root-0-1-1"
       id="startDate"
       onChange={[Function]}
       onClick={[Function]}
