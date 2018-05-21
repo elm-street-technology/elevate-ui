@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import withStyles from "react-jss";
 import classNames from "classnames";
 
@@ -9,6 +8,7 @@ type Props = {
   className: string,
   element: string,
   theme: Object,
+  withPadding: boolean,
 };
 
 const Paper = ({
@@ -17,19 +17,20 @@ const Paper = ({
   className,
   element: Element,
   theme,
+  withPadding = true,
   ...rest
 }: Props) => (
-  <Element className={classNames(classes.root, className)} {...rest}>
+  <Element
+    className={classNames(
+      classes.root,
+      withPadding && classes.withPadding,
+      className
+    )}
+    {...rest}
+  >
     {children}
   </Element>
 );
-
-Paper.propTypes = {
-  children: PropTypes.any.isRequired,
-  className: PropTypes.string,
-  classes: PropTypes.object,
-  element: PropTypes.string,
-};
 
 Paper.defaultProps = {
   element: "div",
@@ -42,6 +43,8 @@ export default withStyles((theme) => ({
     background: theme.colors.white,
     border: `1px solid ${theme.colors.gray200}`,
     borderRadius: theme.globalBorderRadius,
+  },
+  withPadding: {
     ...theme.globalPadding,
   },
 }))(Paper);

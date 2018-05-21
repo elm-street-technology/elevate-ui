@@ -2,17 +2,17 @@ import React from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 
-import Label from "../Label";
-import Validation from "../Validation";
+import Scaffold from "../Scaffold";
 
 type Props = {
   classes: Object,
   className: string,
-  field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
-  form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
+  field: Object,
+  form: Object,
   id: string,
   label: string,
   theme: Object,
+  withScaffold: boolean,
 };
 
 const Textarea = ({
@@ -24,30 +24,36 @@ const Textarea = ({
   label,
   theme,
   type,
+  withScaffold = true,
   ...rest
-}: Props) => (
-  <div className={classNames(classes.scaffold, className)}>
-    {label && <Label htmlFor={id}>{label}</Label>}
+}: Props) =>
+  withScaffold ? (
+    <Scaffold
+      id={id}
+      label={label}
+      error={touched[field.name] && errors[field.name]}
+    >
+      <textarea
+        id={id}
+        className={classNames(classes.root, classes.textarea, className)}
+        {...field}
+        {...rest}
+      />
+    </Scaffold>
+  ) : (
     <textarea
       id={id}
-      className={classNames(classes.root, classes.textarea)}
+      className={classNames(classes.root, classes.textarea, className)}
       {...field}
       {...rest}
     />
-    {touched[field.name] &&
-      errors[field.name] && <Validation error={errors[field.name]} />}
-  </div>
-);
+  );
 
 Textarea.defaultProps = {
   tabIndex: "0",
 };
 
 export default withStyles((theme) => ({
-  scaffold: {
-    width: "100%",
-    margin: "8px auto 16px",
-  },
   root: {
     display: "block",
     width: "100%",

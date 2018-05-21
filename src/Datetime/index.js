@@ -4,8 +4,7 @@ import withStyles from "react-jss";
 import classNames from "classnames";
 import ReactDatetime from "react-datetime";
 
-import Label from "../Label";
-import Validation from "../Validation";
+import Scaffold from "../Scaffold";
 
 type Props = {
   classes: Object,
@@ -15,39 +14,54 @@ type Props = {
   id: string,
   label: string,
   theme: Object,
+  withScaffold: boolean,
 };
 
 const Datetime = ({
   classes,
   className,
-  field,
+  field: { name, value },
   form: { errors, setFieldValue, setFieldTouched, touched },
   id,
   label,
   theme,
+  withScaffold = true,
   ...rest
-}: Props) => (
-  <div className={classNames(classes.scaffold, className)}>
-    {label && <Label htmlFor={id}>{label}</Label>}
+}: Props) =>
+  withScaffold ? (
+    <Scaffold id={id} label={label} error={touched[name] && errors[name]}>
+      <ReactDatetime
+        className={classes.rdt}
+        inputProps={{
+          id: id,
+          className: classNames(classes.root, className),
+          autoComplete: "off",
+        }}
+        name={name}
+        value={value}
+        onBlur={(date) => setFieldTouched(name, date)} // overrides `field.onBlur`
+        onChange={(date) => setFieldValue(name, date)} // overrides `field.onChange`
+        {...rest}
+      />
+    </Scaffold>
+  ) : (
     <ReactDatetime
       className={classes.rdt}
-      inputProps={{ id: id, className: classes.input, autoComplete: "off" }}
-      {...field} // contains name, value, onBlur, onChange
-      onBlur={(date) => setFieldTouched(field.name, date)} // overrides `field.onBlur`
-      onChange={(date) => setFieldValue(field.name, date)} // overrides `field.onChange`
+      inputProps={{
+        id: id,
+        className: classNames(classes.root, className),
+        autoComplete: "off",
+      }}
+      name={name}
+      value={value}
+      onBlur={(date) => setFieldTouched(name, date)} // overrides `field.onBlur`
+      onChange={(date) => setFieldValue(name, date)} // overrides `field.onChange`
       {...rest}
     />
-    {touched[field.name] &&
-      errors[field.name] && <Validation error={errors[field.name]} />}
-  </div>
-);
+  );
 
 export default withStyles((theme) => ({
-  scaffold: {
-    width: "100%",
-    margin: "8px auto 16px",
-  },
-  input: {
+  root: {
     display: "block",
     width: "100%",
     height: "40px",

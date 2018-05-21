@@ -1,19 +1,8 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import withStyles from "react-jss";
 import classNames from "classnames";
 
 class Toggle extends Component {
-  static propTypes = {
-    checked: PropTypes.bool.isRequired,
-    checkedIcon: PropTypes.node.isRequired,
-    className: PropTypes.string,
-    id: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    type: PropTypes.oneOf(["checkbox", "radio"]).isRequired,
-    uncheckedIcon: PropTypes.node.isRequired,
-  };
-
   static defaultProps = {
     tabIndex: "0",
     type: "text",

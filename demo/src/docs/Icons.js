@@ -36,7 +36,7 @@ const Icons = () => {
         <tbody>
           {data.map((name) => {
             return (
-              <tr>
+              <tr key={name}>
                 <td>
                   <Icon icon={name} />
                 </td>
