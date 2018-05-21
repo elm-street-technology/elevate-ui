@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import Yup from "yup";
 
@@ -10,11 +11,16 @@ import Button from "elevate-ui/Button";
 const Checkboxes = () => (
   <Paper>
     <Typography type="title">{`<Checkbox />`}</Typography>
+    <Typography type="body">
+      While the majority of form-related checkboxes will use the{" "}
+      <Link to="/checkbox-group">{`<CheckboxGroup />`}</Link> component, there
+      may be situations where you'd only want a single checkbox, like below:
+    </Typography>
     <Formik
-      initialValues={{ isMagic: false }}
+      initialValues={{ tos: false }}
       validationSchema={() =>
         Yup.object().shape({
-          isMagic: Yup.boolean(),
+          tos: Yup.boolean(),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -33,14 +39,24 @@ const Checkboxes = () => (
         isSubmitting,
         isValid,
       }) => (
-        <Form noValidate style={{ maxWidth: "420px" }}>
+        <Form noValidate style={{ maxWidth: "420px", marginTop: "24px" }}>
           <Field
-            id="isMagic"
-            name="isMagic"
-            label="Is Magic"
+            id="tos"
+            name="tos"
+            /* eslint-disable */
+            label={
+              <span>
+                I accept the <a href="#">Terms of Service</a>
+              </span>
+            }
+            /* eslint-enable */
             component={Checkbox}
           />
-          <Button type="submit" disabled={!isValid || isSubmitting}>
+          <Button
+            type="submit"
+            disabled={!isValid || isSubmitting}
+            style={{ marginTop: "8px" }}
+          >
             Submit
           </Button>
         </Form>

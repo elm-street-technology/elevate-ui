@@ -17,6 +17,7 @@ class Toggle extends Component {
       tabIndex,
       uncheckedIcon,
       validation,
+      withPadding = true,
       ...passthroughProps
     } = this.props;
 
@@ -42,10 +43,15 @@ class Toggle extends Component {
             {...passthroughProps}
             style={{ display: "none" }}
           />
-          <span className={classes.toggle}>
+          <span
+            className={classNames(
+              classes.toggle,
+              withPadding && classes.withPadding
+            )}
+          >
             {passthroughProps.checked ? checkedIcon : uncheckedIcon}
           </span>
-          <span className={classes.label}>{label}</span>
+          {label && <span className={classes.label}>{label}</span>}
         </label>
         {validation ? (
           <div className={classes.validation}>{validation}</div>
@@ -63,37 +69,23 @@ export default withStyles((theme) => ({
   root: {
     display: "inline-flex",
     alignItems: "center",
-    // cursor: disabled ? 'not-allowed' : 'pointer',
-    // opacity: disabled ? '0.65' : '1',
+    "&:focus": {
+      outline: `1px dotted ${theme.colors.gray400}`, // Modify default focus glow
+    },
   },
   toggle: {
     position: "relative",
     display: "inline-block",
-    width: "44px",
-    height: "40px",
-    borderRadius: "2px",
-    padding: "10px",
+    width: "20px",
+    height: "20px",
     flexShrink: "0",
     overflow: "hidden",
-
-    // on-click expanding-circle animation shenanigans
-    ":after": {
-      content: '""',
-      display: "block",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      borderRadius: "100%",
-      top: "0",
-      left: "0",
-      pointerEvents: "none",
-      backgroundColor: theme.colors.primary,
-      // transform: checked ? 'scale(1, 1)' : 'scale(0, 0)',
-      // opacity: checked ? '0' : '0.4',
-      // transitionProperty: 'transform, opacity',
-      // transitionTimingFunction: 'ease-out',
-      // transitionDuration: checked ? '600ms' : '0s',
-    },
+    fill: theme.colors.gray800,
+  },
+  withPadding: {
+    width: "36px",
+    height: "36px",
+    padding: "8px",
   },
   label: {
     fontSize: "16px",

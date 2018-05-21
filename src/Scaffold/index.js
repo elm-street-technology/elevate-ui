@@ -9,6 +9,7 @@ type Props = {
   children: any,
   classes: Object,
   className: string,
+  error: string,
   id: string,
   label: string,
   theme: Object,
@@ -38,6 +39,5 @@ export default withStyles((theme) => ({
     position: "relative",
     width: "100%",
     margin: "8px auto 16px",
-    background: "blue",
   },
 }))(Scaffold);
