@@ -2,10 +2,10 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="Textarea-scaffold-0-1-1"
+  className="Scaffold-root-0-1-3"
 >
   <textarea
-    className="Textarea-root-0-1-2 Textarea-textarea-0-1-3"
+    className="Textarea-root-0-1-1 Textarea-textarea-0-1-2"
     id="summary"
     name=""
     onBlur={[Function]}
