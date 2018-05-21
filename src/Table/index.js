@@ -57,7 +57,6 @@ const Table = ({ classes, ...rest }) => (
     })}
     getTheadFilterThProps={() => ({
       className: classes.thead_filter_th,
-      role: "",
       tabIndex: "",
     })}
     getTbodyProps={() => ({
@@ -198,12 +197,14 @@ export default withStyles((theme) => ({
   th: {
     position: "relative",
     flex: "1 0 0",
+    display: "flex",
+    alignItems: "center",
     color: theme.colors.gray800,
     fontWeight: "600",
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",
     overflow: "hidden",
-    padding: "12px 8px",
+    padding: "10px 8px",
     transition: "0.3s ease",
     transitionProperty: "width, min-width, padding, opacity",
 
@@ -222,10 +223,12 @@ export default withStyles((theme) => ({
   },
   td: {
     flex: "1 0 0",
+    display: "flex",
+    alignItems: "center",
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",
     overflow: "hidden",
-    padding: "12px 8px",
+    padding: "10px 8px",
     transition: "0.3s ease",
     transitionProperty: "width, min-width, padding, opacity",
 
