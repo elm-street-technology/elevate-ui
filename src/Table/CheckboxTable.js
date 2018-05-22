@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Table, { TableRef } from "./";
+import Table from "./";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
 import Checkbox from "../Checkbox/UncontrolledCheckbox";
 import Button from "../Button";
@@ -59,7 +59,7 @@ class CheckboxTable extends Component {
     const selection = [];
     if (selectAll) {
       // we need to get at the internals of ReactTable
-      const wrappedInstance = TableRef;
+      const wrappedInstance = this.checkboxTable.innerTable;
       // the 'sortedData' property contains the currently accessible records based on the filter and sort
       const currentRecords = wrappedInstance.getResolvedState().sortedData;
       // we just push all the IDs onto the selection array
@@ -79,11 +79,29 @@ class CheckboxTable extends Component {
     return this.state.selection.includes(key);
   };
 
-  logSelection = () => {
-    console.log("selection:", this.state.selection);
+  renderActionButtons = () => {
+    const { actions } = this.props;
+    const { selection } = this.state;
+
+    return (
+      <div style={{ width: "100%", minHeight: "44px" }}>
+        {selection &&
+          selection.length > 0 &&
+          actions.map((action, i) => (
+            <Button
+              key={i}
+              type="button"
+              onClick={() => action.callback(selection)}
+            >
+              {action.title}
+            </Button>
+          ))}
+      </div>
+    );
   };
 
   render() {
+    const { actions, style, ...rest } = this.props;
     const { selectAll } = this.state;
 
     const checkboxProps = {
@@ -99,17 +117,13 @@ class CheckboxTable extends Component {
     };
 
     return (
-      <div style={{ width: "100%", marginTop: "24px" }}>
-        <Button
-          type="button"
-          onClick={this.logSelection}
-          color="secondary"
-          isOutlined
-          style={{ float: "right", marginBottom: "4px" }}
-        >
-          Log Selection
-        </Button>
-        <WrappedTable {...checkboxProps} {...this.props} />
+      <div style={{ width: "100%", ...style }}>
+        {actions && actions.length > 0 && this.renderActionButtons()}
+        <WrappedTable
+          innerRef={(r) => (this.checkboxTable = r)}
+          {...checkboxProps}
+          {...rest}
+        />
       </div>
     );
   }
