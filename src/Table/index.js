@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 import ReactTable from "react-table";
@@ -14,91 +14,92 @@ const Filter = ({ filter, onChange }) => (
   />
 );
 
-// Export a ref to the ReactTable component in case a component needs access internals
-export let TableRef;
-
 // Wraps ReactTable component `withStyles` and overrides default styling
 // https://github.com/react-tools/react-table#js-styles
-const Table = ({ classes, ...rest }) => (
-  <ReactTable
-    ref={(r) => {
-      TableRef = r;
-    }}
-    // showPagination={false} // temporary until styles
-    getProps={() => ({
-      className: classes.root,
-    })}
-    getTableProps={() => ({
-      className: classes.table,
-    })}
-    getTheadProps={() => ({
-      className: classes.thead,
-    })}
-    getTheadTrProps={() => ({
-      className: classNames(classes.thead_tr, classes.tr),
-    })}
-    getTheadThProps={() => ({
-      className: classNames(classes.thead_th, classes.th),
-    })}
-    getTheadGroupProps={() => ({
-      className: classes.thead_group,
-    })}
-    getTheadGroupTrProps={() => ({
-      className: classes.thead_group_tr,
-    })}
-    getTheadGroupThProps={() => ({
-      className: classes.thead_group_th,
-    })}
-    getTheadFilterProps={() => ({
-      className: classes.thead_filter,
-    })}
-    getTheadFilterTrProps={() => ({
-      className: classes.thead_filter_tr,
-    })}
-    getTheadFilterThProps={() => ({
-      className: classes.thead_filter_th,
-      tabIndex: "",
-    })}
-    getTbodyProps={() => ({
-      className: classes.tbody,
-    })}
-    getTrGroupProps={() => ({
-      className: classes.tr_group,
-    })}
-    getTrProps={() => ({
-      className: classes.tr,
-    })}
-    getThProps={() => ({
-      className: classes.th,
-    })}
-    getTdProps={() => ({
-      className: classes.td,
-    })}
-    getTfootProps={() => ({
-      className: classes.tfoot,
-    })}
-    getTfootTrProps={() => ({})}
-    getTfootThProps={() => ({})}
-    getLoadingProps={() => ({
-      className: classes.loading,
-    })}
-    getNoDataProps={() => ({})}
-    getResizerProps={() => ({
-      className: classes.resizer,
-    })}
-    defaultFilterMethod={(filter, row, column) => {
-      const id = filter.pivotId || filter.id;
-      return row[id] !== undefined
-        ? String(row[id])
-            .toLowerCase()
-            .includes(filter.value.toLowerCase())
-        : true;
-    }}
-    FilterComponent={Filter}
-    PaginationComponent={Pagination}
-    {...rest}
-  />
-);
+class Table extends Component {
+  render() {
+    const { classes, ...rest } = this.props;
+    return (
+      <ReactTable
+        ref={(r) => {
+          this.innerTable = r;
+        }}
+        getProps={() => ({
+          className: classes.root,
+        })}
+        getTableProps={() => ({
+          className: classes.table,
+        })}
+        getTheadProps={() => ({
+          className: classes.thead,
+        })}
+        getTheadTrProps={() => ({
+          className: classNames(classes.thead_tr, classes.tr),
+        })}
+        getTheadThProps={() => ({
+          className: classNames(classes.thead_th, classes.th),
+        })}
+        getTheadGroupProps={() => ({
+          className: classes.thead_group,
+        })}
+        getTheadGroupTrProps={() => ({
+          className: classes.thead_group_tr,
+        })}
+        getTheadGroupThProps={() => ({
+          className: classes.thead_group_th,
+        })}
+        getTheadFilterProps={() => ({
+          className: classes.thead_filter,
+        })}
+        getTheadFilterTrProps={() => ({
+          className: classes.thead_filter_tr,
+        })}
+        getTheadFilterThProps={() => ({
+          className: classes.thead_filter_th,
+          tabIndex: "",
+        })}
+        getTbodyProps={() => ({
+          className: classes.tbody,
+        })}
+        getTrGroupProps={() => ({
+          className: classes.tr_group,
+        })}
+        getTrProps={() => ({
+          className: classes.tr,
+        })}
+        getThProps={() => ({
+          className: classes.th,
+        })}
+        getTdProps={() => ({
+          className: classes.td,
+        })}
+        getTfootProps={() => ({
+          className: classes.tfoot,
+        })}
+        getTfootTrProps={() => ({})}
+        getTfootThProps={() => ({})}
+        getLoadingProps={() => ({
+          className: classes.loading,
+        })}
+        getNoDataProps={() => ({})}
+        getResizerProps={() => ({
+          className: classes.resizer,
+        })}
+        defaultFilterMethod={(filter, row, column) => {
+          const id = filter.pivotId || filter.id;
+          return row[id] !== undefined
+            ? String(row[id])
+                .toLowerCase()
+                .includes(filter.value.toLowerCase())
+            : true;
+        }}
+        FilterComponent={Filter}
+        PaginationComponent={Pagination}
+        {...rest}
+      />
+    );
+  }
+}
 
 export default withStyles((theme) => ({
   root: {
@@ -197,9 +198,9 @@ export default withStyles((theme) => ({
   th: {
     position: "relative",
     flex: "1 0 0",
-    display: "flex",
-    alignItems: "center",
     color: theme.colors.gray800,
+    fontSize: "16px",
+    lineHeight: "20px",
     fontWeight: "600",
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",
@@ -223,8 +224,8 @@ export default withStyles((theme) => ({
   },
   td: {
     flex: "1 0 0",
-    display: "flex",
-    alignItems: "center",
+    fontSize: "16px",
+    lineHeight: "20px",
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",
     overflow: "hidden",
@@ -275,7 +276,7 @@ export default withStyles((theme) => ({
       width: "100%",
       top: "50%",
       left: "0",
-      fontSize: "15px",
+      fontSize: "14px",
       color: "rgba(0, 0, 0, 0.6)",
       transform: "translateY(-52%)",
       transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
