@@ -47,7 +47,15 @@ class CheckboxTable extends Component {
     this.setState({ selection });
   };
 
-  toggleAll = () => {
+  toggleAll = (all = false) => {
+    // Quick escape to reset all
+    if (all) {
+      this.setState({
+        selectAll: false,
+        selection: [],
+      });
+      return;
+    }
     /*
       Only select ALL the records that are in the current filtered data?
 
