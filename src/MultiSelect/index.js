@@ -59,6 +59,7 @@ class MultiSelect extends Component<Props, State> {
     }
     if (changes.hasOwnProperty("selectedItem")) {
       this.onAddTag(changes.selectedItem);
+      this.setState({ inputValue: "" });
     }
   };
 
