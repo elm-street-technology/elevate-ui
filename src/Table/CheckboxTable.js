@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import Table from "./";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
+
+import Table from "./";
+import ActionButtons from "./ActionButtons";
 import Checkbox from "../Checkbox/UncontrolledCheckbox";
-import Button from "../Button";
 
 const WrappedTable = checkboxHOC(Table);
 const CheckboxInput = (props) => {
@@ -91,21 +92,7 @@ class CheckboxTable extends Component {
     const { actions } = this.props;
     const { selection } = this.state;
 
-    return (
-      <div style={{ width: "100%", minHeight: "44px" }}>
-        {selection &&
-          selection.length > 0 &&
-          actions.map((action, i) => (
-            <Button
-              key={i}
-              type="button"
-              onClick={() => action.callback(selection)}
-            >
-              {action.title}
-            </Button>
-          ))}
-      </div>
-    );
+    return <ActionButtons actions={actions} selection={selection} />;
   };
 
   render() {

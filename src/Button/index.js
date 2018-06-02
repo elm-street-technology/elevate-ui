@@ -69,6 +69,8 @@ export default withStyles((theme) => ({
       props.isOutlined ? theme.colors[props.color] : "transparent",
     borderWidth: "1px",
     borderStyle: "solid",
+    padding: "10px 16px",
+
     "&:disabled": {
       cursor: "not-allowed",
       background: (props) =>
@@ -84,6 +86,5 @@ export default withStyles((theme) => ({
     fontSize: "14px",
     lineHeight: "20px",
     fontWeight: "600",
-    padding: "10px 16px",
   },
 }))(Button);

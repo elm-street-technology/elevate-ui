@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import withStyles from "react-jss";
+import Button from "../Button";
 import CaretLeft from "../Icon/CaretLeft";
 import CaretRight from "../Icon/CaretRight";
 
@@ -45,13 +46,33 @@ class Pagination extends Component {
   }
 
   render() {
-    const { canPrevious, canNext, className, classes, page } = this.props;
-
+    const {
+      canPrevious,
+      canNext,
+      className,
+      classes,
+      filterable,
+      onShowFilters,
+      onHideFilters,
+      page,
+      showFilters,
+    } = this.props;
+    console.log(this.props);
     return (
       <div
         className={classnames(classes.root, className)}
         style={this.props.style}
       >
+        {filterable && (
+          <Button
+            className={classes.filterButton}
+            color="secondary"
+            isOutlined
+            onClick={!showFilters ? onShowFilters : onHideFilters}
+          >
+            <span>{!showFilters ? "Show" : "Hide"} Filters</span>
+          </Button>
+        )}
         <div className={classes.buttons}>
           <button
             type="button"
@@ -88,16 +109,24 @@ export default withStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-end",
     flexWrap: "wrap",
-    padding: "6px",
-    borderTop: `1px solid ${theme.colors.gray200}`,
+    padding: "5px 8px",
+    borderBottom: `1px solid ${theme.colors.gray200}`,
   },
-  buttons: {},
+  filterButton: {
+    padding: "4px 6px",
+  },
+  buttons: {
+    marginLeft: "12px",
+
+    "& > * + *": {
+      marginLeft: "6px",
+    },
+  },
   button: {
     display: "inline-flex",
     color: theme.colors.gray600,
     padding: "6px",
     border: `1px solid ${theme.colors.gray300}`,
     borderRadius: theme.globalBorderRadius,
-    marginLeft: "6px",
   },
 }))(Pagination);

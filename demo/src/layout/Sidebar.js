@@ -199,6 +199,7 @@ export default withStyles((theme) => ({
     marginBottom: "12px",
   },
   item: {
+    flexShrink: "0",
     display: "flex",
     color: theme.colors.gray800,
     fontSize: "16px",
