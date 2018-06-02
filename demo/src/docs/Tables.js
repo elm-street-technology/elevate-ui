@@ -97,6 +97,7 @@ const Tables = () => {
         data={data}
         columns={columns}
         defaultPageSize={10}
+        defaultSorted={[{ id: "name", desc: false }]}
         filterable
         style={{ marginTop: "24px", marginBottom: "24px" }}
       />
@@ -105,6 +106,7 @@ const Tables = () => {
         data={data}
         columns={columns}
         defaultPageSize={10}
+        defaultSorted={[{ id: "startDate", desc: true }]}
         filterable
         style={{ marginTop: "24px" }}
         actions={[

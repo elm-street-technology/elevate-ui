@@ -3,22 +3,31 @@ import classNames from "classnames";
 import withStyles from "react-jss";
 import ReactTable from "react-table";
 
-import { RawInput } from "../Input";
+import FilterComponent from "./FilterComponent";
 import Pagination from "./Pagination";
-
-const Filter = ({ filter, onChange }) => (
-  <RawInput
-    type="text"
-    value={filter ? filter.value : ""}
-    onChange={(event) => onChange(event.target.value)}
-  />
-);
 
 // Wraps ReactTable component `withStyles` and overrides default styling
 // https://github.com/react-tools/react-table#js-styles
 class Table extends Component {
+  state = {
+    showFilters: false,
+  };
+
+  onHideFilters = () => {
+    this.setState({
+      showFilters: false,
+    });
+  };
+
+  onShowFilters = () => {
+    this.setState({
+      showFilters: true,
+    });
+  };
+
   render() {
     const { classes, ...rest } = this.props;
+    const { showFilters } = this.state;
     return (
       <ReactTable
         ref={(r) => {
@@ -50,6 +59,7 @@ class Table extends Component {
         })}
         getTheadFilterProps={() => ({
           className: classes.thead_filter,
+          style: { display: showFilters ? "block" : "none" },
         })}
         getTheadFilterTrProps={() => ({
           className: classes.thead_filter_tr,
@@ -93,8 +103,15 @@ class Table extends Component {
                 .includes(filter.value.toLowerCase())
             : true;
         }}
-        FilterComponent={Filter}
+        FilterComponent={FilterComponent}
         PaginationComponent={Pagination}
+        getPaginationProps={() => ({
+          showFilters,
+          onHideFilters: this.onHideFilters,
+          onShowFilters: this.onShowFilters,
+        })}
+        showPaginationTop
+        showPaginationBottom={false}
         {...rest}
       />
     );
@@ -164,7 +181,7 @@ export default withStyles((theme) => ({
   },
   thead_filter_tr: {
     flex: "1 0 auto",
-    display: "inline-flex",
+    display: "flex",
     borderBottom: `1px solid ${theme.colors.gray200}`,
   },
   thead_filter_th: {
