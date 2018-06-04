@@ -27,7 +27,6 @@ class SearchInput extends Component<Props> {
   onWrapperClick = (e) => {
     e.stopPropagation();
     e.preventDefault();
-    console.log("wtf");
     this._input.focus();
   };
 
