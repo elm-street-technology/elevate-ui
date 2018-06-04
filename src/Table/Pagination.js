@@ -57,7 +57,6 @@ class Pagination extends Component {
       page,
       showFilters,
     } = this.props;
-    console.log(this.props);
     return (
       <div
         className={classnames(classes.root, className)}
