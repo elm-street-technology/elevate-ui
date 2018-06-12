@@ -75,6 +75,7 @@ export default withStyles((theme) => ({
   },
   children: {
     display: "flex",
+    alignItems: "center",
     color: (props) => getChildColor(theme, props),
     fontFamily: theme.typography.sans,
     fontSize: "14px",
