@@ -127,5 +127,9 @@ export default withStyles((theme) => ({
     padding: "6px",
     border: `1px solid ${theme.colors.gray300}`,
     borderRadius: theme.globalBorderRadius,
+
+    "&:disabled": {
+      opacity: 0.25,
+    },
   },
 }))(Pagination);

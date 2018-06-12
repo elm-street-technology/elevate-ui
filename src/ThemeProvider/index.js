@@ -144,6 +144,8 @@ const GlobalsAndReset = withStyles((theme) => ({
       userSelect: "none",
       textDecoration: "none",
       fontFamily: "inherit",
+      fontSize: "inherit",
+      color: "inherit",
       cursor: "pointer",
       border: "none",
       backgroundColor: "transparent",
