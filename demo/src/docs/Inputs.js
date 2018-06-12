@@ -11,10 +11,11 @@ const Inputs = () => (
   <Paper>
     <Typography type="title">{`<Input />`}</Typography>
     <Formik
-      initialValues={{ name: "" }}
+      initialValues={{ name: "", hiddenField: "coolbeans" }}
       validationSchema={() =>
         Yup.object().shape({
           name: Yup.string().required("Name is required"),
+          hiddenField: Yup.string(),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -35,6 +36,13 @@ const Inputs = () => (
       }) => (
         <Form noValidate style={{ maxWidth: "420px" }}>
           <Field id="name" name="name" label="Name" component={Input} />
+          <Field
+            id="hiddenField"
+            name="hiddenField"
+            label="Hidden Field"
+            component={Input}
+            type="hidden"
+          />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
           </Button>

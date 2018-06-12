@@ -48,7 +48,7 @@ export const RawInput = withStyles((theme) => ({
     className,
     id,
     tabIndex = "0",
-    theme,
+    theme, // eslint-disable-line
     type = "text",
     ...rest
   }: Props) => (
@@ -72,7 +72,7 @@ const Input = ({
   withScaffold = true,
   ...rest
 }: Props) =>
-  withScaffold ? (
+  withScaffold && type !== "hidden" ? (
     <Scaffold
       id={id}
       label={label}
