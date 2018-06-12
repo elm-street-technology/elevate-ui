@@ -2,9 +2,13 @@
   "extends": "react-app",
   "rules": {
     "no-console": "error",
-    "no-unused-vars": ["error", {
-      "argsIgnorePattern": "^_"
-    }],
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
     "object-shorthand": "error"
   }
 }
