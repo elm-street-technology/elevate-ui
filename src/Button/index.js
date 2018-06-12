@@ -21,18 +21,13 @@ const Button = ({
   className,
   color,
   element: Element,
-  isDisabled,
   isOutlined,
   isRounded,
   theme,
   ...rest
 }: Props) => (
   // $FlowFixMe -- it doesn't understand the element: Element
-  <Element
-    disabled={isDisabled}
-    className={classNames(classes.root, className)}
-    {...rest}
-  >
+  <Element className={classNames(classes.root, className)} {...rest}>
     <div className={classes.children}>{children}</div>
   </Element>
 );
@@ -42,7 +37,6 @@ Button.defaultProps = {
   color: "primary",
   isRounded: true,
   isOutlined: false,
-  isDisabled: false,
 };
 
 function getChildColor(theme, props) {
@@ -63,13 +57,12 @@ export default withStyles((theme) => ({
     textDecoration: "none",
     backgroundColor: (props) =>
       props.isOutlined ? "transparent" : theme.colors[props.color],
-    borderRadius: (props) =>
-      props.isRounded ? theme.globalBorderRadius : "0px",
-    borderColor: (props) =>
-      props.isOutlined ? theme.colors[props.color] : "transparent",
     borderWidth: "1px",
     borderStyle: "solid",
-    padding: "10px 16px",
+    borderColor: (props) =>
+      props.isOutlined ? theme.colors[props.color] : "transparent",
+    borderRadius: (props) =>
+      props.isRounded ? theme.globalBorderRadius : "0px",
 
     "&:disabled": {
       cursor: "not-allowed",
@@ -81,10 +74,12 @@ export default withStyles((theme) => ({
     },
   },
   children: {
+    display: "flex",
     color: (props) => getChildColor(theme, props),
     fontFamily: theme.typography.sans,
     fontSize: "14px",
     lineHeight: "20px",
     fontWeight: "600",
+    padding: "10px 16px",
   },
 }))(Button);
