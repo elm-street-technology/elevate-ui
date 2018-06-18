@@ -22,19 +22,19 @@ const colors = {
   gray800: "#5a5b5c",
   gray900: "#232c35",
   black: "#11181e",
-  danger: "#9c2929",
+  error: "#9c2929",
 };
 
 const alertColors = {
-  danger: {
-    color: "#9c2929",
-    backgroundColor: "#fcf2f2",
-    borderColor: "#f6dddd",
-  },
   success: {
     color: "#246761",
     backgroundColor: "#ecf8f7",
     borderColor: "#d2e8e6",
+  },
+  error: {
+    color: "#9c2929",
+    backgroundColor: "#fcf2f2",
+    borderColor: "#f6dddd",
   },
 };
 

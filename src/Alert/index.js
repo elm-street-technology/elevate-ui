@@ -10,7 +10,7 @@ type Props = {
   element?: string,
   classes: Object,
   className: string,
-  color: "primary" | "secondary" | "danger",
+  color: "success" | "error",
   icon: string,
   theme: Object,
 };
@@ -38,7 +38,7 @@ const Alert = ({
 
 Alert.defaultProps = {
   element: "div",
-  color: "danger",
+  color: "error",
 };
 
 export default withStyles((theme) => ({

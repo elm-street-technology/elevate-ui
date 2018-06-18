@@ -5,7 +5,7 @@ import classNames from "classnames";
 type Props = {
   classes: Object,
   className: string,
-  color: "primary" | "secondary" | "danger",
+  color: "success" | "error",
   error: any,
   theme: Object,
 };
@@ -24,7 +24,7 @@ const Validation = ({
 );
 
 Validation.defaultProps = {
-  color: "danger",
+  color: "error",
 };
 
 export default withStyles((theme) => ({
