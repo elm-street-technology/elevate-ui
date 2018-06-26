@@ -140,7 +140,6 @@ class Select extends Component<Props, State> {
         render={({
           getInputProps,
           getItemProps,
-          getLabelProps,
           isOpen,
           highlightedIndex,
           openMenu,
@@ -149,7 +148,7 @@ class Select extends Component<Props, State> {
           const Input = (
             <div
               ref={this.inputWrapperRef}
-              className={classes.wrapper}
+              className={classNames(classes.wrapper, className)}
               onClick={this.onWrapperClick}
             >
               <input

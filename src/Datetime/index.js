@@ -33,7 +33,7 @@ const Datetime = ({
       <ReactDatetime
         className={classes.rdt}
         inputProps={{
-          id: id,
+          id,
           className: classNames(classes.root, className),
           autoComplete: "off",
         }}
@@ -48,7 +48,7 @@ const Datetime = ({
     <ReactDatetime
       className={classes.rdt}
       inputProps={{
-        id: id,
+        id,
         className: classNames(classes.root, className),
         autoComplete: "off",
       }}

@@ -66,7 +66,7 @@ class RadioGroup extends Component<Props> {
   }
 }
 
-export default withStyles((theme) => ({
+export default withStyles(() => ({
   scaffold: {
     margin: "8px auto 16px",
   },

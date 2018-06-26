@@ -179,7 +179,6 @@ class MultiSelect extends Component<Props, State> {
         render={({
           getInputProps,
           getItemProps,
-          getLabelProps,
           isOpen,
           highlightedIndex,
           openMenu,

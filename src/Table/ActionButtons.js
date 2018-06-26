@@ -18,6 +18,7 @@ const ActionButtons = ({ actions, classes, selection }) => (
   </div>
 );
 
+// eslint-disable-next-line
 export default withStyles((theme) => ({
   root: {
     display: "flex",

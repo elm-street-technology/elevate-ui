@@ -9,7 +9,7 @@ type Props = {
   classes: Object,
   className: string,
   color: "primary" | "secondary",
-  isDisabled: true | false,
+  innerClassName?: string,
   isRounded: true | false,
   isOutlined: true | false,
   theme: Object,
@@ -21,6 +21,7 @@ const Button = ({
   className,
   color,
   element: Element,
+  innerClassName,
   isOutlined,
   isRounded,
   theme,
@@ -28,7 +29,9 @@ const Button = ({
 }: Props) => (
   // $FlowFixMe -- it doesn't understand the element: Element
   <Element className={classNames(classes.root, className)} {...rest}>
-    <div className={classes.children}>{children}</div>
+    <div className={classNames(classes.children, innerClassName)}>
+      {children}
+    </div>
   </Element>
 );
 

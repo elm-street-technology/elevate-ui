@@ -29,7 +29,7 @@ class CheckboxTable extends Component {
     };
   }
 
-  toggleSelection = (key, shift, row) => {
+  toggleSelection = (key) => {
     // start off with the existing state
     let selection = [...this.state.selection];
     const keyIndex = selection.indexOf(key);

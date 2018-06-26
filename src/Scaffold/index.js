@@ -34,7 +34,7 @@ const Scaffold = ({
   </div>
 );
 
-export default withStyles((theme) => ({
+export default withStyles(() => ({
   root: {
     position: "relative",
     width: "100%",

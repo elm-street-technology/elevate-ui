@@ -95,7 +95,7 @@ class Table extends Component {
         getResizerProps={() => ({
           className: classes.resizer,
         })}
-        defaultFilterMethod={(filter, row, column) => {
+        defaultFilterMethod={(filter, row) => {
           const id = filter.pivotId || filter.id;
           return row[id] !== undefined
             ? String(row[id])
