@@ -3,7 +3,6 @@
 exports[`renders without crashing, matches the snapshot 1`] = `
 <button
   className="Button-root-0-1-3 Button-root-0-1-1"
-  disabled={false}
 >
   <div
     className="Button-children-0-1-4 Button-children-0-1-2"

@@ -17,8 +17,9 @@ class Toggle extends Component {
       tabIndex,
       uncheckedIcon,
       validation,
+      theme,
       withPadding = true,
-      ...passthroughProps
+      ...rest
     } = this.props;
 
     return (
@@ -34,13 +35,13 @@ class Toggle extends Component {
               this.label.click();
             }
           }}
-          tabIndex={passthroughProps.disabled ? null : tabIndex}
+          tabIndex={rest.disabled ? null : tabIndex}
         >
           <input
             ref={(c) => {
               this.checkbox = c;
             }}
-            {...passthroughProps}
+            {...rest}
             style={{ display: "none" }}
           />
           <span
@@ -49,7 +50,7 @@ class Toggle extends Component {
               withPadding && classes.withPadding
             )}
           >
-            {passthroughProps.checked ? checkedIcon : uncheckedIcon}
+            {rest.checked ? checkedIcon : uncheckedIcon}
           </span>
           {label && <span className={classes.label}>{label}</span>}
         </label>
