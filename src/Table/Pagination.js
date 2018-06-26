@@ -64,7 +64,7 @@ class Pagination extends Component {
       >
         {filterable && (
           <Button
-            className={classes.filterButton}
+            innerClassName={classes.filterButton}
             color="secondary"
             isOutlined
             onClick={!showFilters ? onShowFilters : onHideFilters}
