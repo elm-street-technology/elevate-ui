@@ -26,15 +26,25 @@ const colors = {
 };
 
 const alertColors = {
+  error: {
+    color: "#9c2929",
+    backgroundColor: "#fcf2f2",
+    borderColor: "#f6dddd",
+  },
+  info: {
+    color: "#0c5460",
+    backgroundColor: "#d1ecf1",
+    borderColor: "#bee5eb",
+  },
   success: {
     color: "#246761",
     backgroundColor: "#ecf8f7",
     borderColor: "#d2e8e6",
   },
-  error: {
-    color: "#9c2929",
-    backgroundColor: "#fcf2f2",
-    borderColor: "#f6dddd",
+  warning: {
+    color: "#856404",
+    backgroundColor: "#fff3cd",
+    borderColor: "#ffeeba",
   },
 };
 
