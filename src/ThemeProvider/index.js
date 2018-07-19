@@ -55,6 +55,10 @@ const typography = {
   fontSize: "1rem",
 };
 
+const transitions = {
+  default: "all 200ms linear",
+};
+
 const breakpoints = {
   600: `@media (min-width: 600px)`,
   900: `@media (min-width: 900px)`,
@@ -81,13 +85,14 @@ const globalPadding = {
 };
 
 const defaultTheme = {
-  colors,
-  typography,
+  alertColors,
   breakpoints,
-  globalPadding,
+  colors,
   globalBorderRadius,
   globalBoxShadow,
-  alertColors,
+  globalPadding,
+  transitions,
+  typography,
 };
 
 const GlobalsAndReset = withStyles((theme) => ({
