@@ -51,6 +51,17 @@ const NewButtonExample = ({
     <NewButton isOutlined color="rgb(32, 148, 232)" type="button">
       Filter Results
     </NewButton>
+    <br />
+    <br />
+    <h2>Buttons With Icons</h2>
+    <NewButton color="primary" icon="Person" type="button">
+      Add Lead
+    </NewButton>
+    <br />
+    <br />
+    <NewButton color="secondary" icon="Cart" isOutlined type="button">
+      Check Out
+    </NewButton>
   </Paper>
 );
 

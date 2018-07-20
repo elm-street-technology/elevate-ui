@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 import Color from "color";
+import Icon from "../Icon";
 
 type Props = {
   children: any,
@@ -10,9 +11,10 @@ type Props = {
   className: string,
   color: string,
   element?: string,
+  icon: string,
   innerClassName?: string,
-  theme: Object,
   isOutlined: boolean,
+  theme: Object,
 };
 
 type State = {
@@ -159,6 +161,7 @@ class NewButton extends Component<Props, State> {
       className,
       color,
       element: Element,
+      icon,
       innerClassName,
       isOutlined,
       theme,
@@ -173,6 +176,9 @@ class NewButton extends Component<Props, State> {
           onClick={this.handleClick}
           className={classNames(classes.children, innerClassName)}
         >
+          {this.props.icon && (
+            <Icon icon={this.props.icon} className={classes.icon} />
+          )}
           {children}
         </div>
         <span
@@ -214,8 +220,12 @@ export default withStyles((theme) => ({
     fontSize: "14px",
     lineHeight: "20px",
     fontWeight: "600",
-    padding: "10px 16px",
+    padding: (props) => (props.icon ? "10px 20px 10px 16px" : "10px 16px"),
     zIndex: "1",
+  },
+  icon: {
+    marginRight: "4px",
+    pointerEvents: "none",
   },
   ripple: {
     display: "block",
