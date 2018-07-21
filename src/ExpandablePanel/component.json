@@ -1,0 +1,64 @@
+{
+  "description": "",
+  "displayName": "ExpandablePanel",
+  "methods": [
+    {
+      "name": "togglePanel",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    }
+  ],
+  "props": {
+    "children": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": ""
+    },
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    },
+    "expanded": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": ""
+    },
+    "innerClassName": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "title": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    }
+  }
+}

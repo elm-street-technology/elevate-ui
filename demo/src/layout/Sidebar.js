@@ -206,6 +206,14 @@ const Sidebar = ({ classes }) => {
           Icon
         </NavLink>
 
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/expandable-panels"
+        >
+          Expandable Panels
+        </NavLink>
+
         <span className={classes.header}>Demos</span>
         <NavLink
           activeClassName={classes.active}
