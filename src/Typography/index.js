@@ -8,12 +8,24 @@ type Props = {
   className: string,
   component: string,
   theme: Object,
-  type: "title" | "body",
+  type:
+    | "title"
+    | "body"
+    | "heading2"
+    | "heading3"
+    | "heading4"
+    | "heading5"
+    | "heading6",
 };
 
 const typeElementMap = {
   title: "h1",
   body: "p",
+  heading2: "h2",
+  heading3: "h3",
+  heading4: "h4",
+  heading5: "h5",
+  heading6: "h6",
 };
 
 const Typography = ({
@@ -43,6 +55,36 @@ export default withStyles((theme) => ({
   title: {
     fontSize: "36px",
     lineHeight: "48px",
+    fontWeight: "600",
+    color: theme.colors.gray800,
+  },
+  heading2: {
+    fontSize: "32px",
+    lineHeight: "44px",
+    fontWeight: "600",
+    color: theme.colors.gray800,
+  },
+  heading3: {
+    fontSize: "28px",
+    lineHeight: "40px",
+    fontWeight: "600",
+    color: theme.colors.gray800,
+  },
+  heading4: {
+    fontSize: "24px",
+    lineHeight: "36px",
+    fontWeight: "600",
+    color: theme.colors.gray800,
+  },
+  heading5: {
+    fontSize: "20px",
+    lineHeight: "32px",
+    fontWeight: "600",
+    color: theme.colors.gray800,
+  },
+  heading6: {
+    fontSize: "18px",
+    lineHeight: "30px",
     fontWeight: "600",
     color: theme.colors.gray800,
   },

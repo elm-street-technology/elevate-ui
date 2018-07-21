@@ -21,6 +21,7 @@ const RadioGroups = Loadable({
 const Datetimes = Loadable({ loader: () => import("../docs/Datetimes") });
 const Buttons = Loadable({ loader: () => import("../docs/Buttons") });
 const Alerts = Loadable({ loader: () => import("../docs/Alerts") });
+const Typography = Loadable({ loader: () => import("../docs/Typography") });
 const Tables = Loadable({ loader: () => import("../docs/Tables") });
 const Icons = Loadable({ loader: () => import("../docs/Icons") });
 const SignupForm = Loadable({ loader: () => import("../docs/SignupForm") });
@@ -41,6 +42,7 @@ const Main = ({ classes }) => (
       <Route path="/radio-group" component={RadioGroups} />
       <Route path="/datetime" component={Datetimes} />
       <Route path="/button" component={Buttons} />
+      <Route path="/typography" component={Typography} />
       <Route path="/alert" component={Alerts} />
       <Route path="/table" component={Tables} />
       <Route path="/icon" component={Icons} />
