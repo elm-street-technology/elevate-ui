@@ -21,10 +21,6 @@ const Icons = () => {
   return (
     <Paper>
       <Typography type="title">{`<Icon />`}</Typography>
-      <Typography type="Body">
-        Note: Any icons specified that don't exist will show the `Broken` icon
-        instead
-      </Typography>
       <table>
         <thead>
           <tr>
