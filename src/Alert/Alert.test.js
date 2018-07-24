@@ -13,9 +13,7 @@ const WrappedAlert = (props) => (
 
 test("renders without crashing, matches the snapshot", () => {
   const component = renderer.create(
-    <WrappedAlert icon="ExclamationOutline">
-      Oh no! Something went terribly wrong!
-    </WrappedAlert>
+    <WrappedAlert color="success">Nice! Great job! Awesome!</WrappedAlert>
   );
   const componentJSON = component.toJSON();
   expect(componentJSON).toMatchSnapshot();
@@ -23,7 +21,7 @@ test("renders without crashing, matches the snapshot", () => {
 
 test("takes an icon prop", () => {
   const component = mount(
-    <WrappedAlert icon="ExclamationOutline">
+    <WrappedAlert icon="ErrorOutline">
       Oh no! Something went terribly wrong!
     </WrappedAlert>
   );

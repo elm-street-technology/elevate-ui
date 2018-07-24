@@ -1,0 +1,16 @@
+import React from "react";
+
+const LocalSee = ({ size, color, ...props }) => (
+  <svg {...props} viewBox="0 0 24 24" width={size} height={size} fill={color}>
+    <path d="M 12 8.8 A 3.2 3.2 0 0 1 12 15.2 A 3.2 3.2 0 0 1 12 8.8 M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+  </svg>
+);
+
+LocalSee.displayName = "LocalSee";
+
+LocalSee.defaultProps = {
+  size: 24,
+  color: "currentcolor",
+};
+
+export default LocalSee;

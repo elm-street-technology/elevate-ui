@@ -30,7 +30,7 @@ const Tag = (props: Props) => {
           onRemove(tag);
         }}
       >
-        <Icon width={18} height={18} icon="Times" />
+        <Icon width={18} height={18} icon="Close" />
       </button>
     </div>
   );
