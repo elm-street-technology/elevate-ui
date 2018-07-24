@@ -21,7 +21,7 @@ const AlertExample = ({
       </Alert>
     </div>
     <div style={{ padding: 8 }}>
-      <Alert color="error" icon="ExclamationOutline">
+      <Alert color="error" icon="ErrorOutline">
         <Typography type="body">
           Our records indicate you are not active or eligible with the MLS due
           to your MLS subscription type or dues.

@@ -3,7 +3,7 @@ import React from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 
-import Icon from "../Icon";
+import Icon from "../Icon/Icon";
 
 type Props = {
   children: any,
@@ -29,7 +29,7 @@ const Alert = ({
   <Element className={classNames(classes.root, className)} {...rest}>
     {icon && (
       <div className={classes.icon}>
-        <Icon icon={icon} />
+        <Icon name={icon} />
       </div>
     )}
     <div className={classes.children}>{children}</div>
