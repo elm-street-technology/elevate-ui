@@ -21,6 +21,7 @@ type Props = {
   form: Object,
   items: Array<Item>,
   label: string,
+  onSelect?: Function,
   theme: Object,
   withScaffold: boolean,
 };
@@ -76,6 +77,10 @@ class MultiSelect extends Component<Props, State> {
     const updatedValue = [...value];
     updatedValue.push(item);
     setFieldValue(name, updatedValue);
+
+    if (this.props.onSelect) {
+      this.props.onSelect(name, updatedValue);
+    }
   };
 
   onRemoveTag = (item) => {
