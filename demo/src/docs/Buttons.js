@@ -15,33 +15,52 @@ const ButtonExample = ({
 }) => (
   <Paper>
     <Typography type="title">{`<Button />`}</Typography>
-    <Typography type="body">{`isRounded = false`}</Typography>
-    <Button isRounded={false} type="button">
-      Save
-    </Button>
-    <Typography type="body">{`isRounded = true`}</Typography>
-    <Button isRounded={true} type="button">
-      Save
-    </Button>
-    <Typography type="body">{`isOutlined = true`}</Typography>
-    <Button isOutlined={true} type="button">
-      Save
-    </Button>
-    <Typography type="body">{`isOutlined = true && color = secondary`}</Typography>
-    <Button isOutlined={true} color="secondary" type="button">
-      Save
-    </Button>
-    <Typography type="body">{`color = secondary`}</Typography>
+    <hr />
+    <h2>Standard Button</h2>
+    <Typography type="body">Default Props, using {`type="button"`}</Typography>
+    <br />
+    <Button type="button">Load More</Button>
+    <Typography type="body">
+      Stress test of a longer button using {`color="secondary"`}:
+    </Typography>
     <Button color="secondary" type="button">
-      Save
+      Stress Testing A Really Long Button
     </Button>
-    <Typography type="body">{`isDisabled = true`}</Typography>
-    <Button color="primary" isDisabled={true} type="button">
-      Save
+    <br />
+    <br />
+    <h2>Outlined Buttons</h2>
+    <br />
+    <Button isOutlined type="button">
+      Load More
     </Button>
-    <Typography type="body">{`isDisabled = true`}</Typography>
-    <Button color="primary" isDisabled={true} isOutlined={true} type="button">
-      Save
+    <Typography type="body">
+      Another outlined button using {`color="secondary"`}:
+    </Typography>
+    <Button isOutlined color="secondary" type="button">
+      Filter Results
+    </Button>
+    <br />
+    <br />
+    <h2>Custom Color Buttons</h2>
+    <br />
+    <Button color="rgb(19, 30, 177)" type="button">
+      Filter Results
+    </Button>
+    <br />
+    <br />
+    <Button isOutlined color="rgb(32, 148, 232)" type="button">
+      Filter Results
+    </Button>
+    <br />
+    <br />
+    <h2>Buttons With Icons</h2>
+    <Button color="primary" icon="Person" type="button">
+      Add Lead
+    </Button>
+    <br />
+    <br />
+    <Button color="secondary" icon="Cart" isOutlined type="button">
+      Check Out
     </Button>
   </Paper>
 );
