@@ -18,6 +18,7 @@ type Props = {
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   items: Array<Item>,
   label: string,
+  onSelect?: Function,
   theme: Object,
   withScaffold: boolean,
 };
@@ -54,6 +55,9 @@ class Select extends Component<Props, State> {
       form: { setFieldValue },
     } = this.props;
     setFieldValue(name, item);
+    if (this.props.onSelect) {
+      this.props.onSelect(name, item);
+    }
   };
 
   onWrapperClick = (e) => {
