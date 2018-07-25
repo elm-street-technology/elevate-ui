@@ -1010,3 +1010,15 @@ export { default as YoutubeSearchedFor } from "./YoutubeSearchedFor";
 export { default as ZoomIn } from "./ZoomIn";
 export { default as ZoomOut } from "./ZoomOut";
 export { default as ZoomOutMap } from "./ZoomOutMap";
+
+// Additional custom icons
+/* Note: Because this index.js is automatically generated– if we run the
+    `build-rmdi` script, then we need to be certain we copy/paste our custom
+    exports back into the index.js file. */
+export { default as Bath } from "./Bath";
+export { default as Bed } from "./Bed";
+export { default as Calendar } from "./Calendar";
+export { default as Coupon } from "./Coupon";
+export { default as Heart } from "./Heart";
+export { default as SqFt } from "./SqFt";
+export { default as Video } from "./Video";
