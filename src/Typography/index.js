@@ -7,6 +7,7 @@ type Props = {
   classes: Object,
   className: string,
   component: string,
+  gutterBottom: boolean,
   theme: Object,
   type:
     | "title"
@@ -33,6 +34,7 @@ const Typography = ({
   classes,
   className,
   component: componentProp,
+  gutterBottom,
   theme,
   type,
   ...rest
@@ -40,7 +42,12 @@ const Typography = ({
   const Element = componentProp || typeElementMap[type] || "span";
   return (
     <Element
-      className={classNames(classes.root, classes[type], className)}
+      className={classNames(
+        classes.root,
+        classes[type],
+        gutterBottom && classes.gutterBottom,
+        className
+      )}
       {...rest}
     >
       {children}
@@ -92,5 +99,8 @@ export default withStyles((theme) => ({
     maxWidth: "600px",
     fontSize: "14px",
     lineHeight: "18px",
+  },
+  gutterBottom: {
+    marginBottom: "0.35em",
   },
 }))(Typography);

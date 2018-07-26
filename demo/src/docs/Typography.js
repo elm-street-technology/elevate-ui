@@ -7,18 +7,24 @@ const TypographyExample = () => (
   <Paper>
     <Typography type="title">{`<Typography />`}</Typography>
     <hr />
-    <Typography type="title">Title</Typography>
-    <br />
-    <Typography type="heading2">Heading2</Typography>
-    <br />
-    <Typography type="heading3">Heading3</Typography>
-    <br />
-    <Typography type="heading4">Heading4</Typography>
-    <br />
-    <Typography type="heading5">Heading5</Typography>
-    <br />
-    <Typography type="heading6">Heading6</Typography>
-    <br />
+    <Typography type="title" gutterBottom>
+      Title
+    </Typography>
+    <Typography type="heading2" gutterBottom>
+      Heading2
+    </Typography>
+    <Typography type="heading3" gutterBottom>
+      Heading3
+    </Typography>
+    <Typography type="heading4" gutterBottom>
+      Heading4
+    </Typography>
+    <Typography type="heading5" gutterBottom>
+      Heading5
+    </Typography>
+    <Typography type="heading6" gutterBottom>
+      Heading6
+    </Typography>
     <Typography type="body">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt
       vulputate mi, sit amet elementum arcu rutrum sit amet. Vivamus in semper
