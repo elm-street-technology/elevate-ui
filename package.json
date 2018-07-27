@@ -19,7 +19,8 @@
     "test": "yarn run test:flow && yarn run test:jest",
     "test:flow": "flow check",
     "test:jest": "jest",
-    "watch": "yarn babel --watch src --out-dir . --ignore build-rmdi.js,setupTests.js,test.js"
+    "watch": "yarn babel --watch src --out-dir . --ignore build-rmdi.js,setupTests.js,test.js",
+    "docgen": "react-docgen",
   },
   "dependencies": {
     "classnames": "2.2.5",
@@ -28,12 +29,14 @@
     "flow-bin": "0.72.0",
     "lodash": "4.17.10",
     "moment": "2.22.1",
+    "prismjs": "^1.15.0",
     "prop-types": "15.6.1",
     "react-datetime": "2.14.0",
     "react-input-autosize": "2.2.1",
     "react-jss": "8.4.0",
     "react-loadable": "4.0.5",
-    "react-table": "6.8.2"
+    "react-prism": "^4.3.2",
+    "react-table": "^6.8.6"
   },
   "peerDependencies": {
     "formik": "^0.11.11",
@@ -67,6 +70,7 @@
     "pixo": "^1.1.0",
     "prettier": "1.12.1",
     "react": "16.2.0",
+    "react-docgen": "^2.21.0",
     "react-dom": "16.2.0",
     "react-router-dom": "4.2.2",
     "react-test-renderer": "16.3.2",

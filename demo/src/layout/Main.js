@@ -5,6 +5,7 @@ import withStyles from "react-jss";
 import Loadable from "elevate-ui/Loadable";
 
 import Sidebar from "./Sidebar";
+import Doc from "./Doc";
 
 const Home = Loadable({ loader: () => import("../docs/Home") });
 const Inputs = Loadable({ loader: () => import("../docs/Inputs") });
@@ -41,7 +42,7 @@ const Main = ({ classes }) => (
       <Route path="/radio-group" component={RadioGroups} />
       <Route path="/datetime" component={Datetimes} />
       <Route path="/button" component={Buttons} />
-      <Route path="/alert" component={Alerts} />
+      <Route path="/alert" render={() => <Doc folder="Alert" />} />
       <Route path="/table" component={Tables} />
       <Route path="/icon" component={Icons} />
       <Route path="/signup" component={SignupForm} />

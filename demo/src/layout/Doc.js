@@ -1,0 +1,152 @@
+// @flow
+import React, { Component } from "react";
+import withStyles from "react-jss";
+import classNames from "classnames";
+
+import Paper from "elevate-ui/Paper";
+import Typography from "elevate-ui/Typography";
+import LiveExample from "./LiveExample";
+
+import readModuleFile from "../../util/readFile";
+
+type Props = {
+  folder: string,
+  classes: Object,
+};
+
+class Doc extends Component<Props> {
+  componentDidMount() {
+    readModuleFile(`../docs/${this.props.folder}s.js`, function(
+      err,
+      fileContents
+    ) {
+      console.log(fileContents);
+    });
+  }
+
+  render() {
+    const { folder, classes } = this.props;
+    // @$FlowIgnore
+    const componentDoc = require(`../../../src/${folder}/component.json`);
+    const documentation: Object = componentDoc[`src/${folder}/index.js`];
+    // @$FlowIgnore
+    const Example = require(`../docs/${folder}s.js`).default;
+    // const reader = new FileReader();
+    // reader.onLoad = function(e) {
+    //   let text = reader.result;
+    // };
+    // const raw = fs.readFile(`../docs/${folder}s.js`, "utf8", (err, data) => {
+    //   if (err) throw err;
+    //   console.log(data);
+    // });
+    //
+    // console.log(raw);
+
+    const componentProps: Array<any> = Object.entries(documentation.props);
+
+    return (
+      <Paper>
+        <Typography type="title">{`<${
+          documentation.displayName
+        } />`}</Typography>
+        <Typography type="body">{documentation.description}</Typography>
+        <hr className={classes.hr} />
+        <Typography type="heading2" id="props" className={classes.subHeading}>
+          Available Props
+        </Typography>
+        <div className={classes.table}>
+          <div className={classes.row}>
+            <div className={classes.col}>
+              <strong>Prop Name</strong>
+            </div>
+            <div className={classes.col}>
+              <strong>Flow Type</strong>
+            </div>
+            <div className={classes.col}>
+              <strong>Required</strong>
+            </div>
+            <div className={classes.col}>
+              <strong>Default Value</strong>
+            </div>
+            <div className={classNames(classes.col, classes.description)}>
+              <strong>Description</strong>
+            </div>
+          </div>
+          {componentProps &&
+            componentProps.map((componentProp) => {
+              return (
+                <div key={componentProp[0]} className={classes.row}>
+                  <div className={classes.col}>{componentProp[0]}</div>
+                  <div className={classes.col}>
+                    {componentProp[1].flowType.name}
+                  </div>
+                  <div className={classes.col}>
+                    {componentProp[1].required ? `true` : `false`}
+                  </div>
+                  <div className={classes.col}>
+                    {componentProp[1].defaultValue &&
+                      componentProp[1].defaultValue.value}
+                  </div>
+                  <div className={classNames(classes.col, classes.description)}>
+                    {componentProp[1].description}
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+        <hr className={classes.hr} />
+        <LiveExample element={Example} />
+      </Paper>
+    );
+  }
+}
+
+export default withStyles((theme) => ({
+  table: {
+    display: "flex",
+    position: "relative",
+    flexFlow: "column",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    margin: "15px 0",
+    border: "2px solid #e8e8e8",
+    borderRadius: theme.globalBorderRadius,
+    boxShadow: "0px 4px 16px -1px rgba(228, 228, 228, 0.60)",
+  },
+  row: {
+    display: "flex",
+    position: "relative",
+    width: "100%",
+    flex: "1",
+    flexFlow: "row nowrap",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    "&:nth-child(1)": {
+      fontSize: "1.1rem",
+      fontWeight: "bold",
+      backgroundColor: "#e8e8e8",
+    },
+    "&:nth-child(even)": {
+      backgroundColor: "#fbfbfb",
+    },
+  },
+  col: {
+    flex: "0 1 20%",
+    padding: "20px 8px",
+  },
+  description: {
+    flex: "0 1 45%",
+  },
+  hr: {
+    margin: "25px 0",
+    width: "100%",
+    height: "2px",
+    border: "none",
+    backgroundColor: "#dadcde",
+  },
+  subHeading: {
+    display: "block",
+    margin: "1.5em 0",
+    fontSize: "1.5rem",
+  },
+}))(Doc);

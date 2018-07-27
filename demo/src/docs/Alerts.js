@@ -1,6 +1,5 @@
 import React from "react";
 
-import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import Alert from "elevate-ui/Alert";
 
@@ -13,9 +12,8 @@ const AlertExample = ({
   handleSubmit,
   isSubmitting,
 }) => (
-  <Paper>
-    <Typography type="title">{`<Alert />`}</Typography>
-    <div style={{ padding: 8 }}>
+  <div>
+    <div style={{ padding: "8px 0" }}>
       <Alert color="success">
         <Typography type="body">Success!</Typography>
       </Alert>
@@ -46,34 +44,34 @@ const AlertExample = ({
     <Typography type="title" style={{ marginTop: "24px" }}>
       Status Colors
     </Typography>
-    <div style={{ padding: 8 }}>
+    <div style={{ padding: "8px 0" }}>
       <Alert color="success">
         <Typography type="body">{`<Alert color="success">`}</Typography>
       </Alert>
     </div>
-    <div style={{ padding: 8 }}>
+    <div style={{ padding: "8px 0" }}>
       <Alert color="error">
         <Typography type="body">{`<Alert color="error">`}</Typography>
       </Alert>
     </div>
-    <div style={{ padding: 8 }}>
+    <div style={{ padding: "8px 0" }}>
       <Alert color="info">
         <Typography type="body">{`<Alert color="info">`}</Typography>
       </Alert>
     </div>
-    <div style={{ padding: 8 }}>
+    <div style={{ padding: "8px 0" }}>
       <Alert color="warning">
         <Typography type="body">{`<Alert color="warning">`}</Typography>
       </Alert>
     </div>
-    <div style={{ padding: 8 }}>
+    <div style={{ padding: "8px 0" }}>
       <Alert color="asdf">
         <Typography type="body">
           {`<Alert color="asdf"> (invalid name, fallback to b&w)`}
         </Typography>
       </Alert>
     </div>
-  </Paper>
+  </div>
 );
 
 export default AlertExample;

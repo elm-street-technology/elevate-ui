@@ -1,0 +1,88 @@
+{
+  "src/Alert/index.js": {
+    "description":
+      "A component used for showing important information such as success messages, warnings, or errors.",
+    "displayName": "Alert",
+    "methods": [],
+    "props": {
+      "children": {
+        "flowType": {
+          "name": "any"
+        },
+        "required": true,
+        "description": "Children to be passed to the component."
+      },
+      "element": {
+        "flowType": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Element type to be used",
+        "defaultValue": {
+          "value": "\"div\"",
+          "computed": false
+        }
+      },
+      "classes": {
+        "flowType": {
+          "name": "Object"
+        },
+        "required": true,
+        "description": ""
+      },
+      "className": {
+        "flowType": {
+          "name": "string"
+        },
+        "required": true,
+        "description":
+          "Accepts any classNames to be passed down to the component."
+      },
+      "color": {
+        "flowType": {
+          "name": "union",
+          "raw": "\"error\" | \"info\" | \"success\" | \"warning\"",
+          "elements": [
+            {
+              "name": "literal",
+              "value": "\"error\""
+            },
+            {
+              "name": "literal",
+              "value": "\"info\""
+            },
+            {
+              "name": "literal",
+              "value": "\"success\""
+            },
+            {
+              "name": "literal",
+              "value": "\"warning\""
+            }
+          ]
+        },
+        "required": false,
+        "description":
+          "Color to be used on the alert, can be \"error\", \"info\", \"success\", or \"warning\"",
+        "defaultValue": {
+          "value": "\"error\"",
+          "computed": false
+        }
+      },
+      "icon": {
+        "flowType": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "Icon component to be used in the alert component"
+      },
+      "theme": {
+        "flowType": {
+          "name": "Object"
+        },
+        "required": true,
+        "description": ""
+      }
+    }
+  }
+}
