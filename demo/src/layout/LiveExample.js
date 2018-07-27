@@ -46,7 +46,9 @@ class LiveExample extends Component<Props, State> {
           </div>
         </div>
         <Element />
-        <PrismCode className="language-javascript">{code}</PrismCode>
+        <PrismCode component="pre" className="language-javascript">
+          {code}
+        </PrismCode>
       </div>
     );
   }
