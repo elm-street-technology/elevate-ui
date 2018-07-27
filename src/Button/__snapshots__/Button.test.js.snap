@@ -3,10 +3,10 @@
 exports[`renders without crashing, matches the snapshot 1`] = `
 <button
   className="Button-root-0-1-6 Button-root-0-1-1"
+  onClick={[Function]}
 >
   <div
     className="Button-children-0-1-7 Button-children-0-1-2"
-    onClick={[Function]}
   >
     Save and Continue
   </div>
