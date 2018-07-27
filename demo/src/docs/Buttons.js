@@ -62,6 +62,18 @@ const ButtonExample = ({
     <Button color="secondary" icon="Cart" isOutlined type="button">
       Check Out
     </Button>
+    <br />
+    <h2>Disabled Buttons</h2>
+    <Button disabled color="primary" icon="Person" type="button">
+      Add Lead
+    </Button>
+    <br />
+    <br />
+    <Button disabled color="secondary" isOutlined icon="Person" type="button">
+      Add Lead
+    </Button>
+    <br />
+    <br />
   </Paper>
 );
 
