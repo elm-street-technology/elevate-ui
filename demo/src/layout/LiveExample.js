@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from "react";
 import withStyles from "react-jss";
 import classNames from "classnames";
@@ -16,6 +15,7 @@ type State = {
 type Props = {
   classes: Object,
   element: Function,
+  code: string,
 };
 
 class LiveExample extends Component<Props, State> {
@@ -28,7 +28,7 @@ class LiveExample extends Component<Props, State> {
   }
 
   render() {
-    const { classes, element: Element } = this.props;
+    const { classes, element: Element, code } = this.props;
     return (
       <div className={classes.root}>
         <div className={classes.exampleHeader}>
@@ -46,9 +46,7 @@ class LiveExample extends Component<Props, State> {
           </div>
         </div>
         <Element />
-        <PrismCode className="language-javascript">
-          {`const id = x => x`}
-        </PrismCode>
+        <PrismCode className="language-javascript">{code}</PrismCode>
       </div>
     );
   }

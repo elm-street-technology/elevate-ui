@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from "react";
 import withStyles from "react-jss";
 import classNames from "classnames";
@@ -7,41 +6,40 @@ import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import LiveExample from "./LiveExample";
 
-import readModuleFile from "../../util/readFile";
-
 type Props = {
   folder: string,
   classes: Object,
 };
 
-class Doc extends Component<Props> {
-  componentDidMount() {
-    readModuleFile(`../docs/${this.props.folder}s.js`, function(
-      err,
-      fileContents
-    ) {
-      console.log(fileContents);
-    });
+type State = {
+  fileText: string,
+};
+
+class Doc extends Component<Props, State> {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      fileText: "",
+    };
   }
+
+  componentDidMount() {
+    this.getFileContents();
+  }
+
+  getFileContents = () => {
+    fetch(`/docs/${this.props.folder}s.js`)
+      .then((res) => res.text())
+      .then((fileText) => this.setState({ fileText }));
+  };
 
   render() {
     const { folder, classes } = this.props;
-    // @$FlowIgnore
+    const { fileText } = this.state;
     const componentDoc = require(`../../../src/${folder}/component.json`);
     const documentation: Object = componentDoc[`src/${folder}/index.js`];
-    // @$FlowIgnore
     const Example = require(`../docs/${folder}s.js`).default;
-    // const reader = new FileReader();
-    // reader.onLoad = function(e) {
-    //   let text = reader.result;
-    // };
-    // const raw = fs.readFile(`../docs/${folder}s.js`, "utf8", (err, data) => {
-    //   if (err) throw err;
-    //   console.log(data);
-    // });
-    //
-    // console.log(raw);
-
     const componentProps: Array<any> = Object.entries(documentation.props);
 
     return (
@@ -95,7 +93,7 @@ class Doc extends Component<Props> {
             })}
         </div>
         <hr className={classes.hr} />
-        <LiveExample element={Example} />
+        <LiveExample element={Example} code={fileText} />
       </Paper>
     );
   }
