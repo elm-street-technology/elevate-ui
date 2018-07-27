@@ -75,7 +75,8 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/demo/"
-    ]
+    ],
+    "testURL": "http://localhost/"
   },
   "license": "MIT",
   "keywords": [
