@@ -124,6 +124,8 @@ class Button extends Component<Props, State> {
     };
   }
 
+  ripple: ?HTMLElement;
+
   toggleRipple = () => {
     this.setState(
       (state) => ({
@@ -146,10 +148,10 @@ class Button extends Component<Props, State> {
       relX = e.pageX - parentOffset.left,
       relY = e.pageY - parentOffset.top;
 
-    const span = button.parentElement.getElementsByTagName("span");
-
-    span[0].style.top = relY + "px";
-    span[0].style.left = relX + "px";
+    if (this.ripple) {
+      this.ripple.style.top = relY + "px";
+      this.ripple.style.left = relX + "px";
+    }
 
     this.toggleRipple();
   };
@@ -171,17 +173,19 @@ class Button extends Component<Props, State> {
 
     return (
       // $FlowFixMe
-      <Element className={classNames(classes.root, className)} {...rest}>
-        <div
-          onClick={this.handleClick}
-          className={classNames(classes.children, innerClassName)}
-        >
+      <Element
+        className={classNames(classes.root, className)}
+        {...rest}
+        onClick={this.handleClick}
+      >
+        <div className={classNames(classes.children, innerClassName)}>
           {this.props.icon && (
             <Icon icon={this.props.icon} className={classes.icon} />
           )}
           {children}
         </div>
         <span
+          ref={(ripple) => (this.ripple = ripple)}
           className={classNames(
             classes.ripple,
             rippleActive && classes.rippleActive
