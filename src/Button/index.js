@@ -15,6 +15,7 @@ type Props = {
   innerClassName?: string,
   isOutlined: boolean,
   theme: Object,
+  disabled?: boolean,
 };
 
 type State = {
@@ -22,7 +23,7 @@ type State = {
 };
 
 function getChildColor(theme, props) {
-  if (props.isDisabled) {
+  if (props.disabled) {
     return theme.colors["gray300"];
   } else if (props.isOutlined) {
     if (props.color !== "primary" && props.color !== "secondary") {
@@ -42,6 +43,8 @@ function getChildColor(theme, props) {
 function getBackgroundColor(theme, props) {
   if (props.isOutlined) {
     return "transparent";
+  } else if (props.disabled) {
+    return theme.colors["gray100"];
   } else if (props.color !== "primary" && props.color !== "secondary") {
     return props.color;
   } else {
@@ -50,7 +53,11 @@ function getBackgroundColor(theme, props) {
 }
 
 function getHoverColor(theme, props) {
-  if (
+  if (props.disabled && props.isOutlined) {
+    return "transparent";
+  } else if (props.disabled) {
+    return theme.colors["gray100"];
+  } else if (
     props.isOutlined &&
     props.color !== "primary" &&
     props.color !== "secondary"
@@ -102,7 +109,9 @@ function getRippleColor(theme, props) {
 }
 
 function getBorderColor(theme, props) {
-  if (props.color !== "primary" && props.color !== "secondary") {
+  if (props.disabled) {
+    return theme.colors["gray100"];
+  } else if (props.color !== "primary" && props.color !== "secondary") {
     return props.color;
   } else {
     return theme.colors[props.color];
