@@ -14,6 +14,7 @@ type Props = {
   icon: string,
   innerClassName?: string,
   isOutlined: boolean,
+  onClick: Function,
   theme: Object,
   disabled?: boolean,
 };
@@ -152,6 +153,7 @@ class Button extends Component<Props, State> {
 
   handleClick = (e) => {
     const button = e.target;
+    const { onClick } = this.props;
 
     let parentOffset = button.getBoundingClientRect(),
       relX = e.pageX - parentOffset.left,
@@ -163,6 +165,9 @@ class Button extends Component<Props, State> {
     }
 
     this.toggleRipple();
+
+    // Call this.props.onClick if it exists
+    if (onClick) onClick();
   };
 
   render() {
