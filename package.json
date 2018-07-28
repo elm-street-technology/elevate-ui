@@ -19,7 +19,7 @@
     "test": "yarn run test:flow && yarn run test:jest",
     "test:flow": "flow check",
     "test:jest": "jest",
-    "watch": "yarn babel --watch src --out-dir . --ignore setupTests.js,test.js"
+    "watch": "yarn babel --watch src --out-dir . --ignore build-rmdi.js,setupTests.js,test.js"
   },
   "dependencies": {
     "classnames": "2.2.5",

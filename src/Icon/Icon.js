@@ -1,8 +1,7 @@
 import React from "react";
-import * as Icons from "./index";
 
 const Icon = ({ name, ...props }) => {
-  const Component = Icons[name];
+  const Component = require(`./${name}`).default;
   if (!Component) return false;
   return <Component {...props} />;
 };
