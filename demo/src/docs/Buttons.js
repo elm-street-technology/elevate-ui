@@ -53,6 +53,11 @@ const ButtonExample = ({
     </Button>
     <br />
     <br />
+    <Button isOutlined color="#333" type="button">
+      Filter Results
+    </Button>
+    <br />
+    <br />
     <h2>Buttons With Icons</h2>
     <Button color="primary" icon="Person" type="button">
       Add Lead
