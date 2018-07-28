@@ -10,12 +10,13 @@ type Props = {
   classes: Object,
   className: string,
   color: string,
+  disabled?: boolean,
   element?: string,
   icon: string,
   innerClassName?: string,
   isOutlined: boolean,
+  onClick: Function,
   theme: Object,
-  disabled?: boolean,
 };
 
 type State = {
@@ -163,6 +164,10 @@ class Button extends Component<Props, State> {
     }
 
     this.toggleRipple();
+
+    if (this.props.onClick) {
+      this.props.onClick();
+    }
   };
 
   render() {
@@ -175,6 +180,7 @@ class Button extends Component<Props, State> {
       icon,
       innerClassName,
       isOutlined,
+      onClick,
       theme,
       ...rest
     } = this.props;
