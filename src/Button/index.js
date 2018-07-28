@@ -193,9 +193,7 @@ class Button extends Component<Props, State> {
         onClick={this.handleClick}
       >
         <div className={classNames(classes.children, innerClassName)}>
-          {this.props.icon && (
-            <Icon icon={this.props.icon} className={classes.icon} />
-          )}
+          {icon && <Icon name={icon} className={classes.icon} />}
           {children}
         </div>
         <span
