@@ -55,18 +55,28 @@ function getBackgroundColor(theme, props) {
 
 function getHoverColor(theme, props) {
   if (props.disabled && props.isOutlined) {
+    // if disabled and outlined
     return "transparent";
   } else if (props.disabled) {
+    // if disabled
     return theme.colors["gray100"];
   } else if (
+    // if outlined and not primary or secondary color
     props.isOutlined &&
     props.color !== "primary" &&
     props.color !== "secondary"
   ) {
+    // if the background is too dark fade it instead of lighten
+    if (Color(props.color).isDark()) {
+      return Color(props.color)
+        .fade(0.75)
+        .string();
+    }
     return Color(props.color)
       .lighten(0.55)
       .string();
   } else if (
+    // if not outlined and not primary or secondary color
     !props.isOutlined &&
     props.color !== "primary" &&
     props.color !== "secondary"
@@ -75,10 +85,24 @@ function getHoverColor(theme, props) {
       .darken(0.1)
       .string();
   } else if (props.isOutlined) {
+    // if is outlined and using primary or secondary
+    // if the background is too dark fade it instead of lighten
+    if (Color(theme.colors[props.color]).isDark()) {
+      return Color(theme.colors[props.color])
+        .fade(0.75)
+        .string();
+    }
     return Color(theme.colors[props.color])
-      .lighten(0.55)
+      .lighten(0.52)
       .string();
   } else {
+    // anything else
+    // if the background is too dark fade it instead of lighten
+    if (Color(theme.colors[props.color]).isDark()) {
+      return Color(theme.colors[props.color])
+        .fade(0.75)
+        .string();
+    }
     return Color(theme.colors[props.color])
       .darken(0.1)
       .string();
