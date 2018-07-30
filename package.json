@@ -20,7 +20,7 @@
     "test:flow": "flow check",
     "test:jest": "jest",
     "watch": "yarn babel --watch src --out-dir . --ignore build-rmdi.js,setupTests.js,test.js",
-    "docgen": "react-docgen",
+    "docgen": "react-docgen"
   },
   "dependencies": {
     "classnames": "2.2.5",
