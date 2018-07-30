@@ -6,13 +6,25 @@ import Scaffold from "../Scaffold";
 
 type Props = {
   classes: Object,
+  /**
+   * Accepts any classNames to be passed down to the component.
+   */
   className: string,
   field: Object,
   form: Object,
   id: string,
+  /**
+   * Text input to be used as the label for inside the component.
+   */
   label: string,
   theme: Object,
+  /**
+   * Input type to be used.
+   */
   type: string,
+  /**
+   * Use the scaffold for the input or if the input should just be the raw input.
+   */
   withScaffold: boolean,
 };
 
@@ -62,6 +74,9 @@ export const RawInput = withStyles((theme) => ({
   )
 );
 
+/**
+ * Standard form input component.
+ */
 const Input = ({
   className,
   field,

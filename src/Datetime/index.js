@@ -8,15 +8,24 @@ import Scaffold from "../Scaffold";
 
 type Props = {
   classes: Object,
+  /**
+   * classNames to be passed to the component.
+   */
   className: string,
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   id: string,
+  /**
+   * Text input to be used as the label for the component.
+   */
   label: string,
   theme: Object,
   withScaffold: boolean,
 };
 
+/**
+ * A Date/Time component for use in forms. The <Datetime /> component is a styled wrapper around React-Datetime.
+ */
 const Datetime = ({
   classes,
   className,

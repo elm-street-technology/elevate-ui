@@ -6,16 +6,43 @@ import Color from "color";
 import Icon from "../Icon/Icon";
 
 type Props = {
+  /**
+   * Children to be passed to the component.
+   */
   children: any,
   classes: Object,
+  /**
+   * Accepts any classNames to be passed to the component.
+   */
   className: string,
+  /**
+   * Color to be applied to the Button component. Can be "primary", "secondary", or any custom value.
+   */
   color: string,
+  /**
+   * Element type to be used.
+   */
   element?: string,
-  icon: string,
+  /**
+   * Icon component to use in the component.
+   */
+  icon?: string,
+  /**
+   * Inner className to be applied to the children of the component.
+   */
   innerClassName?: string,
+  /**
+   * Allows the component to be styled as an outlined button.
+   */
   isOutlined: boolean,
-  onClick: Function,
+  /**
+   * Function to be passed to the component on click.
+   */
+  onClick?: Function,
   theme: Object,
+  /**
+   * Disabled the component so it cannot be clicked.
+   */
   disabled?: boolean,
 };
 
@@ -143,6 +170,9 @@ function getBorderColor(theme, props) {
   }
 }
 
+/**
+ * A component used to render a styled button.
+ */
 class Button extends Component<Props, State> {
   static defaultProps = {
     element: "button",
