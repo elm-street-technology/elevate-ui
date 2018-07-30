@@ -1,0 +1,57 @@
+{
+  "description": "",
+  "displayName": "Validation",
+  "methods": [],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    },
+    "color": {
+      "flowType": {
+        "name": "union",
+        "raw": "\"success\" | \"error\"",
+        "elements": [
+          {
+            "name": "literal",
+            "value": "\"success\""
+          },
+          {
+            "name": "literal",
+            "value": "\"error\""
+          }
+        ]
+      },
+      "required": false,
+      "description": "",
+      "defaultValue": {
+        "value": "\"error\"",
+        "computed": false
+      }
+    },
+    "error": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": ""
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    }
+  }
+}

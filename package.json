@@ -6,9 +6,9 @@
   "private": false,
   "sideEffects": false,
   "scripts": {
-    "build": "yarn babel src --out-dir . --ignore build-rmdi.js,setupTests.js,test.js",
+    "build": "yarn generate-docs && yarn babel src --out-dir . --ignore build-rmdi.js,setupTests.js,test.js",
     "clean": "./scripts/clean.js",
-    "demo": "cd demo && yarn start",
+    "demo": "yarn generate-docs && cd demo && yarn start",
     "deploy": "yarn run build && yarn publish && cd demo && yarn && yarn deploy && cd ..",
     "icon-party": "node src/Icon/build/build-rmdi",
     "lint": "eslint src/**/*.js",
@@ -20,7 +20,8 @@
     "test:flow": "flow check",
     "test:jest": "jest",
     "watch": "yarn babel --watch src --out-dir . --ignore build-rmdi.js,setupTests.js,test.js",
-    "docgen": "react-docgen"
+    "docgen": "react-docgen",
+    "generate-docs": "./scripts/generateDocs.js"
   },
   "dependencies": {
     "classnames": "2.2.5",

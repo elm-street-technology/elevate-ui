@@ -1,0 +1,63 @@
+{
+  "description":
+    "Renders a component used for displaying headings or body copy.",
+  "displayName": "Typography",
+  "methods": [],
+  "props": {
+    "children": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": ""
+    },
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description":
+        "Accepts any classNames to be passed down to the component."
+    },
+    "component": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "What HTML element or component to use when rendered."
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "type": {
+      "flowType": {
+        "name": "union",
+        "raw": "\"title\" | \"body\"",
+        "elements": [
+          {
+            "name": "literal",
+            "value": "\"title\""
+          },
+          {
+            "name": "literal",
+            "value": "\"body\""
+          }
+        ]
+      },
+      "required": true,
+      "description":
+        "Type of typography to render such as \"title\" or \"body\"."
+    }
+  }
+}

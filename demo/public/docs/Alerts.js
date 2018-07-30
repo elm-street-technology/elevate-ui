@@ -18,8 +18,8 @@ const AlertExample = ({
         <Typography type="body">Success!</Typography>
       </Alert>
     </div>
-    <div style={{ padding: "8px 0" }}>
-      <Alert color="error" icon="ExclamationOutline">
+    <div style={{ padding: 8 }}>
+      <Alert color="error" icon="ErrorOutline">
         <Typography type="body">
           Our records indicate you are not active or eligible with the MLS due
           to your MLS subscription type or dues.
@@ -41,7 +41,10 @@ const AlertExample = ({
       </Alert>
     </div>
 
-    <Typography type="title" style={{ marginTop: "24px" }}>
+    <Typography
+      type="heading2"
+      style={{ margin: "24px 0", fontSize: "20px", display: "block" }}
+    >
       Status Colors
     </Typography>
     <div style={{ padding: "8px 0" }}>

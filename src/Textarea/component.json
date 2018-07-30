@@ -1,0 +1,76 @@
+{
+  "description": "A component that renders a <textarea> for use in forms.",
+  "displayName": "Textarea",
+  "methods": [],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description":
+        "Accepts any classNames to be passed down to the component."
+    },
+    "field": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "form": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "id": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    },
+    "label": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description":
+        "Text that should be passed down to the label element inside of the component."
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "withScaffold": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "If the scaffold component should be used.",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
+    },
+    "tabIndex": {
+      "defaultValue": {
+        "value": "\"0\"",
+        "computed": false
+      },
+      "required": false
+    }
+  }
+}

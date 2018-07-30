@@ -1,0 +1,14 @@
+{
+  "description": "",
+  "displayName": "ThemeProvider",
+  "methods": [],
+  "props": {
+    "withReset": {
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      },
+      "required": false
+    }
+  }
+}

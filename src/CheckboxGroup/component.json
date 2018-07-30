@@ -1,0 +1,122 @@
+{
+  "description": "A component used to render a group of checkboxes.",
+  "displayName": "CheckboxGroup",
+  "methods": [
+    {
+      "name": "onChange",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "e",
+          "type": null
+        }
+      ],
+      "returns": null
+    }
+  ],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "classNames to be passed to the component."
+    },
+    "display": {
+      "flowType": {
+        "name": "union",
+        "raw": "\"inline\" | \"block\"",
+        "elements": [
+          {
+            "name": "literal",
+            "value": "\"inline\""
+          },
+          {
+            "name": "literal",
+            "value": "\"block\""
+          }
+        ]
+      },
+      "required": false,
+      "description": "",
+      "defaultValue": {
+        "value": "\"block\"",
+        "computed": false
+      }
+    },
+    "field": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "form": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "options": {
+      "flowType": {
+        "name": "Array",
+        "elements": [
+          {
+            "name": "signature",
+            "type": "object",
+            "raw": "{ label: string, value: string }",
+            "signature": {
+              "properties": [
+                {
+                  "key": "label",
+                  "value": {
+                    "name": "string",
+                    "required": true
+                  }
+                },
+                {
+                  "key": "value",
+                  "value": {
+                    "name": "string",
+                    "required": true
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "raw": "Array<{ label: string, value: string }>"
+      },
+      "required": false,
+      "description": "",
+      "defaultValue": {
+        "value": "[]",
+        "computed": false
+      }
+    },
+    "label": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description":
+        "Text input to be used as the label for the checkbox group."
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    }
+  }
+}
