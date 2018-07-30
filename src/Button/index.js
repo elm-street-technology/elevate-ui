@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 import Color from "color";
-import Icon from "../Icon";
+import Icon from "../Icon/Icon";
 
 type Props = {
   children: any,
