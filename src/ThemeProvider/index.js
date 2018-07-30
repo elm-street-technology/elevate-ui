@@ -23,6 +23,11 @@ const colors = {
   gray900: "#232c35",
   black: "#11181e",
   error: "#9c2929",
+  facebook: "#3b5998",
+  google: "#db4437",
+  linkedin: "#007bb5",
+  pinterest: "#bd081c",
+  twitter: "#1da1f2",
 };
 
 const alertColors = {
