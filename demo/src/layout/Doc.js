@@ -74,7 +74,11 @@ class Doc extends Component<Props, State> {
             componentProps.map((componentProp) => {
               return (
                 <div key={componentProp[0]} className={classes.row}>
-                  <div className={classes.col}>{componentProp[0]}</div>
+                  <div className={classes.col}>
+                    <pre>
+                      <code className={classes.code}>{componentProp[0]}</code>
+                    </pre>
+                  </div>
                   <div className={classes.col}>
                     {componentProp[1].flowType.name}
                   </div>
@@ -146,5 +150,9 @@ export default withStyles((theme) => ({
     display: "block",
     margin: "1.5em 0",
     fontSize: "1.5rem",
+  },
+  code: {
+    fontFamily: "monospace",
+    fontWeight: "bold",
   },
 }))(Doc);

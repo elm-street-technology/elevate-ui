@@ -27,6 +27,10 @@ class LiveExample extends Component<Props, State> {
     };
   }
 
+  toggleSource = () => {
+    this.setState((state) => ({ showSource: !state.showSource }));
+  };
+
   render() {
     const { classes, element: Element, code } = this.props;
     return (
@@ -40,15 +44,28 @@ class LiveExample extends Component<Props, State> {
             Live Example
           </Typography>
           <div>
-            <Button type="button" color="primary" className={classes.button}>
-              Show Source
+            <Button
+              onClick={this.toggleSource}
+              type="button"
+              color="primary"
+              className={classes.button}
+            >
+              {this.state.showSource ? "Hide Source Code" : "Show Source Code"}
             </Button>
           </div>
         </div>
-        <Element />
-        <PrismCode component="pre" className="language-javascript">
-          {code}
-        </PrismCode>
+        <div
+          className={this.state.showSource ? classes.hidden : classes.visible}
+        >
+          <Element />
+        </div>
+        <div
+          className={this.state.showSource ? classes.visible : classes.hidden}
+        >
+          <PrismCode component="pre" className="language-javascript">
+            {code}
+          </PrismCode>
+        </div>
       </div>
     );
   }
@@ -74,5 +91,11 @@ export default withStyles((theme) => ({
   },
   button: {
     width: "175px",
+  },
+  hidden: {
+    display: "none",
+  },
+  visible: {
+    display: "block",
   },
 }))(LiveExample);

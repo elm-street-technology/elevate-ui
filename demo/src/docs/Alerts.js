@@ -41,7 +41,10 @@ const AlertExample = ({
       </Alert>
     </div>
 
-    <Typography type="title" style={{ marginTop: "24px" }}>
+    <Typography
+      type="heading2"
+      style={{ margin: "24px 0", fontSize: "20px", display: "block" }}
+    >
       Status Colors
     </Typography>
     <div style={{ padding: "8px 0" }}>
