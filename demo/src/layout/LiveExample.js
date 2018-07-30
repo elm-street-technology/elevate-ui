@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import withStyles from "react-jss";
-import classNames from "classnames";
 
 import Typography from "elevate-ui/Typography";
 import Button from "elevate-ui/Button";
