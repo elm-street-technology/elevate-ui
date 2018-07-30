@@ -65,6 +65,12 @@ function getHoverColor(theme, props) {
     props.color !== "primary" &&
     props.color !== "secondary"
   ) {
+    // if the background is too dark fade it instead of lighten
+    if (Color(props.color).isDark()) {
+      return Color(props.color)
+        .fade(0.75)
+        .string();
+    }
     return Color(props.color)
       .lighten(0.55)
       .string();
@@ -82,7 +88,7 @@ function getHoverColor(theme, props) {
     // if the background is too dark fade it instead of lighten
     if (Color(theme.colors[props.color]).isDark()) {
       return Color(theme.colors[props.color])
-        .fade(0.5)
+        .fade(0.75)
         .string();
     }
     return Color(theme.colors[props.color])
@@ -93,7 +99,7 @@ function getHoverColor(theme, props) {
     // if the background is too dark fade it instead of lighten
     if (Color(theme.colors[props.color]).isDark()) {
       return Color(theme.colors[props.color])
-        .fade(0.5)
+        .fade(0.75)
         .string();
     }
     return Color(theme.colors[props.color])
