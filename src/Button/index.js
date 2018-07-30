@@ -191,7 +191,7 @@ class Button extends Component<Props, State> {
     this.toggleRipple();
 
     // Call this.props.onClick if it exists
-    if (onClick) onClick();
+    if (onClick) onClick(e);
   };
 
   render() {
