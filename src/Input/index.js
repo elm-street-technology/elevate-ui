@@ -28,7 +28,7 @@ type Props = {
   withScaffold: boolean,
 };
 
-export const RawInput = withStyles((theme) => ({
+const RawInput = withStyles((theme) => ({
   root: {
     display: "block",
     width: "100%",

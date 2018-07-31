@@ -3,11 +3,13 @@
 const { lstatSync, readdirSync } = require("fs");
 const { join } = require("path");
 const { exec } = require("child_process");
+const endsWith = require("lodash/endsWith");
+const colors = require("colors"); // eslint-disable-line
 
 const cwd = process.cwd();
 const srcComponentFiles = `${cwd}/src/`;
 const docComponentFiles = `${cwd}/demo/src/docs`;
-const docExamples = `${cwd}/demo/public/docs`;
+const docExamples = `${cwd}/demo/public/`;
 
 const isDirectory = (source) => lstatSync(source).isDirectory();
 const getDirectories = (source) =>
@@ -20,19 +22,40 @@ const sourceComponents = getDirectories(srcComponentFiles);
 // copy documentation examples to public
 exec(`cp -R ${docComponentFiles} ${docExamples}`);
 
-/**
- * Some of these may error out, and thats okay
- **/
+// create json files for each component
 sourceComponents.forEach((sourceComponent) => {
-  exec(
+  if (endsWith(sourceComponent, "src/Icon")) {
+    return exec(
+      `yarn docgen ${sourceComponent}/Icon.js --pretty -o ${sourceComponent}/component.json`,
+      (error, stdout) => {
+        if (error) {
+          console.error(`${error}`.red);
+          return;
+        }
+        console.log(`${stdout}`);
+        console.log(`Created documentation for <Icon />`.green);
+      }
+    );
+  }
+  if (
+    endsWith(sourceComponent, "src/withStyles") ||
+    endsWith(sourceComponent, "src/Loadable") ||
+    endsWith(sourceComponent, "src/ThemeProvider")
+  ) {
+    console.log(
+      `Skipping documentation for the ${sourceComponent} directory...`.yellow
+    );
+    return;
+  }
+  return exec(
     `yarn docgen ${sourceComponent}/index.js --pretty -o ${sourceComponent}/component.json`,
-    (error, stdout, stderr) => {
+    (error, stdout) => {
       if (error) {
-        console.error(`exec error: ${error}`);
+        console.error(`${error}`.red);
         return;
       }
-      console.log(`stdout: ${stdout}`);
-      console.log(`stderr: ${stderr}`);
+      console.log(`${stdout}`);
+      console.log(`Created documentation for ${sourceComponent}`.green);
     }
   );
 });

@@ -1,3 +1,5 @@
+// Wraps ReactTable component `withStyles` and overrides default styling
+// https://github.com/react-tools/react-table#js-styles
 import React, { Component } from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
@@ -5,9 +7,6 @@ import ReactTable from "react-table";
 
 import FilterComponent from "./FilterComponent";
 import Pagination from "./Pagination";
-
-// Wraps ReactTable component `withStyles` and overrides default styling
-// https://github.com/react-tools/react-table#js-styles
 
 /*
  * The <Table /> component extends React-Table with an opinionated default configuration and styling.

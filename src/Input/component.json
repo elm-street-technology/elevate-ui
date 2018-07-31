@@ -1,0 +1,77 @@
+{
+  "description": "Standard form input component.",
+  "displayName": "Input",
+  "methods": [],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description":
+        "Accepts any classNames to be passed down to the component."
+    },
+    "field": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "form": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "id": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    },
+    "label": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description":
+        "Text input to be used as the label for inside the component."
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "type": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Input type to be used."
+    },
+    "withScaffold": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description":
+        "Use the scaffold for the input or if the input should just be the raw input.",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
+    }
+  }
+}

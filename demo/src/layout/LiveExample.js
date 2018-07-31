@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import withStyles from "react-jss";
 
 import Typography from "elevate-ui/Typography";
+import Paper from "elevate-ui/Paper";
 import Button from "elevate-ui/Button";
 import PrismCode from "react-prism";
 import "./prism-elevate.css";
@@ -61,9 +62,11 @@ class LiveExample extends Component<Props, State> {
         <div
           className={this.state.showSource ? classes.visible : classes.hidden}
         >
-          <PrismCode component="pre" className="language-javascript">
-            {code}
-          </PrismCode>
+          <Paper>
+            <PrismCode component="pre" className="language-javascript">
+              {code}
+            </PrismCode>
+          </Paper>
         </div>
       </div>
     );
