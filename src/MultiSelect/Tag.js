@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 
-import Icon from "../Icon";
+import Close from "../Icon/Close";
 
 type Item = {
   label: string,
@@ -30,7 +30,7 @@ const Tag = (props: Props) => {
           onRemove(tag);
         }}
       >
-        <Icon name="Close" size={18} />
+        <Close size={18} />
       </button>
     </div>
   );
