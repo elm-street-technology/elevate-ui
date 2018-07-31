@@ -179,9 +179,9 @@ class Button extends Component<Props, State> {
     const button = e.target;
     const { onClick } = this.props;
 
-    let parentOffset = button.getBoundingClientRect(),
-      relX = e.pageX - parentOffset.left,
-      relY = e.pageY - parentOffset.top;
+    let parentOffset = button.getBoundingClientRect();
+    let relX = Math.round(e.clientX - parentOffset.left);
+    let relY = Math.round(e.clientY - parentOffset.top);
 
     if (this.ripple) {
       this.ripple.style.top = relY + "px";
@@ -216,17 +216,19 @@ class Button extends Component<Props, State> {
         {...rest}
         onClick={this.handleClick}
       >
-        <div className={classNames(classes.children, innerClassName)}>
-          {icon && <Icon name={icon} className={classes.icon} />}
-          {children}
+        <div className={classes.innerContainer}>
+          <div className={classNames(classes.children, innerClassName)}>
+            {icon && <Icon name={icon} className={classes.icon} />}
+            {children}
+          </div>
+          <span
+            ref={(ripple) => (this.ripple = ripple)}
+            className={classNames(
+              classes.ripple,
+              rippleActive && classes.rippleActive
+            )}
+          />
         </div>
-        <span
-          ref={(ripple) => (this.ripple = ripple)}
-          className={classNames(
-            classes.ripple,
-            rippleActive && classes.rippleActive
-          )}
-        />
       </Element>
     );
   }
@@ -252,8 +254,13 @@ export default withStyles((theme) => ({
       backgroundColor: (props) => getHoverColor(theme, props),
     },
   },
+  innerContainer: {
+    position: "relative",
+    zIndex: "0",
+  },
   children: {
     display: "flex",
+    position: "relative",
     alignItems: "center",
     color: (props) => getChildColor(theme, props),
     fontFamily: theme.typography.sans,
