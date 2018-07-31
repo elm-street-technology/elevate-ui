@@ -2,16 +2,20 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <button
-  className="Button-root-0-1-6 Button-root-0-1-1"
+  className="Button-root-0-1-7 Button-root-0-1-1"
   onClick={[Function]}
 >
   <div
-    className="Button-children-0-1-7 Button-children-0-1-2"
+    className="Button-innerContainer-0-1-10 Button-innerContainer-0-1-2"
   >
-    Save and Continue
+    <div
+      className="Button-children-0-1-8 Button-children-0-1-3"
+    >
+      Save and Continue
+    </div>
+    <span
+      className="Button-ripple-0-1-9 Button-ripple-0-1-5"
+    />
   </div>
-  <span
-    className="Button-ripple-0-1-8 Button-ripple-0-1-4"
-  />
 </button>
 `;
