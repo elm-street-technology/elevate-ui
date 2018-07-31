@@ -21,6 +21,7 @@ type Props = {
   onSelect?: Function,
   theme: Object,
   withScaffold: boolean,
+  noObjectReturn: boolean,
 };
 
 type State = {
@@ -53,8 +54,15 @@ class Select extends Component<Props, State> {
     const {
       field: { name },
       form: { setFieldValue },
+      noObjectReturn,
     } = this.props;
-    setFieldValue(name, item);
+
+    if (noObjectReturn) {
+      setFieldValue(name, item.value);
+    } else {
+      setFieldValue(name, item);
+    }
+
     if (this.props.onSelect) {
       this.props.onSelect(name, item);
     }
@@ -134,6 +142,12 @@ class Select extends Component<Props, State> {
       label,
       withScaffold = true,
     } = this.props;
+
+    // if (this.props.noObjectReturn) {
+    //   const {
+    //     field: { name, value },
+    //   } = props;
+    // }
     const { inputValue } = this.state;
 
     return (

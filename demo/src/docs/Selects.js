@@ -37,7 +37,9 @@ const Selects = ({
       }}
       validationSchema={() =>
         Yup.object().shape({
-          color: Yup.object().required("A favorite color is required"),
+          color:
+            Yup.object().required("A favorite color is required") ||
+            Yup.string().required("An item must be selected"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -58,11 +60,19 @@ const Selects = ({
       }) => (
         <Form noValidate style={{ maxWidth: "420px" }}>
           <Field
-            id="color"
             name="color"
-            label="Favorite Color"
-            items={roygbiv}
-            component={Select}
+            render={(props) => {
+              return (
+                <Select
+                  {...props}
+                  id="color"
+                  name="color"
+                  label="Favorite Color"
+                  items={roygbiv}
+                  noObjectReturn
+                />
+              );
+            }}
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
