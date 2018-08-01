@@ -4,49 +4,44 @@ import withStyles from "react-jss";
 
 import Loadable from "elevate-ui/Loadable";
 
+import RouteListener from "./RouteListener";
 import Sidebar from "./Sidebar";
+import Doc from "./Doc";
+import IconDoc from "./IconDoc";
 
 const Home = Loadable({ loader: () => import("../docs/Home") });
-const Inputs = Loadable({ loader: () => import("../docs/Inputs") });
-const Textareas = Loadable({ loader: () => import("../docs/Textareas") });
-const Selects = Loadable({ loader: () => import("../docs/Selects") });
-const MultiSelects = Loadable({ loader: () => import("../docs/MultiSelects") });
-const Checkboxes = Loadable({ loader: () => import("../docs/Checkboxes") });
-const CheckboxGroups = Loadable({
-  loader: () => import("../docs/CheckboxGroups"),
-});
-const RadioGroups = Loadable({
-  loader: () => import("../docs/RadioGroups"),
-});
-const Datetimes = Loadable({ loader: () => import("../docs/Datetimes") });
-const Buttons = Loadable({ loader: () => import("../docs/Buttons") });
-const Alerts = Loadable({ loader: () => import("../docs/Alerts") });
-const Tables = Loadable({ loader: () => import("../docs/Tables") });
-const Icons = Loadable({ loader: () => import("../docs/Icons") });
 const SignupForm = Loadable({ loader: () => import("../docs/SignupForm") });
 
 const Main = ({ classes }) => (
-  <div className={classes.root}>
-    <div className={classes.sidebar}>
-      <Sidebar />
+  <RouteListener>
+    <div className={classes.root}>
+      <div className={classes.sidebar}>
+        <Sidebar />
+      </div>
+      <div className={classes.children}>
+        <Route exact path="/" component={Home} />
+        <Route path="/input" render={() => <Doc folder="Input" />} />
+        <Route path="/textarea" render={() => <Doc folder="Textarea" />} />
+        <Route path="/select" render={() => <Doc folder="Select" />} />
+        <Route
+          path="/multi-select"
+          render={() => <Doc folder="MultiSelect" />}
+        />
+        <Route path="/checkbox" render={() => <Doc folder="Checkbox" />} />
+        <Route
+          path="/checkbox-group"
+          render={() => <Doc folder="CheckboxGroup" />}
+        />
+        <Route path="/radio-group" render={() => <Doc folder="RadioGroup" />} />
+        <Route path="/datetime" render={() => <Doc folder="Datetime" />} />
+        <Route path="/button" render={() => <Doc folder="Button" />} />
+        <Route path="/alert" render={() => <Doc folder="Alert" />} />
+        <Route path="/table" render={() => <Doc folder="Table" />} />
+        <Route path="/icon" render={() => <IconDoc />} />
+        <Route path="/signup" component={SignupForm} />
+      </div>
     </div>
-    <div className={classes.children}>
-      <Route exact path="/" component={Home} />
-      <Route path="/input" component={Inputs} />
-      <Route path="/textarea" component={Textareas} />
-      <Route path="/select" component={Selects} />
-      <Route path="/multi-select" component={MultiSelects} />
-      <Route path="/checkbox" component={Checkboxes} />
-      <Route path="/checkbox-group" component={CheckboxGroups} />
-      <Route path="/radio-group" component={RadioGroups} />
-      <Route path="/datetime" component={Datetimes} />
-      <Route path="/button" component={Buttons} />
-      <Route path="/alert" component={Alerts} />
-      <Route path="/table" component={Tables} />
-      <Route path="/icon" component={Icons} />
-      <Route path="/signup" component={SignupForm} />
-    </div>
-  </div>
+  </RouteListener>
 );
 
 export default withStyles((theme) => ({

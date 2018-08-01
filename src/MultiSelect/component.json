@@ -1,0 +1,250 @@
+{
+  "description":
+    "A component that renders a <MultiSelect /> to be used inside forms.",
+  "displayName": "MultiSelect",
+  "methods": [
+    {
+      "name": "stateReducer",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "state",
+          "type": null
+        },
+        {
+          "name": "changes",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "handleStateChange",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "changes",
+          "type": null
+        },
+        {
+          "name": "downshiftStateAndHelpers",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "onInputChange",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "e",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "onAddTag",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "item",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "onRemoveTag",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "item",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "onInputKeyDown",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "event",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "popValue",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    },
+    {
+      "name": "onWrapperClick",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "e",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "focusOnInput",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    },
+    {
+      "name": "inputRef",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "c",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "inputWrapperRef",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "c",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "renderArrowIcon",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "isOpen",
+          "type": null
+        }
+      ],
+      "returns": null
+    }
+  ],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description":
+        "Accepts any classNames to be passed down to the component."
+    },
+    "closeOnSelect": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description":
+        "Whether or not the input should close when a value is selected."
+    },
+    "field": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "form": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "items": {
+      "flowType": {
+        "name": "Array",
+        "elements": [
+          {
+            "name": "signature",
+            "type": "object",
+            "raw": "{\n  label: string,\n  value: string,\n}",
+            "signature": {
+              "properties": [
+                {
+                  "key": "label",
+                  "value": {
+                    "name": "string",
+                    "required": true
+                  }
+                },
+                {
+                  "key": "value",
+                  "value": {
+                    "name": "string",
+                    "required": true
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "raw": "Array<Item>"
+      },
+      "required": true,
+      "description": ""
+    },
+    "label": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Text input for the label used inside the component."
+    },
+    "onSelect": {
+      "flowType": {
+        "name": "Function"
+      },
+      "required": false,
+      "description":
+        "Accepts a function to be passed down to the component that fires when selected."
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "withScaffold": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": "If the scaffold should be used."
+    }
+  }
+}

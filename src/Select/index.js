@@ -13,21 +13,40 @@ type Item = {
 
 type Props = {
   classes: Object,
+  /**
+   * Accepts any classNames to be passed down to the component.
+   */
   className: string,
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   items: Array<Item>,
+  /**
+   * Text to be used for the label of the component.
+   */
   label: string,
+  /**
+   * Accepts a function to be passed down to the component on select.
+   */
   onSelect?: Function,
   theme: Object,
+  /**
+   * If the scaffold component should be used when rendered.
+   */
   withScaffold: boolean,
 };
 
 type State = {
+  /**
+   * Current inputValue for the component.
+   */
   inputValue: string,
 };
 
 const itemToString = (item) => (item ? item.label : "");
+
+/**
+ * A component that renders styled select inputs for use in forms.
+ */
 class Select extends Component<Props, State> {
   state = {
     inputValue: "",

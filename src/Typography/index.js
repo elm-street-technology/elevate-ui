@@ -5,9 +5,18 @@ import withStyles from "react-jss";
 type Props = {
   children: any,
   classes: Object,
+  /**
+   * Accepts any classNames to be passed down to the component.
+   */
   className: string,
+  /**
+   * What HTML element or component to use when rendered.
+   */
   component: string,
   theme: Object,
+  /**
+   * Type of typography to render such as "title" or "body".
+   */
   type: "title" | "body",
 };
 
@@ -16,6 +25,9 @@ const typeElementMap = {
   body: "p",
 };
 
+/**
+ * Renders a component used for displaying headings or body copy.
+ */
 const Typography = ({
   children,
   classes,

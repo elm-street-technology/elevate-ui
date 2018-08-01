@@ -1,0 +1,21 @@
+{
+  "description": "",
+  "displayName": "Toggle",
+  "methods": [],
+  "props": {
+    "tabIndex": {
+      "defaultValue": {
+        "value": "\"0\"",
+        "computed": false
+      },
+      "required": false
+    },
+    "type": {
+      "defaultValue": {
+        "value": "\"text\"",
+        "computed": false
+      },
+      "required": false
+    }
+  }
+}

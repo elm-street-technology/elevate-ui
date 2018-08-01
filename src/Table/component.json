@@ -1,0 +1,20 @@
+{
+  "description": "",
+  "displayName": "Table",
+  "methods": [
+    {
+      "name": "onHideFilters",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    },
+    {
+      "name": "onShowFilters",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    }
+  ]
+}
