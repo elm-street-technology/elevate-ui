@@ -39,7 +39,7 @@ const MultiSelects = ({
       validationSchema={() =>
         Yup.object().shape({
           colors: Yup.array()
-            .of(Yup.object())
+            .of(Yup.string())
             .required("A color is required"),
         })
       }
