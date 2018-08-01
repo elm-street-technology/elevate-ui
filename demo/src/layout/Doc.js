@@ -154,7 +154,10 @@ class Doc extends Component<Props, State> {
   }
 
   getFileContents = () => {
-    fetch(`/docs/${this.props.folder}.js`)
+    const baseUrl = window.location.href.includes("github.io")
+      ? "/elevate-ui"
+      : "";
+    fetch(`${baseUrl}/docs/${this.props.folder}.js`)
       .then((res) => res.text())
       .then((fileText) => this.setState({ fileText }));
   };
