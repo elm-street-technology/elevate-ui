@@ -10,6 +10,7 @@
     "clean": "./scripts/clean.js",
     "demo": "yarn generate-docs && cd demo && yarn start",
     "deploy": "yarn run build && yarn publish && cd demo && yarn && yarn deploy && cd ..",
+    "deploy:demo": "cd demo && yarn && yarn deploy && cd ..",
     "icon-party": "node src/Icon/build/build-rmdi",
     "lint": "eslint src/**/*.js",
     "precommit": "lint-staged",
