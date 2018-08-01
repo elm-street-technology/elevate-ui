@@ -175,6 +175,7 @@ class Doc extends Component<Props, State> {
           documentation.displayName
         } />`}</Typography>
         <Typography type="body">{documentation.description}</Typography>
+        <LiveExample element={Example} code={fileText} />
         <hr className={classes.hr} />
         {componentProps && (
           <PropsTable {...this.props} componentProps={componentProps} />
@@ -182,7 +183,6 @@ class Doc extends Component<Props, State> {
         {componentMethods.length > 0 && (
           <MethodsTable {...this.props} componentMethods={componentMethods} />
         )}
-        <LiveExample element={Example} code={fileText} />
       </Paper>
     );
   }
