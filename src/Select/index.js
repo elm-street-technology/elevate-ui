@@ -54,14 +54,9 @@ class Select extends Component<Props, State> {
     const {
       field: { name },
       form: { setFieldValue },
-      noObjectReturn,
     } = this.props;
 
-    if (noObjectReturn) {
-      setFieldValue(name, item.value);
-    } else {
-      setFieldValue(name, item);
-    }
+    setFieldValue(name, item.value);
 
     if (this.props.onSelect) {
       this.props.onSelect(name, item);
@@ -143,18 +138,16 @@ class Select extends Component<Props, State> {
       withScaffold = true,
     } = this.props;
 
-    // if (this.props.noObjectReturn) {
-    //   const {
-    //     field: { name, value },
-    //   } = props;
-    // }
     const { inputValue } = this.state;
+    const selectedItem = items.find((item) => {
+      return item.value === value;
+    }) || { label: "", value: "" };
 
     return (
       <Downshift
         itemToString={itemToString}
         onStateChange={this.handleStateChange}
-        selectedItem={value}
+        selectedItem={selectedItem}
         render={({
           getInputProps,
           getItemProps,
@@ -175,12 +168,14 @@ class Select extends Component<Props, State> {
                   ref: this.inputRef,
                   onChange: this.onInputChange,
                   onFocus: openMenu,
-                  value: !isOpen ? value.label : inputValue,
+                  value: !isOpen ? selectedItem.label : inputValue,
                 })}
                 onBlur={(selection) => setFieldTouched(name, selection)}
               />
               {this.renderArrowIcon(isOpen)}
-              {value && value.value && this.renderTimesIcon(this.onItemSelect)}
+              {selectedItem &&
+                selectedItem.value &&
+                this.renderTimesIcon(this.onItemSelect)}
             </div>
           );
 

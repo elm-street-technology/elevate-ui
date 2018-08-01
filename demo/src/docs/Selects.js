@@ -30,16 +30,11 @@ const Selects = ({
     <Typography type="title">{`<Select />`}</Typography>
     <Formik
       initialValues={{
-        color: {
-          label: "",
-          value: "",
-        },
+        color: "",
       }}
       validationSchema={() =>
         Yup.object().shape({
-          color:
-            Yup.object().required("A favorite color is required") ||
-            Yup.string().required("An item must be selected"),
+          color: Yup.string().required("An item must be selected"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -60,19 +55,11 @@ const Selects = ({
       }) => (
         <Form noValidate style={{ maxWidth: "420px" }}>
           <Field
+            id="color"
             name="color"
-            render={(props) => {
-              return (
-                <Select
-                  {...props}
-                  id="color"
-                  name="color"
-                  label="Favorite Color"
-                  items={roygbiv}
-                  noObjectReturn
-                />
-              );
-            }}
+            label="Favorite Color"
+            items={roygbiv}
+            component={Select}
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
