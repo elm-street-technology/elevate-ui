@@ -206,6 +206,7 @@ export default withStyles((theme) => ({
   },
   iconContainer: {
     display: "inline-block",
+    verticalAlign: "middle",
     margin: "10px 18px",
   },
 }))(IconDoc);
