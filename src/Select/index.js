@@ -21,7 +21,6 @@ type Props = {
   onSelect?: Function,
   theme: Object,
   withScaffold: boolean,
-  noObjectReturn: boolean,
 };
 
 type State = {
