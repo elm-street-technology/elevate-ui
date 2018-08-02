@@ -3,6 +3,7 @@ import React from "react";
 import Typography from "elevate-ui/Typography";
 import Button from "elevate-ui/Button";
 import withStyles from "elevate-ui/withStyles";
+import Paper from "elevate-ui/Paper";
 
 const ButtonExample = ({
   classes,
@@ -14,7 +15,7 @@ const ButtonExample = ({
   touched,
   values,
 }) => (
-  <div>
+  <Paper>
     <div className={classes.exampleContainer}>
       <h2>Standard Button</h2>
     </div>
@@ -108,7 +109,7 @@ const ButtonExample = ({
         Add Lead
       </Button>
     </div>
-  </div>
+  </Paper>
 );
 
 export default withStyles((theme) => ({
