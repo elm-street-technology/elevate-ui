@@ -3,16 +3,11 @@ import { Formik, Form, Field } from "formik";
 import Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
-import Typography from "elevate-ui/Typography";
 import Datetime from "elevate-ui/Datetime";
 import Button from "elevate-ui/Button";
 
 const Datetimes = () => (
   <Paper>
-    <Typography type="title">{`<Datetime />`}</Typography>
-    <Typography type="body">
-      The {`<Datetime />`} component is a styled wrapper around React-Datetime.
-    </Typography>
     <Formik
       initialValues={{ startDate: null }}
       validationSchema={() =>

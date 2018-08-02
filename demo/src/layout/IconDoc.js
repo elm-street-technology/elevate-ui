@@ -17,9 +17,18 @@ type State = {
 };
 
 const IconExample = (props) => {
+  const { classes } = props;
   return (
     <div>
-      <Icon name="AlarmOn" color="red" size={34} />
+      <div className={classes.iconContainer}>
+        <Icon name="AlarmOn" color="#55c3ba" size={34} />
+      </div>
+      <div className={classes.iconContainer}>
+        <Icon name="AddCircleOutline" color="rgb(77, 77, 77)" size={24} />
+      </div>
+      <div className={classes.iconContainer}>
+        <Icon name="Pool" color="#f15953" size={48} />
+      </div>
     </div>
   );
 };
@@ -66,15 +75,24 @@ class IconDoc extends Component<Props, State> {
           of custom icons.`}
         </Typography>
         <LiveExample
-          element={IconExample}
+          element={() => <IconExample classes={classes} />}
           code={`
-            const IconExample = (props) => {
-              return (
-                <div>
-                  <Icon name="AlarmOn" color="red" size={34} />
-                </div>
-              );
-            };
+const IconExample = (props) => {
+  const { classes } = props;
+  return (
+    <div>
+      <div className={classes.iconContainer}>
+        <Icon name="AlarmOn" color="#55c3ba" size={34} />
+      </div>
+      <div className={classes.iconContainer}>
+        <Icon name="AddCircleOutline" color="rgb(77, 77, 77)" size={24} />
+      </div>
+      <div className={classes.iconContainer}>
+        <Icon name="Pool" color="#f15953" size={48} />
+      </div>
+    </div>
+  );
+};
           `}
         />
         <div className={classes.formContainer}>
@@ -185,5 +203,9 @@ export default withStyles((theme) => ({
   },
   formContainer: {
     margin: "40px 0 0",
+  },
+  iconContainer: {
+    display: "inline-block",
+    margin: "10px 18px",
   },
 }))(IconDoc);
