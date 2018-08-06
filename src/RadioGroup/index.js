@@ -6,15 +6,27 @@ import Label from "../Label";
 
 type Props = {
   classes: Object,
+  /**
+   * Accepts any classNames to be passed down to the component.
+   */
   className: string,
+  /**
+   * Display type for the component. Can be "inline" or "block"
+   */
   display: "inline" | "block",
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   options: Array<{ label: string, value: string }>,
+  /**
+   * Label text to be passed down to the component.
+   */
   label: string,
   theme: Object,
 };
 
+/**
+ * A component that renders a group of radio buttons for use in forms.
+ */
 class RadioGroup extends Component<Props> {
   static defaultProps = {
     display: "block",

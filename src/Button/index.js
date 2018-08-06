@@ -6,16 +6,43 @@ import Color from "color";
 import Icon from "../Icon/Icon";
 
 type Props = {
+  /**
+   * Children to be passed to the component.
+   */
   children: any,
   classes: Object,
+  /**
+   * Accepts any classNames to be passed to the component.
+   */
   className: string,
+  /**
+   * Color to be applied to the Button component. Can be "primary", "secondary", or any custom value.
+   */
   color: string,
+  /**
+   * Element type to be used.
+   */
   element?: string,
-  icon: string,
+  /**
+   * Icon component to use in the component.
+   */
+  icon?: string,
+  /**
+   * Inner className to be applied to the children of the component.
+   */
   innerClassName?: string,
+  /**
+   * Allows the component to be styled as an outlined button.
+   */
   isOutlined: boolean,
-  onClick: Function,
+  /**
+   * Function to be passed to the component on click.
+   */
+  onClick?: Function,
   theme: Object,
+  /**
+   * Disabled the component so it cannot be clicked.
+   */
   disabled?: boolean,
 };
 
@@ -143,6 +170,9 @@ function getBorderColor(theme, props) {
   }
 }
 
+/**
+ * A component used to render a styled button.
+ */
 class Button extends Component<Props, State> {
   static defaultProps = {
     element: "button",
@@ -179,9 +209,9 @@ class Button extends Component<Props, State> {
     const button = e.target;
     const { onClick } = this.props;
 
-    let parentOffset = button.getBoundingClientRect(),
-      relX = e.pageX - parentOffset.left,
-      relY = e.pageY - parentOffset.top;
+    let parentOffset = button.getBoundingClientRect();
+    let relX = Math.round(e.clientX - parentOffset.left);
+    let relY = Math.round(e.clientY - parentOffset.top);
 
     if (this.ripple) {
       this.ripple.style.top = relY + "px";
@@ -216,17 +246,19 @@ class Button extends Component<Props, State> {
         {...rest}
         onClick={this.handleClick}
       >
-        <div className={classNames(classes.children, innerClassName)}>
-          {icon && <Icon name={icon} className={classes.icon} />}
-          {children}
+        <div className={classes.innerContainer}>
+          <div className={classNames(classes.children, innerClassName)}>
+            {icon && <Icon name={icon} className={classes.icon} />}
+            {children}
+          </div>
+          <span
+            ref={(ripple) => (this.ripple = ripple)}
+            className={classNames(
+              classes.ripple,
+              rippleActive && classes.rippleActive
+            )}
+          />
         </div>
-        <span
-          ref={(ripple) => (this.ripple = ripple)}
-          className={classNames(
-            classes.ripple,
-            rippleActive && classes.rippleActive
-          )}
-        />
       </Element>
     );
   }
@@ -252,8 +284,13 @@ export default withStyles((theme) => ({
       backgroundColor: (props) => getHoverColor(theme, props),
     },
   },
+  innerContainer: {
+    position: "relative",
+    zIndex: "0",
+  },
   children: {
     display: "flex",
+    position: "relative",
     alignItems: "center",
     color: (props) => getChildColor(theme, props),
     fontFamily: theme.typography.sans,

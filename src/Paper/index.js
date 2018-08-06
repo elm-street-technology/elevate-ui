@@ -3,14 +3,29 @@ import withStyles from "react-jss";
 import classNames from "classnames";
 
 type Props = {
+  /**
+   * Any children to be passed through to the component.
+   */
   children: any,
   classes: Object,
+  /**
+   * Accepts any classNames to be passed down to the component.
+   */
   className: string,
+  /**
+   * Type of HTML Element that should be used for the component.
+   */
   element: string,
   theme: Object,
+  /**
+   * If the component should include padding.
+   */
   withPadding: boolean,
 };
 
+/**
+ * A styled component for framing content and other components.
+ */
 const Paper = ({
   children,
   classes,

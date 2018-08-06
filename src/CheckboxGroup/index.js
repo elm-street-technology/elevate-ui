@@ -7,15 +7,24 @@ import without from "lodash/without";
 
 type Props = {
   classes: Object,
+  /**
+   * classNames to be passed to the component.
+   */
   className: string,
   display: "inline" | "block",
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   options: Array<{ label: string, value: string }>,
+  /**
+   * Text input to be used as the label for the checkbox group.
+   */
   label: string,
   theme: Object,
 };
 
+/**
+ * A component used to render a group of checkboxes.
+ */
 class CheckboxGroup extends Component<Props> {
   static defaultProps = {
     display: "block",

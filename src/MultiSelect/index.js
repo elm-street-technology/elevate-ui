@@ -15,24 +15,45 @@ type Item = {
 
 type Props = {
   classes: Object,
+  /**
+   * Accepts any classNames to be passed down to the component.
+   */
   className: string,
+  /**
+   * Whether or not the input should close when a value is selected.
+   */
   closeOnSelect: boolean,
   field: Object,
   form: Object,
   items: Array<Item>,
+  /**
+   * Text input for the label used inside the component.
+   */
   label: string,
+  /**
+   * Accepts a function to be passed down to the component that fires when selected.
+   */
   onSelect?: Function,
   theme: Object,
+  /**
+   * If the scaffold should be used.
+   */
   withScaffold: boolean,
 };
 
 type State = {
+  /**
+   * Current input state.
+   */
   inputValue: string,
   fullValue: Array<Object>,
 };
 
 const itemToString = (item) => (item ? item.label : "");
 
+/**
+ * A component that renders a <MultiSelect /> to be used inside forms.
+ */
 class MultiSelect extends Component<Props, State> {
   state = {
     inputValue: "",

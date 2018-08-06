@@ -6,15 +6,27 @@ import Scaffold from "../Scaffold";
 
 type Props = {
   classes: Object,
+  /**
+   * Accepts any classNames to be passed down to the component.
+   */
   className: string,
   field: Object,
   form: Object,
   id: string,
+  /**
+   * Text that should be passed down to the label element inside of the component.
+   */
   label: string,
   theme: Object,
+  /**
+   * If the scaffold component should be used.
+   */
   withScaffold: boolean,
 };
 
+/**
+ * A component that renders a <textarea> for use in forms.
+ */
 const Textarea = ({
   classes,
   className,

@@ -6,15 +6,33 @@ import withStyles from "react-jss";
 import Icon from "../Icon/Icon";
 
 type Props = {
+  /**
+   * Children to be passed to the component.
+   */
   children: any,
+  /**
+   * Element type to be used
+   */
   element?: string,
   classes: Object,
+  /**
+   * Accepts any classNames to be passed down to the component.
+   */
   className: string,
+  /**
+   * Color to be used on the alert, can be "error", "info", "success", or "warning"
+   */
   color: "error" | "info" | "success" | "warning",
+  /**
+   * Icon component to be used in the alert component
+   */
   icon: string,
   theme: Object,
 };
 
+/**
+ * A component used for showing important information such as success messages, warnings, or errors.
+ */
 const Alert = ({
   children,
   classes,

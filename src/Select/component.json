@@ -1,0 +1,207 @@
+{
+  "description":
+    "A component that renders styled select inputs for use in forms.",
+  "displayName": "Select",
+  "methods": [
+    {
+      "name": "handleStateChange",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "changes",
+          "type": null
+        },
+        {
+          "name": "downshiftStateAndHelpers",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "onInputChange",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "e",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "onItemSelect",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "item",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "onWrapperClick",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "e",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "focusOnInput",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    },
+    {
+      "name": "inputRef",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "c",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "inputWrapperRef",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "c",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "renderTimesIcon",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "onItemSelect",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "renderArrowIcon",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "isOpen",
+          "type": null
+        }
+      ],
+      "returns": null
+    }
+  ],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description":
+        "Accepts any classNames to be passed down to the component."
+    },
+    "field": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "form": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "items": {
+      "flowType": {
+        "name": "Array",
+        "elements": [
+          {
+            "name": "signature",
+            "type": "object",
+            "raw": "{\n  label: string,\n  value: string,\n}",
+            "signature": {
+              "properties": [
+                {
+                  "key": "label",
+                  "value": {
+                    "name": "string",
+                    "required": true
+                  }
+                },
+                {
+                  "key": "value",
+                  "value": {
+                    "name": "string",
+                    "required": true
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "raw": "Array<Item>"
+      },
+      "required": true,
+      "description": ""
+    },
+    "label": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Text to be used for the label of the component."
+    },
+    "onSelect": {
+      "flowType": {
+        "name": "Function"
+      },
+      "required": false,
+      "description":
+        "Accepts a function to be passed down to the component on select."
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "withScaffold": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": "If the scaffold component should be used when rendered."
+    }
+  }
+}

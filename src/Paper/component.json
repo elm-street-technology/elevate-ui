@@ -1,0 +1,59 @@
+{
+  "description": "A styled component for framing content and other components.",
+  "displayName": "Paper",
+  "methods": [],
+  "props": {
+    "children": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": "Any children to be passed through to the component."
+    },
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description":
+        "Accepts any classNames to be passed down to the component."
+    },
+    "element": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description":
+        "Type of HTML Element that should be used for the component.",
+      "defaultValue": {
+        "value": "\"div\"",
+        "computed": false
+      }
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "withPadding": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "If the component should include padding.",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
+    }
+  }
+}
