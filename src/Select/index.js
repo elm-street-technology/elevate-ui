@@ -73,7 +73,9 @@ class Select extends Component<Props, State> {
       field: { name },
       form: { setFieldValue },
     } = this.props;
-    setFieldValue(name, item);
+
+    setFieldValue(name, item.value);
+
     if (this.props.onSelect) {
       this.props.onSelect(name, item);
     }
@@ -153,13 +155,17 @@ class Select extends Component<Props, State> {
       label,
       withScaffold = true,
     } = this.props;
+
     const { inputValue } = this.state;
+    const selectedItem = items.find((item) => {
+      return item.value === value;
+    }) || { label: "", value: "" };
 
     return (
       <Downshift
         itemToString={itemToString}
         onStateChange={this.handleStateChange}
-        selectedItem={value}
+        selectedItem={selectedItem}
         render={({
           getInputProps,
           getItemProps,
@@ -180,12 +186,14 @@ class Select extends Component<Props, State> {
                   ref: this.inputRef,
                   onChange: this.onInputChange,
                   onFocus: openMenu,
-                  value: !isOpen ? value.label : inputValue,
+                  value: !isOpen ? selectedItem.label : inputValue,
                 })}
                 onBlur={(selection) => setFieldTouched(name, selection)}
               />
               {this.renderArrowIcon(isOpen)}
-              {value && value.value && this.renderTimesIcon(this.onItemSelect)}
+              {selectedItem &&
+                selectedItem.value &&
+                this.renderTimesIcon(this.onItemSelect)}
             </div>
           );
 

@@ -46,6 +46,7 @@ type State = {
    * Current input state.
    */
   inputValue: string,
+  fullValue: Array<Object>,
 };
 
 const itemToString = (item) => (item ? item.label : "");
@@ -56,6 +57,7 @@ const itemToString = (item) => (item ? item.label : "");
 class MultiSelect extends Component<Props, State> {
   state = {
     inputValue: "",
+    fullValue: [],
   };
   _input;
   _inputWrapper;
@@ -96,8 +98,13 @@ class MultiSelect extends Component<Props, State> {
       field: { name, value },
       form: { setFieldValue },
     } = this.props;
+    const { fullValue } = this.state;
+    const updatedFullValue = [...fullValue];
+    updatedFullValue.push(item);
+    this.setState({ fullValue: updatedFullValue });
+
     const updatedValue = [...value];
-    updatedValue.push(item);
+    updatedValue.push(item.value);
     setFieldValue(name, updatedValue);
 
     if (this.props.onSelect) {
@@ -110,7 +117,14 @@ class MultiSelect extends Component<Props, State> {
       field: { name, value },
       form: { setFieldValue },
     } = this.props;
-    const index = value.findIndex((val) => val.value === item.value);
+    const { fullValue } = this.state;
+
+    const stateIndex = fullValue.findIndex((val) => val.value === item.value);
+    const updatedFullValue = [...fullValue];
+    updatedFullValue.splice(stateIndex, 1);
+    this.setState({ fullValue: updatedFullValue });
+
+    const index = value.findIndex((val) => val === item);
     const updatedValue = [...value];
     updatedValue.splice(index, 1);
     setFieldValue(name, updatedValue);
@@ -138,6 +152,11 @@ class MultiSelect extends Component<Props, State> {
       field: { name, value },
       form: { setFieldValue },
     } = this.props;
+    const { fullValue } = this.state;
+    const updatedFullValue = [...fullValue];
+    updatedFullValue.pop();
+    this.setState({ fullValue: updatedFullValue });
+
     const updatedValue = [...value];
     updatedValue.pop();
     setFieldValue(name, updatedValue);
@@ -197,6 +216,8 @@ class MultiSelect extends Component<Props, State> {
       withScaffold = true,
     } = this.props;
 
+    const { fullValue } = this.state;
+
     return (
       <Downshift
         itemToString={itemToString}
@@ -217,13 +238,15 @@ class MultiSelect extends Component<Props, State> {
               onClick={this.onWrapperClick}
             >
               <div className={classes.tagWrapper}>
-                {value.map((item) => (
-                  <Tag
-                    key={item.value}
-                    tag={item}
-                    onRemove={this.onRemoveTag}
-                  />
-                ))}
+                {fullValue.map((item) => {
+                  return (
+                    <Tag
+                      key={item.value}
+                      tag={item}
+                      onRemove={this.onRemoveTag}
+                    />
+                  );
+                })}
                 <AutosizeInput
                   {...getInputProps({
                     ref: this.inputRef,
@@ -245,7 +268,9 @@ class MultiSelect extends Component<Props, State> {
               {items
                 .filter(
                   (i) =>
-                    value.findIndex((val) => val.value === i.value) === -1 &&
+                    this.state.fullValue.findIndex(
+                      (val) => val.value === i.value
+                    ) === -1 &&
                     (!this.state.inputValue ||
                       i.label
                         .toLowerCase()
