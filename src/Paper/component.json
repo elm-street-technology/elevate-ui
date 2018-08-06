@@ -22,16 +22,14 @@
         "name": "string"
       },
       "required": true,
-      "description":
-        "Accepts any classNames to be passed down to the component."
+      "description": "Accepts any classNames to be passed down to the component."
     },
     "element": {
       "flowType": {
         "name": "string"
       },
       "required": false,
-      "description":
-        "Type of HTML Element that should be used for the component.",
+      "description": "Type of HTML Element that should be used for the component.",
       "defaultValue": {
         "value": "\"div\"",
         "computed": false

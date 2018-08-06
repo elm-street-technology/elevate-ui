@@ -1,6 +1,5 @@
 {
-  "description":
-    "A component that renders a <MultiSelect /> to be used inside forms.",
+  "description": "A component that renders a <MultiSelect /> to be used inside forms.",
   "displayName": "MultiSelect",
   "methods": [
     {
@@ -159,16 +158,14 @@
         "name": "string"
       },
       "required": true,
-      "description":
-        "Accepts any classNames to be passed down to the component."
+      "description": "Accepts any classNames to be passed down to the component."
     },
     "closeOnSelect": {
       "flowType": {
         "name": "boolean"
       },
       "required": true,
-      "description":
-        "Whether or not the input should close when a value is selected."
+      "description": "Whether or not the input should close when a value is selected."
     },
     "field": {
       "flowType": {
@@ -229,8 +226,7 @@
         "name": "Function"
       },
       "required": false,
-      "description":
-        "Accepts a function to be passed down to the component that fires when selected."
+      "description": "Accepts a function to be passed down to the component that fires when selected."
     },
     "theme": {
       "flowType": {

@@ -49,8 +49,7 @@
         "name": "string"
       },
       "required": false,
-      "description":
-        "Color to be applied to the Button component. Can be \"primary\", \"secondary\", or any custom value.",
+      "description": "Color to be applied to the Button component. Can be \"primary\", \"secondary\", or any custom value.",
       "defaultValue": {
         "value": "\"primary\"",
         "computed": false
@@ -79,8 +78,7 @@
         "name": "string"
       },
       "required": false,
-      "description":
-        "Inner className to be applied to the children of the component."
+      "description": "Inner className to be applied to the children of the component."
     },
     "isOutlined": {
       "flowType": {

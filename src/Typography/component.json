@@ -1,6 +1,5 @@
 {
-  "description":
-    "Renders a component used for displaying headings or body copy.",
+  "description": "Renders a component used for displaying headings or body copy.",
   "displayName": "Typography",
   "methods": [],
   "props": {
@@ -23,8 +22,7 @@
         "name": "string"
       },
       "required": true,
-      "description":
-        "Accepts any classNames to be passed down to the component."
+      "description": "Accepts any classNames to be passed down to the component."
     },
     "component": {
       "flowType": {
@@ -56,8 +54,7 @@
         ]
       },
       "required": true,
-      "description":
-        "Type of typography to render such as \"title\" or \"body\"."
+      "description": "Type of typography to render such as \"title\" or \"body\"."
     }
   }
 }

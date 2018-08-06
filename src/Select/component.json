@@ -1,6 +1,5 @@
 {
-  "description":
-    "A component that renders styled select inputs for use in forms.",
+  "description": "A component that renders styled select inputs for use in forms.",
   "displayName": "Select",
   "methods": [
     {
@@ -124,8 +123,7 @@
         "name": "string"
       },
       "required": true,
-      "description":
-        "Accepts any classNames to be passed down to the component."
+      "description": "Accepts any classNames to be passed down to the component."
     },
     "field": {
       "flowType": {
@@ -186,8 +184,7 @@
         "name": "Function"
       },
       "required": false,
-      "description":
-        "Accepts a function to be passed down to the component on select."
+      "description": "Accepts a function to be passed down to the component on select."
     },
     "theme": {
       "flowType": {

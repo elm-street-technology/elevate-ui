@@ -15,8 +15,7 @@
         "name": "string"
       },
       "required": true,
-      "description":
-        "Accepts any classNames to be passed down to the component."
+      "description": "Accepts any classNames to be passed down to the component."
     },
     "field": {
       "flowType": {
@@ -44,8 +43,7 @@
         "name": "string"
       },
       "required": true,
-      "description":
-        "Text input to be used as the label for inside the component."
+      "description": "Text input to be used as the label for inside the component."
     },
     "theme": {
       "flowType": {
@@ -66,8 +64,7 @@
         "name": "boolean"
       },
       "required": false,
-      "description":
-        "Use the scaffold for the input or if the input should just be the raw input.",
+      "description": "Use the scaffold for the input or if the input should just be the raw input.",
       "defaultValue": {
         "value": "true",
         "computed": false

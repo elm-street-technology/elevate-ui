@@ -1,6 +1,5 @@
 {
-  "description":
-    "A component that renders a group of radio buttons for use in forms.",
+  "description": "A component that renders a group of radio buttons for use in forms.",
   "displayName": "RadioGroup",
   "methods": [
     {
@@ -29,8 +28,7 @@
         "name": "string"
       },
       "required": true,
-      "description":
-        "Accepts any classNames to be passed down to the component."
+      "description": "Accepts any classNames to be passed down to the component."
     },
     "display": {
       "flowType": {
@@ -48,8 +46,7 @@
         ]
       },
       "required": false,
-      "description":
-        "Display type for the component. Can be \"inline\" or \"block\"",
+      "description": "Display type for the component. Can be \"inline\" or \"block\"",
       "defaultValue": {
         "value": "\"block\"",
         "computed": false

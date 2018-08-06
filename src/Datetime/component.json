@@ -1,6 +1,5 @@
 {
-  "description":
-    "A Date/Time component for use in forms. The <Datetime /> component is a styled wrapper around React-Datetime.",
+  "description": "A Date/Time component for use in forms. The <Datetime /> component is a styled wrapper around React-Datetime.",
   "displayName": "Datetime",
   "methods": [],
   "props": {

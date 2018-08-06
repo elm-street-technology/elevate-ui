@@ -15,8 +15,7 @@
         "name": "string"
       },
       "required": true,
-      "description":
-        "Accepts any classNames to be passed down to the component."
+      "description": "Accepts any classNames to be passed down to the component."
     },
     "field": {
       "flowType": {
@@ -44,8 +43,7 @@
         "name": "string"
       },
       "required": true,
-      "description":
-        "Text that should be passed down to the label element inside of the component."
+      "description": "Text that should be passed down to the label element inside of the component."
     },
     "theme": {
       "flowType": {

@@ -108,8 +108,7 @@
         "name": "string"
       },
       "required": true,
-      "description":
-        "Text input to be used as the label for the checkbox group."
+      "description": "Text input to be used as the label for the checkbox group."
     },
     "theme": {
       "flowType": {
