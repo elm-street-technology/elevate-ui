@@ -30,14 +30,11 @@ const Selects = ({
     <Typography type="title">{`<Select />`}</Typography>
     <Formik
       initialValues={{
-        color: {
-          label: "",
-          value: "",
-        },
+        color: "",
       }}
       validationSchema={() =>
         Yup.object().shape({
-          color: Yup.object().required("A favorite color is required"),
+          color: Yup.string().required("A favorite color is required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {

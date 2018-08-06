@@ -34,7 +34,7 @@ const Selects = ({
       }}
       validationSchema={() =>
         Yup.object().shape({
-          color: Yup.string().required("An item must be selected"),
+          color: Yup.string().required("A favorite color is required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {

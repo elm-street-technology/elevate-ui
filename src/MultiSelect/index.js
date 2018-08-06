@@ -99,9 +99,9 @@ class MultiSelect extends Component<Props, State> {
       form: { setFieldValue },
     } = this.props;
     const { fullValue } = this.state;
-    const fullValues = [...fullValue];
-    fullValues.push(item);
-    this.setState({ fullValue: fullValues });
+    const updatedFullValue = [...fullValue];
+    updatedFullValue.push(item);
+    this.setState({ fullValue: updatedFullValue });
 
     const updatedValue = [...value];
     updatedValue.push(item.value);
@@ -117,7 +117,6 @@ class MultiSelect extends Component<Props, State> {
       field: { name, value },
       form: { setFieldValue },
     } = this.props;
-
     const { fullValue } = this.state;
 
     const stateIndex = fullValue.findIndex((val) => val.value === item.value);
@@ -153,6 +152,11 @@ class MultiSelect extends Component<Props, State> {
       field: { name, value },
       form: { setFieldValue },
     } = this.props;
+    const { fullValue } = this.state;
+    const updatedFullValue = [...fullValue];
+    updatedFullValue.pop();
+    this.setState({ fullValue: updatedFullValue });
+
     const updatedValue = [...value];
     updatedValue.pop();
     setFieldValue(name, updatedValue);
