@@ -55,10 +55,20 @@ const itemToString = (item) => (item ? item.label : "");
  * A component that renders a <MultiSelect /> to be used inside forms.
  */
 class MultiSelect extends Component<Props, State> {
-  state = {
-    inputValue: "",
-    fullValue: [],
-  };
+  constructor(props) {
+    super(props);
+
+    const {
+      field: { value },
+      items,
+    } = props;
+
+    this.state = {
+      inputValue: "",
+      fullValue: items.filter((item) => value.indexOf(item.value) > -1) || [],
+    };
+  }
+
   _input;
   _inputWrapper;
 

@@ -35,7 +35,7 @@ const MultiSelects = ({
   <Paper>
     <Typography type="title">{`<MultiSelect />`}</Typography>
     <Formik
-      initialValues={{ colors: [], colors2: [] }}
+      initialValues={{ colors: [], colors2: ["magenta"] }}
       validationSchema={() =>
         Yup.object().shape({
           colors: Yup.array()
