@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import classnames from "classnames";
 import withStyles from "react-jss";
 import Button from "../Button";
-import CaretLeft from "../Icon/CaretLeft";
-import CaretRight from "../Icon/CaretRight";
+import ChevronLeft from "../Icon/ChevronLeft";
+import ChevronRight from "../Icon/ChevronRight";
 
 class Pagination extends Component {
   constructor(props) {
@@ -83,7 +83,7 @@ class Pagination extends Component {
             }}
             disabled={!canPrevious}
           >
-            <CaretLeft width={16} height={16} />
+            <ChevronLeft width={16} height={16} />
           </button>
           <button
             type="button"
@@ -95,7 +95,7 @@ class Pagination extends Component {
             }}
             disabled={!canNext}
           >
-            <CaretRight width={16} height={16} />
+            <ChevronRight width={16} height={16} />
           </button>
         </div>
       </div>
