@@ -4,8 +4,10 @@ import Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
-import MultiSelect from "elevate-ui/MultiSelect";
+import Input from "elevate-ui/Input";
 import Button from "elevate-ui/Button";
+import MultiSelect from "elevate-ui/MultiSelect";
+import Select from "elevate-ui/Select";
 
 const roygbiv = [
   { label: "Red", value: "red" },
@@ -23,7 +25,7 @@ const cmyk = [
   { label: "Black", value: "black" },
 ];
 
-const MultiSelects = ({
+const QueryForm = ({
   values,
   errors,
   touched,
@@ -33,21 +35,22 @@ const MultiSelects = ({
   isSubmitting,
 }) => (
   <Paper>
-    <Typography type="title">{`<MultiSelect />`}</Typography>
+    <Typography type="title">Query Form Demo</Typography>
     <Formik
-      initialValues={{ colors: [], colors2: ["magenta"] }}
+      initialValues={{ name: "", email: "", password: "" }}
       validationSchema={() =>
         Yup.object().shape({
-          colors: Yup.array()
-            .of(Yup.string())
-            .required("A color is required"),
+          name: Yup.string().required("Name is required"),
+          email: Yup.string()
+            .email("Invalid email address")
+            .required("Email is required"),
+          favoriteColor: Yup.string().required("Favorite Color is required."),
+          dislikedColors: Yup.string().required("Disliked Colors is required."),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 1000);
+        const form = document.getElementById("queryForm");
+        form.submit();
       }}
       render={({
         values,
@@ -57,25 +60,31 @@ const MultiSelects = ({
         handleBlur,
         handleSubmit,
         isSubmitting,
-        isValid,
       }) => (
-        <Form noValidate style={{ maxWidth: "420px" }}>
+        <Form
+          id="queryForm"
+          method="get"
+          action="/query-form"
+          noValidate
+          style={{ maxWidth: "420px" }}
+        >
+          <Field id="name" name="name" label="Name" component={Input} />
+          <Field id="email" name="email" label="Email" component={Input} />
           <Field
-            id="colors"
-            name="colors"
-            label="Favorite Colors (default)"
+            id="favoriteColor"
+            name="favoriteColor"
+            label="Favorite Color"
             items={roygbiv}
-            component={MultiSelect}
+            component={Select}
           />
           <Field
-            id="colors2"
-            name="colors2"
-            label="Favorite Colors (with closeOnSelect)"
+            id="dislikedColors"
+            name="dislikedColors"
+            label="Disliked Colors"
             items={cmyk}
             component={MultiSelect}
-            closeOnSelect
           />
-          <Button type="submit" disabled={!isValid || isSubmitting}>
+          <Button type="submit" disabled={isSubmitting}>
             Submit
           </Button>
         </Form>
@@ -84,4 +93,4 @@ const MultiSelects = ({
   </Paper>
 );
 
-export default MultiSelects;
+export default QueryForm;
