@@ -166,6 +166,13 @@ const Sidebar = ({ classes }) => {
         >
           Sign up
         </NavLink>
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/query-form"
+        >
+          Query Form
+        </NavLink>
       </nav>
     </div>
   );

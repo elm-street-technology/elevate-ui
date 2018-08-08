@@ -11,6 +11,7 @@ import IconDoc from "./IconDoc";
 
 const Home = Loadable({ loader: () => import("../docs/Home") });
 const SignupForm = Loadable({ loader: () => import("../docs/SignupForm") });
+const QueryForm = Loadable({ loader: () => import("../docs/QueryForm") });
 
 const Main = ({ classes }) => (
   <RouteListener>
@@ -39,6 +40,7 @@ const Main = ({ classes }) => (
         <Route path="/table" render={() => <Doc folder="Table" />} />
         <Route path="/icon" render={() => <IconDoc />} />
         <Route path="/signup" component={SignupForm} />
+        <Route path="/query-form" component={QueryForm} />
       </div>
     </div>
   </RouteListener>

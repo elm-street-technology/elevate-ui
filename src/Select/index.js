@@ -190,6 +190,7 @@ class Select extends Component<Props, State> {
                 })}
                 onBlur={(selection) => setFieldTouched(name, selection)}
               />
+              <input type="hidden" name={name} value={selectedItem.value} />
               {this.renderArrowIcon(isOpen)}
               {selectedItem &&
                 selectedItem.value &&

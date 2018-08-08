@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import withStyles from "react-jss";
 import classNames from "classnames";
 import Downshift from "downshift";
@@ -250,11 +250,10 @@ class MultiSelect extends Component<Props, State> {
               <div className={classes.tagWrapper}>
                 {fullValue.map((item) => {
                   return (
-                    <Tag
-                      key={item.value}
-                      tag={item}
-                      onRemove={this.onRemoveTag}
-                    />
+                    <Fragment key={item.value}>
+                      <Tag tag={item} onRemove={this.onRemoveTag} />
+                      <input type="hidden" name={name} value={item.value} />
+                    </Fragment>
                   );
                 })}
                 <AutosizeInput
