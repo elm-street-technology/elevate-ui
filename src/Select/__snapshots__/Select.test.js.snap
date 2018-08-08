@@ -23,6 +23,11 @@ exports[`renders without crashing, matches the snapshot 1`] = `
         role="combobox"
         value=""
       />
+      <input
+        name=""
+        type="hidden"
+        value=""
+      />
       <button
         className="Select-arrow-0-1-10 Select-arrow-0-1-3"
         type="button"
