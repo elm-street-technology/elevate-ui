@@ -37,7 +37,12 @@ const QueryForm = ({
   <Paper>
     <Typography type="title">Query Form Demo</Typography>
     <Formik
-      initialValues={{ name: "", email: "", password: "" }}
+      initialValues={{
+        name: "",
+        email: "",
+        favoriteColor: "",
+        dislikedColors: [],
+      }}
       validationSchema={() =>
         Yup.object().shape({
           name: Yup.string().required("Name is required"),
@@ -45,7 +50,9 @@ const QueryForm = ({
             .email("Invalid email address")
             .required("Email is required"),
           favoriteColor: Yup.string().required("Favorite Color is required."),
-          dislikedColors: Yup.string().required("Disliked Colors is required."),
+          dislikedColors: Yup.array(Yup.string()).required(
+            "Disliked Colors is required."
+          ),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
