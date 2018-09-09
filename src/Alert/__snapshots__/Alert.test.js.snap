@@ -2,10 +2,10 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="Alert-root-0-1-4 Alert-root-0-1-1"
+  className="Alert-root-0-1-1 Alert-root-0-1-4"
 >
   <div
-    className="Alert-children-0-1-6 Alert-children-0-1-3"
+    className="Alert-children-0-1-3 Alert-children-0-1-6"
   >
     Nice! Great job! Awesome!
   </div>

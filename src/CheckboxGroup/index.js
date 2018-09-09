@@ -14,7 +14,7 @@ type Props = {
   display: "inline" | "block",
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
-  options: Array<{ label: string, value: string }>,
+  options: Array<{ label: string, value: string, disabled: boolean }>,
   /**
    * Text input to be used as the label for the checkbox group.
    */
@@ -76,7 +76,7 @@ class CheckboxGroup extends Component<Props> {
               label: option.label,
               checked: value.indexOf(option.value) !== -1,
               onChange: this.onChange,
-              disabled: option.disabled,
+              disabled: option.disabled || false,
             })
           )}
         </div>
