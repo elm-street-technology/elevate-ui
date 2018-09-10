@@ -21,3 +21,4 @@ package-lock.json
 
 # programmatically generated icons
 src/Icon/util/svg/*
+demo/node_modules
