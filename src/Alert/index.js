@@ -2,6 +2,8 @@
 import React from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
+import isArray from "lodash/isArray";
+import every from "lodash/every";
 
 import Icon from "../Icon/Icon";
 
@@ -42,17 +44,29 @@ const Alert = ({
   icon,
   theme,
   ...rest
-}: Props) => (
-  // $FlowIgnore -- it doesn't understand the element: Element
-  <Element className={classNames(classes.root, className)} {...rest}>
-    {icon && (
-      <div className={classes.icon}>
-        <Icon name={icon} />
-      </div>
-    )}
-    <div className={classes.children}>{children}</div>
-  </Element>
-);
+}: Props) => {
+  return (
+    // $FlowIgnore -- it doesn't understand the element: Element
+    <Element className={classNames(classes.root, className)} {...rest}>
+      {icon && (
+        <div className={classes.icon}>
+          <Icon name={icon} />
+        </div>
+      )}
+      {isArray(children) &&
+      every(children, (x) => {
+        return typeof x === "string";
+      }) ? (
+        <div
+          className={classes.children}
+          dangerouslySetInnerHTML={{ __html: children.join(" ") }}
+        />
+      ) : (
+        <div className={classes.children}>{children}</div>
+      )}
+    </Element>
+  );
+};
 
 Alert.defaultProps = {
   element: "div",
