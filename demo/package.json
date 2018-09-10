@@ -2,7 +2,7 @@
   "name": "elevate-ui-demo",
   "version": "1.33.7",
   "private": true,
-  "homepage": "http://elm-street-technology.github.io/elevate-ui",
+  "homepage": "https://elevate-ui.com/",
   "scripts": {
     "deploy": "yarn run build && gh-pages -d build",
     "start": "node scripts/start.js",
