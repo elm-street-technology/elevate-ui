@@ -16,7 +16,7 @@ type Props = {
   display: "inline" | "block",
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
-  options: Array<{ label: string, value: string }>,
+  options: Array<{ label: string, value: string, disabled: boolean }>,
   /**
    * Label text to be passed down to the component.
    */
@@ -69,7 +69,7 @@ class RadioGroup extends Component<Props> {
               label: option.label,
               checked: value === option.value,
               onChange: this.onChange,
-              disabled: option.disabled,
+              disabled: option.disabled || false,
             })
           )}
         </div>

@@ -73,7 +73,7 @@
           {
             "name": "signature",
             "type": "object",
-            "raw": "{ label: string, value: string }",
+            "raw": "{ label: string, value: string, disabled: boolean }",
             "signature": {
               "properties": [
                 {
@@ -89,12 +89,19 @@
                     "name": "string",
                     "required": true
                   }
+                },
+                {
+                  "key": "disabled",
+                  "value": {
+                    "name": "boolean",
+                    "required": true
+                  }
                 }
               ]
             }
           }
         ],
-        "raw": "Array<{ label: string, value: string }>"
+        "raw": "Array<{ label: string, value: string, disabled: boolean }>"
       },
       "required": false,
       "description": "",

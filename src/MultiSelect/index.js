@@ -259,7 +259,7 @@ class MultiSelect extends Component<Props, State> {
                 <AutosizeInput
                   {...getInputProps({
                     ref: this.inputRef,
-                    className: classes.root,
+                    inputClassName: classes.root,
                     onChange: this.onInputChange,
                     onFocus: openMenu,
                     onKeyDown: this.onInputKeyDown,
@@ -345,19 +345,17 @@ export default withStyles((theme) => ({
     alignItems: "center",
   },
   root: {
-    "& input": {
-      color: "inherit",
-      fontFamily: "inherit",
-      fontWeight: "400",
-      fontSize: "16px",
-      lineHeight: "20px",
-      border: "none",
-      outline: "none",
-      cursor: "inherit",
-      boxShadow: "none", // Reset default inputs for mozilla
-      "-webkit-appearance": "none", // Reset default browser styles
-      "-moz-appearance": "none", // Reset default browser styles
-    },
+    color: "inherit",
+    fontFamily: "inherit",
+    fontWeight: "400",
+    fontSize: "16px",
+    lineHeight: "20px",
+    border: "none",
+    outline: "none",
+    cursor: "inherit",
+    boxShadow: "none", // Reset default inputs for mozilla
+    "-webkit-appearance": "none", // Reset default browser styles
+    "-moz-appearance": "none", // Reset default browser styles
   },
   arrow: {
     flexShrink: "0",
