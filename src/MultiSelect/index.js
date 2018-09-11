@@ -129,12 +129,13 @@ class MultiSelect extends Component<Props, State> {
     } = this.props;
     const { fullValue } = this.state;
 
-    const stateIndex = fullValue.findIndex((val) => val.value === item.value);
+    const stateIndex =
+      fullValue && fullValue.findIndex((val) => val.value === item.value);
     const updatedFullValue = [...fullValue];
     updatedFullValue.splice(stateIndex, 1);
     this.setState({ fullValue: updatedFullValue });
 
-    const index = value.findIndex((val) => val === item);
+    const index = value && value.findIndex((val) => val === item);
     const updatedValue = [...value];
     updatedValue.splice(index, 1);
     setFieldValue(name, updatedValue);
@@ -277,6 +278,7 @@ class MultiSelect extends Component<Props, State> {
               {items
                 .filter(
                   (i) =>
+                    this.state.fullValue &&
                     this.state.fullValue.findIndex(
                       (val) => val.value === i.value
                     ) === -1 &&
@@ -291,6 +293,7 @@ class MultiSelect extends Component<Props, State> {
                     className={classNames({
                       [classes.dropdownItem]: true,
                       [classes.dropdownItemSelected]:
+                        value &&
                         value.findIndex((val) => val.value === item.value) > -1,
                       [classes.dropdownItemActive]: highlightedIndex === index,
                     })}
