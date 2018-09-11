@@ -66,13 +66,6 @@
         "computed": false
       }
     },
-    "icon": {
-      "flowType": {
-        "name": "string"
-      },
-      "required": false,
-      "description": "Icon component to use in the component."
-    },
     "innerClassName": {
       "flowType": {
         "name": "string"

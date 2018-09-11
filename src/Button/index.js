@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 import Color from "color";
-import Icon from "../Icon/Icon";
 
 type Props = {
   /**
@@ -23,10 +22,6 @@ type Props = {
    * Element type to be used.
    */
   element?: string,
-  /**
-   * Icon component to use in the component.
-   */
-  icon?: string,
   /**
    * Inner className to be applied to the children of the component.
    */
@@ -231,7 +226,6 @@ class Button extends Component<Props, State> {
       className,
       color,
       element: Element,
-      icon,
       innerClassName,
       isOutlined,
       theme,
@@ -248,7 +242,6 @@ class Button extends Component<Props, State> {
       >
         <div className={classes.innerContainer}>
           <div className={classNames(classes.children, innerClassName)}>
-            {icon && <Icon name={icon} className={classes.icon} />}
             {children}
           </div>
           <span
@@ -299,10 +292,6 @@ export default withStyles((theme) => ({
     fontWeight: "600",
     padding: (props) => (props.icon ? "10px 20px 10px 16px" : "10px 16px"),
     zIndex: "1",
-  },
-  icon: {
-    marginRight: "4px",
-    pointerEvents: "none",
   },
   ripple: {
     display: "block",

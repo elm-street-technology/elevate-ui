@@ -3,6 +3,7 @@ import React from "react";
 import Typography from "elevate-ui/Typography";
 import Paper from "elevate-ui/Paper";
 import Alert from "elevate-ui/Alert";
+import ErrorOutline from "elevate-ui/Icon/ErrorOutline";
 
 const AlertExample = ({
   values,
@@ -21,7 +22,8 @@ const AlertExample = ({
         </Alert>
       </div>
       <div style={{ padding: "8px 0" }}>
-        <Alert color="error" icon="ErrorOutline">
+        <Alert color="error">
+          <ErrorOutline />
           <Typography type="body">
             Our records indicate you are not active or eligible with the MLS due
             to your MLS subscription type or dues.
@@ -38,7 +40,8 @@ const AlertExample = ({
             or call us at{" "}
             <a href="tel:8772189771" target="_blank" rel="noopener noreferrer">
               877-218-9771
-            </a>.
+            </a>
+            .
           </Typography>
         </Alert>
       </div>
