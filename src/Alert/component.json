@@ -65,13 +65,6 @@
         "computed": false
       }
     },
-    "icon": {
-      "flowType": {
-        "name": "string"
-      },
-      "required": true,
-      "description": "Icon component to be used in the alert component"
-    },
     "theme": {
       "flowType": {
         "name": "Object"
