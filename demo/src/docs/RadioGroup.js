@@ -9,7 +9,6 @@ import Button from "elevate-ui/Button";
 
 const RadioGroups = () => (
   <Paper>
-    <Typography type="title">{`<RadioGroup />`}</Typography>
     <Formik
       initialValues={{ color: null }}
       validationSchema={() =>

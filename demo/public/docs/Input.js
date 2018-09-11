@@ -9,7 +9,6 @@ import Button from "elevate-ui/Button";
 
 const Inputs = () => (
   <Paper>
-    <Typography type="title">{`<Input />`}</Typography>
     <Formik
       initialValues={{ name: "", hiddenField: "coolbeans" }}
       validationSchema={() =>
