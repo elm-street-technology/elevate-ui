@@ -21,7 +21,7 @@
     "test": "yarn run test:flow && yarn run test:jest",
     "test:flow": "flow check",
     "test:jest": "jest",
-    "watch": "yarn babel --watch src --out-dir .",
+    "watch": "yarn babel --watch src --out-dir . --ignore src/setupTests.js,**/*.test.js",
     "docgen": "react-docgen",
     "generate-docs": "./scripts/generateDocs.js"
   },
