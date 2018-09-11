@@ -3,6 +3,8 @@ import React from "react";
 import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import Button from "elevate-ui/Button";
+import Person from "elevate-ui/Icon/Person";
+import Cart from "elevate-ui/Icon/Cart";
 
 const ButtonExample = ({
   values,
@@ -59,22 +61,28 @@ const ButtonExample = ({
     <br />
     <br />
     <h2>Buttons With Icons</h2>
-    <Button color="primary" icon="Person" type="button">
+    <Button color="primary" icon={<Person />} type="button">
       Add Lead
     </Button>
     <br />
     <br />
-    <Button color="secondary" icon="Cart" isOutlined type="button">
+    <Button color="secondary" icon={<Cart />} isOutlined type="button">
       Check Out
     </Button>
     <br />
     <h2>Disabled Buttons</h2>
-    <Button disabled color="primary" icon="Person" type="button">
+    <Button disabled color="primary" icon={<Person />} type="button">
       Add Lead
     </Button>
     <br />
     <br />
-    <Button disabled color="secondary" isOutlined icon="Person" type="button">
+    <Button
+      disabled
+      color="secondary"
+      isOutlined
+      icon={<Person />}
+      type="button"
+    >
       Add Lead
     </Button>
     <br />

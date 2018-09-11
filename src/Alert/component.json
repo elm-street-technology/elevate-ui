@@ -67,7 +67,7 @@
     },
     "icon": {
       "flowType": {
-        "name": "string"
+        "name": "any"
       },
       "required": true,
       "description": "Icon component to be used in the alert component"

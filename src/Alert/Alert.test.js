@@ -4,6 +4,7 @@ import { mount } from "enzyme";
 
 import ThemeProvider from "../ThemeProvider";
 import Alert from "./";
+import ErrorOutline from "../Icon/ErrorOutline";
 
 const WrappedAlert = (props) => (
   <ThemeProvider>
@@ -21,7 +22,7 @@ test("renders without crashing, matches the snapshot", () => {
 
 test("takes an icon prop", () => {
   const component = mount(
-    <WrappedAlert icon="ErrorOutline">
+    <WrappedAlert icon={<ErrorOutline />}>
       Oh no! Something went terribly wrong!
     </WrappedAlert>
   );

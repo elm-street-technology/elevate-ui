@@ -68,7 +68,7 @@
     },
     "icon": {
       "flowType": {
-        "name": "string"
+        "name": "any"
       },
       "required": false,
       "description": "Icon component to use in the component."
