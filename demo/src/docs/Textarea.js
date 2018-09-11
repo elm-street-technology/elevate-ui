@@ -3,7 +3,6 @@ import { Formik, Form, Field } from "formik";
 import Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
-import Typography from "elevate-ui/Typography";
 import Textarea from "elevate-ui/Textarea";
 import Button from "elevate-ui/Button";
 
@@ -17,7 +16,6 @@ const TextAreas = ({
   isSubmitting,
 }) => (
   <Paper>
-    <Typography type="title">{`<Textarea />`}</Typography>
     <Formik
       initialValues={{
         story: "",

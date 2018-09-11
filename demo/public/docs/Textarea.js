@@ -17,7 +17,6 @@ const TextAreas = ({
   isSubmitting,
 }) => (
   <Paper>
-    <Typography type="title">{`<Textarea />`}</Typography>
     <Formik
       initialValues={{
         story: "",

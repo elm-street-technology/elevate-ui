@@ -27,6 +27,7 @@ const Selects = ({
   isSubmitting,
 }) => (
   <Paper>
+    <Typography type="title">{`<Select />`}</Typography>
     <Formik
       initialValues={{
         color: "",
