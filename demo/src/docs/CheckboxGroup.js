@@ -3,13 +3,11 @@ import { Formik, Form, Field } from "formik";
 import Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
-import Typography from "elevate-ui/Typography";
 import CheckboxGroup from "elevate-ui/CheckboxGroup";
 import Button from "elevate-ui/Button";
 
 const CheckboxGroups = () => (
   <Paper>
-    <Typography type="title">{`<CheckboxGroup />`}</Typography>
     <Formik
       initialValues={{ colors: [] }}
       validationSchema={() =>

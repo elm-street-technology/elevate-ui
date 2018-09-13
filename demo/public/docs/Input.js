@@ -3,13 +3,11 @@ import { Formik, Form, Field } from "formik";
 import Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
-import Typography from "elevate-ui/Typography";
 import Input from "elevate-ui/Input";
 import Button from "elevate-ui/Button";
 
 const Inputs = () => (
   <Paper>
-    <Typography type="title">{`<Input />`}</Typography>
     <Formik
       initialValues={{ name: "", hiddenField: "coolbeans" }}
       validationSchema={() =>

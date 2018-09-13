@@ -1,23 +1,23 @@
 import React from "react";
 
-import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import Button from "elevate-ui/Button";
+import withStyles from "elevate-ui/withStyles";
+import Paper from "elevate-ui/Paper";
 import Person from "elevate-ui/Icon/Person";
 import Cart from "elevate-ui/Icon/Cart";
 
 const ButtonExample = ({
-  values,
+  classes,
   errors,
-  touched,
-  handleChange,
   handleBlur,
+  handleChange,
   handleSubmit,
   isSubmitting,
+  touched,
+  values,
 }) => (
   <Paper>
-    <Typography type="title">{`<Button />`}</Typography>
-    <hr />
     <h2>Standard Button</h2>
     <Typography type="body">Default Props, using {`type="button"`}</Typography>
     <br />
@@ -35,6 +35,8 @@ const ButtonExample = ({
     <Button isOutlined type="button">
       Load More
     </Button>
+    <br />
+    <br />
     <Typography type="body">
       Another outlined button using {`color="secondary"`}:
     </Typography>
@@ -61,6 +63,7 @@ const ButtonExample = ({
     <br />
     <br />
     <h2>Buttons With Icons</h2>
+    <br />
     <Button color="primary" icon={<Person />} type="button">
       Add Lead
     </Button>
@@ -70,7 +73,9 @@ const ButtonExample = ({
       Check Out
     </Button>
     <br />
+    <br />
     <h2>Disabled Buttons</h2>
+    <br />
     <Button disabled color="primary" icon={<Person />} type="button">
       Add Lead
     </Button>
@@ -90,4 +95,16 @@ const ButtonExample = ({
   </Paper>
 );
 
-export default ButtonExample;
+export default withStyles((theme) => ({
+  preInline: {
+    display: "inline-block",
+    margin: "0 4px",
+    backgroundColor: "rgb(250, 250, 250)",
+  },
+  code: {
+    fontFamily: "monospace",
+  },
+  exampleContainer: {
+    margin: "15px 0",
+  },
+}))(ButtonExample);

@@ -3,13 +3,11 @@ import { Formik, Form, Field } from "formik";
 import Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
-import Typography from "elevate-ui/Typography";
 import RadioGroup from "elevate-ui/RadioGroup";
 import Button from "elevate-ui/Button";
 
 const RadioGroups = () => (
   <Paper>
-    <Typography type="title">{`<RadioGroup />`}</Typography>
     <Formik
       initialValues={{ color: null }}
       validationSchema={() =>
