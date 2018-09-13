@@ -171,7 +171,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/icon"
         >
-          Icons
+          Icon
         </NavLink>
 
         <span className={classes.header}>Demos</span>

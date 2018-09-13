@@ -3,7 +3,6 @@ import { Formik, Form, Field } from "formik";
 import Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
-import Typography from "elevate-ui/Typography";
 import Select from "elevate-ui/Select";
 import Button from "elevate-ui/Button";
 
@@ -27,7 +26,6 @@ const Selects = ({
   isSubmitting,
 }) => (
   <Paper>
-    <Typography type="title">{`<Select />`}</Typography>
     <Formik
       initialValues={{
         color: "",

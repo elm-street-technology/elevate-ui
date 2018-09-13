@@ -3,7 +3,6 @@ import { Formik, Form, Field } from "formik";
 import Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
-import Typography from "elevate-ui/Typography";
 import MultiSelect from "elevate-ui/MultiSelect";
 import Button from "elevate-ui/Button";
 
@@ -33,7 +32,6 @@ const MultiSelects = ({
   isSubmitting,
 }) => (
   <Paper>
-    <Typography type="title">{`<MultiSelect />`}</Typography>
     <Formik
       initialValues={{ colors: [], colors2: ["magenta"] }}
       validationSchema={() =>
