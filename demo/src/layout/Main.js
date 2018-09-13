@@ -34,6 +34,10 @@ const Main = ({ classes }) => (
           path="/checkbox-group"
           render={() => <Doc folder="CheckboxGroup" />}
         />
+        <Route
+          path="/button-group"
+          render={() => <Doc folder="ButtonGroup" />}
+        />
         <Route path="/radio-group" render={() => <Doc folder="RadioGroup" />} />
         <Route path="/datetime" render={() => <Doc folder="Datetime" />} />
         <Route path="/button" render={() => <Doc folder="Button" />} />

@@ -1,5 +1,5 @@
 {
-  "description": "A component used to render a group of buttons.",
+  "description": "A component used to render a group of buttons that can have a single or multiple values.",
   "displayName": "ButtonGroup",
   "methods": [
     {
@@ -9,6 +9,18 @@
       "params": [
         {
           "name": "e",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "handleClick",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "input",
           "type": null
         }
       ],
@@ -29,28 +41,6 @@
       },
       "required": true,
       "description": "classNames to be passed to the component."
-    },
-    "display": {
-      "flowType": {
-        "name": "union",
-        "raw": "\"inline\" | \"block\"",
-        "elements": [
-          {
-            "name": "literal",
-            "value": "\"inline\""
-          },
-          {
-            "name": "literal",
-            "value": "\"block\""
-          }
-        ]
-      },
-      "required": false,
-      "description": "",
-      "defaultValue": {
-        "value": "\"block\"",
-        "computed": false
-      }
     },
     "field": {
       "flowType": {
@@ -123,6 +113,13 @@
       },
       "required": true,
       "description": ""
+    },
+    "multiSelect": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "Allows the button group to have multiple values selected when set to true"
     }
   }
 }
