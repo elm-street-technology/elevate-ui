@@ -3,8 +3,6 @@ import React from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 
-import Icon from "../Icon/Icon";
-
 type Props = {
   /**
    * Children to be passed to the component.
@@ -26,7 +24,7 @@ type Props = {
   /**
    * Icon component to be used in the alert component
    */
-  icon: string,
+  icon: any,
   theme: Object,
 };
 
@@ -45,11 +43,7 @@ const Alert = ({
 }: Props) => (
   // $FlowIgnore -- it doesn't understand the element: Element
   <Element className={classNames(classes.root, className)} {...rest}>
-    {icon && (
-      <div className={classes.icon}>
-        <Icon name={icon} />
-      </div>
-    )}
+    {icon && <div className={classes.icon}>{icon}</div>}
     <div className={classes.children}>{children}</div>
   </Element>
 );
