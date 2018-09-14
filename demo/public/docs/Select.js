@@ -15,6 +15,12 @@ const roygbiv = [
   { label: "Indigo", value: "indigo" },
   { label: "Violet", value: "violet" },
 ];
+const cmyk = [
+  { label: "Cyan", value: "cyan" },
+  { label: "Magenta", value: "magenta" },
+  { label: "Yellow", value: "yellow" },
+  { label: "Black", value: "black" },
+];
 
 const Selects = ({
   values,
@@ -29,10 +35,12 @@ const Selects = ({
     <Formik
       initialValues={{
         color: "",
+        color2: "",
       }}
       validationSchema={() =>
         Yup.object().shape({
           color: Yup.string().required("A favorite color is required"),
+          color2: Yup.string().required("A secondary color is required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -59,6 +67,15 @@ const Selects = ({
             items={roygbiv}
             component={Select}
           />
+          <div style={{ maxWidth: "180px" }}>
+            <Field
+              id="color"
+              name="color"
+              label="Secondary Color"
+              items={cmyk}
+              component={Select}
+            />
+          </div>
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
           </Button>
