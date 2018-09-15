@@ -52,8 +52,8 @@ const ButtonGroups = () => (
     <br />
     <Typography type="title">Multiple Values</Typography>
     <Typography type="body">
-      The component can accept multiple values by adding the ${`multiSelect`}{" "}
-      prop.
+      The component can accept multiple values by adding the{" "}
+      <code>multiSelect</code> prop.
     </Typography>
     <Formik
       initialValues={{ colors2: [] }}
@@ -80,6 +80,7 @@ const ButtonGroups = () => (
               <ButtonGroup
                 {...field}
                 multiSelect
+                color="secondary"
                 options={[
                   { value: "teal", label: "Teal" },
                   { value: "brown", label: "Brown" },

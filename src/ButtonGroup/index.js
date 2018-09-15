@@ -23,7 +23,7 @@ type Props = {
    */
   multiSelect?: boolean,
   /**
-   * Accepts a color value to change the button group colors.
+   * Color to be applied to the Button component. Can be "primary", "secondary", or any custom value.
    */
   color?: string,
 };
@@ -35,6 +35,14 @@ type State = {
   selected: Array<string>,
 };
 
+function getBackgroundColor(theme, props) {
+  if (props.color !== "primary" && props.color !== "secondary") {
+    return props.color;
+  } else {
+    return theme.colors[props.color];
+  }
+}
+
 /**
  * A component used to render a group of buttons that can have a single or multiple values.
  */
@@ -42,6 +50,7 @@ class ButtonGroup extends Component<Props, State> {
   static defaultProps = {
     options: [],
     multiSelect: false,
+    color: "primary",
   };
 
   constructor(props) {
@@ -118,7 +127,15 @@ class ButtonGroup extends Component<Props, State> {
                 )}
                 onClick={() => this.handleClick(option.value)}
               >
-                <span className={classes.spanText}>{option.label}</span>
+                <span
+                  className={
+                    selected.includes(option.value)
+                      ? classes.spanTextActive
+                      : classes.spanText
+                  }
+                >
+                  {option.label}
+                </span>
               </label>
               <input
                 id={option.value}
@@ -171,10 +188,14 @@ export default withStyles((theme) => ({
   },
   spanText: {
     pointerEvents: "none",
+    color: theme.colors["gray200"],
+  },
+  spanTextActive: {
+    pointerEvents: "none",
+    color: theme.colors["white"],
   },
   buttonActive: {
-    background: (props) =>
-      props.color ? theme.colors[props.color] : theme.colors["primary"],
+    background: (props) => getBackgroundColor(theme, props),
     border: `2px solid ${theme.colors["gray200"]}`,
     borderRight: "none",
     padding: 12,

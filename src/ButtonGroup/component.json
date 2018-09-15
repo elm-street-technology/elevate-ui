@@ -119,7 +119,22 @@
         "name": "boolean"
       },
       "required": false,
-      "description": "Allows the button group to have multiple values selected when set to true"
+      "description": "Allows the button group to have multiple values selected when set to true",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
+    "color": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Color to be applied to the Button component. Can be \"primary\", \"secondary\", or any custom value.",
+      "defaultValue": {
+        "value": "\"primary\"",
+        "computed": false
+      }
     }
   }
 }
