@@ -13,9 +13,6 @@ const ButtonGroups = () => (
       initialValues={{ colors: [] }}
       validationSchema={() =>
         Yup.object().shape({
-          // colors: Yup.array()
-          //   .of(Yup.string())
-          //   .required("A color is required"),
           colors: Yup.string().required(),
         })
       }
