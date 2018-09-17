@@ -34,6 +34,10 @@ type Props = {
    * Accepts a function to be passed down to the component that fires when selected.
    */
   onSelect?: Function,
+  /**
+   * Accepts a function to be passed down to the component that fires when a tag is removed.
+   */
+  onRemove?: Function,
   theme: Object,
   /**
    * If the scaffold should be used.
@@ -139,6 +143,10 @@ class MultiSelect extends Component<Props, State> {
     const updatedValue = [...value];
     updatedValue.splice(index, 1);
     setFieldValue(name, updatedValue);
+
+    if (this.props.onRemove) {
+      this.props.onRemove(name, updatedValue);
+    }
   };
 
   onInputKeyDown = (event) => {
