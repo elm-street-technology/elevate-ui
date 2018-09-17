@@ -18,7 +18,7 @@ test("renders without crashing, matches the snapshot", () => {
       label="Test ButtonGroup"
       onChange={sinon.spy()}
       field={{
-        name: "test-checkybox",
+        name: "test-buttongroup",
         onChange: () => {},
         onBlur: () => {},
         value: false,
