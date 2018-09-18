@@ -28,17 +28,13 @@ const ButtonGroups = () => (
             id="colors"
             name="colors"
             label="Colors"
-            render={(field, options) => (
-              <ButtonGroup
-                {...field}
-                options={[
-                  { value: "red", label: "Red" },
-                  { value: "green", label: "Green" },
-                  { value: "blue", label: "Blue" },
-                  { value: "yellow", label: "Yellow" },
-                ]}
-              />
-            )}
+            component={ButtonGroup}
+            items={[
+              { value: "red", label: "Red" },
+              { value: "green", label: "Green" },
+              { value: "blue", label: "Blue" },
+              { value: "yellow", label: "Yellow" },
+            ]}
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
@@ -73,19 +69,15 @@ const ButtonGroups = () => (
             id="colors2"
             name="colors2"
             label="Colors"
-            render={(field, options) => (
-              <ButtonGroup
-                {...field}
-                multiSelect
-                color="secondary"
-                options={[
-                  { value: "teal", label: "Teal" },
-                  { value: "brown", label: "Brown" },
-                  { value: "black", label: "Black" },
-                  { value: "pink", label: "Pink" },
-                ]}
-              />
-            )}
+            component={ButtonGroup}
+            multiSelect
+            color="secondary"
+            items={[
+              { value: "teal", label: "Teal" },
+              { value: "brown", label: "Brown" },
+              { value: "black", label: "Black" },
+              { value: "pink", label: "Pink" },
+            ]}
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit

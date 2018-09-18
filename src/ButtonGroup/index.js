@@ -12,7 +12,10 @@ type Props = {
   className: string,
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
-  options: Array<{ label: string, value: string, disabled: boolean }>,
+  /**
+   * Array of items to use as the values. `{label: string, value: string}`
+   */
+  items: Array<{ label: string, value: string, disabled: boolean }>,
   /**
    * Text input to be used as the label for the checkbox group.
    */
@@ -48,7 +51,7 @@ function getBackgroundColor(theme, props) {
  */
 class ButtonGroup extends Component<Props, State> {
   static defaultProps = {
-    options: [],
+    items: [],
     multiSelect: false,
     color: "primary",
   };
@@ -67,26 +70,24 @@ class ButtonGroup extends Component<Props, State> {
       form: { setFieldValue },
     } = this.props;
 
-    const selectedCheckbox = e.target.id;
+    const selectedButton = e.target.id;
     if (this.props.multiSelect) {
-      let selectedCheckboxes = Array.isArray(value) ? value.slice() : [];
+      let selectedButtons = Array.isArray(value) ? value.slice() : [];
 
-      if (
-        e.target.checked &&
-        selectedCheckboxes.indexOf(selectedCheckbox) === -1
-      ) {
-        selectedCheckboxes.push(selectedCheckbox);
+      if (e.target.checked && selectedButtons.indexOf(selectedButton) === -1) {
+        selectedButtons.push(selectedButton);
       } else if (!e.target.checked) {
-        selectedCheckboxes = without(selectedCheckboxes, selectedCheckbox);
+        selectedButtons = without(selectedButtons, selectedButton);
       }
-      return setFieldValue(name, selectedCheckboxes);
+      return setFieldValue(name, selectedButtons);
     }
 
-    return setFieldValue(name, selectedCheckbox);
+    return setFieldValue(name, selectedButton);
   };
 
   handleClick = (input) => {
-    document.getElementById(input).click();
+    // document.getElementById(input).click();
+    input.click();
     let updatedState = this.state.selected.slice();
 
     if (updatedState.includes(input) && this.props.multiSelect === true) {
@@ -107,45 +108,56 @@ class ButtonGroup extends Component<Props, State> {
   render() {
     const {
       label,
-      options,
+      items,
       classes,
       field: { name },
       multiSelect,
+      form: { values },
     } = this.props;
 
     const { selected } = this.state;
+
     return (
       <div className={classes.scaffold}>
         {label && <Label>{label}</Label>}
         <div className={classNames(classes.toggles, classes.inline)}>
-          {options.map((option) => (
-            <Fragment key={option.value}>
-              <label
-                className={classNames(
-                  classes.button,
-                  selected.includes(option.value) ? classes.buttonActive : null
-                )}
-                onClick={() => this.handleClick(option.value)}
-              >
-                <span
-                  className={
-                    selected.includes(option.value)
-                      ? classes.spanTextActive
-                      : classes.spanText
-                  }
+          {items.map((item) => {
+            const input = item.value;
+            return (
+              <Fragment key={item.value}>
+                <label
+                  className={classNames(
+                    classes.button,
+                    Array.isArray(values[name])
+                      ? values[name].includes(item.value)
+                        ? classes.buttonActive
+                        : null
+                      : values[name] === item.value
+                        ? classes.buttonActive
+                        : null
+                  )}
                 >
-                  {option.label}
-                </span>
-              </label>
-              <input
-                id={option.value}
-                type={multiSelect ? "checkbox" : "radio"}
-                name={name}
-                className={classes.hiddenInput}
-                onChange={this.onChange}
-              />
-            </Fragment>
-          ))}
+                  <span
+                    className={
+                      selected.includes(item.value)
+                        ? classes.spanTextActive
+                        : classes.spanText
+                    }
+                  >
+                    {item.label}
+                  </span>
+                  <input
+                    id={item.value}
+                    type={multiSelect ? "checkbox" : "radio"}
+                    name={name}
+                    className={classes.hiddenInput}
+                    onChange={this.onChange}
+                    ref={(node) => (this.input = node)}
+                  />
+                </label>
+              </Fragment>
+            );
+          })}
         </div>
       </div>
     );
@@ -171,17 +183,17 @@ export default withStyles((theme) => ({
   },
   button: {
     background: "none",
-    border: `2px solid ${theme.colors["gray200"]}`,
+    border: `1px solid ${theme.colors["gray200"]}`,
     borderRight: "none",
     padding: 12,
     cursor: "pointer",
     "&:first-of-type": {
-      borderLeft: `2px solid ${theme.colors["gray200"]}`,
+      borderLeft: `1px solid ${theme.colors["gray200"]}`,
       borderTopLeftRadius: 5,
       borderBottomLeftRadius: 5,
     },
     "&:last-of-type": {
-      borderRight: `2px solid ${theme.colors["gray200"]}`,
+      borderRight: `1px solid ${theme.colors["gray200"]}`,
       borderTopRightRadius: 5,
       borderBottomRightRadius: 5,
     },
@@ -196,7 +208,7 @@ export default withStyles((theme) => ({
   },
   buttonActive: {
     background: (props) => getBackgroundColor(theme, props),
-    border: `2px solid ${theme.colors["gray200"]}`,
+    border: `1px solid ${theme.colors["gray200"]}`,
     borderRight: "none",
     padding: 12,
     cursor: "pointer",

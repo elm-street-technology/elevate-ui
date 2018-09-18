@@ -56,7 +56,7 @@
       "required": true,
       "description": ""
     },
-    "options": {
+    "items": {
       "flowType": {
         "name": "Array",
         "elements": [
@@ -94,7 +94,7 @@
         "raw": "Array<{ label: string, value: string, disabled: boolean }>"
       },
       "required": false,
-      "description": "",
+      "description": "Array of items to use as the values. `{label: string, value: string}`",
       "defaultValue": {
         "value": "[]",
         "computed": false
