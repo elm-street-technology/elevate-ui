@@ -258,6 +258,7 @@ export default withStyles((theme) => ({
     cursor: (props) => (props.disabled ? "not-allowed" : "default"),
   },
   root: {
+    width: "100%",
     flexGrow: "1",
     color: "inherit",
     fontFamily: "inherit",

@@ -13,7 +13,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       checked={true}
       field={
         Object {
-          "name": "test-checkybox",
+          "name": "test-checkbox",
           "onBlur": [Function],
           "onChange": [Function],
           "value": false,

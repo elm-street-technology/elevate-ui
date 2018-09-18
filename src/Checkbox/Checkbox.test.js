@@ -19,7 +19,7 @@ test("renders without crashing, matches the snapshot", () => {
       onChange={sinon.spy()}
       checked={true}
       field={{
-        name: "test-checkybox",
+        name: "test-checkbox",
         onChange: () => {},
         onBlur: () => {},
         value: false,
