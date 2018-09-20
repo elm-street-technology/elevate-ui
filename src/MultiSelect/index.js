@@ -139,7 +139,7 @@ class MultiSelect extends Component<Props, State> {
     updatedFullValue.splice(stateIndex, 1);
     this.setState({ fullValue: updatedFullValue });
 
-    const index = value && value.findIndex((val) => val === item);
+    const index = value && value.findIndex((val) => val === item.value);
     const updatedValue = [...value];
     updatedValue.splice(index, 1);
     setFieldValue(name, updatedValue);
