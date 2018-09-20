@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 import Paper from "../Paper";
-import Icon from "../Icon";
+import CaretRight from "../Icon/CaretRight";
 
 type Props = {
   children: any,
@@ -54,7 +54,7 @@ class ExpandablePanel extends Component<Props, State> {
       >
         <button onClick={this.togglePanel}>
           <div>{title}</div>
-          <Icon icon="CaretRight" />
+          <CaretRight />
         </button>
         {expanded && (
           <div className={classNames(classes.children, innerClassName)}>

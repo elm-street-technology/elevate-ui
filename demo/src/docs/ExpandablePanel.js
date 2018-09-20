@@ -4,7 +4,7 @@ import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import ExpandablePanel from "elevate-ui/ExpandablePanel";
 
-const ExpandablePanels = ({
+const ExpandablePanelExample = ({
   values,
   errors,
   touched,
@@ -19,4 +19,4 @@ const ExpandablePanels = ({
   </Paper>
 );
 
-export default ExpandablePanels;
+export default ExpandablePanelExample;
