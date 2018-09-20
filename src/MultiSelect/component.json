@@ -228,6 +228,13 @@
       "required": false,
       "description": "Accepts a function to be passed down to the component that fires when selected."
     },
+    "onRemove": {
+      "flowType": {
+        "name": "Function"
+      },
+      "required": false,
+      "description": "Accepts a function to be passed down to the component that fires when a tag is removed."
+    },
     "theme": {
       "flowType": {
         "name": "Object"
