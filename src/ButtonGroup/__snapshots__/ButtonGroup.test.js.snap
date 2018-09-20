@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing, matches the snapshot 1`] = `
+<div
+  className="ButtonGroup-scaffold-0-1-1"
+>
+  <label
+    className="Label-root-0-1-10"
+  >
+    Test ButtonGroup
+  </label>
+  <div
+    className="ButtonGroup-toggles-0-1-2 ButtonGroup-inline-0-1-3"
+  >
+    <label
+      className="ButtonGroup-button-0-1-5"
+    >
+      <span
+        className="ButtonGroup-spanText-0-1-6"
+      >
+        Teal
+      </span>
+      <input
+        className="ButtonGroup-hiddenInput-0-1-4"
+        id="teal"
+        name="buttongroup"
+        onChange={[Function]}
+        type="radio"
+      />
+    </label>
+    <label
+      className="ButtonGroup-button-0-1-5"
+    >
+      <span
+        className="ButtonGroup-spanText-0-1-6"
+      >
+        Brown
+      </span>
+      <input
+        className="ButtonGroup-hiddenInput-0-1-4"
+        id="brown"
+        name="buttongroup"
+        onChange={[Function]}
+        type="radio"
+      />
+    </label>
+    <label
+      className="ButtonGroup-button-0-1-5"
+    >
+      <span
+        className="ButtonGroup-spanText-0-1-6"
+      >
+        Black
+      </span>
+      <input
+        className="ButtonGroup-hiddenInput-0-1-4"
+        id="black"
+        name="buttongroup"
+        onChange={[Function]}
+        type="radio"
+      />
+    </label>
+    <label
+      className="ButtonGroup-button-0-1-5"
+    >
+      <span
+        className="ButtonGroup-spanText-0-1-6"
+      >
+        Pink
+      </span>
+      <input
+        className="ButtonGroup-hiddenInput-0-1-4"
+        id="pink"
+        name="buttongroup"
+        onChange={[Function]}
+        type="radio"
+      />
+    </label>
+  </div>
+</div>
+`;

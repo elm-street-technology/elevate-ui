@@ -1,35 +1,39 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import sinon from "sinon";
 
 import ThemeProvider from "../ThemeProvider";
-import Checkbox from "./";
+import ButtonGroup from "./";
 
-const WrappedCheckbox = (props) => (
+const WrappedGroup = (props) => (
   <ThemeProvider>
-    <Checkbox {...props} />
+    <ButtonGroup {...props} />
   </ThemeProvider>
 );
 
 test("renders without crashing, matches the snapshot", () => {
   const component = renderer.create(
-    <WrappedCheckbox
-      id="test-checkbox"
-      label="Test Checkbox"
-      onChange={sinon.spy()}
-      checked={true}
+    <WrappedGroup
+      id="test-buttongroup"
+      label="Test ButtonGroup"
       field={{
-        name: "test-checkbox",
+        name: "buttongroup",
         onChange: () => {},
         onBlur: () => {},
-        value: false,
+        value: "",
       }}
       form={{
         errors: [],
         setFieldValue: () => {},
         setFieldTouched: () => {},
         touched: false,
+        values: {},
       }}
+      items={[
+        { value: "teal", label: "Teal" },
+        { value: "brown", label: "Brown" },
+        { value: "black", label: "Black" },
+        { value: "pink", label: "Pink" },
+      ]}
     />
   );
   const componentJSON = component.toJSON();
