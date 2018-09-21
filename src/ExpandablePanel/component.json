@@ -8,6 +8,18 @@
       "modifiers": [],
       "params": [],
       "returns": null
+    },
+    {
+      "name": "togglePanels",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "index",
+          "type": null
+        }
+      ],
+      "returns": null
     }
   ],
   "props": {
