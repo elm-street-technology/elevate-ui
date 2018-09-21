@@ -21,7 +21,12 @@ test("renders without crashing, matches the snapshot", () => {
         { label: "First", value: "first" },
         { label: "Second", value: "second" },
       ]}
-      field={{ name: "", onChange: () => {}, onBlur: () => {}, value: null }}
+      field={{
+        name: "test-radio",
+        onChange: () => {},
+        onBlur: () => {},
+        value: null,
+      }}
       form={{
         errors: [],
         setFieldValue: () => {},

@@ -19,7 +19,7 @@ test("renders without crashing, matches the snapshot", () => {
         { label: "Second", value: "second" },
       ]}
       field={{
-        name: "",
+        name: "test-checkbox",
         onChange: () => {},
         onBlur: () => {},
         value: [],

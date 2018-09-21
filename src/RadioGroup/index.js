@@ -51,7 +51,7 @@ class RadioGroup extends Component<Props> {
       options,
       classes,
       display,
-      field: { value },
+      field: { name, value },
     } = this.props;
     return (
       <div className={classes.scaffold}>
@@ -65,6 +65,7 @@ class RadioGroup extends Component<Props> {
           {options.map((option) =>
             React.cloneElement(<Radio />, {
               key: option.value,
+              name,
               id: option.value,
               label: option.label,
               checked: value === option.value,

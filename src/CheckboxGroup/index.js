@@ -58,7 +58,7 @@ class CheckboxGroup extends Component<Props> {
       options,
       classes,
       display,
-      field: { value },
+      field: { name, value },
     } = this.props;
     return (
       <div className={classes.scaffold}>
@@ -72,6 +72,7 @@ class CheckboxGroup extends Component<Props> {
           {options.map((option) =>
             React.cloneElement(<UncontrolledCheckbox />, {
               key: option.value,
+              name,
               id: option.value,
               label: option.label,
               checked: value.indexOf(option.value) !== -1,

@@ -19,6 +19,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
           checked={false}
           disabled={false}
           id="first"
+          name="test-checkbox"
           onChange={[Function]}
           style={
             Object {
@@ -58,6 +59,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
           checked={false}
           disabled={false}
           id="second"
+          name="test-checkbox"
           onChange={[Function]}
           style={
             Object {
