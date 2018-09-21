@@ -69,6 +69,7 @@ class RadioGroup extends Component<Props> {
               id: option.value,
               label: option.label,
               checked: value === option.value,
+              value: option.value,
               onChange: this.onChange,
               disabled: option.disabled || false,
             })

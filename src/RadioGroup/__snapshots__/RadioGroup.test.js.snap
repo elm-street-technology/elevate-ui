@@ -27,6 +27,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
             }
           }
           type="radio"
+          value="first"
         />
         <span
           className="Toggle-toggle-0-1-6 Toggle-withPadding-0-1-7"
@@ -67,6 +68,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
             }
           }
           type="radio"
+          value="second"
         />
         <span
           className="Toggle-toggle-0-1-6 Toggle-withPadding-0-1-7"

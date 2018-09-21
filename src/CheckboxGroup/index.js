@@ -76,6 +76,7 @@ class CheckboxGroup extends Component<Props> {
               id: option.value,
               label: option.label,
               checked: value.indexOf(option.value) !== -1,
+              value: option.value,
               onChange: this.onChange,
               disabled: option.disabled || false,
             })
