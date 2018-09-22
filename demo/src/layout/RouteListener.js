@@ -5,7 +5,7 @@ import type { ContextRouter } from "react-router-dom";
 
 type Props = {
   children: any,
-  onSubmit: Function,
+  closeMenu: Function,
   ...ContextRouter,
 };
 type State = {};
@@ -14,6 +14,7 @@ class RouteListener extends Component<Props, State> {
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       window.scrollTo(0, 0);
+      this.props.closeMenu();
     }
   }
 

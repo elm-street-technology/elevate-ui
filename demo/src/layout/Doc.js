@@ -202,30 +202,34 @@ export default withStyles((theme) => ({
     background: theme.colors.white,
     border: `1px solid ${theme.colors.gray200}`,
     borderRadius: theme.globalBorderRadius,
+    overflowY: "auto",
   },
   row: {
     display: "flex",
     position: "relative",
-    width: "100%",
     flex: "1",
     flexFlow: "row nowrap",
     justifyContent: "flex-start",
     alignItems: "flex-start",
+
+    "&:nth-child(odd)": {
+      backgroundColor: "#fff",
+    },
+    "&:nth-child(even)": {
+      backgroundColor: "#fbfbfb",
+    },
     "&:nth-child(1)": {
       fontSize: "1.1rem",
       fontWeight: "bold",
       backgroundColor: "#e8e8e8",
     },
-    "&:nth-child(even)": {
-      backgroundColor: "#fbfbfb",
-    },
   },
   col: {
-    flex: "0 1 20%",
+    minWidth: "128px",
     padding: "20px 8px",
   },
   description: {
-    flex: "0 1 45%",
+    minWidth: "240px",
   },
   hr: {
     margin: "25px 0",
