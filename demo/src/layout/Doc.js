@@ -165,7 +165,7 @@ class Doc extends Component<Props, State> {
   render() {
     const { folder, classes } = this.props;
     const { fileText } = this.state;
-    const documentation = require(`../../../src/${folder}/component.json`);
+    const documentation = require(`elevate-ui/src/${folder}/component.json`);
     const Example = require(`../docs/${folder}.js`).default;
     const componentProps: Array<any> =
       documentation.props && Object.entries(documentation.props);

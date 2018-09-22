@@ -38,7 +38,7 @@ const RawInput = withStyles((theme) => ({
     fontWeight: "400",
     fontSize: "16px",
     lineHeight: "20px",
-    backgroundColor: theme.colors.white,
+    backgroundColor: "#fff",
     border: `1px solid ${theme.colors.gray300}`,
     padding: "8px 12px",
     boxShadow: "none", // Reset default inputs for mozilla

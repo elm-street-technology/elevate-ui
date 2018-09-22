@@ -63,7 +63,7 @@ class IconDoc extends Component<Props, State> {
   render() {
     const { classes } = this.props;
     const { icons } = this.state;
-    const documentation = require(`../../../src/Icon/component.json`);
+    const documentation = require(`elevate-ui/src/Icon/component.json`);
 
     return (
       <Paper>

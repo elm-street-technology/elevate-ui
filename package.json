@@ -7,6 +7,7 @@
   "private": false,
   "sideEffects": false,
   "scripts": {
+    "postinstall": "yarn build && yarn link",
     "build": "yarn babel src --out-dir . --ignore src/setupTests.js,**/*.test.js",
     "clean": "./scripts/clean.js",
     "demo": "yarn generate-docs && cd demo && yarn start",
@@ -76,7 +77,6 @@
     "react-router-dom": "4.2.2",
     "react-test-renderer": "^16.5.0",
     "recursive-readdir": "^2.2.2",
-    "regenerator-runtime": "^0.12.1",
     "sinon": "5.0.1"
   },
   "jest": {
