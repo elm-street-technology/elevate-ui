@@ -30,11 +30,12 @@ class Checkbox extends Component<Props> {
   };
 
   render() {
-    const { classes, theme, ...rest } = this.props;
+    const { classes, field, theme, ...rest } = this.props;
     return (
       <UncontrolledCheckbox
         onChange={this.onChange}
         checked={this.props.field.value}
+        {...field}
         {...rest}
       />
     );
