@@ -282,6 +282,7 @@ export default withStyles((theme) => ({
     zIndex: "1",
     width: "100%",
     maxHeight: "200px",
+    cursor: "default",
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
     boxShadow: theme.globalBoxShadow, // Add back focus style
@@ -295,13 +296,9 @@ export default withStyles((theme) => ({
     padding: "8px 12px",
   },
   dropdownItemActive: {
-    fontWeight: "600",
-    color: theme.colors.white,
-    backgroundColor: theme.colors.secondary,
+    backgroundColor: theme.colors.gray100,
   },
   dropdownItemSelected: {
-    fontWeight: "600",
-    color: theme.colors.white,
-    backgroundColor: theme.colors.secondaryDark,
+    backgroundColor: theme.colors.gray200,
   },
 }))(Select);
