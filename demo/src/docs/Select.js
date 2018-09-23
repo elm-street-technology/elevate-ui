@@ -22,15 +22,7 @@ const cmyk = [
   { label: "Black", value: "black" },
 ];
 
-const Selects = ({
-  values,
-  errors,
-  touched,
-  handleChange,
-  handleBlur,
-  handleSubmit,
-  isSubmitting,
-}) => (
+const Selects = () => (
   <Paper>
     <Formik
       initialValues={{
@@ -49,16 +41,7 @@ const Selects = ({
           setSubmitting(false);
         }, 1000);
       }}
-      render={({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-        isValid,
-      }) => (
+      render={({ isSubmitting, isValid }) => (
         <Form noValidate style={{ maxWidth: "420px" }}>
           <Field
             id="color"
@@ -69,8 +52,8 @@ const Selects = ({
           />
           <div style={{ maxWidth: "180px" }}>
             <Field
-              id="color"
-              name="color"
+              id="color2"
+              name="color2"
               label="Secondary Color"
               items={cmyk}
               component={Select}
