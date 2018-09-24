@@ -48,7 +48,7 @@ const Typography = ({
   );
 };
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     width: "100%",
   },
@@ -63,4 +63,6 @@ export default withStyles((theme) => ({
     fontSize: "14px",
     lineHeight: "18px",
   },
-}))(Typography);
+});
+
+export default withStyles(styles, { name: "EuiTypography" })(Typography);

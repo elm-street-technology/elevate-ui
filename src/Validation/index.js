@@ -27,7 +27,7 @@ Validation.defaultProps = {
   color: "error",
 };
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     display: "inline-flex",
     fontSize: "14px",
@@ -41,4 +41,6 @@ export default withStyles((theme) => ({
     marginTop: "4px",
     padding: "2px 8px",
   },
-}))(Validation);
+});
+
+export default withStyles(styles, { name: "EuiValidation" })(Validation);

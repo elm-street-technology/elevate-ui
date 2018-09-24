@@ -28,7 +28,58 @@ type Props = {
   withScaffold: boolean,
 };
 
-const RawInput = withStyles((theme) => ({
+const RawInput = ({
+  classes,
+  className,
+  id,
+  tabIndex = "0",
+  theme, // eslint-disable-line
+  type = "text",
+  ...rest
+}: Props) => (
+  <input
+    type={type}
+    id={id}
+    className={classNames(classes.root, className)}
+    tabIndex={tabIndex}
+    {...rest}
+  />
+);
+
+/**
+ * Standard form input component.
+ */
+const Input = ({
+  classes,
+  className,
+  field,
+  form: { touched, errors },
+  id,
+  label,
+  type,
+  withScaffold = true,
+  ...rest
+}: Props) =>
+  withScaffold && type !== "hidden" ? (
+    <Scaffold
+      id={id}
+      label={label}
+      error={touched[field.name] && errors[field.name]}
+    >
+      <RawInput
+        type={type}
+        id={id}
+        classes={classes}
+        className={className}
+        {...field}
+        {...rest}
+      />
+    </Scaffold>
+  ) : (
+    <RawInput type={type} id={id} className={className} {...field} {...rest} />
+  );
+
+const styles = (theme) => ({
   root: {
     display: "block",
     width: "100%",
@@ -54,55 +105,6 @@ const RawInput = withStyles((theme) => ({
       cursor: "not-allowed",
     },
   },
-}))(
-  ({
-    classes,
-    className,
-    id,
-    tabIndex = "0",
-    theme, // eslint-disable-line
-    type = "text",
-    ...rest
-  }: Props) => (
-    <input
-      type={type}
-      id={id}
-      className={classNames(classes.root, className)}
-      tabIndex={tabIndex}
-      {...rest}
-    />
-  )
-);
+});
 
-/**
- * Standard form input component.
- */
-const Input = ({
-  className,
-  field,
-  form: { touched, errors },
-  id,
-  label,
-  type,
-  withScaffold = true,
-  ...rest
-}: Props) =>
-  withScaffold && type !== "hidden" ? (
-    <Scaffold
-      id={id}
-      label={label}
-      error={touched[field.name] && errors[field.name]}
-    >
-      <RawInput
-        type={type}
-        id={id}
-        className={className}
-        {...field}
-        {...rest}
-      />
-    </Scaffold>
-  ) : (
-    <RawInput type={type} id={id} className={className} {...field} {...rest} />
-  );
-
-export default Input;
+export default withStyles(styles, { name: "EuiInput" })(Input);

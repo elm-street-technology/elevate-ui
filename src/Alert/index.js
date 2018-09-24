@@ -53,7 +53,7 @@ Alert.defaultProps = {
   color: "error",
 };
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     display: "flex",
     justifyContent: "flex-start",
@@ -104,4 +104,6 @@ export default withStyles((theme) => ({
       wordBreak: "break-word", // long URLs or emails should break+wrap to the next line
     },
   },
-}))(Alert);
+});
+
+export default withStyles(styles, { name: "EuiAlert" })(Alert);

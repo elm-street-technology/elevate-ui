@@ -263,7 +263,7 @@ class Button extends Component<Props, State> {
   }
 }
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     display: "inline-flex",
     position: "relative",
@@ -335,4 +335,6 @@ export default withStyles((theme) => ({
       opacity: "0",
     },
   },
-}))(Button);
+});
+
+export default withStyles(styles, { name: "EuiButton" })(Button);

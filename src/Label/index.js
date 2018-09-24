@@ -10,7 +10,7 @@ const Label = ({ classes, className, children, theme, ...rest }) => {
   );
 };
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     display: "flex",
     alignItems: "center",
@@ -21,4 +21,6 @@ export default withStyles((theme) => ({
     color: theme.colors.gray500,
     marginBottom: "4px",
   },
-}))(Label);
+});
+
+export default withStyles(styles, { name: "EuiLabel" })(Label);

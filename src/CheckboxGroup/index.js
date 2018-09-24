@@ -87,7 +87,7 @@ class CheckboxGroup extends Component<Props> {
   }
 }
 
-export default withStyles(() => ({
+const styles = () => ({
   scaffold: {
     margin: "8px auto 16px",
   },
@@ -101,4 +101,6 @@ export default withStyles(() => ({
   inline: {
     flexDirection: "row",
   },
-}))(CheckboxGroup);
+});
+
+export default withStyles(styles, { name: "EuiCheckboxGroup" })(CheckboxGroup);

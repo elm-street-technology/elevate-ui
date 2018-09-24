@@ -36,7 +36,7 @@ const Tag = (props: Props) => {
   );
 };
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     display: "flex",
     alignItems: "center",
@@ -58,4 +58,6 @@ export default withStyles((theme) => ({
     color: theme.colors.secondary,
     padding: "2px",
   },
-}))(Tag);
+});
+
+export default withStyles(styles, { name: "EuiTag" })(Tag);

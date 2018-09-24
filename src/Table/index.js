@@ -9,7 +9,7 @@ import FilterComponent from "./FilterComponent";
 import Pagination from "./Pagination";
 
 /*
- * The <Table /> component extends React-Table with an opinionated default configuration and styling.
+ * The <Table /> component extends React-Table with an opinionated default configuration and styles.
  */
 class Table extends Component {
   state = {
@@ -121,7 +121,7 @@ class Table extends Component {
   }
 }
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     position: "relative",
     display: "flex",
@@ -313,4 +313,6 @@ export default withStyles((theme) => ({
     userSelect: "none",
     zIndex: "10",
   },
-}))(Table);
+});
+
+export default withStyles(styles, { name: "EuiTable" })(Table);
