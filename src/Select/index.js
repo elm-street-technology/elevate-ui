@@ -77,7 +77,7 @@ class Select extends Component<Props, State> {
     setFieldValue(name, item.value);
 
     if (this.props.onSelect) {
-      this.props.onSelect(name, item);
+      this.props.onSelect(name, item.value);
     }
   };
 
