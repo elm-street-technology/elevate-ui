@@ -7,7 +7,7 @@
   "private": false,
   "sideEffects": false,
   "scripts": {
-    "postinstall": "yarn build && yarn link",
+    "prepublish": "yarn build && yarn link",
     "build": "yarn babel src --out-dir . --ignore src/setupTests.js,**/*.test.js",
     "clean": "./scripts/clean.js",
     "demo": "yarn generate-docs && cd demo && yarn start",
