@@ -78,7 +78,7 @@ class ButtonGroup extends Component<Props> {
     } = this.props;
 
     if (!multiSelect && value === inputValue) {
-      setFieldValue(name, []);
+      setFieldValue(name, "");
       setTimeout(() => {
         // this stops the onChange from firing when we change the input
         input.checked = false;
