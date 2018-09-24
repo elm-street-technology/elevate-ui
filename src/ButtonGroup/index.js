@@ -31,13 +31,6 @@ type Props = {
   color?: string,
 };
 
-type State = {
-  /**
-   * Array of current selection.
-   */
-  selected: Array<string>,
-};
-
 function getBackgroundColor(theme, props) {
   if (props.color !== "primary" && props.color !== "secondary") {
     return props.color;
@@ -49,20 +42,12 @@ function getBackgroundColor(theme, props) {
 /**
  * A component used to render a group of buttons that can have a single or multiple values.
  */
-class ButtonGroup extends Component<Props, State> {
+class ButtonGroup extends Component<Props> {
   static defaultProps = {
     items: [],
     multiSelect: false,
     color: "primary",
   };
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      selected: [],
-    };
-  }
 
   onChange = (e) => {
     const {
@@ -85,24 +70,20 @@ class ButtonGroup extends Component<Props, State> {
     return setFieldValue(name, selectedButton);
   };
 
-  handleClick = (input) => {
-    // document.getElementById(input).click();
-    input.click();
-    let updatedState = this.state.selected.slice();
+  handleClick = (inputValue, input) => {
+    const {
+      multiSelect,
+      field: { name, value },
+      form: { setFieldValue },
+    } = this.props;
 
-    if (updatedState.includes(input) && this.props.multiSelect === true) {
-      updatedState = updatedState.filter((val) => {
-        return val !== input;
-      });
-    } else if (updatedState.includes(input)) {
-      return;
-    } else if (this.props.multiSelect) {
-      updatedState.push(input);
-    } else {
-      updatedState = [input];
+    if (!multiSelect && value === inputValue) {
+      setFieldValue(name, []);
+      setTimeout(() => {
+        // this stops the onChange from firing when we change the input
+        input.checked = false;
+      }, 1);
     }
-
-    this.setState({ selected: updatedState });
   };
 
   render() {
@@ -114,8 +95,6 @@ class ButtonGroup extends Component<Props, State> {
       multiSelect,
       form: { values },
     } = this.props;
-
-    const { selected } = this.state;
 
     return (
       <div className={classes.scaffold}>
@@ -136,23 +115,18 @@ class ButtonGroup extends Component<Props, State> {
                         ? classes.buttonActive
                         : null
                   )}
+                  onClick={() =>
+                    this.handleClick(item.value, this[`input${item.value}`])
+                  }
                 >
-                  <span
-                    className={
-                      selected.includes(item.value)
-                        ? classes.spanTextActive
-                        : classes.spanText
-                    }
-                  >
-                    {item.label}
-                  </span>
+                  <span className={classes.spanText}>{item.label}</span>
                   <input
                     id={item.value}
                     type={multiSelect ? "checkbox" : "radio"}
                     name={name}
                     className={classes.hiddenInput}
                     onChange={this.onChange}
-                    ref={(node) => (this.input = node)}
+                    ref={(node) => (this[`input${item.value}`] = node)}
                   />
                 </label>
               </Fragment>

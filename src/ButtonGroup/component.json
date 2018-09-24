@@ -20,6 +20,10 @@
       "modifiers": [],
       "params": [
         {
+          "name": "inputValue",
+          "type": null
+        },
+        {
           "name": "input",
           "type": null
         }
