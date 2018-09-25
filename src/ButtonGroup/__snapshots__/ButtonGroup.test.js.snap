@@ -5,7 +5,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
   className="ButtonGroup-scaffold-0-1-1"
 >
   <label
-    className="Label-root-0-1-10"
+    className="Label-root-0-1-11"
   >
     Test ButtonGroup
   </label>
@@ -14,7 +14,6 @@ exports[`renders without crashing, matches the snapshot 1`] = `
   >
     <label
       className="ButtonGroup-button-0-1-5"
-      onClick={[Function]}
     >
       <span
         className="ButtonGroup-spanText-0-1-6"
@@ -22,16 +21,17 @@ exports[`renders without crashing, matches the snapshot 1`] = `
         Teal
       </span>
       <input
+        checked={false}
         className="ButtonGroup-hiddenInput-0-1-4"
         id="teal"
         name="buttongroup"
         onChange={[Function]}
-        type="radio"
+        type="checkbox"
+        value="teal"
       />
     </label>
     <label
       className="ButtonGroup-button-0-1-5"
-      onClick={[Function]}
     >
       <span
         className="ButtonGroup-spanText-0-1-6"
@@ -39,16 +39,17 @@ exports[`renders without crashing, matches the snapshot 1`] = `
         Brown
       </span>
       <input
+        checked={false}
         className="ButtonGroup-hiddenInput-0-1-4"
         id="brown"
         name="buttongroup"
         onChange={[Function]}
-        type="radio"
+        type="checkbox"
+        value="brown"
       />
     </label>
     <label
       className="ButtonGroup-button-0-1-5"
-      onClick={[Function]}
     >
       <span
         className="ButtonGroup-spanText-0-1-6"
@@ -56,16 +57,17 @@ exports[`renders without crashing, matches the snapshot 1`] = `
         Black
       </span>
       <input
+        checked={false}
         className="ButtonGroup-hiddenInput-0-1-4"
         id="black"
         name="buttongroup"
         onChange={[Function]}
-        type="radio"
+        type="checkbox"
+        value="black"
       />
     </label>
     <label
       className="ButtonGroup-button-0-1-5"
-      onClick={[Function]}
     >
       <span
         className="ButtonGroup-spanText-0-1-6"
@@ -73,11 +75,13 @@ exports[`renders without crashing, matches the snapshot 1`] = `
         Pink
       </span>
       <input
+        checked={false}
         className="ButtonGroup-hiddenInput-0-1-4"
         id="pink"
         name="buttongroup"
         onChange={[Function]}
-        type="radio"
+        type="checkbox"
+        value="pink"
       />
     </label>
   </div>

@@ -13,22 +13,6 @@
         }
       ],
       "returns": null
-    },
-    {
-      "name": "handleClick",
-      "docblock": null,
-      "modifiers": [],
-      "params": [
-        {
-          "name": "inputValue",
-          "type": null
-        },
-        {
-          "name": "input",
-          "type": null
-        }
-      ],
-      "returns": null
     }
   ],
   "props": {

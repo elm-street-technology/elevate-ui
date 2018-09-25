@@ -13,16 +13,17 @@ const ButtonGroups = () => (
       initialValues={{ colors: "yellow" }}
       validationSchema={() =>
         Yup.object().shape({
-          colors: Yup.string(),
+          colors: Yup.string().required(),
         })
       }
+      isInitialValid
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
         }, 1000);
       }}
-      render={({ isSubmitting, isValid, field }) => (
+      render={({ isSubmitting, isValid }) => (
         <Form noValidate style={{ maxWidth: "420px" }}>
           <Field
             id="colors"
@@ -63,7 +64,7 @@ const ButtonGroups = () => (
           setSubmitting(false);
         }, 1000);
       }}
-      render={({ isSubmitting, isValid, field }) => (
+      render={({ isSubmitting, isValid }) => (
         <Form id="colorsMulti" noValidate style={{ maxWidth: "420px" }}>
           <Field
             id="colors2"
