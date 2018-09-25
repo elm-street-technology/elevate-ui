@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import withStyles from "react-jss";
 import classNames from "classnames";
-import Label from "../Label";
+import Scaffold from "../Scaffold";
 import without from "lodash/without";
 
 type Props = {
@@ -88,17 +88,16 @@ class ButtonGroup extends Component<Props> {
 
   render() {
     const {
-      label,
-      items,
       classes,
       field: { name },
+      form: { errors, touched, values },
+      items,
+      label,
       multiSelect,
-      form: { values },
     } = this.props;
 
     return (
-      <div className={classes.scaffold}>
-        {label && <Label>{label}</Label>}
+      <Scaffold label={label} error={touched[name] && errors[name]}>
         <div className={classNames(classes.toggles, classes.inline)}>
           {items.map((item) => {
             const input = item.value;
@@ -133,21 +132,18 @@ class ButtonGroup extends Component<Props> {
             );
           })}
         </div>
-      </div>
+      </Scaffold>
     );
   }
 }
 
 export default withStyles((theme) => ({
-  scaffold: {
-    margin: "8px auto 16px",
-  },
   toggles: {
     display: "flex",
     flexDirection: "column",
     flexWrap: "wrap",
     alignItems: "flex-start",
-    marginLeft: "-12px",
+    width: "100%",
   },
   inline: {
     flexDirection: "row",
