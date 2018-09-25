@@ -82,6 +82,9 @@ export default withStyles((theme) => ({
     padding: "10px 0 10px 16px",
   },
   children: {
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
     width: "100%",
     color: (props) =>
       (theme.alertColors[props.color] &&
