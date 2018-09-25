@@ -2,7 +2,7 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="ButtonGroup-scaffold-0-1-1"
+  className="Scaffold-root-0-1-10"
 >
   <label
     className="Label-root-0-1-11"
@@ -10,19 +10,19 @@ exports[`renders without crashing, matches the snapshot 1`] = `
     Test ButtonGroup
   </label>
   <div
-    className="ButtonGroup-toggles-0-1-2 ButtonGroup-inline-0-1-3"
+    className="ButtonGroup-toggles-0-1-1 ButtonGroup-inline-0-1-2"
   >
     <label
-      className="ButtonGroup-button-0-1-5"
+      className="ButtonGroup-button-0-1-4"
     >
       <span
-        className="ButtonGroup-spanText-0-1-6"
+        className="ButtonGroup-spanText-0-1-5"
       >
         Teal
       </span>
       <input
         checked={false}
-        className="ButtonGroup-hiddenInput-0-1-4"
+        className="ButtonGroup-hiddenInput-0-1-3"
         id="teal"
         name="buttongroup"
         onChange={[Function]}
@@ -31,16 +31,16 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       />
     </label>
     <label
-      className="ButtonGroup-button-0-1-5"
+      className="ButtonGroup-button-0-1-4"
     >
       <span
-        className="ButtonGroup-spanText-0-1-6"
+        className="ButtonGroup-spanText-0-1-5"
       >
         Brown
       </span>
       <input
         checked={false}
-        className="ButtonGroup-hiddenInput-0-1-4"
+        className="ButtonGroup-hiddenInput-0-1-3"
         id="brown"
         name="buttongroup"
         onChange={[Function]}
@@ -49,16 +49,16 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       />
     </label>
     <label
-      className="ButtonGroup-button-0-1-5"
+      className="ButtonGroup-button-0-1-4"
     >
       <span
-        className="ButtonGroup-spanText-0-1-6"
+        className="ButtonGroup-spanText-0-1-5"
       >
         Black
       </span>
       <input
         checked={false}
-        className="ButtonGroup-hiddenInput-0-1-4"
+        className="ButtonGroup-hiddenInput-0-1-3"
         id="black"
         name="buttongroup"
         onChange={[Function]}
@@ -67,16 +67,16 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       />
     </label>
     <label
-      className="ButtonGroup-button-0-1-5"
+      className="ButtonGroup-button-0-1-4"
     >
       <span
-        className="ButtonGroup-spanText-0-1-6"
+        className="ButtonGroup-spanText-0-1-5"
       >
         Pink
       </span>
       <input
         checked={false}
-        className="ButtonGroup-hiddenInput-0-1-4"
+        className="ButtonGroup-hiddenInput-0-1-3"
         id="pink"
         name="buttongroup"
         onChange={[Function]}
