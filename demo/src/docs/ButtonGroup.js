@@ -10,10 +10,10 @@ const ButtonGroups = () => (
   <Paper>
     <Typography type="title">Single Value</Typography>
     <Formik
-      initialValues={{ colors: [] }}
+      initialValues={{ colors: "yellow" }}
       validationSchema={() =>
         Yup.object().shape({
-          colors: Yup.string().required(),
+          colors: Yup.string(),
         })
       }
       onSubmit={(values, { setSubmitting }) => {

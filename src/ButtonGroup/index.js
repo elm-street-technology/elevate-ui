@@ -91,7 +91,7 @@ class ButtonGroup extends Component<Props> {
       label,
       items,
       classes,
-      field: { name },
+      field: { name, value },
       multiSelect,
       form: { values },
     } = this.props;
@@ -125,6 +125,7 @@ class ButtonGroup extends Component<Props> {
                     type={multiSelect ? "checkbox" : "radio"}
                     name={name}
                     className={classes.hiddenInput}
+                    checked={value === item.value}
                     onChange={this.onChange}
                     ref={(node) => (this[`input${item.value}`] = node)}
                   />
@@ -153,7 +154,7 @@ export default withStyles((theme) => ({
     flexDirection: "row",
   },
   hiddenInput: {
-    display: "none",
+    display: "block",
   },
   button: {
     background: "none",
