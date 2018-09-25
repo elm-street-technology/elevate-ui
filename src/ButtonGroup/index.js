@@ -3,6 +3,7 @@ import withStyles from "react-jss";
 import classNames from "classnames";
 import Scaffold from "../Scaffold";
 import without from "lodash/without";
+import Color from "color";
 
 type Props = {
   classes: Object,
@@ -39,6 +40,23 @@ function getBackgroundColor(theme, props) {
   }
 }
 
+function getSpanColor(theme, props) {
+  let backgroundColor;
+  if (props.color === "primary" || props.color === "secondary") {
+    backgroundColor = theme.colors[props.color];
+  } else {
+    backgroundColor = props.color;
+  }
+
+  if (Color(backgroundColor).isDark()) {
+    return theme.colors["white"];
+  } else if (Color(backgroundColor).isLight()) {
+    return theme.colors["gray900"];
+  } else {
+    return theme.colors["gray500"];
+  }
+}
+
 /**
  * A component used to render a group of buttons that can have a single or multiple values.
  */
@@ -54,42 +72,28 @@ class ButtonGroup extends Component<Props> {
       field: { name, value },
       form: { setFieldValue },
     } = this.props;
-
     const selectedButton = e.target.id;
     if (this.props.multiSelect) {
       let selectedButtons = Array.isArray(value) ? value.slice() : [];
-
       if (e.target.checked && selectedButtons.indexOf(selectedButton) === -1) {
         selectedButtons.push(selectedButton);
       } else if (!e.target.checked) {
         selectedButtons = without(selectedButtons, selectedButton);
       }
       return setFieldValue(name, selectedButtons);
-    }
+    } else {
+      if (value === selectedButton) {
+        return setFieldValue(name, "");
+      }
 
-    return setFieldValue(name, selectedButton);
-  };
-
-  handleClick = (inputValue, input) => {
-    const {
-      multiSelect,
-      field: { name, value },
-      form: { setFieldValue },
-    } = this.props;
-
-    if (!multiSelect && value === inputValue) {
-      setFieldValue(name, "");
-      setTimeout(() => {
-        // this stops the onChange from firing when we change the input
-        input.checked = false;
-      }, 1);
+      return setFieldValue(name, selectedButton);
     }
   };
 
   render() {
     const {
       classes,
-      field: { name },
+      field: { name, value },
       form: { errors, touched, values },
       items,
       label,
@@ -114,16 +118,28 @@ class ButtonGroup extends Component<Props> {
                         ? classes.buttonActive
                         : null
                   )}
-                  onClick={() =>
-                    this.handleClick(item.value, this[`input${item.value}`])
-                  }
                 >
-                  <span className={classes.spanText}>{item.label}</span>
+                  <span
+                    className={
+                      this[`input${item.value}`] &&
+                      this[`input${item.value}`].checked
+                        ? classes.spanTextActive
+                        : classes.spanText
+                    }
+                  >
+                    {item.label}
+                  </span>
                   <input
                     id={item.value}
-                    type={multiSelect ? "checkbox" : "radio"}
+                    type="checkbox"
                     name={name}
                     className={classes.hiddenInput}
+                    checked={
+                      multiSelect
+                        ? value.indexOf(item.value) > -1
+                        : value === item.value
+                    }
+                    value={item.value}
                     onChange={this.onChange}
                     ref={(node) => (this[`input${item.value}`] = node)}
                   />
@@ -170,11 +186,11 @@ export default withStyles((theme) => ({
   },
   spanText: {
     pointerEvents: "none",
-    color: theme.colors["gray200"],
+    color: theme.colors["gray500"],
   },
   spanTextActive: {
     pointerEvents: "none",
-    color: theme.colors["white"],
+    color: (props) => getSpanColor(theme, props),
   },
   buttonActive: {
     background: (props) => getBackgroundColor(theme, props),
@@ -183,12 +199,12 @@ export default withStyles((theme) => ({
     padding: 12,
     cursor: "pointer",
     "&:first-of-type": {
-      borderLeft: `2px solid ${theme.colors["gray200"]}`,
+      borderLeft: `1px solid ${theme.colors["gray200"]}`,
       borderTopLeftRadius: 5,
       borderBottomLeftRadius: 5,
     },
     "&:last-of-type": {
-      borderRight: `2px solid ${theme.colors["gray200"]}`,
+      borderRight: `1px solid ${theme.colors["gray200"]}`,
       borderTopRightRadius: 5,
       borderBottomRightRadius: 5,
     },
