@@ -2,10 +2,10 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="Scaffold-root-0-1-10"
+  className="Scaffold-root-0-1-7"
 >
   <label
-    className="Label-root-0-1-11"
+    className="Label-root-0-1-8"
   >
     Test ButtonGroup
   </label>
@@ -15,9 +15,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
     <label
       className="ButtonGroup-button-0-1-4"
     >
-      <span
-        className="ButtonGroup-spanText-0-1-5"
-      >
+      <span>
         Teal
       </span>
       <input
@@ -33,9 +31,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
     <label
       className="ButtonGroup-button-0-1-4"
     >
-      <span
-        className="ButtonGroup-spanText-0-1-5"
-      >
+      <span>
         Brown
       </span>
       <input
@@ -51,9 +47,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
     <label
       className="ButtonGroup-button-0-1-4"
     >
-      <span
-        className="ButtonGroup-spanText-0-1-5"
-      >
+      <span>
         Black
       </span>
       <input
@@ -69,9 +63,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
     <label
       className="ButtonGroup-button-0-1-4"
     >
-      <span
-        className="ButtonGroup-spanText-0-1-5"
-      >
+      <span>
         Pink
       </span>
       <input

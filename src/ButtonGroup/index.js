@@ -119,16 +119,7 @@ class ButtonGroup extends Component<Props> {
                         : null
                   )}
                 >
-                  <span
-                    className={
-                      this[`input${item.value}`] &&
-                      this[`input${item.value}`].checked
-                        ? classes.spanTextActive
-                        : classes.spanText
-                    }
-                  >
-                    {item.label}
-                  </span>
+                  <span>{item.label}</span>
                   <input
                     id={item.value}
                     type="checkbox"
@@ -183,14 +174,10 @@ export default withStyles((theme) => ({
       borderTopRightRadius: 5,
       borderBottomRightRadius: 5,
     },
-  },
-  spanText: {
-    pointerEvents: "none",
-    color: theme.colors["gray500"],
-  },
-  spanTextActive: {
-    pointerEvents: "none",
-    color: (props) => getSpanColor(theme, props),
+    "& span": {
+      pointerEvents: "none",
+      color: theme.colors["gray500"],
+    },
   },
   buttonActive: {
     background: (props) => getBackgroundColor(theme, props),
@@ -207,6 +194,9 @@ export default withStyles((theme) => ({
       borderRight: `1px solid ${theme.colors["gray200"]}`,
       borderTopRightRadius: 5,
       borderBottomRightRadius: 5,
+    },
+    "& span": {
+      color: (props) => getSpanColor(theme, props),
     },
   },
 }))(ButtonGroup);
