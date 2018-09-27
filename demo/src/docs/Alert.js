@@ -6,15 +6,7 @@ import Alert from "elevate-ui/Alert";
 
 import ErrorOutline from "elevate-ui/Icon/ErrorOutline";
 
-const AlertExample = ({
-  values,
-  errors,
-  touched,
-  handleChange,
-  handleBlur,
-  handleSubmit,
-  isSubmitting,
-}) => (
+const AlertExample = () => (
   <Paper>
     <div>
       <div style={{ padding: "8px 0" }}>
@@ -24,25 +16,31 @@ const AlertExample = ({
       </div>
       <div style={{ padding: "8px 0" }}>
         <Alert color="error" icon={<ErrorOutline />}>
-          <Typography type="body">
-            Our records indicate you are not active or eligible with the MLS due
-            to your MLS subscription type or dues.
-          </Typography>
-          <Typography type="body" style={{ marginTop: "8px" }}>
-            If you think this is a mistake, please contact{" "}
-            <a
-              href="mailto:salessupport@elmstreettechnology.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              salessupport@elmstreettechnology.com
-            </a>{" "}
-            or call us at{" "}
-            <a href="tel:8772189771" target="_blank" rel="noopener noreferrer">
-              877-218-9771
-            </a>
-            .
-          </Typography>
+          <div>
+            <Typography type="body">
+              Our records indicate you are not active or eligible with the MLS
+              due to your MLS subscription type or dues.
+            </Typography>
+            <Typography type="body" style={{ marginTop: "8px" }}>
+              If you think this is a mistake, please contact{" "}
+              <a
+                href="mailto:salessupport@elmstreettechnology.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                salessupport@elmstreettechnology.com
+              </a>{" "}
+              or call us at{" "}
+              <a
+                href="tel:8772189771"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                877-218-9771
+              </a>
+              .
+            </Typography>
+          </div>
         </Alert>
       </div>
 

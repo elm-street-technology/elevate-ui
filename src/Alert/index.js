@@ -101,7 +101,7 @@ export default withStyles((theme) => ({
         (theme.alertColors[props.color] &&
           theme.alertColors[props.color].color) ||
         "#000",
-      whiteSpace: "nowrap",
+      wordBreak: "break-word", // long URLs or emails should break+wrap to the next line
     },
   },
 }))(Alert);
