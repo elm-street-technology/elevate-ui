@@ -7,16 +7,7 @@ import Paper from "elevate-ui/Paper";
 import Person from "elevate-ui/Icon/Person";
 import Cart from "elevate-ui/Icon/Cart";
 
-const ButtonExample = ({
-  classes,
-  errors,
-  handleBlur,
-  handleChange,
-  handleSubmit,
-  isSubmitting,
-  touched,
-  values,
-}) => (
+const ButtonExample = () => (
   <Paper>
     <h2>Standard Button</h2>
     <Typography type="body">Default Props, using {`type="button"`}</Typography>
@@ -52,8 +43,14 @@ const ButtonExample = ({
     </Button>
     <br />
     <br />
-    <Button isOutlined color="rgb(32, 148, 232)" type="button">
-      Filter Results
+    <Button
+      element="a"
+      href="http://elevate-ui.com"
+      isOutlined
+      color="rgb(32, 148, 232)"
+      type="button"
+    >
+      Button With Link
     </Button>
     <br />
     <br />
@@ -95,7 +92,7 @@ const ButtonExample = ({
   </Paper>
 );
 
-export default withStyles((theme) => ({
+export default withStyles(() => ({
   preInline: {
     display: "inline-block",
     margin: "0 4px",
