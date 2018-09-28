@@ -51,7 +51,7 @@ Paper.defaultProps = {
   element: "div",
 };
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     width: "100%",
     height: "auto",
@@ -62,4 +62,6 @@ export default withStyles((theme) => ({
   withPadding: {
     ...theme.globalPadding,
   },
-}))(Paper);
+});
+
+export default withStyles(styles, { name: "EuiPaper" })(Paper);

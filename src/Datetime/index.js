@@ -69,7 +69,7 @@ const Datetime = ({
     />
   );
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     display: "block",
     width: "100%",
@@ -265,4 +265,6 @@ export default withStyles((theme) => ({
       cursor: "default",
     },
   },
-}))(Datetime);
+});
+
+export default withStyles(styles, { name: "EuiDatetime" })(Datetime);

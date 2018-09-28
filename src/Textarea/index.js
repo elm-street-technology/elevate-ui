@@ -65,7 +65,7 @@ Textarea.defaultProps = {
   tabIndex: "0",
 };
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     display: "block",
     width: "100%",
@@ -95,4 +95,6 @@ export default withStyles((theme) => ({
     minHeight: "120px",
     resize: "vertical",
   },
-}))(Textarea);
+});
+
+export default withStyles(styles, { name: "EuiTextarea" })(Textarea);

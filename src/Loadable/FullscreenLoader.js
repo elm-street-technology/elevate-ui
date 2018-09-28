@@ -2,7 +2,7 @@ import React from "react";
 import withStyles from "react-jss";
 
 /* Animated SVG thanks to @sherb at http://samherbert.net/svg-loaders/ */
-const LoadingIndicator = ({
+const FullscreenLoader = ({
   classes,
   error,
   isLoading,
@@ -132,7 +132,7 @@ const LoadingIndicator = ({
   return null;
 };
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -146,4 +146,8 @@ export default withStyles((theme) => ({
     fontWeight: "500",
     marginTop: "32px",
   },
-}))(LoadingIndicator);
+});
+
+export default withStyles(styles, { name: "EuiFullscreenLoader" })(
+  FullscreenLoader
+);

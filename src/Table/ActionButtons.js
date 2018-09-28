@@ -19,7 +19,7 @@ const ActionButtons = ({ actions, classes, selection }) => (
 );
 
 // eslint-disable-next-line
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
@@ -27,4 +27,6 @@ export default withStyles((theme) => ({
     width: "100%",
     minHeight: "60px",
   },
-}))(ActionButtons);
+});
+
+export default withStyles(styles, { name: "EuiActionButtons" })(ActionButtons);

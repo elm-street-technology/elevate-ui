@@ -62,7 +62,7 @@ class Toggle extends Component {
   }
 }
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   scaffold: {
     position: "relative",
     display: "flex",
@@ -93,4 +93,6 @@ export default withStyles((theme) => ({
     fontWeight: "500",
     paddingRight: "12px", // extra hitbox padding
   },
-}))(Toggle);
+});
+
+export default withStyles(styles, { name: "EuiToggle" })(Toggle);

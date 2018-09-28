@@ -49,4 +49,6 @@ class Hr extends Component<Props> {
   }
 }
 
-export default withStyles(() => {})(Hr);
+const styles = () => {};
+
+export default withStyles(styles, { name: "EuiHr" })(Hr);

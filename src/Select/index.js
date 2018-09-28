@@ -244,7 +244,7 @@ class Select extends Component<Props, State> {
   }
 }
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   wrapper: {
     display: "flex",
     flexDirection: "row",
@@ -301,4 +301,6 @@ export default withStyles((theme) => ({
   dropdownItemSelected: {
     backgroundColor: theme.colors.gray200,
   },
-}))(Select);
+});
+
+export default withStyles(styles, { name: "EuiSelect" })(Select);

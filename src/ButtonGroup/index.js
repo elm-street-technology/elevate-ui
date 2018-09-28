@@ -144,7 +144,7 @@ class ButtonGroup extends Component<Props> {
   }
 }
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   toggles: {
     display: "flex",
     flexDirection: "column",
@@ -199,4 +199,6 @@ export default withStyles((theme) => ({
       color: (props) => getSpanColor(theme, props),
     },
   },
-}))(ButtonGroup);
+});
+
+export default withStyles(styles, { name: "EuiButtonGroup" })(ButtonGroup);

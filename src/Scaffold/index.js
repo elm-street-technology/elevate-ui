@@ -34,10 +34,12 @@ const Scaffold = ({
   </div>
 );
 
-export default withStyles(() => ({
+const styles = () => ({
   root: {
     position: "relative",
     width: "100%",
     margin: "8px auto 16px",
   },
-}))(Scaffold);
+});
+
+export default withStyles(styles, { name: "EuiScaffold" })(Scaffold);

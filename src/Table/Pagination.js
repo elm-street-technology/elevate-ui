@@ -103,7 +103,7 @@ class Pagination extends Component {
   }
 }
 
-export default withStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     display: "flex",
     justifyContent: "flex-end",
@@ -132,4 +132,6 @@ export default withStyles((theme) => ({
       opacity: 0.25,
     },
   },
-}))(Pagination);
+});
+
+export default withStyles(styles, { name: "EuiPagination" })(Pagination);
