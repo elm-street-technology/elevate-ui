@@ -3,7 +3,6 @@ export { default as Button } from "./Button";
 export { default as Datetime } from "./Datetime";
 export { default as Hr } from "./Hr";
 export { default as Input } from "./Input";
-export { default as Icon } from "./Icon";
 export { default as Label } from "./Label";
 export { default as Loadable } from "./Loadable";
 export { default as MultiSelect } from "./MultiSelect";

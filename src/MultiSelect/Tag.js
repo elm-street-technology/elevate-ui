@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 
-import Close from "../Icon/Close";
+import Close from "elevate-ui-icons/Close";
 
 type Item = {
   label: string,

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import classnames from "classnames";
 import withStyles from "react-jss";
 import Button from "../Button";
-import ChevronLeft from "../Icon/ChevronLeft";
-import ChevronRight from "../Icon/ChevronRight";
+import ChevronLeft from "elevate-ui-icons/ChevronLeft";
+import ChevronRight from "elevate-ui-icons/ChevronRight";
 
 class Pagination extends Component {
   constructor(props) {

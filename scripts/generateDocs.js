@@ -24,19 +24,6 @@ exec(`cp -R ${docComponentFiles} ${docExamples}`);
 
 // create json files for each component
 sourceComponents.forEach((sourceComponent) => {
-  if (endsWith(sourceComponent, "src/Icon")) {
-    return exec(
-      `yarn docgen ${sourceComponent}/Icon.js --pretty -o ${sourceComponent}/component.json`,
-      (error, stdout) => {
-        if (error) {
-          console.error(`${error}`.red);
-          return;
-        }
-        console.log(`${stdout}`);
-        console.log(`Created documentation for <Icon />`.green);
-      }
-    );
-  }
   if (
     endsWith(sourceComponent, "src/withStyles") ||
     endsWith(sourceComponent, "src/Loadable") ||

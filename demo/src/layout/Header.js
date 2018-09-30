@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 import { Link } from "react-router-dom";
-import Person from "elevate-ui/Icon/Person";
+import Person from "elevate-ui-icons/Person";
 
 const Sidebar = ({ classes, className, toggleMenu }) => {
   return (
