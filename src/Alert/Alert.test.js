@@ -4,7 +4,7 @@ import { mount } from "enzyme";
 
 import ThemeProvider from "../ThemeProvider";
 import Alert from "./";
-import ErrorOutline from "../Icon/ErrorOutline";
+import ErrorOutline from "elevate-ui-icons/ErrorOutline";
 
 const WrappedAlert = (props) => (
   <ThemeProvider>

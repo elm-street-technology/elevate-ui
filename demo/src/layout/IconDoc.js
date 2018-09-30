@@ -4,8 +4,8 @@ import withStyles from "react-jss";
 import LiveExample from "./LiveExample";
 import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
-import * as AllIcons from "elevate-ui/Icon";
-import Icon from "elevate-ui/Icon/Icon";
+import * as AllIcons from "elevate-ui-icons";
+import Icon from "elevate-ui-icons/Icon";
 
 type Props = {
   classes: Object,
@@ -63,16 +63,16 @@ class IconDoc extends Component<Props, State> {
   render() {
     const { classes } = this.props;
     const { icons } = this.state;
-    const documentation = require(`elevate-ui/src/Icon/component.json`);
+    // const documentation = require(`elevate-ui/src/Icon/component.json`);
 
     return (
       <Paper>
         <Typography type="title">{`<Icon />`}</Typography>
         <Typography type="body">
-          {`${
+          {/* {`${
             documentation.description
           } In addition to all the Material Design Icons – we also ship a handful
-          of custom icons.`}
+          of custom icons.`} */}
         </Typography>
         <LiveExample
           element={() => <IconExample classes={classes} />}

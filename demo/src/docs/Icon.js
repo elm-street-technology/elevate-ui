@@ -2,8 +2,8 @@ import React from "react";
 
 import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
-import * as AllIcons from "elevate-ui/Icon";
-import Icon from "elevate-ui/Icon/Icon";
+import * as AllIcons from "elevate-ui-icons";
+import Icon from "elevate-ui-icons/Icon";
 import withStyles from "elevate-ui/withStyles";
 
 const Icons = ({ classes }) => {

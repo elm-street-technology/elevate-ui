@@ -4,8 +4,8 @@ import Typography from "elevate-ui/Typography";
 import Button from "elevate-ui/Button";
 import withStyles from "elevate-ui/withStyles";
 import Paper from "elevate-ui/Paper";
-import Person from "elevate-ui/Icon/Person";
-import Cart from "elevate-ui/Icon/Cart";
+import Person from "elevate-ui-icons/Person";
+import Cart from "elevate-ui-icons/Cart";
 
 const ButtonExample = () => (
   <Paper>

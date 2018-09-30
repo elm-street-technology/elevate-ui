@@ -4,7 +4,7 @@ import Typography from "elevate-ui/Typography";
 import Paper from "elevate-ui/Paper";
 import Alert from "elevate-ui/Alert";
 
-import ErrorOutline from "elevate-ui/Icon/ErrorOutline";
+import ErrorOutline from "elevate-ui-icons/ErrorOutline";
 
 const AlertExample = () => (
   <Paper>

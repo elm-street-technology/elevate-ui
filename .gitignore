@@ -20,5 +20,4 @@ yarn-error.log
 package-lock.json
 
 # programmatically generated files
-src/Icon/util/svg/*
 demo/public/docs/*
