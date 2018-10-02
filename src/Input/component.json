@@ -69,6 +69,13 @@
         "value": "true",
         "computed": false
       }
+    },
+    "tabIndex": {
+      "defaultValue": {
+        "value": "\"0\"",
+        "computed": false
+      },
+      "required": false
     }
   }
 }

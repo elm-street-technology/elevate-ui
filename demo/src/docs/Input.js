@@ -22,16 +22,7 @@ const Inputs = () => (
           setSubmitting(false);
         }, 1000);
       }}
-      render={({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-        isValid,
-      }) => (
+      render={({ isSubmitting, isValid }) => (
         <Form noValidate style={{ maxWidth: "420px" }}>
           <Field id="name" name="name" label="Name" component={Input} />
           <Field

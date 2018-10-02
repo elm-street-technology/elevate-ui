@@ -28,24 +28,6 @@ type Props = {
   withScaffold: boolean,
 };
 
-const RawInput = ({
-  classes,
-  className,
-  id,
-  tabIndex = "0",
-  theme, // eslint-disable-line
-  type = "text",
-  ...rest
-}: Props) => (
-  <input
-    type={type}
-    id={id}
-    className={classNames(classes.root, className)}
-    tabIndex={tabIndex}
-    {...rest}
-  />
-);
-
 /**
  * Standard form input component.
  */
@@ -56,6 +38,8 @@ const Input = ({
   form: { touched, errors },
   id,
   label,
+  tabIndex = "0",
+  theme,
   type,
   withScaffold = true,
   ...rest
@@ -66,17 +50,24 @@ const Input = ({
       label={label}
       error={touched[field.name] && errors[field.name]}
     >
-      <RawInput
+      <input
         type={type}
         id={id}
-        classes={classes}
-        className={className}
+        className={classNames(classes.root, className)}
+        tabIndex={tabIndex}
         {...field}
         {...rest}
       />
     </Scaffold>
   ) : (
-    <RawInput type={type} id={id} className={className} {...field} {...rest} />
+    <input
+      type={type}
+      id={id}
+      className={classNames(classes.root, className)}
+      tabIndex={tabIndex}
+      {...field}
+      {...rest}
+    />
   );
 
 const styles = (theme) => ({

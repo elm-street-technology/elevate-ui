@@ -11,7 +11,6 @@ exports[`renders without crashing, matches the snapshot 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     tabIndex="0"
-    type="text"
     value={null}
   />
 </div>
