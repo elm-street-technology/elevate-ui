@@ -22,6 +22,13 @@ const cmyk = [
   { label: "Black", value: "black" },
 ];
 
+const cities = [
+  { label: "Phoenix", value: "phoenix" },
+  { label: "Tempe", value: "tempe" },
+  { label: "Chandler", value: "chandler" },
+  { label: "Scottsdale", value: "scottsdale" },
+];
+
 const MultiSelects = ({
   values,
   errors,
@@ -33,12 +40,22 @@ const MultiSelects = ({
 }) => (
   <Paper>
     <Formik
-      initialValues={{ colors: [], colors2: ["magenta"] }}
+      initialValues={{
+        colors: [],
+        colors2: ["magenta"],
+        cities: ["avondale", "tempe", "peoria"],
+      }}
       validationSchema={() =>
         Yup.object().shape({
           colors: Yup.array()
             .of(Yup.string())
             .required("A color is required"),
+          colors2: Yup.array()
+            .of(Yup.string())
+            .required("A color is required"),
+          cities: Yup.array()
+            .of(Yup.string())
+            .required("A city is required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -47,16 +64,7 @@ const MultiSelects = ({
           setSubmitting(false);
         }, 1000);
       }}
-      render={({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-        isValid,
-      }) => (
+      render={({ isSubmitting, isValid }) => (
         <Form noValidate style={{ maxWidth: "420px" }}>
           <Field
             id="colors"
@@ -72,6 +80,14 @@ const MultiSelects = ({
             items={cmyk}
             component={MultiSelect}
             closeOnSelect
+          />
+          <Field
+            id="cities"
+            name="cities"
+            label="Cities (with custom tags allowed)"
+            items={cities}
+            component={MultiSelect}
+            tags={true}
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit

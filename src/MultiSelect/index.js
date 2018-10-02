@@ -4,6 +4,8 @@ import withStyles from "react-jss";
 import classNames from "classnames";
 import Downshift from "downshift";
 import AutosizeInput from "react-input-autosize";
+import startCase from "lodash/startCase";
+import includes from "lodash/includes";
 
 import Scaffold from "../Scaffold";
 import Tag from "./Tag";
@@ -38,6 +40,10 @@ type Props = {
    * Accepts a function to be passed down to the component that fires when a tag is removed.
    */
   onRemove?: Function,
+  /**
+   * Whether or not custom tags can be added to the MultiSelect.
+   */
+  tags?: boolean,
   theme: Object,
   /**
    * If the scaffold should be used.
@@ -65,12 +71,53 @@ class MultiSelect extends Component<Props, State> {
     const {
       field: { value },
       items,
+      tags,
     } = props;
+
+    const checkTags = (items) => {
+      const initialValues = [];
+      // const updatedValues = [];
+
+      // if we have initial values, add them to the initialValues array
+      if (value.length > 0) {
+        value.forEach((singleValue) =>
+          initialValues.push({
+            label: startCase(singleValue),
+            value: singleValue,
+          })
+        );
+      }
+
+      console.log(initialValues);
+
+      // original set of options from ElasticSearch
+      const itemGroup =
+        items.filter((item) => value.indexOf(item.value) > -1) || [];
+
+      console.log(itemGroup);
+
+      initialValues.forEach((value) => {
+        if (itemGroup.includes(value)) {
+          console.log("has it already");
+          return null;
+        } else {
+          return itemGroup.push(value);
+        }
+      });
+
+      return itemGroup;
+    };
 
     this.state = {
       inputValue: "",
-      fullValue: items.filter((item) => value.indexOf(item.value) > -1) || [],
+      fullValue: tags
+        ? checkTags(items)
+        : items.filter((item) => value.indexOf(item.value) > -1) || [],
     };
+  }
+
+  componentDidMount() {
+    console.log(this.state.inputValue);
   }
 
   _input;
