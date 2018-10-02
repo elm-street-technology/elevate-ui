@@ -235,6 +235,13 @@
       "required": false,
       "description": "Accepts a function to be passed down to the component that fires when a tag is removed."
     },
+    "tags": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "Whether or not custom tags can be added to the MultiSelect."
+    },
     "theme": {
       "flowType": {
         "name": "Object"

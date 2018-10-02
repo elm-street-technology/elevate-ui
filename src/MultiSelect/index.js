@@ -74,10 +74,8 @@ class MultiSelect extends Component<Props, State> {
       tags,
     } = props;
 
-    const checkTags = (items) => {
+    const checkTags = () => {
       const initialValues = [];
-      // const updatedValues = [];
-
       // if we have initial values, add them to the initialValues array
       if (value.length > 0) {
         value.forEach((singleValue) =>
@@ -88,30 +86,13 @@ class MultiSelect extends Component<Props, State> {
         );
       }
 
-      console.log(initialValues);
-
-      // original set of options from ElasticSearch
-      const itemGroup =
-        items.filter((item) => value.indexOf(item.value) > -1) || [];
-
-      console.log(itemGroup);
-
-      initialValues.forEach((value) => {
-        if (itemGroup.includes(value)) {
-          console.log("has it already");
-          return null;
-        } else {
-          return itemGroup.push(value);
-        }
-      });
-
-      return itemGroup;
+      return initialValues;
     };
 
     this.state = {
       inputValue: "",
       fullValue: tags
-        ? checkTags(items)
+        ? checkTags()
         : items.filter((item) => value.indexOf(item.value) > -1) || [],
     };
   }
