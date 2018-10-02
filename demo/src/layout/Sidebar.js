@@ -209,9 +209,9 @@ const Sidebar = ({ classes }) => {
         <NavLink
           activeClassName={classes.active}
           className={classes.item}
-          to="/expandable-panels"
+          to="/accordion"
         >
-          Expandable Panels
+          Accordion
         </NavLink>
 
         <span className={classes.header}>Demos</span>

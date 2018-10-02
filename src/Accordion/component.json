@@ -1,0 +1,28 @@
+{
+  "description": "",
+  "displayName": "Accordion",
+  "methods": [],
+  "props": {
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": ""
+    },
+    "items": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": ""
+    },
+    "stateReducer": {
+      "flowType": {
+        "name": "Function"
+      },
+      "required": false,
+      "description": ""
+    }
+  }
+}

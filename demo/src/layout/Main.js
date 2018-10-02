@@ -99,6 +99,10 @@ class Main extends Component {
             <Route path="/signup" component={SignupForm} />
             <Route path="/query-form" component={QueryForm} />
             <Route path="/theme" component={Theme} />
+            <Route
+              path="/accordion"
+              render={() => <Doc folder="Accordion" />}
+            />
           </div>
         </div>
       </RouteListener>
