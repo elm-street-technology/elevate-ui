@@ -40,7 +40,7 @@ const Input = ({
   label,
   tabIndex = "0",
   theme,
-  type,
+  type = "text",
   withScaffold = true,
   ...rest
 }: Props) =>
