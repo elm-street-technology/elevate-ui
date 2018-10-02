@@ -176,9 +176,22 @@ class MultiSelect extends Component<Props, State> {
     }
   };
 
+  checkValues = () => {
+    const { inputValue, fullValue } = this.state;
+    const allValues = [];
+
+    if (fullValue) {
+      fullValue.forEach((value) => allValues.push(value.value));
+    }
+
+    if (allValues.indexOf(inputValue) === -1) {
+      this.onAddTag({ label: inputValue, value: inputValue });
+    }
+  };
+
   onInputKeyDown = (event) => {
     const currentValue = event.target.value;
-    const inputValue = this.state.inputValue;
+    const { inputValue } = this.state;
     switch (event.keyCode) {
       case 8: // backspace
         if (!currentValue) {
@@ -191,12 +204,9 @@ class MultiSelect extends Component<Props, State> {
         return;
       case 13: // enter
         if (inputValue !== "") {
-          this.onAddTag({
-            label: startCase(inputValue),
-            value: inputValue.toLowerCase(),
-          });
+          this.checkValues();
+          this.setState({ inputValue: "" });
         }
-        this.setState({ inputValue: "" });
         return;
       default:
         return;

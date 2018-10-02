@@ -35,7 +35,7 @@ const MultiSelects = () => (
       initialValues={{
         colors: [],
         colors2: ["magenta"],
-        cities: ["tucson"],
+        cities: [],
       }}
       validationSchema={() =>
         Yup.object().shape({
