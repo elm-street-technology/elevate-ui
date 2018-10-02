@@ -5,7 +5,6 @@ import classNames from "classnames";
 import Downshift from "downshift";
 import AutosizeInput from "react-input-autosize";
 import startCase from "lodash/startCase";
-import includes from "lodash/includes";
 
 import Scaffold from "../Scaffold";
 import Tag from "./Tag";
@@ -71,34 +70,34 @@ class MultiSelect extends Component<Props, State> {
     const {
       field: { value },
       items,
-      tags,
     } = props;
 
-    const checkTags = () => {
-      const initialValues = [];
-      // if we have initial values, add them to the initialValues array
-      if (value.length > 0) {
-        value.forEach((singleValue) =>
-          initialValues.push({
+    let fullValue = [];
+
+    // Sometimes, we might have some this.props.field.values that aren't
+    // part of the this.props.items collection that gets passed in. We'll want
+    // to add these so we have access to them in this.state.fullValue
+    // (they won't show up in the dropdown items but they'll show as selected)
+    if (value && value.length > 0) {
+      value.forEach((singleValue) => {
+        const existingItem = items.find(
+          (item) => singleValue.indexOf(item.value) > -1
+        );
+        if (existingItem) {
+          fullValue.push(existingItem);
+        } else {
+          fullValue.push({
             label: startCase(singleValue),
             value: singleValue,
-          })
-        );
-      }
-
-      return initialValues;
-    };
+          });
+        }
+      });
+    }
 
     this.state = {
       inputValue: "",
-      fullValue: tags
-        ? checkTags()
-        : items.filter((item) => value.indexOf(item.value) > -1) || [],
+      fullValue,
     };
-  }
-
-  componentDidMount() {
-    console.log(this.state.inputValue);
   }
 
   _input;
@@ -179,6 +178,7 @@ class MultiSelect extends Component<Props, State> {
 
   onInputKeyDown = (event) => {
     const currentValue = event.target.value;
+    const inputValue = this.state.inputValue;
     switch (event.keyCode) {
       case 8: // backspace
         if (!currentValue) {
@@ -188,6 +188,15 @@ class MultiSelect extends Component<Props, State> {
         return;
       case 9: // tab
         // Blur input, close dropdown
+        return;
+      case 13: // enter
+        if (inputValue !== "") {
+          this.onAddTag({
+            label: startCase(inputValue),
+            value: inputValue.toLowerCase(),
+          });
+        }
+        this.setState({ inputValue: "" });
         return;
       default:
         return;

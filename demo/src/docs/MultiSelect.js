@@ -29,21 +29,13 @@ const cities = [
   { label: "Scottsdale", value: "scottsdale" },
 ];
 
-const MultiSelects = ({
-  values,
-  errors,
-  touched,
-  handleChange,
-  handleBlur,
-  handleSubmit,
-  isSubmitting,
-}) => (
+const MultiSelects = () => (
   <Paper>
     <Formik
       initialValues={{
         colors: [],
         colors2: ["magenta"],
-        cities: ["avondale", "tempe", "peoria"],
+        cities: ["tucson"],
       }}
       validationSchema={() =>
         Yup.object().shape({
