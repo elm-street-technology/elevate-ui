@@ -56,6 +56,7 @@ type State = {
    */
   inputValue: string,
   fullValue: Array<Object>,
+  highlightedIndex: number | null,
 };
 
 const itemToString = (item) => (item ? item.label : "");
@@ -97,6 +98,7 @@ class MultiSelect extends Component<Props, State> {
     this.state = {
       inputValue: "",
       fullValue,
+      highlightedIndex: null,
     };
   }
 
@@ -127,6 +129,9 @@ class MultiSelect extends Component<Props, State> {
       this.onAddTag(changes.selectedItem);
       this.setState({ inputValue: "" });
     }
+    if (changes.hasOwnProperty("highlightedIndex")) {
+      this.setState({ highlightedIndex: changes.highlightedIndex });
+    }
   };
 
   onInputChange = (e) => {
@@ -142,7 +147,9 @@ class MultiSelect extends Component<Props, State> {
     const { fullValue } = this.state;
     const updatedFullValue = [...fullValue];
     updatedFullValue.push(item);
-    this.setState({ fullValue: updatedFullValue });
+    this.setState({ fullValue: updatedFullValue }, () =>
+      this.setState({ highlightedIndex: null })
+    );
 
     const updatedValue = [...value];
     updatedValue.push(item.value);
@@ -177,21 +184,22 @@ class MultiSelect extends Component<Props, State> {
   };
 
   checkValues = () => {
-    const { inputValue, fullValue } = this.state;
-    const allValues = [];
+    const { inputValue } = this.state;
+    const {
+      field: { value },
+    } = this.props;
 
-    if (fullValue) {
-      fullValue.forEach((value) => allValues.push(value.value));
-    }
-
-    if (allValues.indexOf(inputValue) === -1) {
+    if (
+      value.indexOf(inputValue) === -1 &&
+      value.indexOf(inputValue.toLowerCase()) === -1
+    ) {
       this.onAddTag({ label: inputValue, value: inputValue });
     }
   };
 
   onInputKeyDown = (event) => {
     const currentValue = event.target.value;
-    const { inputValue } = this.state;
+    const { inputValue, highlightedIndex } = this.state;
     switch (event.keyCode) {
       case 8: // backspace
         if (!currentValue) {
@@ -203,7 +211,7 @@ class MultiSelect extends Component<Props, State> {
         // Blur input, close dropdown
         return;
       case 13: // enter
-        if (inputValue !== "") {
+        if (inputValue !== "" && highlightedIndex === null) {
           this.checkValues();
           this.setState({ inputValue: "" });
         }
