@@ -179,13 +179,6 @@
       "required": true,
       "description": "Text to be used for the label of the component."
     },
-    "onSelect": {
-      "flowType": {
-        "name": "Function"
-      },
-      "required": false,
-      "description": "Accepts a function to be passed down to the component on select."
-    },
     "theme": {
       "flowType": {
         "name": "Object"
