@@ -8,12 +8,19 @@ type Props = {
   /**
    * Accepts any classNames to be passed down to the component.
    */
-  className: string,
+  className?: string,
   /**
-   * What HTML element or component to use when rendered.
+   * What HTML element to use when rendered.
    */
-  component: string,
-  gutterBottom: boolean,
+  element?: string,
+  /**
+   * Adds margin to the top of the component
+   */
+  gutterTop?: boolean,
+  /**
+   * Adds margin to the bottom of the component
+   */
+  gutterBottom?: boolean,
   theme: Object,
   /**
    * Type of text to be used.
@@ -39,18 +46,20 @@ const Typography = ({
   children,
   classes,
   className,
-  component: componentProp,
+  element: elementProp,
+  gutterTop,
   gutterBottom,
   theme,
   type,
   ...rest
 }: Props) => {
-  const Element = componentProp || typeElementMap[type] || "span";
+  const Element = elementProp || typeElementMap[type] || "span";
   return (
     <Element
       className={classNames(
         classes.root,
         classes[type],
+        gutterTop && classes.gutterTop,
         gutterBottom && classes.gutterBottom,
         className
       )}
@@ -61,7 +70,7 @@ const Typography = ({
   );
 };
 
-const styles = (theme) => ({
+const styles = () => ({
   root: {
     width: "100%",
   },
@@ -69,37 +78,37 @@ const styles = (theme) => ({
     fontSize: "36px",
     lineHeight: "48px",
     fontWeight: "600",
-    color: theme.colors.gray800,
+    color: "#2E2E35",
   },
   heading2: {
     fontSize: "32px",
     lineHeight: "44px",
     fontWeight: "600",
-    color: theme.colors.gray800,
+    color: "#2E2E35",
   },
   heading3: {
     fontSize: "28px",
     lineHeight: "40px",
     fontWeight: "600",
-    color: theme.colors.gray800,
+    color: "#2E2E35",
   },
   heading4: {
     fontSize: "24px",
     lineHeight: "36px",
     fontWeight: "600",
-    color: theme.colors.gray800,
+    color: "#2E2E35",
   },
   heading5: {
     fontSize: "20px",
     lineHeight: "32px",
     fontWeight: "600",
-    color: theme.colors.gray800,
+    color: "#2E2E35",
   },
   heading6: {
     fontSize: "18px",
     lineHeight: "30px",
     fontWeight: "600",
-    color: theme.colors.gray800,
+    color: "#2E2E35",
   },
   body: {
     maxWidth: "600px",
@@ -108,6 +117,9 @@ const styles = (theme) => ({
   },
   gutterBottom: {
     marginBottom: "0.35em",
+  },
+  gutterTop: {
+    marginTop: "0.35em",
   },
 });
 
