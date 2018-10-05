@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing, matches the snapshot 1`] = `
+Array [
+  <h1
+    className="Typography-root-0-1-1 Typography-title-0-1-2"
+  >
+    Lorem Ipsum Dolor Sit Amet
+  </h1>,
+  <p
+    className="Typography-root-0-1-1 Typography-body-0-1-8"
+  >
+    Lorem Ipsum Dolor Sit Amet
+  </p>,
+  <h2
+    className="Typography-root-0-1-1 Typography-heading2-0-1-3 Typography-gutterBottom-0-1-9"
+  >
+    Lorem Ipsum Dolor Sit Amet
+  </h2>,
+  <h3
+    className="Typography-root-0-1-1 Typography-heading3-0-1-4"
+  >
+    Lorem Ipsum Dolor Sit Amet
+  </h3>,
+  <h4
+    className="Typography-root-0-1-1 Typography-heading4-0-1-5"
+  >
+    Lorem Ipsum Dolor Sit Amet
+  </h4>,
+  <h5
+    className="Typography-root-0-1-1 Typography-heading5-0-1-6"
+  >
+    Lorem Ipsum Dolor Sit Amet
+  </h5>,
+  <h6
+    className="Typography-root-0-1-1 Typography-heading6-0-1-7"
+  >
+    Lorem Ipsum Dolor Sit Amet
+  </h6>,
+  <span
+    className="Typography-root-0-1-1 Typography-title-0-1-2"
+  >
+    Lorem Ipsum Dolor Sit Amet
+  </span>,
+]
+`;

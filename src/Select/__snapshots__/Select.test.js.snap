@@ -1,13 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing, matches the snapshot 1`] = `
-<div
-  aria-expanded={false}
-  aria-haspopup="listbox"
-  aria-labelledby="downshift-0-label"
-  aria-owns={null}
-  role="combobox"
->
+<div>
   <div
     className="Scaffold-root-0-1-9"
   >
@@ -18,8 +12,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       <input
         aria-activedescendant={null}
         aria-autocomplete="list"
-        aria-controls={null}
-        aria-labelledby="downshift-0-label"
+        aria-expanded={false}
         autoComplete="off"
         className="Select-root-0-1-2"
         id="downshift-0-input"
@@ -27,6 +20,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
+        role="combobox"
         value=""
       />
       <input
