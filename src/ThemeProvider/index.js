@@ -54,7 +54,7 @@ const alertColors = {
 };
 
 const typography = {
-  bodyColor: colors.gray800,
+  bodyColor: "#2E2E35",
   fontFamily:
     "'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   fontSize: "1rem",
