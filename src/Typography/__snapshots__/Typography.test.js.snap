@@ -37,10 +37,11 @@ Array [
   >
     Lorem Ipsum Dolor Sit Amet
   </h6>,
-  <span
+  <h1
     className="Typography-root-0-1-1 Typography-title-0-1-2"
+    component="span"
   >
     Lorem Ipsum Dolor Sit Amet
-  </span>,
+  </h1>,
 ]
 `;

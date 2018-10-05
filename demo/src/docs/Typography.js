@@ -32,7 +32,7 @@ const Typographies = () => (
     <Typography type="heading3" gutterBottom>
       Heading 3
     </Typography>
-    <Typography type="body" gutterBottom>
+    <Typography type="body" gutterBottom gutterTop>
       Nullam justo felis, rutrum eget accumsan id, iaculis vel velit. Aliquam
       pretium varius purus, sed imperdiet turpis commodo quis. Nam semper, dui a
       egestas posuere, eros nulla hendrerit purus, et porttitor sapien mauris at
@@ -59,7 +59,7 @@ const Typographies = () => (
     <Typography type="heading6" gutterBottom>
       Heading 6
     </Typography>
-    <Typography type="title" component="span">
+    <Typography type="title" element="span">
       With component override
     </Typography>
   </Paper>
