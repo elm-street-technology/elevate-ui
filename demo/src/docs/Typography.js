@@ -1,4 +1,3 @@
-// @flow
 import React from "react";
 import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
