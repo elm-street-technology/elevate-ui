@@ -25,19 +25,18 @@ type Props = {
   closeOnSelect: boolean,
   field: Object,
   form: Object,
+  /**
+   * Accepts an array of objects with the shape { label: 'Banana', value: 'Banana' }
+   */
   items: Array<Item>,
   /**
    * Text input for the label used inside the component.
    */
   label: string,
   /**
-   * Accepts a function to be passed down to the component that fires when selected.
+   * Whether or not custom tags can be added to the MultiSelect.
    */
-  onSelect?: Function,
-  /**
-   * Accepts a function to be passed down to the component that fires when a tag is removed.
-   */
-  onRemove?: Function,
+  tags?: boolean,
   theme: Object,
   /**
    * If the scaffold should be used.
@@ -50,7 +49,7 @@ type State = {
    * Current input state.
    */
   inputValue: string,
-  fullValue: Array<Object>,
+  selectedItems: Array<Item>,
 };
 
 const itemToString = (item) => (item ? item.label : "");
@@ -67,9 +66,31 @@ class MultiSelect extends Component<Props, State> {
       items,
     } = props;
 
+    let selectedItems = [];
+
+    // Sometimes, we might have some this.props.field.values that aren't
+    // part of the this.props.items collection that gets passed in. We'll want
+    // to add these so we have access to them in this.state.selectedItems
+    // (they won't show up in the dropdown items but they'll show as selected)
+    if (value && value.length > 0) {
+      value.forEach((singleValue) => {
+        const existingItem = items.find(
+          (item) => singleValue.indexOf(item.value) > -1
+        );
+        if (existingItem) {
+          selectedItems.push(existingItem);
+        } else {
+          selectedItems.push({
+            label: singleValue,
+            value: singleValue,
+          });
+        }
+      });
+    }
+
     this.state = {
       inputValue: "",
-      fullValue: items.filter((item) => value.indexOf(item.value) > -1) || [],
+      selectedItems,
     };
   }
 
@@ -82,10 +103,20 @@ class MultiSelect extends Component<Props, State> {
     switch (changes.type) {
       case Downshift.stateChangeTypes.keyDownEnter:
       case Downshift.stateChangeTypes.clickItem:
+        // Check the prop to decide whether we close the dropdown after an item is selected
         return {
           ...changes,
           isOpen: this.props.closeOnSelect ? false : state.isOpen,
-          highlightedIndex: state.highlightedIndex,
+        };
+      case Downshift.stateChangeTypes.blurInput:
+        // If a user tabs through the input, we want to make sure it's marked as
+        // `touched` for formik's validation to run
+        if (this.props.form && this.props.field) {
+          this.props.form.setFieldTouched(this.props.field.name, true);
+        }
+        // Always close the dropdown on blur
+        return {
+          isOpen: false,
         };
       default:
         return changes;
@@ -98,31 +129,39 @@ class MultiSelect extends Component<Props, State> {
     }
     if (changes.hasOwnProperty("selectedItem")) {
       this.onAddTag(changes.selectedItem);
-      this.setState({ inputValue: "" });
     }
-  };
-
-  onInputChange = (e) => {
-    const inputValue = e.target.value;
-    this.setState({ inputValue });
   };
 
   onAddTag = (item) => {
     const {
       field: { name, value },
       form: { setFieldValue },
+      tags,
     } = this.props;
-    const { fullValue } = this.state;
-    const updatedFullValue = [...fullValue];
-    updatedFullValue.push(item);
-    this.setState({ fullValue: updatedFullValue });
+    const { inputValue, selectedItems } = this.state;
 
-    const updatedValue = [...value];
-    updatedValue.push(item.value);
-    setFieldValue(name, updatedValue);
+    if (item) {
+      const updatedSelectedItems = [...selectedItems];
+      updatedSelectedItems.push(item);
+      this.setState({
+        selectedItems: updatedSelectedItems,
+        inputValue: "",
+      });
 
-    if (this.props.onSelect) {
-      this.props.onSelect(name, updatedValue);
+      const updatedValue = [...value];
+      updatedValue.push(item.value);
+      setFieldValue(name, updatedValue);
+    } else if (tags && inputValue !== "" && !value.includes(inputValue)) {
+      const updatedSelectedItems = [...selectedItems];
+      updatedSelectedItems.push({ label: inputValue, value: inputValue });
+      this.setState({
+        selectedItems: updatedSelectedItems,
+        inputValue: "",
+      });
+
+      const updatedValue = [...value];
+      updatedValue.push(inputValue);
+      setFieldValue(name, updatedValue);
     }
   };
 
@@ -131,22 +170,39 @@ class MultiSelect extends Component<Props, State> {
       field: { name, value },
       form: { setFieldValue },
     } = this.props;
-    const { fullValue } = this.state;
+    const { selectedItems } = this.state;
 
     const stateIndex =
-      fullValue && fullValue.findIndex((val) => val.value === item.value);
-    const updatedFullValue = [...fullValue];
-    updatedFullValue.splice(stateIndex, 1);
-    this.setState({ fullValue: updatedFullValue });
+      selectedItems &&
+      selectedItems.findIndex((val) => val.value === item.value);
+    const updatedSelectedItems = [...selectedItems];
+    updatedSelectedItems.splice(stateIndex, 1);
+    this.setState({ selectedItems: updatedSelectedItems });
 
     const index = value && value.findIndex((val) => val === item.value);
     const updatedValue = [...value];
     updatedValue.splice(index, 1);
     setFieldValue(name, updatedValue);
+  };
 
-    if (this.props.onRemove) {
-      this.props.onRemove(name, updatedValue);
-    }
+  popValue() {
+    const {
+      field: { name, value },
+      form: { setFieldValue },
+    } = this.props;
+    const { selectedItems } = this.state;
+    const updatedSelectedItems = [...selectedItems];
+    updatedSelectedItems.pop();
+    this.setState({ selectedItems: updatedSelectedItems });
+
+    const updatedValue = [...value];
+    updatedValue.pop();
+    setFieldValue(name, updatedValue);
+  }
+
+  onInputChange = (e) => {
+    const inputValue = e.target.value;
+    this.setState({ inputValue });
   };
 
   onInputKeyDown = (event) => {
@@ -161,37 +217,29 @@ class MultiSelect extends Component<Props, State> {
       case 9: // tab
         // Blur input, close dropdown
         return;
+      case 13: // enter
+        if (currentValue !== "") {
+          event.preventDefault();
+          // This is wrapped in a setTimeout to force it to trigger *after* the
+          // built-in downshift state reducer fires (fixes a timing issue if a
+          // user has typed-ahead *and* keyboard-selected an item from the dropdown)
+          setTimeout(() => {
+            this.onAddTag();
+          }, 1);
+        }
+        return;
       default:
         return;
     }
   };
 
-  popValue() {
-    const {
-      field: { name, value },
-      form: { setFieldValue },
-    } = this.props;
-    const { fullValue } = this.state;
-    const updatedFullValue = [...fullValue];
-    updatedFullValue.pop();
-    this.setState({ fullValue: updatedFullValue });
-
-    const updatedValue = [...value];
-    updatedValue.pop();
-    setFieldValue(name, updatedValue);
-
-    if (this.props.onRemove) {
-      this.props.onRemove(name, updatedValue);
-    }
-  }
-
   onWrapperClick = (e) => {
     e.stopPropagation();
     e.preventDefault();
-    this.focusOnInput();
+    this.focusInput();
   };
 
-  focusOnInput() {
+  focusInput() {
     this._input.focus();
     if (typeof this._input.getInput === "function") {
       this._input.getInput().focus();
@@ -233,13 +281,13 @@ class MultiSelect extends Component<Props, State> {
       classes,
       className,
       field: { name, value },
-      form: { errors, setFieldTouched, touched },
+      form: { errors, touched },
       items = [],
       label,
       withScaffold = true,
     } = this.props;
 
-    const { fullValue } = this.state;
+    const { selectedItems } = this.state;
 
     return (
       <Downshift
@@ -247,7 +295,8 @@ class MultiSelect extends Component<Props, State> {
         stateReducer={this.stateReducer}
         onStateChange={this.handleStateChange}
         selectedItem={value}
-        render={({
+      >
+        {({
           getInputProps,
           getItemProps,
           isOpen,
@@ -261,7 +310,7 @@ class MultiSelect extends Component<Props, State> {
               onClick={this.onWrapperClick}
             >
               <div className={classes.tagWrapper}>
-                {fullValue.map((item) => {
+                {selectedItems.map((item) => {
                   return (
                     <Fragment key={item.value}>
                       <Tag tag={item} onRemove={this.onRemoveTag} />
@@ -278,7 +327,6 @@ class MultiSelect extends Component<Props, State> {
                     onKeyDown: this.onInputKeyDown,
                     value: this.state.inputValue,
                   })}
-                  onBlur={(selection) => setFieldTouched(name, selection)}
                 />
               </div>
               {this.renderArrowIcon(isOpen)}
@@ -290,8 +338,8 @@ class MultiSelect extends Component<Props, State> {
               {items
                 .filter(
                   (i) =>
-                    this.state.fullValue &&
-                    this.state.fullValue.findIndex(
+                    this.state.selectedItems &&
+                    this.state.selectedItems.findIndex(
                       (val) => val.value === i.value
                     ) === -1 &&
                     (!this.state.inputValue ||
@@ -334,7 +382,7 @@ class MultiSelect extends Component<Props, State> {
             </div>
           );
         }}
-      />
+      </Downshift>
     );
   }
 }

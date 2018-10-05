@@ -35,18 +35,6 @@
       "returns": null
     },
     {
-      "name": "onInputChange",
-      "docblock": null,
-      "modifiers": [],
-      "params": [
-        {
-          "name": "e",
-          "type": null
-        }
-      ],
-      "returns": null
-    },
-    {
       "name": "onAddTag",
       "docblock": null,
       "modifiers": [],
@@ -71,6 +59,25 @@
       "returns": null
     },
     {
+      "name": "popValue",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    },
+    {
+      "name": "onInputChange",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "e",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
       "name": "onInputKeyDown",
       "docblock": null,
       "modifiers": [],
@@ -80,13 +87,6 @@
           "type": null
         }
       ],
-      "returns": null
-    },
-    {
-      "name": "popValue",
-      "docblock": null,
-      "modifiers": [],
-      "params": [],
       "returns": null
     },
     {
@@ -102,7 +102,7 @@
       "returns": null
     },
     {
-      "name": "focusOnInput",
+      "name": "focusInput",
       "docblock": null,
       "modifiers": [],
       "params": [],
@@ -212,7 +212,7 @@
         "raw": "Array<Item>"
       },
       "required": true,
-      "description": ""
+      "description": "Accepts an array of objects with the shape { label: 'Banana', value: 'Banana' }"
     },
     "label": {
       "flowType": {
@@ -221,19 +221,12 @@
       "required": true,
       "description": "Text input for the label used inside the component."
     },
-    "onSelect": {
+    "tags": {
       "flowType": {
-        "name": "Function"
+        "name": "boolean"
       },
       "required": false,
-      "description": "Accepts a function to be passed down to the component that fires when selected."
-    },
-    "onRemove": {
-      "flowType": {
-        "name": "Function"
-      },
-      "required": false,
-      "description": "Accepts a function to be passed down to the component that fires when a tag is removed."
+      "description": "Whether or not custom tags can be added to the MultiSelect."
     },
     "theme": {
       "flowType": {

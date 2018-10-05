@@ -24,10 +24,6 @@ type Props = {
    * Text to be used for the label of the component.
    */
   label: string,
-  /**
-   * Accepts a function to be passed down to the component on select.
-   */
-  onSelect?: Function,
   theme: Object,
   /**
    * If the scaffold component should be used when rendered.
@@ -75,10 +71,6 @@ class Select extends Component<Props, State> {
     } = this.props;
 
     setFieldValue(name, item.value);
-
-    if (this.props.onSelect) {
-      this.props.onSelect(name, item.value);
-    }
   };
 
   onWrapperClick = (e) => {
@@ -166,7 +158,8 @@ class Select extends Component<Props, State> {
         itemToString={itemToString}
         onStateChange={this.handleStateChange}
         selectedItem={selectedItem}
-        render={({
+      >
+        {({
           getInputProps,
           getItemProps,
           isOpen,
@@ -239,7 +232,7 @@ class Select extends Component<Props, State> {
             </div>
           );
         }}
-      />
+      </Downshift>
     );
   }
 }

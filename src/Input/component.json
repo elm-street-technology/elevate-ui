@@ -56,8 +56,12 @@
       "flowType": {
         "name": "string"
       },
-      "required": true,
-      "description": "Input type to be used."
+      "required": false,
+      "description": "Input type to be used.",
+      "defaultValue": {
+        "value": "\"text\"",
+        "computed": false
+      }
     },
     "withScaffold": {
       "flowType": {
