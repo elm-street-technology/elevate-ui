@@ -81,6 +81,10 @@ class Main extends Component {
               path="/radio-group"
               render={() => <Doc folder="RadioGroup" />}
             />
+            <Route
+              path="/typography"
+              render={() => <Doc folder="Typography" />}
+            />
             <Route path="/datetime" render={() => <Doc folder="Datetime" />} />
             <Route path="/button" render={() => <Doc folder="Button" />} />
             <Route path="/alert" render={() => <Doc folder="Alert" />} />
