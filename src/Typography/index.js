@@ -13,16 +13,23 @@ type Props = {
    * What HTML element or component to use when rendered.
    */
   component: string,
+  gutterBottom: boolean,
   theme: Object,
   /**
-   * Type of typography to render such as "title" or "body".
+   * Type of text to be used.
    */
-  type: "title" | "body",
+  // prettier-ignore
+  type: "title"| "body"| "heading2"| "heading3"| "heading4"| "heading5"| "heading6"
 };
 
 const typeElementMap = {
   title: "h1",
   body: "p",
+  heading2: "h2",
+  heading3: "h3",
+  heading4: "h4",
+  heading5: "h5",
+  heading6: "h6",
 };
 
 /**
@@ -33,6 +40,7 @@ const Typography = ({
   classes,
   className,
   component: componentProp,
+  gutterBottom,
   theme,
   type,
   ...rest
@@ -40,7 +48,12 @@ const Typography = ({
   const Element = componentProp || typeElementMap[type] || "span";
   return (
     <Element
-      className={classNames(classes.root, classes[type], className)}
+      className={classNames(
+        classes.root,
+        classes[type],
+        gutterBottom && classes.gutterBottom,
+        className
+      )}
       {...rest}
     >
       {children}
@@ -58,10 +71,43 @@ const styles = (theme) => ({
     fontWeight: "600",
     color: theme.colors.gray800,
   },
+  heading2: {
+    fontSize: "32px",
+    lineHeight: "44px",
+    fontWeight: "600",
+    color: theme.colors.gray800,
+  },
+  heading3: {
+    fontSize: "28px",
+    lineHeight: "40px",
+    fontWeight: "600",
+    color: theme.colors.gray800,
+  },
+  heading4: {
+    fontSize: "24px",
+    lineHeight: "36px",
+    fontWeight: "600",
+    color: theme.colors.gray800,
+  },
+  heading5: {
+    fontSize: "20px",
+    lineHeight: "32px",
+    fontWeight: "600",
+    color: theme.colors.gray800,
+  },
+  heading6: {
+    fontSize: "18px",
+    lineHeight: "30px",
+    fontWeight: "600",
+    color: theme.colors.gray800,
+  },
   body: {
     maxWidth: "600px",
     fontSize: "14px",
     lineHeight: "18px",
+  },
+  gutterBottom: {
+    marginBottom: "0.35em",
   },
 });
 

@@ -31,6 +31,13 @@
       "required": true,
       "description": "What HTML element or component to use when rendered."
     },
+    "gutterBottom": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": ""
+    },
     "theme": {
       "flowType": {
         "name": "Object"
@@ -41,7 +48,7 @@
     "type": {
       "flowType": {
         "name": "union",
-        "raw": "\"title\" | \"body\"",
+        "raw": "\"title\"| \"body\"| \"heading2\"| \"heading3\"| \"heading4\"| \"heading5\"| \"heading6\"",
         "elements": [
           {
             "name": "literal",
@@ -50,11 +57,31 @@
           {
             "name": "literal",
             "value": "\"body\""
+          },
+          {
+            "name": "literal",
+            "value": "\"heading2\""
+          },
+          {
+            "name": "literal",
+            "value": "\"heading3\""
+          },
+          {
+            "name": "literal",
+            "value": "\"heading4\""
+          },
+          {
+            "name": "literal",
+            "value": "\"heading5\""
+          },
+          {
+            "name": "literal",
+            "value": "\"heading6\""
           }
         ]
       },
       "required": true,
-      "description": "Type of typography to render such as \"title\" or \"body\"."
+      "description": ""
     }
   }
 }
