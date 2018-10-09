@@ -14,8 +14,6 @@
     "deploy": "yarn clean && yarn run build && yarn publish",
     "deploy:demo": "yarn generate-docs && cd demo && yarn && yarn build && cd ..",
     "lint": "eslint src/**/*.js",
-    "precommit": "lint-staged",
-    "prepush": "yarn run test",
     "prettier": "prettier --write '**/*.{js,json,css,md}'",
     "start": "concurrently \"yarn run watch\" \"yarn run demo\"",
     "test": "yarn run test:flow && yarn run test:jest",
@@ -76,6 +74,12 @@
     "react-router-dom": "4.2.2",
     "react-test-renderer": "^16.5.2",
     "sinon": "5.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run test"
+    }
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./src/setupTests.js",
