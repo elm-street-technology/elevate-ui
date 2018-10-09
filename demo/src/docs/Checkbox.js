@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
-import Yup from "yup";
+import * as Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
@@ -28,16 +28,7 @@ const Checkboxes = () => (
           setSubmitting(false);
         }, 1000);
       }}
-      render={({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-        isValid,
-      }) => (
+      render={({ isSubmitting, isValid }) => (
         <Form noValidate style={{ maxWidth: "420px", marginTop: "24px" }}>
           <Field
             id="tos"

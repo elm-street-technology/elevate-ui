@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
-import Yup from "yup";
+import * as Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
 import Datetime from "elevate-ui/Datetime";
@@ -21,15 +21,7 @@ const Datetimes = () => (
           setSubmitting(false);
         }, 1000);
       }}
-      render={({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-      }) => (
+      render={({ isSubmitting, isValid }) => (
         <Form noValidate style={{ maxWidth: "420px" }}>
           <Field
             id="startDate"
@@ -37,7 +29,7 @@ const Datetimes = () => (
             label="Start Date"
             component={Datetime}
           />
-          <Button type="submit" disabled={isSubmitting}>
+          <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
           </Button>
         </Form>
