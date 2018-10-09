@@ -1,21 +1,13 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
-import Yup from "yup";
+import * as Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import Input from "elevate-ui/Input";
 import Button from "elevate-ui/Button";
 
-const SignUpForm = ({
-  values,
-  errors,
-  touched,
-  handleChange,
-  handleBlur,
-  handleSubmit,
-  isSubmitting,
-}) => (
+const SignUpForm = () => (
   <Paper>
     <Typography type="title">Sign-up Form Demo</Typography>
     <Formik
@@ -35,15 +27,7 @@ const SignUpForm = ({
           setSubmitting(false);
         }, 1000);
       }}
-      render={({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-      }) => (
+      render={({ isSubmitting, isValid }) => (
         <Form noValidate style={{ maxWidth: "420px" }}>
           <Field id="name" name="name" label="Name" component={Input} />
           <Field id="email" name="email" label="Email" component={Input} />
@@ -54,7 +38,7 @@ const SignUpForm = ({
             type="password"
             component={Input}
           />
-          <Button type="submit" disabled={isSubmitting}>
+          <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
           </Button>
         </Form>

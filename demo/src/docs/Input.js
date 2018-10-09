@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
-import Yup from "yup";
+import * as Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
 import Input from "elevate-ui/Input";
