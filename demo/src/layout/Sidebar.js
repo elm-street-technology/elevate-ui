@@ -153,6 +153,14 @@ const Sidebar = ({ classes }) => {
         <NavLink
           activeClassName={classes.active}
           className={classes.item}
+          to="/paper"
+        >
+          Paper
+        </NavLink>
+
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
           to="/alert"
         >
           Alert
