@@ -1,20 +1,12 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
-import Yup from "yup";
+import * as Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
 import Textarea from "elevate-ui/Textarea";
 import Button from "elevate-ui/Button";
 
-const TextAreas = ({
-  values,
-  errors,
-  touched,
-  handleChange,
-  handleBlur,
-  handleSubmit,
-  isSubmitting,
-}) => (
+const TextAreas = () => (
   <Paper>
     <Formik
       initialValues={{
@@ -31,16 +23,7 @@ const TextAreas = ({
           setSubmitting(false);
         }, 1000);
       }}
-      render={({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-        isValid,
-      }) => (
+      render={({ isSubmitting, isValid }) => (
         <Form noValidate style={{ maxWidth: "420px" }}>
           <Field id="story" name="story" label="Story" component={Textarea} />
           <Button type="submit" disabled={!isValid || isSubmitting}>

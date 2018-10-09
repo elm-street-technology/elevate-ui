@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
-import Yup from "yup";
+import * as Yup from "yup";
 
 import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
@@ -25,15 +25,7 @@ const cmyk = [
   { label: "Black", value: "black" },
 ];
 
-const QueryForm = ({
-  values,
-  errors,
-  touched,
-  handleChange,
-  handleBlur,
-  handleSubmit,
-  isSubmitting,
-}) => (
+const QueryForm = () => (
   <Paper>
     <Typography type="title">Query Form Demo</Typography>
     <Formik
@@ -55,19 +47,11 @@ const QueryForm = ({
           ),
         })
       }
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={() => {
         const form = document.getElementById("queryForm");
         form.submit();
       }}
-      render={({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-      }) => (
+      render={({ isSubmitting, isValid }) => (
         <Form
           id="queryForm"
           method="get"
@@ -91,7 +75,7 @@ const QueryForm = ({
             items={cmyk}
             component={MultiSelect}
           />
-          <Button type="submit" disabled={isSubmitting}>
+          <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
           </Button>
         </Form>
