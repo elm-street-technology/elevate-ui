@@ -55,24 +55,17 @@ const Theme = ({ classes, theme }) => (
       theme.breakpoints && (
         <div>
           {Object.keys(theme.breakpoints).map((breakpoint) => {
-            let deprecated;
-
             if (
               breakpoint === "tabletPortrait" ||
               breakpoint === "tabletLandscape" ||
               breakpoint === "desktop"
             ) {
-              deprecated = true;
+              return null;
             }
             return (
               <div key={breakpoint}>
-                <Typography
-                  type="body"
-                  gutterBottom
-                  className={deprecated ? classes.deprecated : null}
-                >
+                <Typography type="body" gutterBottom>
                   <strong>{breakpoint}:</strong> {theme.breakpoints[breakpoint]}{" "}
-                  {deprecated ? " // deprecated" : null}
                 </Typography>
               </div>
             );
@@ -82,7 +75,7 @@ const Theme = ({ classes, theme }) => (
     <Typography type="heading3" gutterBottom>
       Example
     </Typography>
-    <Paper>
+    <Paper withPadding={false}>
       <PrismCode component="pre" className="language-javascript">
         {`
         const styles = (theme) => ({
@@ -116,7 +109,7 @@ const Theme = ({ classes, theme }) => (
       </PrismCode>
     </Typography>
     <Typography type="heading6">Usage Example</Typography>
-    <Paper>
+    <Paper withPadding={false}>
       <PrismCode
         component="pre"
         className={classNames("language-javascript", classes.codePadding)}
@@ -139,7 +132,7 @@ const Theme = ({ classes, theme }) => (
       </PrismCode>
     </Typography>
     <Typography type="heading6">Usage Example</Typography>
-    <Paper>
+    <Paper withPadding={false}>
       <PrismCode
         component="pre"
         className={classNames("language-javascript", classes.codePadding)}
@@ -162,7 +155,7 @@ const Theme = ({ classes, theme }) => (
       </PrismCode>
     </Typography>
     <Typography type="heading6">Usage Example</Typography>
-    <Paper>
+    <Paper withPadding={false}>
       <PrismCode
         component="pre"
         className={classNames("language-javascript", classes.codePadding)}
@@ -185,7 +178,7 @@ const Theme = ({ classes, theme }) => (
       </PrismCode>
     </Typography>
     <Typography type="heading6">Usage Example</Typography>
-    <Paper>
+    <Paper withPadding={false}>
       <PrismCode
         component="pre"
         className={classNames("language-javascript", classes.codePadding)}
@@ -208,7 +201,7 @@ const Theme = ({ classes, theme }) => (
       </PrismCode>
     </Typography>
     <Typography type="heading6">Usage Example</Typography>
-    <Paper>
+    <Paper withPadding={false}>
       <PrismCode
         component="pre"
         className={classNames("language-javascript", classes.codePadding)}
