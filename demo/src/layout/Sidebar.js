@@ -213,6 +213,15 @@ const Sidebar = ({ classes }) => {
         >
           Query Form
         </NavLink>
+
+        <span className={classes.header}>Contributing</span>
+        <a
+          href="https://github.com/elm-street-technology/elevate-ui"
+          className={classes.item}
+          title="View on GitHub"
+        >
+          View on GitHub
+        </a>
       </nav>
     </div>
   );
