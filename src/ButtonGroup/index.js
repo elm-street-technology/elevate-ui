@@ -53,7 +53,7 @@ function getSpanColor(theme, props) {
   } else if (Color(backgroundColor).isLight()) {
     return theme.colors["gray900"];
   } else {
-    return theme.colors["gray500"];
+    return theme.colors["gray600"];
   }
 }
 
@@ -159,41 +159,41 @@ const styles = (theme) => ({
     display: "none",
   },
   button: {
-    background: "none",
-    border: `1px solid ${theme.colors["gray200"]}`,
+    background: "#fff",
+    border: `1px solid ${theme.colors["gray300"]}`,
     borderRight: "none",
     padding: 12,
     cursor: "pointer",
     "&:first-of-type": {
-      borderLeft: `1px solid ${theme.colors["gray200"]}`,
-      borderTopLeftRadius: 5,
-      borderBottomLeftRadius: 5,
+      borderLeft: `1px solid ${theme.colors["gray300"]}`,
+      borderTopLeftRadius: theme.globalBorderRadius,
+      borderBottomLeftRadius: theme.globalBorderRadius,
     },
     "&:last-of-type": {
-      borderRight: `1px solid ${theme.colors["gray200"]}`,
-      borderTopRightRadius: 5,
-      borderBottomRightRadius: 5,
+      borderRight: `1px solid ${theme.colors["gray300"]}`,
+      borderTopRightRadius: theme.globalBorderRadius,
+      borderBottomRightRadius: theme.globalBorderRadius,
     },
     "& span": {
       pointerEvents: "none",
-      color: theme.colors["gray500"],
+      color: theme.colors["gray600"],
     },
   },
   buttonActive: {
     background: (props) => getBackgroundColor(theme, props),
-    border: `1px solid ${theme.colors["gray200"]}`,
+    border: `1px solid ${theme.colors["gray300"]}`,
     borderRight: "none",
     padding: 12,
     cursor: "pointer",
     "&:first-of-type": {
-      borderLeft: `1px solid ${theme.colors["gray200"]}`,
-      borderTopLeftRadius: 5,
-      borderBottomLeftRadius: 5,
+      borderLeft: `1px solid ${theme.colors["gray300"]}`,
+      borderTopLeftRadius: theme.globalBorderRadius,
+      borderBottomLeftRadius: theme.globalBorderRadius,
     },
     "&:last-of-type": {
-      borderRight: `1px solid ${theme.colors["gray200"]}`,
-      borderTopRightRadius: 5,
-      borderBottomRightRadius: 5,
+      borderRight: `1px solid ${theme.colors["gray300"]}`,
+      borderTopRightRadius: theme.globalBorderRadius,
+      borderBottomRightRadius: theme.globalBorderRadius,
     },
     "& span": {
       color: (props) => getSpanColor(theme, props),
