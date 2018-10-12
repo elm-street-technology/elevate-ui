@@ -133,6 +133,14 @@ const Sidebar = ({ classes }) => {
           Datetime
         </NavLink>
 
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/number-increment"
+        >
+          NumberIncrement
+        </NavLink>
+
         <span className={classes.header}>General</span>
         <NavLink
           activeClassName={classes.active}
