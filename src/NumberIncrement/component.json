@@ -1,0 +1,76 @@
+{
+  "description": "Number input that can be adjusted incrementally",
+  "displayName": "NumberIncrement",
+  "methods": [
+    {
+      "name": "handleValueChange",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "direction",
+          "type": null
+        }
+      ],
+      "returns": null
+    }
+  ],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Accepts any classNames to be passed down to the component."
+    },
+    "field": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "form": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "id": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    },
+    "label": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Text input to be used as the label for inside the component."
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "withScaffold": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": "Use the scaffold for the input or if the input should just be the raw input."
+    }
+  }
+}

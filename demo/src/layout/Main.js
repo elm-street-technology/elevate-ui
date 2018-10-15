@@ -82,6 +82,10 @@ class Main extends Component {
               render={() => <Doc folder="RadioGroup" />}
             />
             <Route
+              path="/number-increment"
+              render={() => <Doc folder="NumberIncrement" />}
+            />
+            <Route
               path="/typography"
               render={() => <Doc folder="Typography" />}
             />
