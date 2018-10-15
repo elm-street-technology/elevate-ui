@@ -31,7 +31,7 @@ type Props = {
  */
 class NumberIncrement extends Component<Props> {
   handleValueChange = (direction) => {
-    direction === "increase" ? this.input.stepUp() : this.input.stepDown();
+    direction === "increment" ? this.input.stepUp() : this.input.stepDown();
     return this.props.form.setFieldValue(
       this.props.field.name,
       this.input.value
@@ -51,6 +51,36 @@ class NumberIncrement extends Component<Props> {
       ...rest
     } = this.props;
 
+    const NumberInput = (
+      <div className={classNames(classes.root, className)}>
+        <button
+          className={classNames(classes.button, classes.buttonLeft)}
+          type="button"
+          onClick={() => this.handleValueChange("decrement")}
+        >
+          <Remove size={16} />
+        </button>
+        <input
+          className={classes.input}
+          type="number"
+          id={id}
+          ref={(node) => (this.input = node)}
+          {...field}
+          {...rest}
+          onChange={() =>
+            this.props.form.setFieldValue(field.name, this.input.value)
+          }
+        />
+        <button
+          className={classNames(classes.button, classes.buttonRight)}
+          type="button"
+          onClick={() => this.handleValueChange("increment")}
+        >
+          <Add size={16} />
+        </button>
+      </div>
+    );
+
     if (withScaffold) {
       return (
         <Scaffold
@@ -58,65 +88,11 @@ class NumberIncrement extends Component<Props> {
           label={label}
           error={touched[field.name] && errors[field.name]}
         >
-          <div className={classNames(classes.root, className)}>
-            <button
-              className={classNames(classes.button, classes.buttonLeft)}
-              type="button"
-              onClick={() => this.handleValueChange("decrease")}
-            >
-              <Remove size={16} />
-            </button>
-            <input
-              className={classes.input}
-              type="number"
-              id={id}
-              ref={(node) => (this.input = node)}
-              {...field}
-              {...rest}
-              onChange={() =>
-                this.props.form.setFieldValue(field.name, this.input.value)
-              }
-            />
-            <button
-              className={classNames(classes.button, classes.buttonRight)}
-              type="button"
-              onClick={() => this.handleValueChange("increase")}
-            >
-              <Add size={16} />
-            </button>
-          </div>
+          {NumberInput}
         </Scaffold>
       );
     } else {
-      return (
-        <div className={classNames(classes.root, className)}>
-          <button
-            className={classNames(classes.button, classes.buttonLeft)}
-            type="button"
-            onClick={() => this.handleValueChange("decrease")}
-          >
-            <Remove size={16} />
-          </button>
-          <input
-            className={classes.input}
-            type="number"
-            id={id}
-            ref={(node) => (this.input = node)}
-            {...field}
-            {...rest}
-            onChange={() =>
-              this.props.form.setFieldValue(field.name, this.input.value)
-            }
-          />
-          <button
-            className={classNames(classes.button, classes.buttonRight)}
-            type="button"
-            onClick={() => this.handleValueChange("increase")}
-          >
-            <Add size={16} />
-          </button>
-        </div>
-      );
+      return NumberInput;
     }
   }
 }
@@ -143,6 +119,7 @@ const styles = (theme) => ({
     border: `1px solid ${theme.colors.gray300}`,
     borderLeft: "none",
     borderRight: "none",
+    borderRadius: 0,
     padding: "8px 5px 8px 17px",
     boxShadow: "none", // Reset default inputs for mozilla
     "-webkit-appearance": "none", // Reset default browser styles
