@@ -6,6 +6,7 @@ export { default as Input } from "./Input";
 export { default as Label } from "./Label";
 export { default as Loadable } from "./Loadable";
 export { default as MultiSelect } from "./MultiSelect";
+export { default as NumberIncrement } from "./NumberIncrement";
 export { default as Paper } from "./Paper";
 export { default as Select } from "./Select";
 export { default as Table } from "./Table";
