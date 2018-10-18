@@ -27,11 +27,11 @@ type Props = {
    */
   icon?: any,
   /**
-   * Icon alignment inside of the button component.
+   * Icon alignment inside of the button component. Can be "left" or "right"
    */
   iconAlign?: string,
   /**
-   * Inner className to be applied to the children of the component. Can be "left" or "right"
+   * Inner className to be applied to the children of the component.
    */
   innerClassName?: string,
   /**

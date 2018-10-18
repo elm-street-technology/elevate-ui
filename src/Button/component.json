@@ -78,14 +78,14 @@
         "name": "string"
       },
       "required": false,
-      "description": "Icon alignment inside of the button component."
+      "description": "Icon alignment inside of the button component. Can be \"left\" or \"right\""
     },
     "innerClassName": {
       "flowType": {
         "name": "string"
       },
       "required": false,
-      "description": "Inner className to be applied to the children of the component. Can be \"left\" or \"right\""
+      "description": "Inner className to be applied to the children of the component."
     },
     "isOutlined": {
       "flowType": {
