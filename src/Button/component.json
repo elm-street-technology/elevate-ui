@@ -73,12 +73,19 @@
       "required": false,
       "description": "Icon component to use in the component."
     },
+    "iconAlign": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Icon alignment inside of the button component."
+    },
     "innerClassName": {
       "flowType": {
         "name": "string"
       },
       "required": false,
-      "description": "Inner className to be applied to the children of the component."
+      "description": "Inner className to be applied to the children of the component. Can be \"left\" or \"right\""
     },
     "isOutlined": {
       "flowType": {

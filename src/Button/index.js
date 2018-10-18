@@ -27,7 +27,11 @@ type Props = {
    */
   icon?: any,
   /**
-   * Inner className to be applied to the children of the component.
+   * Icon alignment inside of the button component.
+   */
+  iconAlign?: string,
+  /**
+   * Inner className to be applied to the children of the component. Can be "left" or "right"
    */
   innerClassName?: string,
   /**
@@ -231,6 +235,7 @@ class Button extends Component<Props, State> {
       color,
       element: Element,
       icon,
+      iconAlign,
       innerClassName,
       isOutlined,
       theme,
@@ -247,8 +252,13 @@ class Button extends Component<Props, State> {
       >
         <div className={classes.innerContainer}>
           <div className={classNames(classes.children, innerClassName)}>
-            {icon && <div className={classes.icon}>{icon}</div>}
+            {icon && iconAlign !== "right" ? (
+              <div className={classes.icon}>{icon}</div>
+            ) : null}
             {children}
+            {icon && iconAlign === "right" ? (
+              <div className={classes.icon}>{icon}</div>
+            ) : null}
           </div>
           <span
             ref={(ripple) => (this.ripple = ripple)}
