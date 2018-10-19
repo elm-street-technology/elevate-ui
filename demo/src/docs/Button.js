@@ -66,7 +66,13 @@ const ButtonExample = () => (
     </Button>
     <br />
     <br />
-    <Button color="secondary" icon={<Cart />} isOutlined type="button">
+    <Button
+      color="secondary"
+      icon={<Cart />}
+      iconAlign="right"
+      isOutlined
+      type="button"
+    >
       Check Out
     </Button>
     <br />

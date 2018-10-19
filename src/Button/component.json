@@ -73,6 +73,28 @@
       "required": false,
       "description": "Icon component to use in the component."
     },
+    "iconAlign": {
+      "flowType": {
+        "name": "union",
+        "raw": "\"left\" | \"right\"",
+        "elements": [
+          {
+            "name": "literal",
+            "value": "\"left\""
+          },
+          {
+            "name": "literal",
+            "value": "\"right\""
+          }
+        ]
+      },
+      "required": false,
+      "description": "Icon alignment inside of the button component. Can be \"left\" or \"right\"",
+      "defaultValue": {
+        "value": "\"left\"",
+        "computed": false
+      }
+    },
     "innerClassName": {
       "flowType": {
         "name": "string"
