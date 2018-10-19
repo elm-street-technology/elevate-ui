@@ -1,54 +1,50 @@
+// @flow
 import React, { Component } from "react";
-import { BaseAccordion } from "./base";
-import AccordionContents from "./accordion-contents";
-import Paper from "../Paper";
-import classNames from "classnames";
 import withStyles from "react-jss";
 import ChevronRight from "elevate-ui-icons/ChevronRight";
 
+import BaseAccordion from "./BaseAccordion";
+import AccordionContents from "./AccordionContents";
+import Paper from "../Paper";
+
 type Props = {
-  className?: string,
-  items: any,
-  stateReducer?: Function,
+  classes: Object,
+  items: Array<{
+    title: string,
+    contents: any,
+  }>,
 };
 
 class Accordion extends Component<Props> {
   render() {
-    const { classes, className, items, stateReducer, ...rest } = this.props;
+    const { classes, items, ...rest } = this.props;
     return (
-      <BaseAccordion
-        className={classNames(classes.root, className)}
-        {...this.props}
-      >
+      <BaseAccordion {...rest}>
         {({ openIndexes, handleItemClick }) => (
           <Paper {...rest} withPadding={false}>
             {items.map((item, index) => (
               <div // AccordionItem
-                className={classes.item}
                 key={item.title}
-                direction="vertical"
+                className={classes.item}
               >
                 <button // AccordionButton
-                  className={classNames(
-                    classes.button,
-                    openIndexes.includes(index) ? classes.open : null
-                  )}
+                  className={classes.button}
                   onClick={() => handleItemClick(index)}
                 >
-                  <span className={classes.headerTitle}>{item.title} </span>
+                  <span className={classes.headerTitle}>{item.title}</span>
                   <div className={classes.headerIcon}>
-                    {openIndexes.includes(index) ? (
-                      <ChevronRight className={classes.rotateMinus90} />
-                    ) : (
-                      <ChevronRight className={classes.rotate90} />
-                    )}
+                    <ChevronRight
+                      className={
+                        openIndexes.includes(index)
+                          ? classes.rotateMinus90
+                          : classes.rotate90
+                      }
+                    />
                   </div>
                 </button>
                 <AccordionContents
                   className={
-                    openIndexes.includes(index)
-                      ? classes.contentOpen
-                      : classes.content
+                    openIndexes.includes(index) ? classes.content : null
                   }
                   isOpen={openIndexes.includes(index)}
                 >
@@ -64,65 +60,34 @@ class Accordion extends Component<Props> {
 }
 
 export default withStyles((theme) => ({
-  root: {
+  item: {
     display: "flex",
     flexDirection: "column",
-    borderRadius: 0,
     borderBottom: `1px solid ${theme.colors["gray200"]}`,
+
+    "&:last-child": {
+      borderBottom: "none",
+    },
+  },
+  button: {
+    display: "flex",
+    padding: "12px 16px",
   },
   headerTitle: {
-    flex: "1 1 0% !important",
-    marginLeft: "4px",
-    textAlign: "left",
+    display: "flex",
+    fontWeight: "600",
   },
   headerIcon: {
     flexShrink: "0",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginRight: "4px",
-  },
-  item: {
-    display: "flex",
-    flexDirection: "column",
-    borderRadius: 0,
-    borderBottom: `1px solid ${theme.colors["gray200"]}`,
-    "&:only-of-type": {
-      border: `1px solid ${theme.colors["gray200"]} !important`,
-      borderRadius: "5px !important",
-    },
-    "&:first-of-type": {},
-    "&:last-of-type": {
-      borderTop: "none",
-      borderBottom: `1px solid ${theme.colors["gray200"]}`,
-      borderTopLeftRadius: 0,
-      borderTopRightRadius: 0,
-      borderBottomLeftRadius: 5,
-      borderBottomRightRadius: 5,
-    },
-  },
-  button: {
-    display: "flex",
-    padding: "10px 16px",
-    "&:focus": {
-      outline: "none !important",
-    },
+    marginLeft: "auto",
   },
   content: {
-    display: "grid",
-    gridTemplate: "auto auto",
-    gridGap: 4,
-    gridAutoFlow: "row",
-  },
-  contentOpen: {
-    display: "grid",
-    gridTemplate: "auto auto",
-    gridGap: 4,
-    gridAutoFlow: "row",
-    ...theme.globalPadding,
-  },
-  open: {
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    display: "flex",
+    flexDirection: "column",
+    padding: "8px 16px 16px",
   },
   rotateMinus90: {
     transform: "rotate(-90deg)",
@@ -130,10 +95,6 @@ export default withStyles((theme) => ({
   },
   rotate90: {
     transform: "rotate(90deg)",
-    transition: ".2s ease",
-  },
-  rotate0: {
-    transform: "rotate(0deg)",
     transition: ".2s ease",
   },
 }))(Accordion);

@@ -1,12 +1,28 @@
-import React from "react";
+// @flow
+import React, { Component } from "react"; // eslint-disable-line
 
-class BaseAccordion extends React.Component {
+type Props = {
+  children: any,
+  onStateChange?: Function,
+  openIndexes?: Array<number>,
+  stateReducer?: Function,
+};
+
+type State = {
+  openIndexes: Array<number>,
+};
+
+class BaseAccordion extends Component<Props, State> {
   static defaultProps = {
-    stateReducer: (state, changes) => changes,
     onStateChange: () => {},
+    stateReducer: (state: Object, changes: Function | Object) => changes,
   };
-  state = { openIndexes: [0] };
-  getState(state = this.state) {
+
+  state = {
+    openIndexes: [0],
+  };
+
+  getState(state: State = this.state) {
     return {
       openIndexes:
         this.props.openIndexes === undefined
@@ -14,24 +30,31 @@ class BaseAccordion extends React.Component {
           : this.props.openIndexes,
     };
   }
-  internalSetState(changes, callback = () => {}) {
-    let allChanges;
+
+  internalSetState(changes: Function | Object, callback: Function = () => {}) {
+    const { onStateChange, stateReducer } = this.props;
+    let allChanges: Object;
     this.setState(
       (state) => {
         const actualState = this.getState(state);
         const changesObject =
           typeof changes === "function" ? changes(actualState) : changes;
-        allChanges = this.props.stateReducer(actualState, changesObject);
+        if (stateReducer) {
+          allChanges = stateReducer(actualState, changesObject);
+        }
         return allChanges;
       },
       () => {
-        this.props.onStateChange(allChanges);
+        if (onStateChange) {
+          onStateChange(allChanges);
+        }
         callback();
       }
     );
   }
-  handleItemClick = (index) => {
-    this.internalSetState((state) => {
+
+  handleItemClick = (index: number) => {
+    this.internalSetState((state: State) => {
       const closing = state.openIndexes.includes(index);
       return {
         type: closing ? "closing" : "opening",
@@ -41,6 +64,7 @@ class BaseAccordion extends React.Component {
       };
     });
   };
+
   render() {
     return this.props.children({
       openIndexes: this.getState().openIndexes,
@@ -49,4 +73,4 @@ class BaseAccordion extends React.Component {
   }
 }
 
-export { BaseAccordion };
+export default BaseAccordion;
