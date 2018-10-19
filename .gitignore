@@ -21,3 +21,4 @@ package-lock.json
 
 # programmatically generated files
 demo/public/docs/*
+demo/node_modules/*

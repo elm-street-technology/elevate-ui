@@ -1,0 +1,47 @@
+{
+  "description": "",
+  "displayName": "Accordion",
+  "methods": [],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "items": {
+      "flowType": {
+        "name": "Array",
+        "elements": [
+          {
+            "name": "signature",
+            "type": "object",
+            "raw": "{\n  title: string,\n  contents: any,\n}",
+            "signature": {
+              "properties": [
+                {
+                  "key": "title",
+                  "value": {
+                    "name": "string",
+                    "required": true
+                  }
+                },
+                {
+                  "key": "contents",
+                  "value": {
+                    "name": "any",
+                    "required": true
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "raw": "Array<{\n  title: string,\n  contents: any,\n}>"
+      },
+      "required": true,
+      "description": ""
+    }
+  }
+}
