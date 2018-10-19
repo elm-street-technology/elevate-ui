@@ -29,7 +29,7 @@ type Props = {
   /**
    * Icon alignment inside of the button component. Can be "left" or "right"
    */
-  iconAlign?: string,
+  iconAlign?: "left" | "right",
   /**
    * Inner className to be applied to the children of the component.
    */
@@ -178,8 +178,9 @@ function getBorderColor(theme, props) {
  */
 class Button extends Component<Props, State> {
   static defaultProps = {
-    element: "button",
     color: "primary",
+    element: "button",
+    iconAlign: "left",
     isOutlined: false,
   };
 
@@ -252,12 +253,16 @@ class Button extends Component<Props, State> {
       >
         <div className={classes.innerContainer}>
           <div className={classNames(classes.children, innerClassName)}>
-            {icon && iconAlign !== "right" ? (
-              <div className={classes.icon}>{icon}</div>
+            {icon && iconAlign === "left" ? (
+              <div className={classNames(classes.icon, classes.iconLeft)}>
+                {icon}
+              </div>
             ) : null}
             {children}
             {icon && iconAlign === "right" ? (
-              <div className={classes.icon}>{icon}</div>
+              <div className={classNames(classes.icon, classes.iconRight)}>
+                {icon}
+              </div>
             ) : null}
           </div>
           <span
@@ -307,7 +312,7 @@ const styles = (theme) => ({
     lineHeight: "20px",
     fontWeight: "600",
     textDecoration: "inherit",
-    padding: "10px 16px",
+    padding: (props) => (props.icon ? "8px 16px" : "10px 16px"),
     zIndex: "1",
   },
   icon: {
@@ -315,8 +320,15 @@ const styles = (theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginRight: "4px",
     pointerEvents: "none",
+  },
+  iconLeft: {
+    marginLeft: "-4px",
+    marginRight: "6px",
+  },
+  iconRight: {
+    marginLeft: "6px",
+    marginRight: "-4px",
   },
   ripple: {
     display: "block",

@@ -75,10 +75,25 @@
     },
     "iconAlign": {
       "flowType": {
-        "name": "string"
+        "name": "union",
+        "raw": "\"left\" | \"right\"",
+        "elements": [
+          {
+            "name": "literal",
+            "value": "\"left\""
+          },
+          {
+            "name": "literal",
+            "value": "\"right\""
+          }
+        ]
       },
       "required": false,
-      "description": "Icon alignment inside of the button component. Can be \"left\" or \"right\""
+      "description": "Icon alignment inside of the button component. Can be \"left\" or \"right\"",
+      "defaultValue": {
+        "value": "\"left\"",
+        "computed": false
+      }
     },
     "innerClassName": {
       "flowType": {
