@@ -111,35 +111,48 @@ const items = [
 
 const AccordionExample = () => (
   <Paper>
-    <Typography type="title">{`<Accordion />`}</Typography>
-    <Typography type="body">Default</Typography>
+    <Typography type="heading3" gutterBottom>
+      Default Accordion
+    </Typography>
     <Accordion
       items={items}
-      style={{ marginTop: "24px", marginBottom: "24px" }}
+      style={{ marginTop: "16px", marginBottom: "32px" }}
     />
 
-    <Typography type="title">{`<Accordion stateReducer={singleOpen} />`}</Typography>
-    <Typography type="body">Only 1 can open at a time.</Typography>
+    <Typography type="heading3" gutterTop gutterBottom>
+      State Reducer: singleOpen
+    </Typography>
+    <Typography type="body" gutterBottom>
+      Only allows one accordion panel to be open at a time.
+    </Typography>
     <Accordion
       items={items}
       stateReducer={singleOpen}
-      style={{ marginTop: "24px", marginBottom: "24px" }}
+      style={{ marginTop: "16px", marginBottom: "32px" }}
     />
 
-    <Typography type="title">{`<Accordion stateReducer={preventClose} />`}</Typography>
-    <Typography type="body">Don't allow all to be closed.</Typography>
+    <Typography type="heading3" gutterTop gutterBottom>
+      State Reducer: preventClose
+    </Typography>
+    <Typography type="body" gutterBottom>
+      Requires at least one accordion panel to be open.
+    </Typography>
     <Accordion
       items={items}
       stateReducer={preventClose}
-      style={{ marginTop: "24px", marginBottom: "24px" }}
+      style={{ marginTop: "16px", marginBottom: "32px" }}
     />
 
-    <Typography type="title">{`<Accordion stateReducer={combineReducers(singleOpen, preventClose)} />`}</Typography>
-    <Typography type="body">Combo.</Typography>
+    <Typography type="heading3" gutterTop gutterBottom>
+      State Reducer: combineReducers
+    </Typography>
+    <Typography type="body" gutterBottom>
+      Combination of the singleOpen and preventClose reducers.
+    </Typography>
     <Accordion
       items={items}
       stateReducer={combineReducers(singleOpen, preventClose)}
-      style={{ marginTop: "24px", marginBottom: "24px" }}
+      style={{ marginTop: "16px" }}
     />
   </Paper>
 );
