@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
 import { Link } from "react-router-dom";
-import Person from "elevate-ui-icons/Person";
+import Menu from "elevate-ui-icons/Menu";
 
 const Sidebar = ({ classes, className, toggleMenu }) => {
   return (
@@ -62,7 +62,7 @@ const Sidebar = ({ classes, className, toggleMenu }) => {
         </svg>
       </Link>
       <button className={classes.menu} onClick={toggleMenu}>
-        <Person />
+        <Menu />
       </button>
     </div>
   );
