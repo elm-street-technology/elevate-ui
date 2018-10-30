@@ -9,7 +9,6 @@ type Props = {
   className: string,
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
-  options: Array<{ label: string, value: string }>,
   /**
    * Text input for the label of the checkbox.
    */

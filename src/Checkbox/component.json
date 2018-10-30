@@ -44,39 +44,6 @@
       "required": true,
       "description": ""
     },
-    "options": {
-      "flowType": {
-        "name": "Array",
-        "elements": [
-          {
-            "name": "signature",
-            "type": "object",
-            "raw": "{ label: string, value: string }",
-            "signature": {
-              "properties": [
-                {
-                  "key": "label",
-                  "value": {
-                    "name": "string",
-                    "required": true
-                  }
-                },
-                {
-                  "key": "value",
-                  "value": {
-                    "name": "string",
-                    "required": true
-                  }
-                }
-              ]
-            }
-          }
-        ],
-        "raw": "Array<{ label: string, value: string }>"
-      },
-      "required": true,
-      "description": ""
-    },
     "label": {
       "flowType": {
         "name": "string"
