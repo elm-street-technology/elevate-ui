@@ -66,7 +66,7 @@
       "required": true,
       "description": ""
     },
-    "options": {
+    "items": {
       "flowType": {
         "name": "Array",
         "elements": [

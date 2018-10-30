@@ -14,7 +14,7 @@ type Props = {
   display: "inline" | "block",
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
-  options: Array<{ label: string, value: string, disabled: boolean }>,
+  items: Array<{ label: string, value: string, disabled: boolean }>,
   /**
    * Text input to be used as the label for the checkbox group.
    */
@@ -28,7 +28,7 @@ type Props = {
 class CheckboxGroup extends Component<Props> {
   static defaultProps = {
     display: "block",
-    options: [],
+    items: [],
   };
 
   onChange = (e) => {
@@ -55,7 +55,7 @@ class CheckboxGroup extends Component<Props> {
   render() {
     const {
       label,
-      options,
+      items,
       classes,
       display,
       field: { name, value },
@@ -69,16 +69,16 @@ class CheckboxGroup extends Component<Props> {
             display === "inline" && classes.inline
           )}
         >
-          {options.map((option) =>
+          {items.map((item) =>
             React.cloneElement(<UncontrolledCheckbox />, {
-              key: option.value,
+              key: item.value,
               name,
-              id: option.value,
-              label: option.label,
-              checked: value.indexOf(option.value) !== -1,
-              value: option.value,
+              id: item.value,
+              label: item.label,
+              checked: value.indexOf(item.value) !== -1,
+              value: item.value,
               onChange: this.onChange,
-              disabled: option.disabled || false,
+              disabled: item.disabled || false,
             })
           )}
         </div>

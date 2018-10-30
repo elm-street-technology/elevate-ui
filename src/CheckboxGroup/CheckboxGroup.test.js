@@ -14,7 +14,7 @@ test("renders without crashing, matches the snapshot", () => {
   const component = renderer.create(
     <WrappedCheckboxGroup
       id="test-checkbox"
-      options={[
+      items={[
         { label: "First", value: "first" },
         { label: "Second", value: "second" },
       ]}

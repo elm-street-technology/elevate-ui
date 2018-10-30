@@ -30,7 +30,7 @@ const CheckboxGroups = () => (
             name="colors"
             label="Colors"
             component={CheckboxGroup}
-            options={[
+            items={[
               { value: "red", label: "Red" },
               { value: "green", label: "Green" },
               { value: "blue", label: "Blue" },

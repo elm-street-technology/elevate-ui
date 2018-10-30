@@ -16,7 +16,7 @@ type Props = {
   display: "inline" | "block",
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
-  options: Array<{ label: string, value: string, disabled: boolean }>,
+  items: Array<{ label: string, value: string, disabled: boolean }>,
   /**
    * Label text to be passed down to the component.
    */
@@ -30,7 +30,7 @@ type Props = {
 class RadioGroup extends Component<Props> {
   static defaultProps = {
     display: "block",
-    options: [],
+    items: [],
   };
 
   onChange = (e) => {
@@ -48,7 +48,7 @@ class RadioGroup extends Component<Props> {
   render() {
     const {
       label,
-      options,
+      items,
       classes,
       display,
       field: { name, value },
@@ -62,16 +62,16 @@ class RadioGroup extends Component<Props> {
             display === "inline" && classes.inline
           )}
         >
-          {options.map((option) =>
+          {items.map((item) =>
             React.cloneElement(<Radio />, {
-              key: option.value,
+              key: item.value,
               name,
-              id: option.value,
-              label: option.label,
-              checked: value === option.value,
-              value: option.value,
+              id: item.value,
+              label: item.label,
+              checked: value === item.value,
+              value: item.value,
               onChange: this.onChange,
-              disabled: option.disabled || false,
+              disabled: item.disabled || false,
             })
           )}
         </div>

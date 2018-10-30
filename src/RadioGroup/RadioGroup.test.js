@@ -17,7 +17,7 @@ test("renders without crashing, matches the snapshot", () => {
       id="test-radio"
       value={""}
       onChange={sinon.spy()}
-      options={[
+      items={[
         { label: "First", value: "first" },
         { label: "Second", value: "second" },
       ]}
