@@ -28,7 +28,7 @@ const RadioGroups = () => (
             name="color"
             label="Color"
             component={RadioGroup}
-            options={[
+            items={[
               { value: "red", label: "Red" },
               { value: "green", label: "Green" },
               { value: "blue", label: "Blue" },
