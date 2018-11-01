@@ -53,6 +53,36 @@ type State = {
 };
 
 const itemToString = (item) => (item ? item.label : "");
+const getSelectedItems = (props) => {
+  const {
+    field: { value },
+    items,
+  } = props;
+
+  let selectedItems = [];
+
+  // Sometimes, we might have some this.props.field.values that aren't
+  // part of the this.props.items collection that gets passed in. We'll want
+  // to add these so we have access to them in this.state.selectedItems
+  // (they won't show up in the dropdown items but they'll show as selected)
+  if (value && value.length > 0) {
+    value.forEach((singleValue) => {
+      const existingItem = items.find(
+        (item) => singleValue.indexOf(item.value) > -1
+      );
+      if (existingItem) {
+        selectedItems.push(existingItem);
+      } else {
+        selectedItems.push({
+          label: singleValue,
+          value: singleValue,
+        });
+      }
+    });
+  }
+
+  return selectedItems;
+};
 
 /**
  * A component that renders a <MultiSelect /> to be used inside forms.
@@ -61,37 +91,24 @@ class MultiSelect extends Component<Props, State> {
   constructor(props) {
     super(props);
 
-    const {
-      field: { value },
-      items,
-    } = props;
-
-    let selectedItems = [];
-
-    // Sometimes, we might have some this.props.field.values that aren't
-    // part of the this.props.items collection that gets passed in. We'll want
-    // to add these so we have access to them in this.state.selectedItems
-    // (they won't show up in the dropdown items but they'll show as selected)
-    if (value && value.length > 0) {
-      value.forEach((singleValue) => {
-        const existingItem = items.find(
-          (item) => singleValue.indexOf(item.value) > -1
-        );
-        if (existingItem) {
-          selectedItems.push(existingItem);
-        } else {
-          selectedItems.push({
-            label: singleValue,
-            value: singleValue,
-          });
-        }
-      });
-    }
-
     this.state = {
       inputValue: "",
-      selectedItems,
+      selectedItems: getSelectedItems(props),
     };
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if (
+      props.field &&
+      props.field.value &&
+      props.field.value.length !== state.selectedItems.length
+    ) {
+      return {
+        inputValue: "",
+        selectedItems: getSelectedItems(props),
+      };
+    }
+    return null;
   }
 
   _input;
