@@ -3,7 +3,7 @@ import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import Hr from "elevate-ui/Hr";
 
-const HrExample = (props) => (
+const HrExample = () => (
   <Paper>
     <Typography type="title">Default</Typography>
     <Hr />
@@ -13,8 +13,10 @@ const HrExample = (props) => (
     <Hr color="#000" />
     <Typography type="title">Thickness</Typography>
     <Hr thickness="3px" />
-    <Typography type="title">Style Override (margins)</Typography>
-    <Hr style={{ marginTop: "48px", marginBottom: "48px" }} />
+    <Typography type="title">With Gutters</Typography>
+    <Hr gutterTop gutterBottom />
+    <Typography type="title">Style Override</Typography>
+    <Hr style={{ borderTop: `1px solid red` }} thickness="4px" />
   </Paper>
 );
 

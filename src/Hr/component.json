@@ -10,19 +10,40 @@
       "required": true,
       "description": "Accepts any classNames to be passed to the component."
     },
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
     "color": {
       "flowType": {
         "name": "string"
       },
-      "required": true,
+      "required": false,
       "description": "Color to be applied to the Hr component. Can be \"primary\", \"secondary\", or any custom value."
+    },
+    "gutterBottom": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "Adds default margin bottom"
+    },
+    "gutterTop": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "Adds default margin top"
     },
     "style": {
       "flowType": {
         "name": "Object"
       },
       "required": true,
-      "description": "Style object with any applicable overrides (common overrides are marginTop/marginBottom)"
+      "description": "Style object with any applicable overrides"
     },
     "theme": {
       "flowType": {
@@ -44,7 +65,7 @@
           }
         ]
       },
-      "required": true,
+      "required": false,
       "description": "Height/thickness of the Hr component."
     }
   }
