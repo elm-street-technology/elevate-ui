@@ -165,6 +165,7 @@ class Select extends Component<Props, State> {
           isOpen,
           highlightedIndex,
           openMenu,
+          closeMenu,
           selectedItem,
         }) => {
           const Input = (
@@ -178,7 +179,7 @@ class Select extends Component<Props, State> {
                 {...getInputProps({
                   ref: this.inputRef,
                   onChange: this.onInputChange,
-                  onFocus: openMenu,
+                  onFocus: !isOpen ? openMenu : closeMenu,
                   value: !isOpen ? selectedItem.label : inputValue,
                 })}
                 onBlur={(selection) => setFieldTouched(name, selection)}
