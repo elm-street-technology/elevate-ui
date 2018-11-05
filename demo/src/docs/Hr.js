@@ -13,8 +13,8 @@ const HrExample = () => (
     <Hr color="#000" />
     <Typography type="title">Thickness</Typography>
     <Hr thickness="3px" />
-    <Typography type="title">With Gutters</Typography>
-    <Hr gutterTop gutterBottom />
+    <Typography type="title">Without Gutters</Typography>
+    <Hr gutterTop={false} gutterBottom={false} />
     <Typography type="title">Style Override</Typography>
     <Hr style={{ borderTop: `1px solid red` }} thickness="4px" />
   </Paper>
