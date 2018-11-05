@@ -29,14 +29,22 @@
         "name": "boolean"
       },
       "required": false,
-      "description": "Adds default margin bottom"
+      "description": "Adds default margin bottom",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
     },
     "gutterTop": {
       "flowType": {
         "name": "boolean"
       },
       "required": false,
-      "description": "Adds default margin top"
+      "description": "Adds default margin top",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
     },
     "style": {
       "flowType": {

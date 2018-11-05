@@ -16,11 +16,11 @@ type Props = {
   /**
    * Adds default margin bottom
    */
-  gutterBottom?: boolean,
+  gutterBottom: boolean,
   /**
    * Adds default margin top
    */
-  gutterTop?: boolean,
+  gutterTop: boolean,
   /**
    * Style object with any applicable overrides
    */
@@ -39,6 +39,10 @@ type Props = {
  * A component used to render a styled hr.
  */
 class Hr extends Component<Props> {
+  static defaultProps = {
+    gutterTop: true,
+    gutterBottom: true,
+  };
   render() {
     const { classes, className, style, ...rest } = this.props;
 
