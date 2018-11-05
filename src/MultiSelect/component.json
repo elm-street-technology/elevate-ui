@@ -3,6 +3,24 @@
   "displayName": "MultiSelect",
   "methods": [
     {
+      "name": "getDerivedStateFromProps",
+      "docblock": null,
+      "modifiers": [
+        "static"
+      ],
+      "params": [
+        {
+          "name": "props",
+          "type": null
+        },
+        {
+          "name": "state",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
       "name": "stateReducer",
       "docblock": null,
       "modifiers": [],
