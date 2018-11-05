@@ -319,6 +319,7 @@ class MultiSelect extends Component<Props, State> {
           isOpen,
           highlightedIndex,
           openMenu,
+          closeMenu,
         }) => {
           const Input = (
             <div
@@ -340,7 +341,7 @@ class MultiSelect extends Component<Props, State> {
                     ref: this.inputRef,
                     inputClassName: classes.root,
                     onChange: this.onInputChange,
-                    onFocus: openMenu,
+                    onFocus: !isOpen ? openMenu : closeMenu,
                     onKeyDown: this.onInputKeyDown,
                     value: this.state.inputValue,
                   })}
