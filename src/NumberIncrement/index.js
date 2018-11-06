@@ -3,6 +3,7 @@ import withStyles from "react-jss";
 import classNames from "classnames";
 import Remove from "elevate-ui-icons/Remove";
 import Add from "elevate-ui-icons/Add";
+import get from "lodash/get";
 
 import Scaffold from "../Scaffold";
 
@@ -86,7 +87,7 @@ class NumberIncrement extends Component<Props> {
         <Scaffold
           id={id}
           label={label}
-          error={touched[field.name] && errors[field.name]}
+          error={get(touched, field.name) && get(errors, field.name)}
         >
           {NumberInput}
         </Scaffold>

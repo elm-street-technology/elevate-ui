@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import withStyles from "react-jss";
+import get from "lodash/get";
 
 import Scaffold from "../Scaffold";
 
@@ -43,7 +44,7 @@ const Textarea = ({
     <Scaffold
       id={id}
       label={label}
-      error={touched[field.name] && errors[field.name]}
+      error={get(touched, field.name) && get(errors, field.name)}
     >
       <textarea
         id={id}
