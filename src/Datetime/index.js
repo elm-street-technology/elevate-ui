@@ -3,6 +3,7 @@ import React from "react";
 import withStyles from "react-jss";
 import classNames from "classnames";
 import ReactDatetime from "react-datetime";
+import get from "lodash/get";
 
 import Scaffold from "../Scaffold";
 
@@ -38,7 +39,11 @@ const Datetime = ({
   ...rest
 }: Props) =>
   withScaffold ? (
-    <Scaffold id={id} label={label} error={touched[name] && errors[name]}>
+    <Scaffold
+      id={id}
+      label={label}
+      error={get(touched, name) && get(errors, name)}
+    >
       <ReactDatetime
         className={classes.rdt}
         inputProps={{

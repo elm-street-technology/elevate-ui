@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import withStyles from "react-jss";
 import classNames from "classnames";
+import get from "lodash/get";
+
 import Scaffold from "../Scaffold";
 import without from "lodash/without";
 import Color from "color";
@@ -101,7 +103,7 @@ class ButtonGroup extends Component<Props> {
     } = this.props;
 
     return (
-      <Scaffold label={label} error={touched[name] && errors[name]}>
+      <Scaffold label={label} error={get(touched, name) && get(errors, name)}>
         <div className={classNames(classes.toggles, classes.inline)}>
           {items.map((item) => {
             const input = item.value;

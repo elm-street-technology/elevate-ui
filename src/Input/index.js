@@ -1,6 +1,7 @@
 import React from "react";
 import withStyles from "react-jss";
 import classNames from "classnames";
+import get from "lodash/get";
 
 import Scaffold from "../Scaffold";
 
@@ -48,7 +49,7 @@ const Input = ({
     <Scaffold
       id={id}
       label={label}
-      error={touched[field.name] && errors[field.name]}
+      error={get(touched, field.name) && get(errors, field.name)}
     >
       <input
         type={type}

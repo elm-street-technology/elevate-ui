@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import withStyles from "react-jss";
 import classNames from "classnames";
 import Downshift from "downshift";
+import get from "lodash/get";
 
 import Scaffold from "../Scaffold";
 
@@ -221,7 +222,10 @@ class Select extends Component<Props, State> {
 
           return withScaffold ? (
             <div>
-              <Scaffold label={label} error={touched[name] && errors[name]}>
+              <Scaffold
+                label={label}
+                error={get(touched, name) && get(errors, name)}
+              >
                 {Input}
                 {isOpen && Dropdown}
               </Scaffold>

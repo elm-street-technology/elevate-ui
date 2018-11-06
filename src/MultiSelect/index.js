@@ -4,6 +4,7 @@ import withStyles from "react-jss";
 import classNames from "classnames";
 import Downshift from "downshift";
 import AutosizeInput from "react-input-autosize";
+import get from "lodash/get";
 
 import Scaffold from "../Scaffold";
 import Tag from "./Tag";
@@ -388,7 +389,10 @@ class MultiSelect extends Component<Props, State> {
 
           return withScaffold ? (
             <div>
-              <Scaffold label={label} error={touched[name] && errors[name]}>
+              <Scaffold
+                label={label}
+                error={get(touched, name) && get(errors, name)}
+              >
                 {Input}
                 {isOpen && Dropdown}
               </Scaffold>
