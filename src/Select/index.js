@@ -172,11 +172,11 @@ class Select extends Component<Props, State> {
           const Input = (
             <div
               ref={this.inputWrapperRef}
-              className={classNames(classes.wrapper, className)}
+              className={classNames(classes.root, className)}
               onClick={this.onWrapperClick}
             >
               <input
-                className={classes.root}
+                className={classes.input}
                 {...getInputProps({
                   ref: this.inputRef,
                   onChange: this.onInputChange,
@@ -243,7 +243,7 @@ class Select extends Component<Props, State> {
 }
 
 const styles = (theme) => ({
-  wrapper: {
+  root: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-start",
@@ -251,13 +251,11 @@ const styles = (theme) => ({
     width: "100%",
     minHeight: "40px",
     backgroundColor: theme.colors.white,
-    borderWidth: "1px",
-    borderStyle: "solid",
-    borderColor: theme.colors.gray300,
+    border: `1px solid ${theme.colors.gray300}`,
     padding: "0 12px",
     cursor: (props) => (props.disabled ? "not-allowed" : "default"),
   },
-  root: {
+  input: {
     width: "100%",
     flexGrow: "1",
     color: "inherit",
