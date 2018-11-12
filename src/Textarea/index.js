@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 import get from "lodash/get";
 
 import Scaffold from "../Scaffold";

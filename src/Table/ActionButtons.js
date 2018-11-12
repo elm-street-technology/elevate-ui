@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 
 const ActionButtons = ({ actions, classes, selection }) => (
   <div className={classes.root}>

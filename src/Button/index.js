@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 import classNames from "classnames";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 import Color from "color";
 
 type Props = {

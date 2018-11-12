@@ -1,6 +1,6 @@
 // @flow
 import React, { Component, Fragment } from "react";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 import classNames from "classnames";
 import Downshift from "downshift";
 import AutosizeInput from "react-input-autosize";

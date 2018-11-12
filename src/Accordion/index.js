@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 import ChevronRight from "elevate-ui-icons/ChevronRight";
 
 import BaseAccordion from "./BaseAccordion";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 import Button from "../Button";
 import ChevronLeft from "elevate-ui-icons/ChevronLeft";
 import ChevronRight from "elevate-ui-icons/ChevronRight";

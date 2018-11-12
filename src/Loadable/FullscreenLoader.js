@@ -1,5 +1,5 @@
 import React from "react";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 
 /* Animated SVG thanks to @sherb at http://samherbert.net/svg-loaders/ */
 const FullscreenLoader = ({

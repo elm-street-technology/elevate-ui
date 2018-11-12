@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 import { Route } from "react-router-dom";
-import withStyles from "react-jss";
+import withStyles from "elevate-ui/withStyles";
 import noScroll from "no-scroll";
 
 import Loadable from "elevate-ui/Loadable";
@@ -16,6 +16,9 @@ const Home = Loadable({ loader: () => import("../docs/Home") });
 const SignupForm = Loadable({ loader: () => import("../docs/SignupForm") });
 const QueryForm = Loadable({ loader: () => import("../docs/QueryForm") });
 const Theme = Loadable({ loader: () => import("../docs/Theme") });
+const ThemeOverrides = Loadable({
+  loader: () => import("../docs/ThemeOverrides"),
+});
 
 class Main extends Component {
   state = {
@@ -99,6 +102,7 @@ class Main extends Component {
             <Route path="/signup" component={SignupForm} />
             <Route path="/query-form" component={QueryForm} />
             <Route path="/theme" component={Theme} />
+            <Route path="/theme-overrides" component={ThemeOverrides} />
             <Route
               path="/accordion"
               render={() => <Doc folder="Accordion" />}
@@ -145,7 +149,7 @@ export default withStyles((theme) => ({
     flex: "1",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     alignItems: "center",
     alignSelf: "stretch",
     width: "100%",

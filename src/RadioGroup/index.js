@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 import classNames from "classnames";
 import Radio from "./Radio";
 import Label from "../Label";

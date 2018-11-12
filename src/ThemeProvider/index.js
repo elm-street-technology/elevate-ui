@@ -1,5 +1,5 @@
 import React from "react";
-import withStyles, { ThemeProvider as JSSThemeProvider } from "react-jss";
+import injectSheet, { ThemeProvider as JSSThemeProvider } from "react-jss";
 import merge from "lodash/merge";
 
 const colors = {
@@ -100,7 +100,7 @@ const defaultTheme = {
   typography,
 };
 
-const GlobalsAndReset = withStyles((theme) => ({
+const GlobalsAndReset = injectSheet((theme) => ({
   "@global": {
     /* Eric Meyer Reset v2.0 */
     /* https://meyerweb.com/eric/tools/css/reset/ */

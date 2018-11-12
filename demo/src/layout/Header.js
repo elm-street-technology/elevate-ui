@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import withStyles from "react-jss";
+import withStyles from "elevate-ui/withStyles";
 import { Link } from "react-router-dom";
 import Menu from "elevate-ui-icons/Menu";
 

@@ -2,7 +2,7 @@
 // https://github.com/react-tools/react-table#js-styles
 import React, { Component } from "react";
 import classNames from "classnames";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 import ReactTable from "react-table";
 
 import FilterComponent from "./FilterComponent";
