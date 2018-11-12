@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 
 type Props = {
   children: any,

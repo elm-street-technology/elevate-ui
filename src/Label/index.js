@@ -1,5 +1,5 @@
 import React from "react";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 import classNames from "classnames";
 
 const Label = ({ classes, className, children, theme, ...rest }) => {

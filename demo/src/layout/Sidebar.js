@@ -1,5 +1,5 @@
 import React from "react";
-import withStyles from "react-jss";
+import withStyles from "elevate-ui/withStyles";
 import { Link, NavLink } from "react-router-dom";
 
 const Sidebar = ({ classes }) => {
@@ -148,6 +148,13 @@ const Sidebar = ({ classes }) => {
           to="/theme"
         >
           Theme
+        </NavLink>
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/theme-overrides"
+        >
+          Theme Overrides
         </NavLink>
 
         <NavLink

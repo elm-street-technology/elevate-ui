@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import withStyles from "react-jss";
+import withStyles from "elevate-ui/withStyles";
 
 import LiveExample from "./LiveExample";
 import Paper from "elevate-ui/Paper";

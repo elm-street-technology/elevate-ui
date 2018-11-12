@@ -8,11 +8,7 @@ import Main from "./layout/Main";
 
 render(
   <ThemeProvider>
-    <Router
-      basename={
-        window.location.href.includes("github.io") ? "/elevate-ui" : "/"
-      }
-    >
+    <Router>
       <Main />
     </Router>
   </ThemeProvider>,

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import withStyles from "react-jss";
+import withStyles from "elevate-ui/withStyles";
 
 import Typography from "elevate-ui/Typography";
 import Paper from "elevate-ui/Paper";
@@ -73,7 +73,7 @@ class LiveExample extends Component<Props, State> {
   }
 }
 
-export default withStyles((theme) => ({
+export default withStyles(() => ({
   root: {
     display: "flex",
     position: "relative",

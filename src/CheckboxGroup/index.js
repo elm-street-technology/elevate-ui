@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 import classNames from "classnames";
 import UncontrolledCheckbox from "../Checkbox/UncontrolledCheckbox";
 import Label from "../Label";

@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import withStyles from "react-jss";
+import withStyles from "../withStyles";
 import classNames from "classnames";
 import Downshift from "downshift";
 import get from "lodash/get";
@@ -251,7 +251,9 @@ const styles = (theme) => ({
     width: "100%",
     minHeight: "40px",
     backgroundColor: theme.colors.white,
-    border: `1px solid ${theme.colors.gray300}`,
+    borderWidth: "1px",
+    borderStyle: "solid",
+    borderColor: theme.colors.gray300,
     padding: "0 12px",
     cursor: (props) => (props.disabled ? "not-allowed" : "default"),
   },
