@@ -44,7 +44,7 @@ class Hr extends Component<Props> {
     gutterBottom: true,
   };
   render() {
-    const { classes, className, style, ...rest } = this.props;
+    const { classes, className, style, theme, ...rest } = this.props;
 
     return (
       <div
