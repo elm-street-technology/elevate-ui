@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import withStyles from "../withStyles";
 
 type Props = {
+  classes: Object,
   /**
    * Accepts any classNames to be passed to the component.
    */
@@ -30,7 +31,7 @@ type Props = {
  */
 class Hr extends Component<Props> {
   render() {
-    const { color, style, theme, thickness, ...rest } = this.props;
+    const { color, style, theme, thickness, classes, ...rest } = this.props;
 
     return (
       <div
@@ -49,6 +50,7 @@ class Hr extends Component<Props> {
   }
 }
 
+// Used for theme.primary and other string-color representations
 const styles = () => {};
 
 export default withStyles(styles, { name: "EuiHr" })(Hr);
