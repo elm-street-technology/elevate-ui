@@ -325,7 +325,7 @@ class MultiSelect extends Component<Props, State> {
           const Input = (
             <div
               ref={this.inputWrapperRef}
-              className={classNames(classes.wrapper, className)}
+              className={classNames(classes.root, className)}
               onClick={this.onWrapperClick}
             >
               <div className={classes.tagWrapper}>
@@ -340,7 +340,7 @@ class MultiSelect extends Component<Props, State> {
                 <AutosizeInput
                   {...getInputProps({
                     ref: this.inputRef,
-                    inputClassName: classes.root,
+                    inputClassName: classes.input,
                     onChange: this.onInputChange,
                     onFocus: !isOpen ? openMenu : closeMenu,
                     onKeyDown: this.onInputKeyDown,
@@ -410,10 +410,8 @@ class MultiSelect extends Component<Props, State> {
 }
 
 const styles = (theme) => ({
-  wrapper: {
+  root: {
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
     alignItems: "center",
     width: "100%",
     minHeight: "40px",
@@ -424,12 +422,10 @@ const styles = (theme) => ({
   },
   tagWrapper: {
     display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "flex-start",
     alignItems: "center",
+    overflowX: "auto",
   },
-  root: {
+  input: {
     color: "inherit",
     fontFamily: "inherit",
     fontWeight: "400",
