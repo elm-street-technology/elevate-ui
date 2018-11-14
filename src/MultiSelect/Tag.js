@@ -48,6 +48,7 @@ const styles = (theme) => ({
     fontSize: "16px",
     lineHeight: "24px",
     color: "inherit",
+    whiteSpace: "nowrap",
     padding: "2px 2px 2px 8px",
   },
   button: {
