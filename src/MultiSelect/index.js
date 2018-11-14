@@ -414,7 +414,7 @@ const styles = (theme) => ({
     display: "flex",
     alignItems: "center",
     width: "100%",
-    height: "40px",
+    minHeight: "40px",
     backgroundColor: theme.colors.white,
     border: `1px solid ${theme.colors.gray300}`,
     padding: "2px 12px 2px 8px",
