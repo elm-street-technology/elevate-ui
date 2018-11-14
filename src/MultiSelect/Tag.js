@@ -40,23 +40,23 @@ const styles = (theme) => ({
   root: {
     display: "flex",
     alignItems: "center",
-    border: `1px solid ${theme.colors.secondary}`,
+    border: `1px solid ${theme.colors.gray900}`,
     borderRadius: theme.globalBorderRadius,
     margin: "2px",
   },
   text: {
     fontSize: "16px",
     lineHeight: "24px",
-    fontWeight: "600",
-    color: theme.colors.secondary,
+    color: "inherit",
     padding: "2px 2px 2px 8px",
   },
   button: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    color: theme.colors.secondary,
+    color: "inherit",
     padding: "2px",
+    margin: "2px",
   },
 });
 
