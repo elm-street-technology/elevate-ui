@@ -43,17 +43,12 @@ class Hr extends Component<Props> {
     gutterTop: true,
     gutterBottom: true,
   };
+
   render() {
-    const { classes, className, style, ...rest } = this.props;
+    const { classes, className, style } = this.props;
 
     return (
-      <div
-        className={classNames(classes.root, className)}
-        {...rest}
-        style={{
-          ...style,
-        }}
-      />
+      <div className={classNames(classes.root, className)} style={style} />
     );
   }
 }
@@ -65,8 +60,8 @@ const styles = (theme) => ({
     height: (props) => props.thickness || "1px",
     backgroundColor: (props) =>
       theme.colors[props.color] || props.color || theme.colors.gray300,
-    marginTop: (props) => (props.gutterTop ? "1em" : 0),
-    marginBottom: (props) => (props.gutterBottom ? "1em" : 0),
+    marginTop: (props) => (props.gutterTop ? "16px" : 0),
+    marginBottom: (props) => (props.gutterBottom ? "16px" : 0),
   },
 });
 
