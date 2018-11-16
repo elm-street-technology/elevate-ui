@@ -54,123 +54,152 @@ type State = {
 };
 
 function getChildColor(theme, props) {
-  if (props.disabled) {
-    return theme.colors["gray300"];
-  } else if (props.isOutlined) {
-    if (props.color !== "primary" && props.color !== "secondary") {
+  try {
+    Color(props.color); // if string resolves to color
+    if (props.isOutlined) {
       return Color(props.color)
-        .darken(0.25) // darken the outlined button text a bit to give us better contrast
+        .darken(0.25)
         .string();
     } else {
+      if (Color(props.color).isDark()) {
+        return theme.colors.white;
+      } else {
+        return theme.colors.black;
+      }
+    }
+  } catch (error) {
+    if (props.isOutlined) {
       return Color(theme.colors[props.color])
         .darken(0.25) // darken the outlined button text a bit to give us better contrast
         .string();
+    } else if (props.disabled) {
+      return theme.colors["gray300"];
+    } else if (props.isOutlined) {
+      if (props.color !== "primary" && props.color !== "secondary") {
+        return Color(props.color)
+          .darken(0.25) // darken the outlined button text a bit to give us better contrast
+          .string();
+      } else {
+        return Color(theme.colors[props.color])
+          .darken(0.25) // darken the outlined button text a bit to give us better contrast
+          .string();
+      }
+    } else {
+      return theme.colors.white;
     }
-  } else {
-    return theme.colors.white;
   }
 }
 
 function getBackgroundColor(theme, props) {
-  if (props.isOutlined) {
-    return "transparent";
-  } else if (props.disabled) {
-    return theme.colors["gray100"];
-  } else if (props.color !== "primary" && props.color !== "secondary") {
+  try {
+    Color(props.color);
+
+    if (props.isOutlined) {
+      return "transparent";
+    }
+
     return props.color;
-  } else {
-    return theme.colors[props.color];
+  } catch (error) {
+    if (props.isOutlined) {
+      return "transparent";
+    } else if (props.disabled) {
+      return theme.colors["gray100"];
+    } else if (theme.colors[props.color]) {
+      return theme.colors[props.color];
+    } else {
+      return theme.colors.black;
+    }
   }
 }
 
 function getHoverColor(theme, props) {
-  if (props.disabled && props.isOutlined) {
-    // if disabled and outlined
-    return "transparent";
-  } else if (props.disabled) {
-    // if disabled
-    return theme.colors["gray100"];
-  } else if (
-    // if outlined and not primary or secondary color
-    props.isOutlined &&
-    props.color !== "primary" &&
-    props.color !== "secondary"
-  ) {
+  try {
+    Color(props.color);
     // if the background is too dark fade it instead of lighten
     if (Color(props.color).isDark()) {
       return Color(props.color)
         .fade(0.75)
         .string();
-    }
-    return Color(props.color)
-      .lighten(0.55)
-      .string();
-  } else if (
-    // if not outlined and not primary or secondary color
-    !props.isOutlined &&
-    props.color !== "primary" &&
-    props.color !== "secondary"
-  ) {
-    return Color(props.color)
-      .darken(0.1)
-      .string();
-  } else if (props.isOutlined) {
-    // if is outlined and using primary or secondary
-    // if the background is too dark fade it instead of lighten
-    if (Color(theme.colors[props.color]).isDark()) {
-      return Color(theme.colors[props.color])
-        .fade(0.75)
+    } else {
+      return Color(props.color)
+        .lighten(0.55)
         .string();
     }
-    return Color(theme.colors[props.color])
-      .lighten(0.52)
-      .string();
-  } else {
-    // anything else
-    // if the background is too dark fade it instead of lighten
-    if (Color(theme.colors[props.color]).isDark()) {
+  } catch (error) {
+    if (props.disabled && props.isOutlined) {
+      // if disabled and outlined
+      return "transparent";
+    } else if (props.disabled) {
+      // if disabled
+      return theme.colors["gray100"];
+    } else if (props.isOutlined) {
+      // if is outlined and using primary or secondary
+      // if the background is too dark fade it instead of lighten
+      if (Color(theme.colors[props.color]).isDark()) {
+        return Color(theme.colors[props.color])
+          .fade(0.75)
+          .string();
+      }
       return Color(theme.colors[props.color])
-        .fade(0.75)
+        .lighten(0.52)
+        .string();
+    } else {
+      // anything else
+      // if the background is too dark fade it instead of lighten
+      if (Color(theme.colors[props.color]).isDark()) {
+        return Color(theme.colors[props.color])
+          .fade(0.75)
+          .string();
+      }
+      return Color(theme.colors[props.color])
+        .darken(0.1)
         .string();
     }
-    return Color(theme.colors[props.color])
-      .darken(0.1)
-      .string();
   }
 }
 
 function getRippleColor(theme, props) {
-  if (
-    props.isOutlined &&
-    props.color !== "primary" &&
-    props.color !== "secondary"
-  ) {
-    return Color(props.color)
-      .lighten(0.45)
-      .string();
-  } else if (
-    !props.isOutlined &&
-    props.color !== "primary" &&
-    props.color !== "secondary"
-  ) {
-    return props.color;
-  } else if (props.isOutlined) {
-    return Color(theme.colors[props.color])
-      .lighten(0.45)
-      .string();
-  } else {
-    return theme.colors[props.color];
+  try {
+    Color(props.color);
+
+    if (props.isOutlined) {
+      return Color(props.color)
+        .lighten(0.45)
+        .string();
+    } else {
+      return props.color;
+    }
+  } catch (error) {
+    if (props.isOutlined) {
+      return Color(theme.colors[props.color])
+        .lighten(0.45)
+        .string();
+    } else {
+      return theme.colors[props.color];
+    }
   }
 }
 
 function getBorderColor(theme, props) {
-  if (props.disabled) {
-    return theme.colors["gray100"];
-  } else if (props.color !== "primary" && props.color !== "secondary") {
+  try {
+    Color(props.color);
     return props.color;
-  } else {
-    return theme.colors[props.color];
+  } catch (error) {
+    if (props.disabled) {
+      return theme.colors["gray100"];
+    } else if (!props.disabled && theme.colors[props.color]) {
+      return theme.colors[props.color];
+    }
+    return theme.colors.black;
   }
+
+  // if (props.disabled) {
+  //   return theme.colors["gray100"];
+  // } else if (props.color !== "primary" && props.color !== "secondary") {
+  //   return props.color;
+  // } else {
+  //   return theme.colors[props.color];
+  // }
 }
 
 /**
