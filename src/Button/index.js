@@ -192,14 +192,6 @@ function getBorderColor(theme, props) {
     }
     return theme.colors.black;
   }
-
-  // if (props.disabled) {
-  //   return theme.colors["gray100"];
-  // } else if (props.color !== "primary" && props.color !== "secondary") {
-  //   return props.color;
-  // } else {
-  //   return theme.colors[props.color];
-  // }
 }
 
 /**
