@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from "react";
-import enhanceWithClickOutside from "react-click-outside";
 import classNames from "classnames";
 
 import Paper from "../Paper";
@@ -38,4 +37,4 @@ class ModalScaffold extends Component<$Props> {
   }
 }
 
-export default enhanceWithClickOutside(ModalScaffold);
+export default ModalScaffold;

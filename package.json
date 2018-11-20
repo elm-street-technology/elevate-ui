@@ -31,7 +31,7 @@
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "react": "^16.5.2",
-    "react-click-outside": "^3.0.1",
+    "react-aria-modal": "^3.0.1",
     "react-datetime": "^2.15.0",
     "react-input-autosize": "^2.2.1",
     "react-jss": "^8.6.1",

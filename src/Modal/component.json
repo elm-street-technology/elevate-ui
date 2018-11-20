@@ -3,6 +3,17 @@
   "displayName": "Modal",
   "methods": [],
   "props": {
+    "cancelText": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Override the 'Cancel' text in the modal's cancel button",
+      "defaultValue": {
+        "value": "\"Cancel\"",
+        "computed": false
+      }
+    },
     "className": {
       "flowType": {
         "name": "string"
@@ -24,6 +35,24 @@
       "required": true,
       "description": ""
     },
+    "confirmAction": {
+      "flowType": {
+        "name": "Function"
+      },
+      "required": true,
+      "description": "Function to be fired when the confirm button is clicked"
+    },
+    "confirmText": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Override the 'Confirm' text in the modal's confirmation button",
+      "defaultValue": {
+        "value": "\"Confirm\"",
+        "computed": false
+      }
+    },
     "icon": {
       "flowType": {
         "name": "HTMLElement"
@@ -31,27 +60,12 @@
       "required": false,
       "description": "Icon to be passed to the top section of the modal"
     },
-    "mask": {
+    "maskStyles": {
       "flowType": {
-        "name": "boolean"
+        "name": "Object"
       },
       "required": false,
-      "description": "Adds a mask behind the modal to add extra focus to the active modal",
-      "defaultValue": {
-        "value": "true",
-        "computed": false
-      }
-    },
-    "maskOpacity": {
-      "flowType": {
-        "name": "number"
-      },
-      "required": false,
-      "description": "Adjust the mask opacity value",
-      "defaultValue": {
-        "value": "0.5",
-        "computed": false
-      }
+      "description": "Adjust the mask style properties"
     },
     "style": {
       "flowType": {
@@ -64,7 +78,7 @@
       "flowType": {
         "name": "string"
       },
-      "required": false,
+      "required": true,
       "description": "Text/title of the modal"
     },
     "toggleModal": {
