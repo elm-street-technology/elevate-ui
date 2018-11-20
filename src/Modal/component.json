@@ -1,0 +1,89 @@
+{
+  "description": "A modal that opens above other page content to display important information or user actions.",
+  "displayName": "Modal",
+  "methods": [],
+  "props": {
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Accepts any classNames to be passed to the component."
+    },
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "children": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": ""
+    },
+    "icon": {
+      "flowType": {
+        "name": "HTMLElement"
+      },
+      "required": false,
+      "description": "Icon to be passed to the top section of the modal"
+    },
+    "mask": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "Adds a mask behind the modal to add extra focus to the active modal",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
+    },
+    "maskOpacity": {
+      "flowType": {
+        "name": "number"
+      },
+      "required": false,
+      "description": "Adjust the mask opacity value",
+      "defaultValue": {
+        "value": "0.5",
+        "computed": false
+      }
+    },
+    "style": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": "Style object with any applicable overrides"
+    },
+    "title": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Text/title of the modal"
+    },
+    "toggleModal": {
+      "flowType": {
+        "name": "Function"
+      },
+      "required": true,
+      "description": "Method/Function used to toggle the modal on/off"
+    },
+    "visible": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "Control visibility of the modal.",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    }
+  }
+}
