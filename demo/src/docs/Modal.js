@@ -70,7 +70,7 @@ class ModalExample extends Component {
             confirmAction={this.confirmModal}
             confirmText="Save and Finish"
             confirmIcon={<Check />}
-            icon={<AccountCircle />}
+            titleIcon={<AccountCircle />}
             maskStyles={{
               paddingTop: "60px",
               backgroundColor: "rgba(66, 125, 125, 0.75)",

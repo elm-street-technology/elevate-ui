@@ -93,7 +93,7 @@
         "computed": false
       }
     },
-    "icon": {
+    "titleIcon": {
       "flowType": {
         "name": "HTMLElement"
       },

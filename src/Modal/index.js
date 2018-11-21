@@ -39,7 +39,7 @@ type $Props = {
   /**
    * Icon to be passed to the top section of the modal
    */
-  icon?: HTMLElement,
+  titleIcon?: HTMLElement,
   /**
    * Adjust the mask style properties
    */
@@ -83,7 +83,7 @@ class Modal extends Component<$Props> {
       confirmAction,
       confirmText,
       confirmIcon,
-      icon,
+      titleIcon,
       maskStyles,
       style,
       title,
@@ -115,7 +115,7 @@ class Modal extends Component<$Props> {
           <header className={classes.header}>
             <div>
               <Typography type="heading4" className={classes.title}>
-                {icon ? icon : null}
+                {titleIcon ? titleIcon : null}
                 {title}
               </Typography>
             </div>
@@ -170,7 +170,7 @@ const styles = (theme) => ({
     margin: "0 auto",
     minWidth: "100%",
     maxWidth: "85%",
-    maxHeight: "100vh",
+    maxHeight: "90vh",
     boxShadow:
       "0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12)",
     "@media (min-width: 450px)": {
@@ -179,7 +179,7 @@ const styles = (theme) => ({
   },
   dialog: {
     position: "relative",
-    maxHeight: "100vh",
+    maxHeight: "90vh",
   },
   header: {
     flex: "0 0 auto",
