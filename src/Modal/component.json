@@ -14,12 +14,32 @@
         "computed": false
       }
     },
+    "cancelIcon": {
+      "flowType": {
+        "name": "union",
+        "raw": "HTMLElement | boolean",
+        "elements": [
+          {
+            "name": "HTMLElement"
+          },
+          {
+            "name": "boolean"
+          }
+        ]
+      },
+      "required": false,
+      "description": "Adds an icon in the modal's cancel button.",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
     "className": {
       "flowType": {
         "name": "string"
       },
       "required": true,
-      "description": "Accepts any classNames to be passed to the component."
+      "description": "Accepts any classNames to be passed to the component"
     },
     "classes": {
       "flowType": {
@@ -53,6 +73,26 @@
         "computed": false
       }
     },
+    "confirmIcon": {
+      "flowType": {
+        "name": "union",
+        "raw": "HTMLElement | boolean",
+        "elements": [
+          {
+            "name": "HTMLElement"
+          },
+          {
+            "name": "boolean"
+          }
+        ]
+      },
+      "required": false,
+      "description": "Adds an icon in the modal's Confirm button.",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
     "icon": {
       "flowType": {
         "name": "HTMLElement"
@@ -71,7 +111,7 @@
       "flowType": {
         "name": "Object"
       },
-      "required": true,
+      "required": false,
       "description": "Style object with any applicable overrides"
     },
     "title": {

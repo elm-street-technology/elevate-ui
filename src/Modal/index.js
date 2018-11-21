@@ -7,10 +7,7 @@ import AriaModal from "react-aria-modal";
 import Paper from "../Paper";
 import Typography from "../Typography";
 import Button from "../Button";
-import Cancel from "elevate-ui-icons/Cancel";
-import CheckCircle from "elevate-ui-icons/CheckCircle";
-
-// import ModalScaffold from "./ModalScaffold";
+import Close from "elevate-ui-icons/Close";
 
 type $Props = {
   /**
@@ -18,7 +15,7 @@ type $Props = {
    */
   cancelText: string,
   /**
-   * Override the 'Cancel' icon in the modal's cancel button. Use `false` to render no icon
+   * Adds an icon in the modal's cancel button.
    */
   cancelIcon?: HTMLElement | boolean,
   /**
@@ -36,7 +33,7 @@ type $Props = {
    */
   confirmText: string,
   /**
-   * Override the 'Confirm' icon in the modal's confirmation button. Use `false` to render no icon
+   * Adds an icon in the modal's Confirm button.
    */
   confirmIcon?: HTMLElement | boolean,
   /**
@@ -50,7 +47,7 @@ type $Props = {
   /**
    * Style object with any applicable overrides
    */
-  style: Object,
+  style?: Object,
   /**
    * Text/title of the modal
    */
@@ -71,9 +68,9 @@ type $Props = {
 class Modal extends Component<$Props> {
   static defaultProps = {
     cancelText: "Cancel",
-    cancelIcon: <Cancel />,
+    cancelIcon: false,
     confirmText: "Confirm",
-    confirmIcon: <CheckCircle />,
+    confirmIcon: false,
     visible: false,
   };
   render() {
@@ -86,7 +83,9 @@ class Modal extends Component<$Props> {
       confirmAction,
       confirmText,
       confirmIcon,
+      icon,
       maskStyles,
+      style,
       title,
       toggleModal,
       visible,
@@ -105,13 +104,34 @@ class Modal extends Component<$Props> {
         titleText={title}
         onExit={() => toggleModal()}
         underlayStyle={maskStyles ? maskStyles : underlayStyle}
+        dialogClass={classes.dialog}
+        focusDialog={true}
       >
         <Paper
           className={classNames(classes.root, className)}
           withPadding={false}
+          style={style}
         >
           <header className={classes.header}>
-            <Typography type="heading4">{title}</Typography>
+            <div>
+              <Typography type="heading4" className={classes.title}>
+                {icon ? icon : null}
+                {title}
+              </Typography>
+            </div>
+            <div>
+              <Button
+                className={classes.close}
+                innerClassName={classes.closeInner}
+                type="button"
+                aria-label="Close"
+                isOutlined
+                color="#000"
+                onClick={() => toggleModal()}
+              >
+                <Close />
+              </Button>
+            </div>
           </header>
           <div className={classes.body}>{children}</div>
           <footer className={classes.footer}>
@@ -119,7 +139,8 @@ class Modal extends Component<$Props> {
               type="button"
               isOutlined
               icon={cancelIcon}
-              color="#f15953"
+              color="#ccc"
+              className={classes.cancel}
               onClick={() => toggleModal()}
             >
               {cancelText}
@@ -141,32 +162,77 @@ class Modal extends Component<$Props> {
 
 const styles = (theme) => ({
   root: {
+    display: "flex",
+    position: "relative",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
     margin: "0 auto",
-    maxWidth: "90%",
+    minWidth: "100%",
+    maxWidth: "85%",
+    maxHeight: "100vh",
+    boxShadow:
+      "0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12)",
+    "@media (min-width: 450px)": {
+      minWidth: "450px",
+    },
+  },
+  dialog: {
+    position: "relative",
+    maxHeight: "100vh",
   },
   header: {
-    width: "calc(100% - 48px)",
-    padding: "12px 0",
+    flex: "0 0 auto",
+    display: "flex",
+    flexFlow: "row nowrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    padding: "12px 24px",
     margin: "0 auto 18px",
-    borderBottom: `1px solid ${theme.colors["gray300"]}`,
+    borderBottom: `2px solid ${theme.colors["gray100"]}`,
     textAlign: "left",
   },
+  title: {
+    display: "flex",
+    flexFlow: "row nowrap",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    "& svg": {
+      marginRight: "8px",
+    },
+  },
+  close: {
+    width: "42px",
+    height: "42px",
+    borderRadius: "50%",
+    borderColor: "transparent",
+  },
+  closeInner: {
+    padding: "0",
+  },
   body: {
+    flex: "0 1 auto",
     padding: "0 24px",
+    overflowY: "scroll",
   },
   footer: {
+    flex: "0 0 auto",
     display: "flex",
     flexFlow: "row nowrap",
     justifyContent: "flex-end",
     alignItems: "center",
+    width: "100%",
+    marginTop: "22px",
     padding: "12px 24px",
     backgroundColor: theme.colors["gray100"],
-    marginTop: "22px",
-    boxShadow:
-      "0px -1px 3px 0px rgba(0, 0, 0, 0.2),0px -1px 1px 0px rgba(0, 0, 0, 0.14),0px -2px 1px -1px rgba(0, 0, 0, 0.12)",
+    // borderTop: `2px solid ${theme.colors["gray200"]}`,
     "& > * + *": {
       marginLeft: "12px",
     },
+  },
+  cancel: {
+    borderColor: "transparent",
   },
 });
 

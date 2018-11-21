@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import withStyles from "elevate-ui/withStyles";
 import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import Modal from "elevate-ui/Modal";
 import Button from "elevate-ui/Button";
+
+import AccountCircle from "elevate-ui-icons/AccountCircle";
+import Cancel from "elevate-ui-icons/Cancel";
+import Check from "elevate-ui-icons/Check";
 
 class ModalExample extends Component {
   constructor(props) {
@@ -10,6 +15,8 @@ class ModalExample extends Component {
 
     this.state = {
       defaultVisible: false,
+      enhancedVisible: false,
+      longVisible: false,
     };
   }
 
@@ -20,140 +27,160 @@ class ModalExample extends Component {
   confirmModal = () => alert("Confirmed!");
 
   render() {
-    const { defaultVisible } = this.state;
+    const { classes } = this.props;
+    const { defaultVisible, enhancedVisible, longVisible } = this.state;
     return (
       <Paper>
-        <Typography type="title">Default</Typography>
-        <Button
-          type="button"
-          isOutlined
-          color="secondary"
-          onClick={() => this.handleModalToggle("defaultVisible")}
-        >
-          Open Modal
-        </Button>
-        <Modal
-          confirmAction={this.confirmModal}
-          title="Default Modal"
-          visible={defaultVisible}
-          toggleModal={() => this.handleModalToggle("defaultVisible")}
-        >
-          <h1>You can crush me but you can't crush my spirit!</h1>
-          <p>
-            Bender, being God isn't easy. If you do too much, people get
-            dependent on you, and if you do nothing, they lose hope. You have to
-            use a light touch. Like a safecracker, or a pickpocket. No! The cat
-            shelter's on to me.
-          </p>
-          <p>
-            Ummm…to eBay? Anyhoo, your net-suits will allow you to experience
-            Fry's worm infested bowels as if you were actually wriggling through
-            them. I can explain. <strong> It's very valuable.</strong>{" "}
-            <em> Too much work.</em> Let's burn it and say we dumped it in the
-            sewer.
-          </p>
-          <h2>Oh, you're a dollar naughtier than most.</h2>
-          <p>
-            Oh dear! She's stuck in an infinite loop, and he's an idiot! Well,
-            that's love for you. File not found. What are their names? Bender,
-            quit destroying the universe!
-          </p>
-          <ol>
-            <li>
-              Whoa a real live robot; or is that some kind of cheesy New Year's
-              costume?
-            </li>
-            <li>Negative, bossy meat creature!</li>
-            <li>Who are you, my warranty?!</li>
-          </ol>
-
-          <h3>There's no part of that sentence I didn't like!</h3>
-          <p>
-            But existing is basically all I do! What are you hacking off? Is it
-            my torso?! 'It is!' My precious torso! Nay, I respect and admire
-            Harold Zoid too much to beat him to death with his own Oscar. Robot
-            1-X, save my friends! And Zoidberg!
-          </p>
-          <ul>
-            <li>What are their names?</li>
-            <li>
-              You'll have all the Slurm you can drink when you're partying with
-              Slurms McKenzie!
-            </li>
-            <li>Why would I want to know that?</li>
-          </ul>
-
-          <p>
-            I was all of history's great robot actors - Acting Unit 0.8;
-            Thespomat; David Duchovny! Tell them I hate them. Now Fry, it's been
-            a few years since medical school, so remind me. Disemboweling in
-            your species: fatal or non-fatal?
-          </p>
-          <p>
-            No! Don't jump! Would you censor the Venus de Venus just because you
-            can see her spewers? Humans dating robots is sick. You people wonder
-            why I'm still single? It's 'cause all the fine robot sisters are
-            dating humans!
-          </p>
-          <p>
-            You can crush me but you can't crush my spirit! I don't 'need' to
-            drink. I can quit anytime I want! Take me to your leader! I don't
-            know what you did, Fry, but once again, you screwed up! Now all the
-            planets are gonna start cracking wise about our mamas.
-          </p>
-          <p>
-            I never loved you. No, of course not. It was… uh… porno. Yeah,
-            that's it. You're going to do his laundry? OK, this has gotta stop.
-            I'm going to remind Fry of his humanity the way only a woman can.
-          </p>
-          <p>
-            File not found. You mean while I'm sleeping in it? Yes, except the
-            Dave Matthews Band doesn't rock. Come, Comrade Bender! We must take
-            to the streets! And yet you haven't said what I told you to say! How
-            can any of us trust you?
-          </p>
-          <p>
-            I feel like I was mauled by Jesus. Oh right. I forgot about the
-            battle. In our darkest hour, we can stand erect, with proud upthrust
-            bosoms. Why did you bring us here? I don't want to be rescued.
-          </p>
-          <p>
-            Also Zoidberg. Bender, this is Fry's decision… and he made it wrong.
-            So it's time for us to interfere in his life. As an interesting side
-            note, as a head without a body, I envy the dead. I found what I
-            need. And it's not friends, it's things.
-          </p>
-          <p>
-            And when we woke up, we had these bodies. Good news, everyone!
-            There's a report on TV with some very bad news! But existing is
-            basically all I do! For example, if you killed your grandfather,
-            you'd cease to exist!
-          </p>
-          <p>
-            Is that a cooking show? Bender, quit destroying the universe! For
-            one beautiful night I knew what it was like to be a grandmother.
-            Subjugated, yet honored. All I want is to be a monkey of moderate
-            intelligence who wears a suit… that's why I'm transferring to
-            business school!
-          </p>
-          <p>
-            Kif might! I'm sorry, guys. I never meant to hurt you. Just to
-            destroy everything you ever believed in. You seem malnourished. Are
-            you suffering from intestinal parasites? Kids don't turn rotten just
-            from watching TV.
-          </p>
-          <p>
-            For the last time, I don't like lilacs! Your 'first' wife was the
-            one who liked lilacs! You seem malnourished. Are you suffering from
-            intestinal parasites? Also Zoidberg. What are their names? Oh, but
-            you can. But you may have to metaphorically make a deal with the
-            devil. And by "devil", I mean Robot Devil. And by "metaphorically",
-            I mean get your coat.
-          </p>
-        </Modal>
+        <div className={classes.section}>
+          <Typography type="title">Default</Typography>
+          <Button
+            type="button"
+            isOutlined
+            color="secondary"
+            onClick={() => this.handleModalToggle("defaultVisible")}
+          >
+            Open Modal
+          </Button>
+          <Modal
+            confirmAction={this.confirmModal}
+            title="Default Modal"
+            visible={defaultVisible}
+            toggleModal={() => this.handleModalToggle("defaultVisible")}
+          >
+            <Typography type="body">
+              Are you sure you want to perform this action? This is a permanent
+              action. Lorem ipsum dolor sit amet colon! Ipsum dolor! Proceed
+              with caution.
+            </Typography>
+          </Modal>
+        </div>
+        <div className={classes.section}>
+          <Typography type="title">Enhanced</Typography>
+          <Button
+            type="button"
+            isOutlined
+            color="primary"
+            onClick={() => this.handleModalToggle("enhancedVisible")}
+          >
+            Open Enhanced Modal
+          </Button>
+          <Modal
+            cancelText="Cancel Save"
+            cancelIcon={<Cancel />}
+            confirmAction={this.confirmModal}
+            confirmText="Save and Finish"
+            confirmIcon={<Check />}
+            icon={<AccountCircle />}
+            maskStyles={{
+              paddingTop: "60px",
+              backgroundColor: "rgba(66, 125, 125, 0.75)",
+            }}
+            toggleModal={() => this.handleModalToggle("enhancedVisible")}
+            title="Enhanced Modal"
+            visible={enhancedVisible}
+          >
+            <Typography type="heading6" gutterBottom>
+              Lorem Ipsum Dolor?
+            </Typography>
+            <Typography type="body">
+              Are you sure you want to perform this action? This is a permanent
+              action. Lorem ipsum dolor sit amet colon! Ipsum dolor! Proceed
+              with caution.
+            </Typography>
+          </Modal>
+        </div>
+        <div className={classes.section}>
+          <Typography type="title">Large Content Modal</Typography>
+          <Button
+            type="button"
+            isOutlined
+            color="secondary"
+            onClick={() => this.handleModalToggle("longVisible")}
+          >
+            Open Modal With Large Content
+          </Button>
+          <Modal
+            confirmAction={this.confirmModal}
+            title="Modal with Large Content"
+            visible={longVisible}
+            toggleModal={() => this.handleModalToggle("longVisible")}
+          >
+            <Typography type="body" gutterBottom>
+              Are you sure you want to perform this action? This is a permanent
+              action. Lorem ipsum dolor sit amet colon! Ipsum dolor! Proceed
+              with caution.
+            </Typography>
+            <Typography type="body" gutterBottom>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              malesuada purus a nisl tempus, ut blandit sem posuere. In
+              consectetur tortor sed sagittis luctus. Curabitur vel viverra
+              lectus, eget ullamcorper nisl. Nam ultricies a ex ut aliquam.
+              Aenean justo nulla, iaculis quis volutpat vel, pretium tincidunt
+              libero. Praesent ac enim sollicitudin, dignissim massa et, mollis
+              felis. Fusce diam erat, rhoncus at porttitor nec, sodales sit amet
+              libero.
+            </Typography>
+            <Typography type="body" gutterBottom>
+              Aliquam nec lobortis felis. Ut sed arcu varius eros imperdiet
+              luctus et vel tellus. Nam purus augue, elementum sed aliquet et,
+              lacinia eget enim. Nullam sed sapien in ligula aliquet tristique
+              non quis urna. Morbi a facilisis sapien. Pellentesque ultrices
+              luctus eros vitae ullamcorper. Sed quis dignissim sem. Nunc
+              efficitur commodo laoreet. Phasellus id malesuada nibh, et
+              pharetra dui. Donec nibh eros, mollis a ex vitae, luctus aliquet
+              diam.
+            </Typography>
+            <Typography type="body" gutterBottom>
+              Duis metus nulla, condimentum at blandit vitae, imperdiet ac ante.
+              Aliquam consequat urna eu neque tincidunt, non ornare est
+              ultricies. Proin aliquet, nisl ut ullamcorper vehicula, nulla nisi
+              vehicula turpis, ac sollicitudin est orci vitae nibh. Suspendisse
+              interdum volutpat feugiat. Pellentesque habitant morbi tristique
+              senectus et netus et malesuada fames ac turpis egestas. Sed dui
+              ipsum, eleifend sit amet suscipit ac, scelerisque maximus tortor.
+              Nam id sem id leo rhoncus elementum.
+            </Typography>
+            <Typography type="body" gutterBottom>
+              Ut eget nisl ut mauris luctus ullamcorper. Praesent sit amet
+              pharetra lectus. Sed turpis felis, blandit in luctus sit amet,
+              vulputate in ligula. Curabitur risus lectus, commodo et diam
+              auctor, dapibus auctor felis. Donec tempor tellus a enim vehicula
+              tincidunt. Nulla id auctor velit. Curabitur non accumsan mi.
+            </Typography>
+            <Typography type="body" gutterBottom>
+              Suspendisse hendrerit dignissim tempus. Morbi faucibus mi in
+              egestas tincidunt. Donec efficitur, neque et sodales bibendum,
+              magna metus convallis nibh, at tincidunt mi nisl et sapien. Nam
+              porta porta purus a egestas. Phasellus tortor arcu, mollis et leo
+              vel, pretium sollicitudin nulla. Etiam sagittis enim ex, vel
+              dignissim elit aliquet sit amet. Nam id fringilla orci, vel
+              dapibus tellus. Morbi pellentesque diam sed urna pharetra, et
+              dictum tortor efficitur. Vestibulum faucibus efficitur turpis at
+              faucibus. Morbi hendrerit, mi et mattis tempus, libero elit
+              finibus sem, ut pharetra dolor tortor id enim. Donec fermentum
+              urna eu purus vulputate auctor. Quisque faucibus est sem. Integer
+              fringilla ipsum nec blandit ullamcorper. Maecenas iaculis tellus
+              ac velit scelerisque, nec luctus urna placerat. Praesent
+              scelerisque, dui eu condimentum pulvinar, mi enim dictum erat, vel
+              sodales eros ex non ante. Pellentesque habitant morbi tristique
+              senectus et netus et malesuada fames ac turpis egestas.
+            </Typography>
+            <Typography type="body" gutterBottom>
+              Are you sure you want to perform this action? This is a permanent
+              action. Lorem ipsum dolor sit amet colon! Ipsum dolor! Proceed
+              with caution.
+            </Typography>
+          </Modal>
+        </div>
       </Paper>
     );
   }
 }
 
-export default ModalExample;
+const styles = () => ({
+  section: {
+    marginBottom: "40px",
+  },
+});
+
+export default withStyles(styles, { name: "ModalExample" })(ModalExample);
