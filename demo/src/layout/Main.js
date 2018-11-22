@@ -107,6 +107,7 @@ class Main extends Component {
               path="/accordion"
               render={() => <Doc folder="Accordion" />}
             />
+            <Route path="/feed" render={() => <Doc folder="Feed" />} />
           </div>
         </div>
       </RouteListener>

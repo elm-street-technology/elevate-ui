@@ -1,0 +1,21 @@
+{
+  "description": "",
+  "displayName": "Feed",
+  "methods": [],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    }
+  }
+}
