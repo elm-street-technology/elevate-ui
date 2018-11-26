@@ -36,6 +36,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       />
       <button
         className="Select-arrow-0-1-3"
+        title="Expand dropdown"
         type="button"
       >
         <svg

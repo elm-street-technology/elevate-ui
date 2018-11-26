@@ -26,5 +26,5 @@ test("takes an icon prop", () => {
       Oh no! Something went terribly wrong!
     </WrappedAlert>
   );
-  expect(component.find("svg")).toHaveLength(1);
+  expect(component.html().includes("svg")).toBe(true);
 });
