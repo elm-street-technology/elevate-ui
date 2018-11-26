@@ -11,7 +11,9 @@ const WrappedModal = (props) => (
       confirmAction={() => null}
       toggleModal={() => null}
       {...props}
-    />
+    >
+      Elevate UI Modal
+    </Modal>
   </ThemeProvider>
 );
 

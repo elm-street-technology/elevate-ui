@@ -22,7 +22,7 @@ type $Props = {
    * Accepts any classNames to be passed to the component
    */
   className?: string,
-  classes?: Object,
+  classes: Object,
   children: any,
   /**
    * Function to be fired when the confirm button is clicked

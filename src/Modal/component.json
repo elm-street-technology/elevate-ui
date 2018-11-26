@@ -38,7 +38,7 @@
       "flowType": {
         "name": "string"
       },
-      "required": true,
+      "required": false,
       "description": "Accepts any classNames to be passed to the component"
     },
     "classes": {
