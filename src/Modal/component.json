@@ -1,0 +1,143 @@
+{
+  "description": "A modal that opens above other page content to display important information or user actions.",
+  "displayName": "Modal",
+  "methods": [],
+  "props": {
+    "cancelText": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Override the 'Cancel' text in the modal's cancel button",
+      "defaultValue": {
+        "value": "\"Cancel\"",
+        "computed": false
+      }
+    },
+    "cancelIcon": {
+      "flowType": {
+        "name": "union",
+        "raw": "HTMLElement | boolean",
+        "elements": [
+          {
+            "name": "HTMLElement"
+          },
+          {
+            "name": "boolean"
+          }
+        ]
+      },
+      "required": false,
+      "description": "Adds an icon in the modal's cancel button.",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Accepts any classNames to be passed to the component"
+    },
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "children": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": ""
+    },
+    "confirmAction": {
+      "flowType": {
+        "name": "Function"
+      },
+      "required": true,
+      "description": "Function to be fired when the confirm button is clicked"
+    },
+    "confirmText": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Override the 'Confirm' text in the modal's confirmation button",
+      "defaultValue": {
+        "value": "\"Confirm\"",
+        "computed": false
+      }
+    },
+    "confirmIcon": {
+      "flowType": {
+        "name": "union",
+        "raw": "HTMLElement | boolean",
+        "elements": [
+          {
+            "name": "HTMLElement"
+          },
+          {
+            "name": "boolean"
+          }
+        ]
+      },
+      "required": false,
+      "description": "Adds an icon in the modal's Confirm button.",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
+    "titleIcon": {
+      "flowType": {
+        "name": "HTMLElement"
+      },
+      "required": false,
+      "description": "Icon to be passed to the top section of the modal"
+    },
+    "maskStyles": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": false,
+      "description": "Adjust the mask style properties"
+    },
+    "style": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": false,
+      "description": "Style object with any applicable overrides"
+    },
+    "title": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Text/title of the modal"
+    },
+    "toggleModal": {
+      "flowType": {
+        "name": "Function"
+      },
+      "required": true,
+      "description": "Method/Function used to toggle the modal on/off"
+    },
+    "visible": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "Control visibility of the modal.",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    }
+  }
+}
