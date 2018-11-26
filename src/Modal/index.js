@@ -171,8 +171,10 @@ const styles = (theme) => ({
     minWidth: "95%",
     maxWidth: "85%",
     maxHeight: "70vh",
+    border: "none",
     boxShadow:
       "0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12)",
+    overflow: "hidden",
     "@media (min-width: 450px)": {
       minWidth: "450px",
     },
@@ -191,9 +193,9 @@ const styles = (theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    padding: "12px 24px",
-    margin: "0 auto 18px",
-    borderBottom: `2px solid ${theme.colors["gray100"]}`,
+    padding: "12px 6px 12px 24px",
+    margin: "0 auto",
+    borderBottom: `1px solid ${theme.colors["gray100"]}`,
     textAlign: "left",
   },
   title: {
@@ -216,7 +218,7 @@ const styles = (theme) => ({
   },
   body: {
     flex: "0 1 auto",
-    padding: "0 24px",
+    padding: "18px 24px",
     overflowY: "scroll",
   },
   footer: {
@@ -226,10 +228,8 @@ const styles = (theme) => ({
     justifyContent: "flex-end",
     alignItems: "center",
     width: "100%",
-    marginTop: "22px",
-    padding: "12px 24px",
-    backgroundColor: theme.colors["gray100"],
-    // borderTop: `2px solid ${theme.colors["gray200"]}`,
+    padding: "12px 16px",
+    backgroundColor: theme.colors["gray050"],
     "& > * + *": {
       marginLeft: "12px",
     },
