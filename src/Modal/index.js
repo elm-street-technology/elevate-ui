@@ -178,7 +178,7 @@ const styles = (theme) => ({
     "@media (min-width: 450px)": {
       minWidth: "450px",
     },
-    [theme.breakpoints[900]]: {
+    [theme.breakpoints(900)]: {
       maxHeight: "90vh",
     },
   },

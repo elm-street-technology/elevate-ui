@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 import injectSheet, { ThemeProvider as JSSThemeProvider } from "react-jss";
 import merge from "lodash/merge";
@@ -64,13 +65,11 @@ const transitions = {
   default: "all 200ms linear",
 };
 
-const breakpoints = {
-  600: `@media (min-width: 600px)`,
-  900: `@media (min-width: 900px)`,
-  1200: `@media (min-width: 1200px)`,
-  tabletPortrait: `@media (min-width: 600px)`, // todo: deprecate (check existing code for usage)
-  tabletLandscape: `@media (min-width: 900px)`, // todo: deprecate (check existing code for usage)
-  desktop: `@media (min-width: 1200px)`, // todo: deprecate (check existing code for usage)
+const breakpoints = (minWidth: number) => {
+  if (!minWidth) {
+    return new Error("Must enter a valid minWidth to use theme breakpoints");
+  }
+  return `@media (min-width: ${minWidth}px)`;
 };
 
 const globalBorderRadius = "4px";
@@ -180,7 +179,7 @@ const GlobalsAndReset = injectSheet((theme) => ({
   },
 }))(({ children }) => children);
 
-const ThemeProvider = ({ children, theme, withReset = true, ...rest }) => {
+const ThemeProvider = ({ children, theme, withReset = true, ...rest }: any) => {
   const mergedTheme = theme ? merge(defaultTheme, theme) : defaultTheme;
   return (
     <JSSThemeProvider theme={mergedTheme} {...rest}>

@@ -79,7 +79,7 @@ export default withStyles((theme) => ({
     padding: "8px",
     borderBottom: `1px solid ${theme.colors.gray200}`,
 
-    [theme.breakpoints[900]]: {
+    [theme.breakpoints(900)]: {
       display: "none",
     },
   },
