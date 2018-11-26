@@ -156,13 +156,13 @@ export default withStyles((theme) => ({
     flex: "0 1 auto",
     display: "inline-block",
   },
-  [theme.breakpoints[600]]: {
+  [theme.breakpoints(600)]: {
     grid: { gridTemplateColumns: "repeat(2, 1fr)" },
   },
-  [theme.breakpoints[900]]: {
+  [theme.breakpoints(900)]: {
     grid: { gridTemplateColumns: "repeat(4, 1fr)" },
   },
-  [theme.breakpoints[1200]]: {
+  [theme.breakpoints(1200)]: {
     grid: { gridTemplateColumns: "repeat(6, 1fr)" },
   },
   input: {

@@ -139,7 +139,7 @@ export default withStyles((theme) => ({
     overflowY: "auto",
     transform: "translateX(-240px)",
 
-    [theme.breakpoints[900]]: {
+    [theme.breakpoints(900)]: {
       transform: "translateX(0)",
     },
   },
@@ -157,7 +157,7 @@ export default withStyles((theme) => ({
     margin: "0 auto",
     padding: "8px",
 
-    [theme.breakpoints[900]]: {
+    [theme.breakpoints(900)]: {
       paddingLeft: "248px", // sidebar width + 8px padding
     },
   },
