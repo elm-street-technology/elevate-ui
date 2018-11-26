@@ -203,6 +203,7 @@ const styles = (theme) => ({
     flexFlow: "row nowrap",
     justifyContent: "flex-start",
     alignItems: "center",
+
     "& svg": {
       marginRight: "8px",
     },
@@ -230,6 +231,8 @@ const styles = (theme) => ({
     width: "100%",
     padding: "12px 16px",
     backgroundColor: theme.colors["gray050"],
+    borderTop: `1px solid ${theme.colors["gray100"]}`,
+
     "& > * + *": {
       marginLeft: "12px",
     },
