@@ -8,11 +8,14 @@ import Card from "../Card";
 
 type $Card = {|
   secondaryActions: Array<{|
-    label: any,
+    label: string,
     onClick: Function,
+    color?: string,
+    isOutlined?: boolean,
+    icon?: any,
   |}>,
   actions: Array<{|
-    label: any,
+    label: string,
     onClick: Function,
   |}>,
   children: any,
@@ -84,7 +87,7 @@ class FeedSection extends Component<$Props, $State> {
         </Typography>
         <div className={classes.cards}>
           {cards.map((card, idx) => (
-            <Card {...card} key={idx} />
+            <Card {...card} className={classes.card} key={idx} />
           ))}
         </div>
       </div>
@@ -101,6 +104,10 @@ const styles = () => ({
   },
   cards: {
     display: "flex",
+    flexWrap: "wrap",
+  },
+  card: {
+    margin: "0 6px 6px 0",
   },
 });
 

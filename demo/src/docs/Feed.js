@@ -3,6 +3,8 @@ import Paper from "elevate-ui/Paper";
 import Feed from "elevate-ui/Feed";
 
 import Whatshot from "elevate-ui-icons/Whatshot";
+import Cancel from "elevate-ui-icons/Cancel";
+import CheckCircle from "elevate-ui-icons/CheckCircle";
 import Info from "elevate-ui-icons/Info";
 
 const content = [
@@ -20,7 +22,7 @@ const content = [
                   children: <div>elevate-ui v0.22.3 shipped 7 days ago!</div>,
                   secondaryActions: [
                     {
-                      label: () => <span>See More Updates</span>,
+                      label: "Learn More",
                       onClick() {
                         window.location =
                           "https://github.com/elm-street-technology/elevate-ui/releases";
@@ -29,7 +31,7 @@ const content = [
                   ],
                   actions: [
                     {
-                      label: () => <span>Learn More</span>,
+                      label: "Learn More",
                       onClick() {
                         window.location =
                           "https://github.com/elm-street-technology/elevate-ui/commit/7acc1465eebcf0b18d947fae228ec34b77c64dd2";
@@ -43,16 +45,40 @@ const content = [
                   children: <div>elevate-ui v0.21.2 shipped 14 days ago!</div>,
                   secondaryActions: [
                     {
-                      label: () => <span>See More Updates</span>,
+                      label: "See More Updates",
                       onClick() {
                         window.location =
                           "https://github.com/elm-street-technology/elevate-ui/releases";
                       },
                     },
+                    {
+                      label: "Elevate UI",
+                      onClick() {
+                        window.location = "http://elevate-ui.com";
+                      },
+                    },
+                    {
+                      label: "Try Elevate",
+                      onClick() {
+                        window.location = "https://tryelevate.com";
+                      },
+                    },
                   ],
                   actions: [
                     {
-                      label: () => <span>Learn More</span>,
+                      label: "Remove",
+                      icon: <Cancel />,
+                      color: "#ccc",
+                      isOutlined: true,
+                      onClick() {
+                        window.location =
+                          "https://github.com/elm-street-technology/elevate-ui/commit/7acc1465eebcf0b18d947fae228ec34b77c64dd2";
+                      },
+                    },
+                    {
+                      label: "Approve",
+                      icon: <CheckCircle />,
+                      color: "secondary",
                       onClick() {
                         window.location =
                           "https://github.com/elm-street-technology/elevate-ui/commit/7acc1465eebcf0b18d947fae228ec34b77c64dd2";
@@ -86,7 +112,7 @@ const content = [
                   secondaryActions: [],
                   actions: [
                     {
-                      label: () => <span>Learn More</span>,
+                      label: "Learn More",
                       onClick() {
                         window.location =
                           "https://github.com/elm-street-technology/elevate-ui";

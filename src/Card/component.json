@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "displayName": "Card",
+  "methods": [
+    {
+      "name": "toggleSecondaryActions",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    }
+  ]
+}
