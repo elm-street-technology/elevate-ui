@@ -48,8 +48,10 @@ class FeedSection extends Component<$Props, $State> {
       filters: props.section.filters || { limit: 10, offset: 0 },
       cards: props.section.cards || [],
     };
+  }
 
-    if (props.section.fetch) {
+  componentDidMount() {
+    if (this.props.section.fetch) {
       this.fetchCards(this.state.filters);
     }
   }

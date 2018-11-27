@@ -7,13 +7,13 @@ import enhanceWithClickOutside from "react-click-outside";
 type $Props = {
   classes: Object,
   handleClickOutside: Function,
-  secondaryActions: Array<{|
+  secondaryActions: Array<{
     label: string,
     onClick: Function,
     color?: string,
     isOutlined?: boolean,
     icon?: any,
-  |}>,
+  }>,
   visible: boolean,
 };
 

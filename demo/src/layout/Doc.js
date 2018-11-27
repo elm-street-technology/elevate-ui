@@ -5,6 +5,7 @@ import classNames from "classnames";
 import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import LiveExample from "./LiveExample";
+import FlowTypes from "./FlowTypes";
 
 type Props = {
   folder: string,
@@ -186,6 +187,7 @@ class Doc extends Component<Props, State> {
         {componentMethods.length > 0 && (
           <MethodsTable {...this.props} componentMethods={componentMethods} />
         )}
+        {folder === "Feed" ? <FlowTypes folder={folder} /> : null}
       </Paper>
     );
   }
