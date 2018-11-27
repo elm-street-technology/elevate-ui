@@ -51,27 +51,10 @@ const Theme = ({ classes, theme }) => (
         Responsive Breakpoints
       </a>
     </Typography>
-    {theme &&
-      theme.breakpoints && (
-        <div>
-          {Object.keys(theme.breakpoints).map((breakpoint) => {
-            if (
-              breakpoint === "tabletPortrait" ||
-              breakpoint === "tabletLandscape" ||
-              breakpoint === "desktop"
-            ) {
-              return null;
-            }
-            return (
-              <div key={breakpoint}>
-                <Typography type="body" gutterBottom>
-                  <strong>{breakpoint}:</strong> {theme.breakpoints[breakpoint]}{" "}
-                </Typography>
-              </div>
-            );
-          })}
-        </div>
-      )}
+    <Typography type="body" gutterBottom>
+      Elevate-UI ships with a "breakpoints" function that allows the user to
+      pass a number and receive a responsive media query in return.
+    </Typography>
     <Typography type="heading3" gutterBottom>
       Example
     </Typography>
@@ -81,11 +64,21 @@ const Theme = ({ classes, theme }) => (
         const styles = (theme) => ({
           root: {
             color: '#000000',
-            [theme.breakpoints[900]]: {
+            [theme.breakpoints(900)]: {
               color: '#ff0000',
             },
           },
         });
+
+        // The above JSS produces the following CSS:
+        .root {
+          color: '#000000';
+        }
+        @media (min-width: 900px) {
+          .root {
+            color: '#ff0000';
+          }
+        }
         `}
       </PrismCode>
     </Paper>

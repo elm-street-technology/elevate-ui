@@ -98,6 +98,7 @@ class Main extends Component {
             <Route path="/alert" render={() => <Doc folder="Alert" />} />
             <Route path="/table" render={() => <Doc folder="Table" />} />
             <Route path="/hr" render={() => <Doc folder="Hr" />} />
+            <Route path="/modal" render={() => <Doc folder="Modal" />} />
             <Route path="/icon" render={() => <IconDoc />} />
             <Route path="/signup" component={SignupForm} />
             <Route path="/query-form" component={QueryForm} />
@@ -139,7 +140,7 @@ export default withStyles((theme) => ({
     overflowY: "auto",
     transform: "translateX(-240px)",
 
-    [theme.breakpoints[900]]: {
+    [theme.breakpoints(900)]: {
       transform: "translateX(0)",
     },
   },
@@ -157,7 +158,7 @@ export default withStyles((theme) => ({
     margin: "0 auto",
     padding: "8px",
 
-    [theme.breakpoints[900]]: {
+    [theme.breakpoints(900)]: {
       paddingLeft: "248px", // sidebar width + 8px padding
     },
   },

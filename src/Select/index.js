@@ -105,6 +105,7 @@ class Select extends Component<Props, State> {
         onClick={() => onItemSelect({ label: "", value: "" })}
         type="button"
         className={classes.arrow}
+        title="Clear item(s)"
       >
         <svg width={24} height={24} viewBox="0 0 24 24">
           <path
@@ -122,7 +123,7 @@ class Select extends Component<Props, State> {
       theme: { colors },
     } = this.props;
     return (
-      <button type="button" className={classes.arrow}>
+      <button type="button" className={classes.arrow} title="Expand dropdown">
         <svg
           width={24}
           height={24}

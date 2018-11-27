@@ -1,6 +1,6 @@
 {
   "name": "elevate-ui",
-  "version": "0.22.3",
+  "version": "0.24.0",
   "description": "An opinionated toolkit of customizable, easy-to-use React components for building scalable, maintainable web applications",
   "homepage": "https://elevate-ui.com/",
   "main": "./index.js",
@@ -32,6 +32,7 @@
     "moment": "^2.22.2",
     "react": "^16.5.2",
     "react-click-outside": "^3.0.1",
+    "react-aria-modal": "^3.0.1",
     "react-datetime": "^2.15.0",
     "react-input-autosize": "^2.2.1",
     "react-jss": "^8.6.1",
