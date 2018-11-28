@@ -1,0 +1,61 @@
+{
+  "description": "A component that allows a small tooltip to appear when hovered or clicked.",
+  "displayName": "Tooltip",
+  "methods": [
+    {
+      "name": "toggleTooltip",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    }
+  ],
+  "props": {
+    "clickEnabled": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": ""
+    },
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": false,
+      "description": ""
+    },
+    "children": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": ""
+    },
+    "position": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "",
+      "defaultValue": {
+        "value": "\"top\"",
+        "computed": false
+      }
+    },
+    "text": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    }
+  }
+}
