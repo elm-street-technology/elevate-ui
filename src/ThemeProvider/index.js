@@ -88,6 +88,14 @@ const globalPadding = {
   },
 };
 
+const zIndex = {
+  bottom: 0,
+  bottomMid: 1000,
+  mid: 2000,
+  midTop: 3000,
+  top: 4000,
+};
+
 const defaultTheme = {
   alertColors,
   breakpoints,
@@ -97,6 +105,7 @@ const defaultTheme = {
   globalPadding,
   transitions,
   typography,
+  zIndex,
 };
 
 const GlobalsAndReset = injectSheet((theme) => ({

@@ -210,6 +210,41 @@ const Theme = ({ classes, theme }) => (
         `}
       </PrismCode>
     </Paper>
+    <Typography type="heading4" gutterBottom>
+      <PrismCode
+        component="pre"
+        className={classNames("language-javascript", classes.codePadding)}
+      >
+        {`zIndex`}
+      </PrismCode>
+    </Typography>
+    <Typography type="heading6">Usage Example</Typography>
+    <Paper withPadding={false}>
+      <PrismCode
+        component="pre"
+        className={classNames("language-javascript", classes.codePadding)}
+      >
+        {`
+        const style = (theme) => ({
+          modal: {
+            zIndex: theme.zIndex['top']
+          },
+          mask: {
+            zIndex: theme.zIndex['midTop']
+          },
+          elementUnderMask: {
+            zIndex: theme.zIndex['mid']
+          },
+          evenLowerElement: {
+            zIndex: theme.zIndex['bottomMid']
+          },
+          lowestElement: {
+            zIndex: theme.zindex['bottom'],
+          },
+        });
+        `}
+      </PrismCode>
+    </Paper>
   </Paper>
 );
 
