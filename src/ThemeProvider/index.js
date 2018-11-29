@@ -89,11 +89,13 @@ const globalPadding = {
 };
 
 const zIndex = {
-  bottom: 0,
-  bottomMid: 1000,
-  mid: 2000,
-  midTop: 3000,
-  top: 4000,
+  buttonBase: 0,
+  buttonChildren: 1,
+  selectDropdown: 2,
+  tableLoading: -1,
+  tableLoadingActive: 2,
+  tableResizer: 10,
+  modal: 2000,
 };
 
 const defaultTheme = {

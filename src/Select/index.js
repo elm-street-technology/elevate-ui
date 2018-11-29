@@ -278,7 +278,7 @@ const styles = (theme) => ({
   },
   dropdown: {
     position: "absolute",
-    zIndex: "1",
+    zIndex: theme.zIndex["selectDropdown"],
     width: "100%",
     maxHeight: "200px",
     cursor: "default",

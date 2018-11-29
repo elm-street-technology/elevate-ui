@@ -218,30 +218,22 @@ const Theme = ({ classes, theme }) => (
         {`zIndex`}
       </PrismCode>
     </Typography>
-    <Typography type="heading6">Usage Example</Typography>
+    <Typography type="heading6">Available Values</Typography>
     <Paper withPadding={false}>
       <PrismCode
         component="pre"
         className={classNames("language-javascript", classes.codePadding)}
       >
         {`
-        const style = (theme) => ({
-          modal: {
-            zIndex: theme.zIndex['top']
-          },
-          mask: {
-            zIndex: theme.zIndex['midTop']
-          },
-          elementUnderMask: {
-            zIndex: theme.zIndex['mid']
-          },
-          evenLowerElement: {
-            zIndex: theme.zIndex['bottomMid']
-          },
-          lowestElement: {
-            zIndex: theme.zindex['bottom'],
-          },
-        });
+        const zIndex = {
+          buttonBase: 0,
+          buttonChildren: 1,
+          selectDropdown: 2,
+          tableLoading: -1,
+          tableLoadingActive: 2,
+          tableResizer: 10,
+          modal: 2000,
+        };
         `}
       </PrismCode>
     </Paper>
