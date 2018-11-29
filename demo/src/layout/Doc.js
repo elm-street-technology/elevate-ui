@@ -203,6 +203,7 @@ export default withStyles((theme) => ({
     border: `1px solid ${theme.colors.gray200}`,
     borderRadius: theme.globalBorderRadius,
     overflowY: "auto",
+    WebkitOverflowScrolling: "touch",
   },
   row: {
     display: "flex",
