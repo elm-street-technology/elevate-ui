@@ -454,6 +454,7 @@ const styles = (theme) => ({
     boxShadow: theme.globalBoxShadow, // Add back focus style
     marginTop: "-1px", // force overlapping border with input
     overflowY: "scroll",
+    WebkitOverflowScrolling: "touch",
   },
   dropdownItem: {
     fontSize: "16px",

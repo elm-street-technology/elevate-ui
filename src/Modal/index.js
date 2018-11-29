@@ -224,6 +224,7 @@ const styles = (theme) => ({
     flex: "0 1 auto",
     padding: "18px 24px",
     overflowY: "scroll",
+    WebkitOverflowScrolling: "touch",
   },
   footer: {
     flex: "0 0 auto",

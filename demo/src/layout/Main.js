@@ -138,6 +138,7 @@ export default withStyles((theme) => ({
     overflowX: "hidden",
     overflowY: "auto",
     transform: "translateX(-240px)",
+    WebkitOverflowScrolling: "touch",
 
     [theme.breakpoints(900)]: {
       transform: "translateX(0)",
