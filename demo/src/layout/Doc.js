@@ -211,6 +211,7 @@ export default withStyles((theme) => ({
     flexFlow: "row nowrap",
     justifyContent: "flex-start",
     alignItems: "flex-start",
+    width: "100%",
 
     "&:nth-child(odd)": {
       backgroundColor: "#fff",
