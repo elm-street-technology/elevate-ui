@@ -43,7 +43,7 @@ class Tooltip extends Component<$Props, $State> {
         onMouseLeave={() => (!clickEnabled ? this.toggleTooltip() : null)}
         onFocus={() => (!clickEnabled ? this.toggleTooltip() : null)}
         onClick={() => (clickEnabled ? this.toggleTooltip() : null)}
-        onBlur={() => this.toggleTooltip()}
+        onBlur={() => (open ? this.toggleTooltip() : null)}
         role="tooltip"
         aria-hidden={!open}
       >
@@ -73,7 +73,7 @@ const styles = (theme) => ({
       fontSize: "14px",
       color: theme.colors["white"],
       whiteSpace: "nowrap",
-      zIndex: "999",
+      zIndex: theme.zIndex["tooltip"],
       top: (props) => (props.position === "bottom" ? "105%" : null),
       left: (props) => (props.position === "right" ? "105%" : null),
       right: (props) => (props.position === "left" ? "105%" : null),

@@ -95,6 +95,7 @@ const zIndex = {
   tableLoading: -1,
   tableLoadingActive: 2,
   tableResizer: 10,
+  tooltip: 1000,
   modal: 2000,
 };
 
