@@ -320,12 +320,14 @@ const styles = (theme) => ({
     },
   },
   innerContainer: {
+    flex: "1 1 auto",
     position: "relative",
     zIndex: "0",
   },
   children: {
     display: "flex",
     position: "relative",
+    justifyContent: "center",
     alignItems: "center",
     color: (props) => getChildColor(theme, props),
     fontFamily: theme.typography.sans,

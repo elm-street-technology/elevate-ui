@@ -10,14 +10,16 @@ import Cart from "elevate-ui-icons/Cart";
 const ButtonExample = () => (
   <Paper>
     <h2>Standard Button</h2>
-    <Typography type="body">Default Props, using {`type="button"`}</Typography>
+    <Typography type="body" gutterBottom gutterTop>
+      Default Props, using {`type="button"`}
+    </Typography>
     <br />
     <Button type="button">Load More</Button>
-    <Typography type="body">
-      Stress test of a longer button using {`color="secondary"`}:
+    <Typography type="body" gutterBottom gutterTop>
+      Stress test of a wide button using {`color="secondary"`}:
     </Typography>
-    <Button color="secondary" type="button">
-      Stress Testing A Really Long Button
+    <Button isOutlined color="secondary" type="button" style={{ width: 500 }}>
+      Wide Button
     </Button>
     <br />
     <br />
@@ -28,7 +30,7 @@ const ButtonExample = () => (
     </Button>
     <br />
     <br />
-    <Typography type="body">
+    <Typography type="body" gutterBottom gutterTop>
       Another outlined button using {`color="secondary"`}:
     </Typography>
     <Button isOutlined color="secondary" type="button">
