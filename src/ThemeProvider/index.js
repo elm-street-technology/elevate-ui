@@ -88,6 +88,16 @@ const globalPadding = {
   },
 };
 
+const zIndex = {
+  buttonBase: 0,
+  buttonChildren: 1,
+  selectDropdown: 2,
+  tableLoading: -1,
+  tableLoadingActive: 2,
+  tableResizer: 10,
+  modal: 2000,
+};
+
 const defaultTheme = {
   alertColors,
   breakpoints,
@@ -97,6 +107,7 @@ const defaultTheme = {
   globalPadding,
   transitions,
   typography,
+  zIndex,
 };
 
 const GlobalsAndReset = injectSheet((theme) => ({

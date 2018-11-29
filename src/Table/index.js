@@ -275,13 +275,13 @@ const styles = (theme) => ({
     bottom: "0",
     background: "rgba(255, 255, 255, 0.8)",
     transition: "all 0.3s ease",
-    zIndex: "-1",
+    zIndex: theme.zIndex["tableLoading"],
     opacity: "0",
     pointerEvents: "none",
 
     "&.-active": {
       opacity: "1",
-      zIndex: "2",
+      zIndex: theme.zIndex["tableLoadingActive"],
       pointerEvents: "all",
 
       "& > div": {
@@ -311,7 +311,7 @@ const styles = (theme) => ({
     right: "-12px",
     cursor: "col-resize",
     userSelect: "none",
-    zIndex: "10",
+    zIndex: theme.zIndex["tableResizer"],
   },
 });
 
