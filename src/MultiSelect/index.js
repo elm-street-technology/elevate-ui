@@ -13,6 +13,7 @@ type Item = {
   label: string,
   value: string,
 };
+type Items = Array<Item>;
 
 type Props = {
   classes: Object,
@@ -26,16 +27,42 @@ type Props = {
   closeOnSelect: boolean,
   field: Object,
   form: Object,
+
+  /**
+   * Sample usage:
+   *
+   * onSearch({inputValue, originalItems, setItems}) => {
+   *   if (inputValue === '') {
+   *     return setItems(originalItems);
+   *   }
+   *   return axios.get(`/your-autocomplete-endpoint?keywords=${inputValue}`)
+   *    .then(({data: {newItems}}) => {
+   *       return setItems(newItems); // replaces currentItems (if any exist)
+   *    });
+   * }
+   *
+   * render() {
+   *    return <Multiselect onSearch={this.onSearch} items={this.state.multiselectItems} />;
+   * }
+   */
+  onSearch?: ({
+    inputValue: string,
+    originalItems: Items,
+    currentItems: Items,
+    setItems: (Items) => void,
+  }) => Items,
+
   /**
    * Accepts an array of objects with the shape { label: 'Banana', value: 'Banana' }
    */
-  items: Array<Item>,
+  items: Items,
   /**
    * Text input for the label used inside the component.
    */
   label: string,
   /**
    * Whether or not custom tags can be added to the MultiSelect.
+   * Tags are strings that the user can type and select that are not included in Items
    */
   tags?: boolean,
   theme: Object,
@@ -50,7 +77,11 @@ type State = {
    * Current input state.
    */
   inputValue: string,
-  selectedItems: Array<Item>,
+  selectedItems: Items,
+
+  // We move items into state here so that we can change or add items
+  // Via autocomplete
+  items: Items,
 };
 
 const itemToString = (item) => (item ? item.label : "");
@@ -95,6 +126,7 @@ class MultiSelect extends Component<Props, State> {
     this.state = {
       inputValue: "",
       selectedItems: getSelectedItems(props),
+      items: props.items || [],
     };
   }
 
@@ -115,6 +147,22 @@ class MultiSelect extends Component<Props, State> {
   _input;
   _inputWrapper;
 
+  /**
+   * Used by onSearch to change the dropdown items that exist
+   * @param {*} items
+   */
+  setItems = (items: Items): void => {
+    if (!(items && Array.isArray(items))) {
+      return;
+    }
+    this.setState({ items });
+  };
+
+  /**
+   * Callback Fn from Downshift that exposes
+   * state and event triggers such as keyboard
+   * and mouse events
+   */
   stateReducer = (state, changes) => {
     // this prevents the menu from being closed when the user
     // selects an item with a keyboard or mouse
@@ -141,6 +189,9 @@ class MultiSelect extends Component<Props, State> {
     }
   };
 
+  /**
+   * Callback Fn from downshift that exposes changes
+   */
   handleStateChange = (changes, downshiftStateAndHelpers) => {
     if (!downshiftStateAndHelpers.isOpen) {
       this.setState({ inputValue: "" });
@@ -218,9 +269,23 @@ class MultiSelect extends Component<Props, State> {
     setFieldValue(name, updatedValue);
   }
 
+  /**
+   * Change state to reflect new inputValue typed by user.
+   *
+   * If onSearch is passed into props, call onSearch to allow AJAX autocomplete
+   */
   onInputChange = (e) => {
     const inputValue = e.target.value;
     this.setState({ inputValue });
+
+    if (this.props.onSearch) {
+      this.props.onSearch({
+        inputValue,
+        originalItems: this.props.items,
+        currentItems: this.state.items,
+        setItems: this.setItems,
+      });
+    }
   };
 
   onInputKeyDown = (event) => {
@@ -251,6 +316,9 @@ class MultiSelect extends Component<Props, State> {
     }
   };
 
+  /**
+   * When user clicks on Dropdown, focus on the text input inside the dropdown
+   */
   onWrapperClick = (e) => {
     e.stopPropagation();
     e.preventDefault();
@@ -300,12 +368,11 @@ class MultiSelect extends Component<Props, State> {
       className,
       field: { name, value },
       form: { errors, touched },
-      items = [],
       label,
       withScaffold = true,
     } = this.props;
 
-    const { selectedItems } = this.state;
+    const { selectedItems, items } = this.state;
 
     return (
       <Downshift
