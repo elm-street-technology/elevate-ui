@@ -133,6 +133,17 @@ const shadows = [
   createShadow(0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8),
 ];
 
+const zIndex = {
+  buttonBase: 0,
+  buttonChildren: 1,
+  selectDropdown: 2,
+  tableLoading: -1,
+  tableLoadingActive: 2,
+  tableResizer: 10,
+  tooltip: 1000,
+  modal: 2000,
+};
+
 const defaultTheme = {
   alertColors,
   breakpoints,
@@ -143,6 +154,7 @@ const defaultTheme = {
   shadows,
   transitions,
   typography,
+  zIndex,
 };
 
 const GlobalsAndReset = injectSheet((theme) => ({
@@ -226,7 +238,7 @@ const GlobalsAndReset = injectSheet((theme) => ({
 }))(({ children }) => children);
 
 const ThemeProvider = ({ children, theme, withReset = true, ...rest }: any) => {
-  const mergedTheme = theme ? merge(defaultTheme, theme) : defaultTheme;
+  const mergedTheme = theme ? merge({}, defaultTheme, theme) : defaultTheme;
   return (
     <JSSThemeProvider theme={mergedTheme} {...rest}>
       {withReset ? <GlobalsAndReset>{children}</GlobalsAndReset> : children}

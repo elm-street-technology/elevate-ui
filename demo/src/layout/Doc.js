@@ -205,6 +205,7 @@ export default withStyles((theme) => ({
     border: `1px solid ${theme.colors.gray200}`,
     borderRadius: theme.globalBorderRadius,
     overflowY: "auto",
+    WebkitOverflowScrolling: "touch",
   },
   row: {
     display: "flex",
@@ -212,12 +213,13 @@ export default withStyles((theme) => ({
     flex: "1",
     flexFlow: "row nowrap",
     justifyContent: "flex-start",
-    alignItems: "flex-start",
+    alignItems: "stretch",
+    width: "100%",
 
-    "&:nth-child(odd)": {
+    "&:nth-child(odd) $col": {
       backgroundColor: "#fff",
     },
-    "&:nth-child(even)": {
+    "&:nth-child(even) $col": {
       backgroundColor: "#fbfbfb",
     },
     "&:nth-child(1)": {
@@ -227,6 +229,7 @@ export default withStyles((theme) => ({
     },
   },
   col: {
+    flex: "1",
     minWidth: "128px",
     padding: "20px 8px",
   },

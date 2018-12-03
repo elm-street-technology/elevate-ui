@@ -278,7 +278,7 @@ const styles = (theme) => ({
   },
   dropdown: {
     position: "absolute",
-    zIndex: "1",
+    zIndex: theme.zIndex["selectDropdown"],
     width: "100%",
     maxHeight: "200px",
     cursor: "default",
@@ -287,6 +287,7 @@ const styles = (theme) => ({
     boxShadow: theme.globalBoxShadow, // Add back focus style
     marginTop: "-1px", // force overlapping border with input
     overflowY: "scroll",
+    WebkitOverflowScrolling: "touch",
   },
   dropdownItem: {
     fontSize: "16px",

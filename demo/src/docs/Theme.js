@@ -210,6 +210,34 @@ const Theme = ({ classes, theme }) => (
         `}
       </PrismCode>
     </Paper>
+    <Typography type="heading4" gutterBottom>
+      <PrismCode
+        component="pre"
+        className={classNames("language-javascript", classes.codePadding)}
+      >
+        {`zIndex`}
+      </PrismCode>
+    </Typography>
+    <Typography type="heading6">Available Values</Typography>
+    <Paper withPadding={false}>
+      <PrismCode
+        component="pre"
+        className={classNames("language-javascript", classes.codePadding)}
+      >
+        {`
+        const zIndex = {
+          buttonBase: 0,
+          buttonChildren: 1,
+          selectDropdown: 2,
+          tableLoading: -1,
+          tableLoadingActive: 2,
+          tableResizer: 10,
+          tooltip: 1000,
+          modal: 2000,
+        };
+        `}
+      </PrismCode>
+    </Paper>
   </Paper>
 );
 

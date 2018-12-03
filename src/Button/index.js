@@ -320,12 +320,14 @@ const styles = (theme) => ({
     },
   },
   innerContainer: {
+    flex: "1 1 auto",
     position: "relative",
-    zIndex: "0",
+    zIndex: theme.zIndex["buttonBase"],
   },
   children: {
     display: "flex",
     position: "relative",
+    justifyContent: "center",
     alignItems: "center",
     color: (props) => getChildColor(theme, props),
     fontFamily: theme.typography.sans,
@@ -334,7 +336,7 @@ const styles = (theme) => ({
     fontWeight: "600",
     textDecoration: "inherit",
     padding: (props) => (props.icon ? "8px 16px" : "10px 16px"),
-    zIndex: "1",
+    zIndex: theme.zIndex["buttonChildren"],
   },
   icon: {
     flexShrink: "0",
@@ -360,7 +362,7 @@ const styles = (theme) => ({
     transform: "translate(-50%, -50%)",
     transition: "width 0.4s ease-in-out, height 0.4s ease-in-out",
     backgroundClip: "padding-box",
-    zIndex: "0",
+    zIndex: theme.zIndex["buttonBase"],
     backgroundColor: (props) => getRippleColor(theme, props),
   },
   rippleActive: {

@@ -121,6 +121,13 @@
       "required": true,
       "description": "Text/title of the modal"
     },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
     "toggleModal": {
       "flowType": {
         "name": "Function"

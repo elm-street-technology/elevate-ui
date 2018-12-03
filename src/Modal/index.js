@@ -52,6 +52,7 @@ type $Props = {
    * Text/title of the modal
    */
   title: string,
+  theme: Object,
   /**
    * Method/Function used to toggle the modal on/off
    */
@@ -86,6 +87,7 @@ class Modal extends Component<$Props> {
       titleIcon,
       maskStyles,
       style,
+      theme,
       title,
       toggleModal,
       visible,
@@ -95,6 +97,7 @@ class Modal extends Component<$Props> {
       flexFlow: "column",
       justifyContent: "center",
       alignItems: "center",
+      zIndex: theme.zIndex["modal"],
     };
     if (!visible) {
       return null;
@@ -221,6 +224,7 @@ const styles = (theme) => ({
     flex: "0 1 auto",
     padding: "18px 24px",
     overflowY: "scroll",
+    WebkitOverflowScrolling: "touch",
   },
   footer: {
     flex: "0 0 auto",

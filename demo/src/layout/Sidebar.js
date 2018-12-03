@@ -216,6 +216,14 @@ const Sidebar = ({ classes }) => {
         <NavLink
           activeClassName={classes.active}
           className={classes.item}
+          to="/tooltip"
+        >
+          Tooltip
+        </NavLink>
+
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
           to="/icon"
         >
           Icon
