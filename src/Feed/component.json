@@ -1,0 +1,34 @@
+{
+  "description": "A card/feed component that accepts primary and secondary actions as well as content.",
+  "displayName": "Feed",
+  "methods": [],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    },
+    "content": {
+      "flowType": {
+        "name": "Array",
+        "elements": [
+          {
+            "name": "$Section"
+          }
+        ],
+        "raw": "Array<$Section>"
+      },
+      "required": true,
+      "description": "Content of the card/feed. See Flow Type Definitions for more."
+    }
+  }
+}

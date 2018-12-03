@@ -10,6 +10,7 @@ const cwd = process.cwd();
 const srcComponentFiles = `${cwd}/src/`;
 const docComponentFiles = `${cwd}/demo/src/docs`;
 const docExamples = `${cwd}/demo/public/`;
+const feedFlowTypes = `${cwd}/src/Feed/flow-types.js`;
 
 const isDirectory = (source) => lstatSync(source).isDirectory();
 const getDirectories = (source) =>
@@ -21,6 +22,10 @@ const sourceComponents = getDirectories(srcComponentFiles);
 
 // copy documentation examples to public
 exec(`cp -R ${docComponentFiles} ${docExamples}`);
+
+// copy Feed flow-types.js to public
+exec(`mkdir ${docExamples}docs/Feed/`);
+exec(`cp ${feedFlowTypes} ${docExamples}docs/Feed`);
 
 // create json files for each component
 sourceComponents.forEach((sourceComponent) => {

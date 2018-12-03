@@ -237,6 +237,14 @@ const Sidebar = ({ classes }) => {
           Accordion
         </NavLink>
 
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/feed"
+        >
+          Feed
+        </NavLink>
+
         <span className={classes.header}>Demos</span>
         <NavLink
           activeClassName={classes.active}

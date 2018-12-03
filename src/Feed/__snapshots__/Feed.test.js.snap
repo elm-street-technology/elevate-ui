@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing, matches the snapshot 1`] = `
+<div
+  className="Feed-root-0-1-1"
+>
+  <div
+    className="FeedSection-root-0-1-2"
+  >
+    <h3
+      className="Typography-root-0-1-5 Typography-heading3-0-1-8 Typography-gutterBottom-0-1-13"
+    >
+      Latest News
+       (loading...)
+    </h3>
+    <div
+      className="FeedSection-cards-0-1-3"
+    />
+  </div>
+  <div
+    className="FeedSection-root-0-1-2"
+  >
+    <h3
+      className="Typography-root-0-1-5 Typography-heading3-0-1-8 Typography-gutterBottom-0-1-13"
+    >
+      Tips
+       (loading...)
+    </h3>
+    <div
+      className="FeedSection-cards-0-1-3"
+    />
+  </div>
+</div>
+`;
