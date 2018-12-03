@@ -257,7 +257,7 @@ const styles = (theme) => ({
     cursor: (props) => (props.disabled ? "not-allowed" : "default"),
   },
   input: {
-    width: "100%",
+    width: "76%", // fixes weird Firefox bug
     flexGrow: "1",
     color: "inherit",
     fontFamily: "inherit",
@@ -274,7 +274,7 @@ const styles = (theme) => ({
   arrow: {
     flexShrink: "0",
     display: "inline-flex",
-    marginLeft: "8px",
+    marginLeft: "auto",
   },
   dropdown: {
     position: "absolute",
