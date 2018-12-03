@@ -1,4 +1,23 @@
 // @flow
+
+/**
+ * Sample usage of onSearch:
+ *
+ * onSearch({inputValue, originalItems, setItems}) => {
+ *   if (inputValue === '') {
+ *     return setItems(originalItems);
+ *   }
+ *   return axios.get(`/your-autocomplete-endpoint?keywords=${inputValue}`)
+ *    .then(({data: {newItems}}) => {
+ *       return setItems(newItems); // replaces currentItems (if any exist)
+ *    });
+ * }
+ *
+ * render() {
+ *    return <Select onSearch={this.onSearch} loading={this.state.loading} items={this.state.multiselectItems} />;
+ * }
+ */
+
 import React, { Component } from "react";
 import withStyles from "../withStyles";
 import classNames from "classnames";
@@ -11,6 +30,7 @@ type Item = {
   label: string,
   value: string,
 };
+type Items = Array<Item>;
 
 type Props = {
   classes: Object,
@@ -20,11 +40,26 @@ type Props = {
   className: string,
   field: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
   form: Object, // needs flow-typed https://github.com/flowtype/flow-typed/issues/1903
-  items: Array<Item>,
+  items: Items,
   /**
    * Text to be used for the label of the component.
    */
   label: string,
+  /**
+   * Shows loading indicator in dropdown
+   */
+  loading: boolean,
+  /**
+   * Method to get more dropdown items on search.
+   */
+  onSearch?: (value: {
+    // added value to fix react-docgen issue (https://github.com/reactjs/react-docgen/issues/206)
+    inputValue: string,
+    originalItems: Items,
+    currentItems: Items,
+    setItems: (value: Items) => void, // added value to fix react-docgen issue (https://github.com/reactjs/react-docgen/issues/206)
+  }) => Items,
+
   theme: Object,
   /**
    * If the scaffold component should be used when rendered.
@@ -37,6 +72,10 @@ type State = {
    * Current inputValue for the component.
    */
   inputValue: string,
+
+  // We move items into state here so that we can change or add items
+  // Via autocomplete
+  items: Items,
 };
 
 const itemToString = (item) => (item ? item.label : "");
@@ -45,9 +84,15 @@ const itemToString = (item) => (item ? item.label : "");
  * A component that renders styled select inputs for use in forms.
  */
 class Select extends Component<Props, State> {
-  state = {
-    inputValue: "",
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      inputValue: "",
+      items: props.items || [],
+    };
+  }
+
   _input;
   _inputWrapper;
 
@@ -63,6 +108,15 @@ class Select extends Component<Props, State> {
   onInputChange = (e) => {
     const inputValue = e.target.value;
     this.setState({ inputValue });
+
+    if (this.props.onSearch) {
+      this.props.onSearch({
+        inputValue,
+        originalItems: this.props.items,
+        currentItems: this.state.items,
+        setItems: this.setItems,
+      });
+    }
   };
 
   onItemSelect = (item) => {
@@ -139,18 +193,28 @@ class Select extends Component<Props, State> {
     );
   }
 
+  /**
+   * Used by onSearch to change the dropdown items that exist
+   * @param {*} items
+   */
+  setItems = (items: Items): void => {
+    if (!(items && Array.isArray(items))) {
+      return;
+    }
+    this.setState({ items });
+  };
+
   render() {
     const {
       classes,
       className,
       field: { name, value },
       form: { errors, setFieldTouched, touched },
-      items = [],
       label,
       withScaffold = true,
     } = this.props;
 
-    const { inputValue } = this.state;
+    const { inputValue, items } = this.state;
     const selectedItem = items.find((item) => {
       return item.value === value;
     }) || { label: "", value: "" };
@@ -196,6 +260,9 @@ class Select extends Component<Props, State> {
 
           const Dropdown = (
             <div className={classes.dropdown}>
+              {this.props.loading ? (
+                <div className={classes.dropdownItem}>Loading...</div>
+              ) : null}
               {items
                 .filter(
                   (i) =>

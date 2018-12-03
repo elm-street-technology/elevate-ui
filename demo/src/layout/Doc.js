@@ -125,7 +125,11 @@ const MethodsTable = (props) => {
                 </div>
                 <div className={classes.col}>
                   {componentMethod[1].returns ? (
-                    componentMethod[1].returns
+                    <pre>
+                      <code className={classes.code}>
+                        {JSON.stringify(componentMethod[1].returns)}
+                      </code>
+                    </pre>
                   ) : (
                     <pre>
                       <code className={classes.code}>null</code>
