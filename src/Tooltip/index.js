@@ -53,11 +53,38 @@ class Tooltip extends Component<$Props, $State> {
   }
 }
 
+const calculateRotation = (props) => {
+  if (props.position === "top") {
+    return "rotate(180deg)";
+  } else if (props.position === "right") {
+    return "rotate(-90deg)";
+  } else if (props.position === "left") {
+    return "rotate(90deg)";
+  }
+};
+
 const styles = (theme) => ({
   root: {
     display: "inline-flex",
+    justifyContent: "center",
+    alignItems: "center",
     position: "relative",
     overflow: "visible",
+    "&:before": {
+      content: "''",
+      display: "none",
+      position: "absolute",
+      top: (props) => (props.position === "bottom" ? "104%" : null),
+      left: (props) => (props.position === "right" ? "99%" : null),
+      right: (props) => (props.position === "left" ? "99%" : null),
+      bottom: (props) => (props.position === "top" ? "104%" : null),
+      width: 0,
+      height: 0,
+      borderStyle: "solid",
+      borderWidth: "0 10px 10px 10px",
+      borderColor: "transparent transparent rgba(0,0,0,0.95) transparent",
+      transform: (props) => calculateRotation(props),
+    },
     "&:after": {
       content: (props) => `"${props.text}"`,
       display: "none",
@@ -74,13 +101,16 @@ const styles = (theme) => ({
       color: theme.colors["white"],
       whiteSpace: "nowrap",
       zIndex: theme.zIndex["tooltip"],
-      top: (props) => (props.position === "bottom" ? "105%" : null),
-      left: (props) => (props.position === "right" ? "105%" : null),
-      right: (props) => (props.position === "left" ? "105%" : null),
-      bottom: (props) => (props.position === "top" ? "105%" : null),
+      top: (props) => (props.position === "bottom" ? "120%" : null),
+      left: (props) => (props.position === "right" ? "108%" : null),
+      right: (props) => (props.position === "left" ? "108%" : null),
+      bottom: (props) => (props.position === "top" ? "120%" : null),
     },
   },
   active: {
+    "&:before": {
+      display: "block",
+    },
     "&:after": {
       display: "flex",
     },
