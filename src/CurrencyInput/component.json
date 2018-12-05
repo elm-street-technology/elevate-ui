@@ -1,8 +1,15 @@
 {
-  "description": "Currency input component that returns an unformatted number.",
+  "description": "Currency input component that returns an unformatted number. Based on a modified version of `react-current-input`. See https://github.com/jsillitoe/react-currency-input for more configuration options.",
   "displayName": "CurrencyInput",
   "methods": [],
   "props": {
+    "autoFocus": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": "Autofocus the input"
+    },
     "classes": {
       "flowType": {
         "name": "Object"
@@ -52,6 +59,20 @@
       "required": true,
       "description": ""
     },
+    "precision": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": "Number of digits after the decimal separator."
+    },
+    "prefix": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Currency prefix"
+    },
     "tabIndex": {
       "flowType": {
         "name": "string"
@@ -65,6 +86,13 @@
       },
       "required": true,
       "description": "Use the scaffold for the input or if the input should just be the raw input."
+    },
+    "value": {
+      "flowType": {
+        "name": "number"
+      },
+      "required": true,
+      "description": "Currency value"
     }
   }
 }
