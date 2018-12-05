@@ -72,6 +72,14 @@ const Sidebar = ({ classes }) => {
         <NavLink
           activeClassName={classes.active}
           className={classes.item}
+          to="/currency-input"
+        >
+          Currency Input
+        </NavLink>
+
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
           to="/textarea"
         >
           Textarea

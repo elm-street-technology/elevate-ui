@@ -1,6 +1,6 @@
 {
-  "description": "Standard form input component.",
-  "displayName": "Input",
+  "description": "Currency input component that returns an unformatted number.",
+  "displayName": "CurrencyInput",
   "methods": [],
   "props": {
     "classes": {
@@ -52,38 +52,19 @@
       "required": true,
       "description": ""
     },
-    "type": {
-      "flowType": {
-        "name": "string"
-      },
-      "required": false,
-      "description": "Input type to be used.",
-      "defaultValue": {
-        "value": "\"text\"",
-        "computed": false
-      }
-    },
     "tabIndex": {
       "flowType": {
         "name": "string"
       },
-      "required": false,
-      "description": "Sets the tab index of the input.",
-      "defaultValue": {
-        "value": "\"0\"",
-        "computed": false
-      }
+      "required": true,
+      "description": "Sets the tab index of the input."
     },
     "withScaffold": {
       "flowType": {
         "name": "boolean"
       },
-      "required": false,
-      "description": "Use the scaffold for the input or if the input should just be the raw input.",
-      "defaultValue": {
-        "value": "true",
-        "computed": false
-      }
+      "required": true,
+      "description": "Use the scaffold for the input or if the input should just be the raw input."
     }
   }
 }
