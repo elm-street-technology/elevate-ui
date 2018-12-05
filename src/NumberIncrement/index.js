@@ -44,7 +44,7 @@ class NumberIncrement extends Component<Props> {
       classes,
       className,
       field,
-      form: { touched, errors },
+      form: { touched, errors, setFieldValue },
       id,
       label,
       theme,
@@ -68,9 +68,12 @@ class NumberIncrement extends Component<Props> {
           ref={(node) => (this.input = node)}
           {...field}
           {...rest}
-          onChange={() =>
-            this.props.form.setFieldValue(field.name, this.input.value)
-          }
+          onChange={() => {
+            setFieldValue(field.name, this.input.value);
+            if (this.props.onChange) {
+              this.props.onChange(this.input.value);
+            }
+          }}
         />
         <button
           className={classNames(classes.button, classes.buttonRight)}
