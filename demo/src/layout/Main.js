@@ -65,6 +65,10 @@ class Main extends Component {
           <div className={classes.children}>
             <Route exact path="/" component={Home} />
             <Route path="/input" render={() => <Doc folder="Input" />} />
+            <Route
+              path="/currency-input"
+              render={() => <Doc folder="CurrencyInput" />}
+            />
             <Route path="/textarea" render={() => <Doc folder="Textarea" />} />
             <Route path="/select" render={() => <Doc folder="Select" />} />
             <Route

@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 import withStyles from "../withStyles";
 import classNames from "classnames";
@@ -23,6 +24,10 @@ type Props = {
    * Input type to be used.
    */
   type: string,
+  /**
+   * Sets the tab index of the input.
+   */
+  tabIndex: string,
   /**
    * Use the scaffold for the input or if the input should just be the raw input.
    */
