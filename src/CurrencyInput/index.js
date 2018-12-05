@@ -8,6 +8,10 @@ import ReactCurrencyInput from "./react-currency-input";
 import Scaffold from "../Scaffold";
 
 type Props = {
+  /**
+   * Autofocus the input
+   */
+  autoFocus: boolean,
   classes: Object,
   /**
    * Accepts any classNames to be passed down to the component.
@@ -22,6 +26,14 @@ type Props = {
   label: string,
   theme: Object,
   /**
+   * Number of digits after the decimal separator.
+   */
+  precision: boolean,
+  /**
+   * Currency prefix
+   */
+  prefix: string,
+  /**
    * Sets the tab index of the input.
    */
   tabIndex: string,
@@ -29,10 +41,14 @@ type Props = {
    * Use the scaffold for the input or if the input should just be the raw input.
    */
   withScaffold: boolean,
+  /**
+   * Currency value
+   */
+  value: number,
 };
 
 /**
- * Currency input component that returns an unformatted number.
+ * Currency input component that returns an unformatted number. Based on a modified version of `react-current-input`. See https://github.com/jsillitoe/react-currency-input for more configuration options.
  */
 class CurrencyInput extends Component<Props> {
   currencyInput: any;

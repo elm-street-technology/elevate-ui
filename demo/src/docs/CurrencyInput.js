@@ -9,10 +9,11 @@ import Button from "elevate-ui/Button";
 const CurrencyInputs = () => (
   <Paper>
     <Formik
-      initialValues={{ homePrice: 140000 }}
+      initialValues={{ homePrice: 140000, taxes: 895.94 }}
       validationSchema={() =>
         Yup.object().shape({
           homePrice: Yup.number().required("Home Price is required"),
+          taxes: Yup.number().required("Taxes are required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -28,6 +29,14 @@ const CurrencyInputs = () => (
             name="homePrice"
             label="Home price"
             component={CurrencyInput}
+            precision={0}
+          />
+          <Field
+            id="taxes"
+            name="taxes"
+            label="Taxes Per Year"
+            component={CurrencyInput}
+            autoFocus={true}
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>
             Submit
