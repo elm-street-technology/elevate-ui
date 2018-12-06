@@ -257,7 +257,7 @@ const styles = (theme) => ({
     cursor: (props) => (props.disabled ? "not-allowed" : "default"),
   },
   input: {
-    width: "76%", // fixes weird Firefox bug
+    width: "calc(100% - 72px)",
     flexGrow: "1",
     color: "inherit",
     fontFamily: "inherit",
