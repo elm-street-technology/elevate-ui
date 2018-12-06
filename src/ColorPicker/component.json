@@ -1,0 +1,138 @@
+{
+  "description": "Color Picker component that returns hex string, rgb object and RGBA object.",
+  "displayName": "ColorPicker",
+  "methods": [
+    {
+      "name": "getColor",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "color",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "isAlphaDisabled",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    },
+    {
+      "name": "handleValueChange",
+      "docblock": null,
+      "modifiers": [],
+      "params": [
+        {
+          "name": "value",
+          "type": null
+        }
+      ],
+      "returns": null
+    },
+    {
+      "name": "handleClick",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    },
+    {
+      "name": "handleClose",
+      "docblock": null,
+      "modifiers": [],
+      "params": [],
+      "returns": null
+    }
+  ],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Accepts any classNames to be passed down to the component."
+    },
+    "field": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "form": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "id": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": ""
+    },
+    "label": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Text input to be used as the label for inside the component."
+    },
+    "theme": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "withScaffold": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": "Use the scaffold for the input or if the input should just be the raw input."
+    },
+    "colorMode": {
+      "flowType": {
+        "name": "union",
+        "raw": "\"rgb\" | \"hex\" | \"hsa\"",
+        "elements": [
+          {
+            "name": "literal",
+            "value": "\"rgb\""
+          },
+          {
+            "name": "literal",
+            "value": "\"hex\""
+          },
+          {
+            "name": "literal",
+            "value": "\"hsa\""
+          }
+        ]
+      },
+      "required": true,
+      "description": "Custom Props"
+    },
+    "disableAlpha": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": ""
+    }
+  }
+}
