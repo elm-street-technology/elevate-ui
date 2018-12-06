@@ -53,11 +53,10 @@ type Props = {
    * Method to get more dropdown items on search.
    */
   onSearch?: (value: {
-    // added value to fix react-docgen issue (https://github.com/reactjs/react-docgen/issues/206)
     inputValue: string,
     originalItems: Items,
     currentItems: Items,
-    setItems: (value: Items) => void, // added value to fix react-docgen issue (https://github.com/reactjs/react-docgen/issues/206)
+    setItems: (value: Items) => void,
   }) => Items,
 
   theme: Object,

@@ -237,7 +237,7 @@
       "flowType": {
         "name": "signature",
         "type": "function",
-        "raw": "(value: {\n  // added value to fix react-docgen issue (https://github.com/reactjs/react-docgen/issues/206)\n  inputValue: string,\n  originalItems: Items,\n  currentItems: Items,\n  setItems: (value: Items) => void, // added value to fix react-docgen issue (https://github.com/reactjs/react-docgen/issues/206)\n}) => Items",
+        "raw": "(value: {\n  inputValue: string,\n  originalItems: Items,\n  currentItems: Items,\n  setItems: (value: Items) => void,\n}) => Items",
         "signature": {
           "arguments": [
             {
@@ -245,7 +245,7 @@
               "type": {
                 "name": "signature",
                 "type": "object",
-                "raw": "{\n  // added value to fix react-docgen issue (https://github.com/reactjs/react-docgen/issues/206)\n  inputValue: string,\n  originalItems: Items,\n  currentItems: Items,\n  setItems: (value: Items) => void, // added value to fix react-docgen issue (https://github.com/reactjs/react-docgen/issues/206)\n}",
+                "raw": "{\n  inputValue: string,\n  originalItems: Items,\n  currentItems: Items,\n  setItems: (value: Items) => void,\n}",
                 "signature": {
                   "properties": [
                     {
