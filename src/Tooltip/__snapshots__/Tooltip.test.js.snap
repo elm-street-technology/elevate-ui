@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing, matches the snapshot 1`] = `
+<div
+  aria-hidden={true}
+  className="Tooltip-root-0-1-1 Tooltip-root-0-1-3"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="tooltip"
+>
+  <div
+    style={
+      Object {
+        "height": 200,
+        "width": 200,
+      }
+    }
+  />
+</div>
+`;
