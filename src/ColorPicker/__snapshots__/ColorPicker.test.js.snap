@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing, matches the snapshot 1`] = `
+<div
+  className="Scaffold-root-0-1-6"
+>
+  <div
+    className="ColorPicker-root-0-1-1"
+  >
+    <div
+      className="ColorPicker-swatch-0-1-3"
+      onClick={[Function]}
+    >
+      <div
+        className="ColorPicker-color-0-1-2"
+        style={
+          Object {
+            "backgroundColor": "rgba(255, 255, 255, 100)",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -149,6 +149,14 @@ const Sidebar = ({ classes }) => {
           NumberIncrement
         </NavLink>
 
+        <NavLink
+          activeClassName={classes.active}
+          className={classes.item}
+          to="/color-picker"
+        >
+          ColorPicker
+        </NavLink>
+
         <span className={classes.header}>General</span>
         <NavLink
           activeClassName={classes.active}
