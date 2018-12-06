@@ -11,11 +11,13 @@ const NumberIncrements = () => (
     <Formik
       initialValues={{
         padding: 0,
+        margin: 0,
       }}
       isInitialValid
       validationSchema={() =>
         Yup.object().shape({
           padding: Yup.number().required("A number is required"),
+          margin: Yup.number().required("A number is required"),
         })
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -30,6 +32,13 @@ const NumberIncrements = () => (
             id="padding"
             name="padding"
             label="Padding"
+            component={NumberIncrement}
+          />
+          <Field
+            id="margin"
+            name="margin"
+            label="Margin (with height override)"
+            style={{ height: "60px" }}
             component={NumberIncrement}
           />
           <Button type="submit" disabled={!isValid || isSubmitting}>
