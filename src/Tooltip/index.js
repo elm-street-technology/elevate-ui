@@ -74,10 +74,10 @@ const styles = (theme) => ({
       content: "''",
       display: "none",
       position: "absolute",
-      top: (props) => (props.position === "bottom" ? "104%" : null),
-      left: (props) => (props.position === "right" ? "99%" : null),
-      right: (props) => (props.position === "left" ? "99%" : null),
-      bottom: (props) => (props.position === "top" ? "104%" : null),
+      top: (props) => (props.position === "bottom" ? "calc(100% + 4px)" : null),
+      left: (props) => (props.position === "right" ? "100%" : null),
+      right: (props) => (props.position === "left" ? "100%" : null),
+      bottom: (props) => (props.position === "top" ? "calc(100% + 4px)" : null),
       width: 0,
       height: 0,
       borderStyle: "solid",
@@ -101,10 +101,14 @@ const styles = (theme) => ({
       color: theme.colors["white"],
       whiteSpace: "nowrap",
       zIndex: theme.zIndex["tooltip"],
-      top: (props) => (props.position === "bottom" ? "120%" : null),
-      left: (props) => (props.position === "right" ? "108%" : null),
-      right: (props) => (props.position === "left" ? "108%" : null),
-      bottom: (props) => (props.position === "top" ? "120%" : null),
+      top: (props) =>
+        props.position === "bottom" ? "calc(100% + 10px)" : null,
+      left: (props) =>
+        props.position === "right" ? "calc(100% + 10px)" : null,
+      right: (props) =>
+        props.position === "left" ? "calc(100% + 10px)" : null,
+      bottom: (props) =>
+        props.position === "top" ? "calc(100% + 10px)" : null,
     },
   },
   active: {
