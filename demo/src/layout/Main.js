@@ -93,6 +93,10 @@ class Main extends Component {
               render={() => <Doc folder="NumberIncrement" />}
             />
             <Route
+              path="/color-picker"
+              render={() => <Doc folder="ColorPicker" />}
+            />
+            <Route
               path="/typography"
               render={() => <Doc folder="Typography" />}
             />
