@@ -1,4 +1,23 @@
 // @flow
+
+/**
+ * Sample usage of onSearch:
+ *
+ * onSearch({inputValue, originalItems, setItems}) => {
+ *   if (inputValue === '') {
+ *     return setItems(originalItems);
+ *   }
+ *   return axios.get(`/your-autocomplete-endpoint?keywords=${inputValue}`)
+ *    .then(({data: {newItems}}) => {
+ *       return setItems(newItems); // replaces currentItems (if any exist)
+ *    });
+ * }
+ *
+ * render() {
+ *    return <Select onSearch={this.onSearch} loading={this.state.loading} items={this.state.multiselectItems} />;
+ * }
+ */
+
 import React, { Component, Fragment } from "react";
 import withStyles from "../withStyles";
 import classNames from "classnames";
@@ -29,27 +48,13 @@ type Props = {
   form: Object,
 
   /**
-   * Sample usage:
-   *
-   * onSearch({inputValue, originalItems, setItems}) => {
-   *   if (inputValue === '') {
-   *     return setItems(originalItems);
-   *   }
-   *   return axios.get(`/your-autocomplete-endpoint?keywords=${inputValue}`)
-   *    .then(({data: {newItems}}) => {
-   *       return setItems(newItems); // replaces currentItems (if any exist)
-   *    });
-   * }
-   *
-   * render() {
-   *    return <Multiselect onSearch={this.onSearch} items={this.state.multiselectItems} />;
-   * }
+   * Method to get more dropdown items on search.
    */
-  onSearch?: ({
+  onSearch?: (value: {
     inputValue: string,
     originalItems: Items,
     currentItems: Items,
-    setItems: (Items) => void,
+    setItems: (value: Items) => void,
   }) => Items,
 
   /**
@@ -60,6 +65,10 @@ type Props = {
    * Text input for the label used inside the component.
    */
   label: string,
+  /**
+   * Shows loading indicator in dropdown
+   */
+  loading: boolean,
   /**
    * Whether or not custom tags can be added to the MultiSelect.
    * Tags are strings that the user can type and select that are not included in Items
@@ -149,7 +158,6 @@ class MultiSelect extends Component<Props, State> {
 
   /**
    * Used by onSearch to change the dropdown items that exist
-   * @param {*} items
    */
   setItems = (items: Items): void => {
     if (!(items && Array.isArray(items))) {
@@ -421,6 +429,9 @@ class MultiSelect extends Component<Props, State> {
 
           const Dropdown = (
             <div className={classes.dropdown}>
+              {this.props.loading ? (
+                <div className={classes.dropdownItem}>Loading...</div>
+              ) : null}
               {items
                 .filter(
                   (i) =>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -21,51 +21,100 @@ const cmyk = [
   { label: "Yellow", value: "yellow" },
   { label: "Black", value: "black" },
 ];
+const states = [
+  { label: "Arizona", value: "Arizona" },
+  { label: "California", value: "California" },
+  { label: "Ohio", value: "Ohio" },
+  { label: "Maine", value: "Maine" },
+  { label: "Michigan", value: "Michigan" },
+  { label: "Washington", value: "Washington" },
+  { label: "Oregon", value: "Oregon" },
+  { label: "New York", value: "New York" },
+  { label: "Florida", value: "Florida" },
+  { label: "Montana", value: "Montana" },
+];
 
-const Selects = () => (
-  <Paper>
-    <Formik
-      initialValues={{
-        color: "",
-        color2: "",
-      }}
-      validationSchema={() =>
-        Yup.object().shape({
-          color: Yup.string().required("A favorite color is required"),
-          color2: Yup.string().required("A secondary color is required"),
-        })
-      }
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 1000);
-      }}
-      render={({ isSubmitting, isValid }) => (
-        <Form noValidate style={{ maxWidth: "420px" }}>
-          <Field
-            id="color"
-            name="color"
-            label="Favorite Color"
-            items={roygbiv}
-            component={Select}
-          />
-          <div style={{ maxWidth: "180px" }}>
-            <Field
-              id="color2"
-              name="color2"
-              label="Secondary Color"
-              items={cmyk}
-              component={Select}
-            />
-          </div>
-          <Button type="submit" disabled={!isValid || isSubmitting}>
-            Submit
-          </Button>
-        </Form>
-      )}
-    />
-  </Paper>
-);
+class Selects extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+    };
+  }
+
+  onSearch = ({ inputValue, originalItems, setItems }) => {
+    this.setState({ loading: true });
+    if (inputValue === "") {
+      this.setState({ loading: false });
+      return setItems(originalItems);
+    }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.setState({ loading: false });
+        resolve(setItems(states));
+      }, 1500);
+    });
+  };
+
+  render() {
+    return (
+      <Paper>
+        <Formik
+          initialValues={{
+            color: "",
+            color2: "",
+            states: [],
+          }}
+          validationSchema={() =>
+            Yup.object().shape({
+              color: Yup.string().required("A favorite color is required"),
+              color2: Yup.string().required("A secondary color is required"),
+              states: Yup.string().required("A state is required"),
+            })
+          }
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2));
+              setSubmitting(false);
+            }, 1000);
+          }}
+          render={({ isSubmitting, isValid }) => (
+            <Form noValidate style={{ maxWidth: "420px" }}>
+              <Field
+                id="color"
+                name="color"
+                label="Favorite Color"
+                items={roygbiv}
+                component={Select}
+              />
+              <div style={{ maxWidth: "180px" }}>
+                <Field
+                  id="color2"
+                  name="color2"
+                  label="Secondary Color"
+                  items={cmyk}
+                  component={Select}
+                />
+              </div>
+              <Field
+                id="states"
+                name="states"
+                label="States (with search functionality)"
+                items={[{ label: "Minnesota", value: "Minnesota" }]}
+                component={Select}
+                onSearch={this.onSearch}
+                loading={this.state.loading}
+              />
+              <Button type="submit" disabled={!isValid || isSubmitting}>
+                Submit
+              </Button>
+            </Form>
+          )}
+        />
+      </Paper>
+    );
+  }
+}
 
 export default Selects;

@@ -21,36 +21,80 @@
       "returns": null
     },
     {
-      "name": "stateReducer",
-      "docblock": null,
+      "name": "setItems",
+      "docblock": "Used by onSearch to change the dropdown items that exist",
       "modifiers": [],
       "params": [
         {
-          "name": "state",
-          "type": null
-        },
-        {
-          "name": "changes",
-          "type": null
+          "name": "items",
+          "type": {
+            "name": "Array",
+            "elements": [
+              {
+                "name": "signature",
+                "type": "object",
+                "raw": "{\n  label: string,\n  value: string,\n}",
+                "signature": {
+                  "properties": [
+                    {
+                      "key": "label",
+                      "value": {
+                        "name": "string",
+                        "required": true
+                      }
+                    },
+                    {
+                      "key": "value",
+                      "value": {
+                        "name": "string",
+                        "required": true
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "raw": "Array<Item>",
+            "alias": "Items"
+          }
         }
       ],
-      "returns": null
+      "returns": {
+        "type": {
+          "name": "void"
+        }
+      },
+      "description": "Used by onSearch to change the dropdown items that exist"
+    },
+    {
+      "name": "stateReducer",
+      "docblock": "Callback Fn from Downshift that exposes\nstate and event triggers such as keyboard\nand mouse events",
+      "modifiers": [],
+      "params": [
+        {
+          "name": "state"
+        },
+        {
+          "name": "changes"
+        }
+      ],
+      "returns": null,
+      "description": "Callback Fn from Downshift that exposes\nstate and event triggers such as keyboard\nand mouse events"
     },
     {
       "name": "handleStateChange",
-      "docblock": null,
+      "docblock": "Callback Fn from downshift that exposes changes",
       "modifiers": [],
       "params": [
         {
-          "name": "changes",
-          "type": null
+          "name": "changes"
         },
         {
-          "name": "downshiftStateAndHelpers",
-          "type": null
+          "name": "downshiftStateAndHelpers"
         }
       ],
-      "returns": null
+      "returns": null,
+      "description": "Callback Fn from downshift that exposes changes"
     },
     {
       "name": "onAddTag",
@@ -85,15 +129,15 @@
     },
     {
       "name": "onInputChange",
-      "docblock": null,
+      "docblock": "Change state to reflect new inputValue typed by user.\n\nIf onSearch is passed into props, call onSearch to allow AJAX autocomplete",
       "modifiers": [],
       "params": [
         {
-          "name": "e",
-          "type": null
+          "name": "e"
         }
       ],
-      "returns": null
+      "returns": null,
+      "description": "Change state to reflect new inputValue typed by user.\n\nIf onSearch is passed into props, call onSearch to allow AJAX autocomplete"
     },
     {
       "name": "onInputKeyDown",
@@ -109,15 +153,15 @@
     },
     {
       "name": "onWrapperClick",
-      "docblock": null,
+      "docblock": "When user clicks on Dropdown, focus on the text input inside the dropdown",
       "modifiers": [],
       "params": [
         {
-          "name": "e",
-          "type": null
+          "name": "e"
         }
       ],
-      "returns": null
+      "returns": null,
+      "description": "When user clicks on Dropdown, focus on the text input inside the dropdown"
     },
     {
       "name": "focusInput",
@@ -199,6 +243,183 @@
       "required": true,
       "description": ""
     },
+    "onSearch": {
+      "flowType": {
+        "name": "signature",
+        "type": "function",
+        "raw": "(value: {\n  inputValue: string,\n  originalItems: Items,\n  currentItems: Items,\n  setItems: (value: Items) => void,\n}) => Items",
+        "signature": {
+          "arguments": [
+            {
+              "name": "value",
+              "type": {
+                "name": "signature",
+                "type": "object",
+                "raw": "{\n  inputValue: string,\n  originalItems: Items,\n  currentItems: Items,\n  setItems: (value: Items) => void,\n}",
+                "signature": {
+                  "properties": [
+                    {
+                      "key": "inputValue",
+                      "value": {
+                        "name": "string",
+                        "required": true
+                      }
+                    },
+                    {
+                      "key": "originalItems",
+                      "value": {
+                        "name": "Array",
+                        "elements": [
+                          {
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{\n  label: string,\n  value: string,\n}",
+                            "signature": {
+                              "properties": [
+                                {
+                                  "key": "label",
+                                  "value": {
+                                    "name": "string",
+                                    "required": true
+                                  }
+                                },
+                                {
+                                  "key": "value",
+                                  "value": {
+                                    "name": "string",
+                                    "required": true
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "raw": "Array<Item>",
+                        "required": true
+                      }
+                    },
+                    {
+                      "key": "currentItems",
+                      "value": {
+                        "name": "Array",
+                        "elements": [
+                          {
+                            "name": "signature",
+                            "type": "object",
+                            "raw": "{\n  label: string,\n  value: string,\n}",
+                            "signature": {
+                              "properties": [
+                                {
+                                  "key": "label",
+                                  "value": {
+                                    "name": "string",
+                                    "required": true
+                                  }
+                                },
+                                {
+                                  "key": "value",
+                                  "value": {
+                                    "name": "string",
+                                    "required": true
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "raw": "Array<Item>",
+                        "required": true
+                      }
+                    },
+                    {
+                      "key": "setItems",
+                      "value": {
+                        "name": "signature",
+                        "type": "function",
+                        "raw": "(value: Items) => void",
+                        "signature": {
+                          "arguments": [
+                            {
+                              "name": "value",
+                              "type": {
+                                "name": "Array",
+                                "elements": [
+                                  {
+                                    "name": "signature",
+                                    "type": "object",
+                                    "raw": "{\n  label: string,\n  value: string,\n}",
+                                    "signature": {
+                                      "properties": [
+                                        {
+                                          "key": "label",
+                                          "value": {
+                                            "name": "string",
+                                            "required": true
+                                          }
+                                        },
+                                        {
+                                          "key": "value",
+                                          "value": {
+                                            "name": "string",
+                                            "required": true
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ],
+                                "raw": "Array<Item>",
+                                "required": true
+                              }
+                            }
+                          ],
+                          "return": {
+                            "name": "void"
+                          }
+                        },
+                        "required": true
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "return": {
+            "name": "Array",
+            "elements": [
+              {
+                "name": "signature",
+                "type": "object",
+                "raw": "{\n  label: string,\n  value: string,\n}",
+                "signature": {
+                  "properties": [
+                    {
+                      "key": "label",
+                      "value": {
+                        "name": "string",
+                        "required": true
+                      }
+                    },
+                    {
+                      "key": "value",
+                      "value": {
+                        "name": "string",
+                        "required": true
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "raw": "Array<Item>",
+            "required": true
+          }
+        }
+      },
+      "required": false,
+      "description": "Method to get more dropdown items on search."
+    },
     "items": {
       "flowType": {
         "name": "Array",
@@ -239,12 +460,19 @@
       "required": true,
       "description": "Text input for the label used inside the component."
     },
+    "loading": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": "Shows loading indicator in dropdown"
+    },
     "tags": {
       "flowType": {
         "name": "boolean"
       },
       "required": false,
-      "description": "Whether or not custom tags can be added to the MultiSelect."
+      "description": "Whether or not custom tags can be added to the MultiSelect.\nTags are strings that the user can type and select that are not included in Items"
     },
     "theme": {
       "flowType": {
