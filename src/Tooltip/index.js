@@ -93,11 +93,11 @@ const styles = (theme) => ({
       justifyContent: "center",
       alignItems: "center",
       width: "auto",
-      maxWidth: "350px",
       padding: "8px 10px",
       backgroundColor: "rgba(0,0,0,0.95)",
       borderRadius: "3px",
       fontSize: "14px",
+      fontWeight: "normal",
       color: theme.colors["white"],
       whiteSpace: "nowrap",
       zIndex: theme.zIndex["tooltip"],
@@ -121,4 +121,4 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { name: "EUITooltip" })(Tooltip);
+export default withStyles(styles, { name: "EuiTooltip" })(Tooltip);

@@ -51,7 +51,10 @@ const Tooltips = ({ classes }: $Props) => (
       </Tooltip>
     </div>
     <div className={classes.tooltipContainer}>
-      <Tooltip text="🍕🍕🍕🍕🍕" position="left">
+      <Tooltip
+        text="🍕🍕 Pizza Is Really Awesome! I could eat pizza everyday! Mmm... cheesy.🍕🍕"
+        position="left"
+      >
         <Button
           type="button"
           isOutlined
@@ -129,4 +132,4 @@ const styles = () => ({
     marginRight: "10px",
   },
 });
-export default withStyles(styles, { name: "EUITooltips" })(Tooltips);
+export default withStyles(styles, { name: "EuiTooltips" })(Tooltips);
