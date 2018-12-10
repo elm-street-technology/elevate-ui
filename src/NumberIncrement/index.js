@@ -154,4 +154,6 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { name: "NumberIncrement" })(NumberIncrement);
+export default withStyles(styles, { name: "EuiNumberIncrement" })(
+  NumberIncrement
+);
