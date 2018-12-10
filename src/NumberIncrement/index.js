@@ -32,11 +32,13 @@ type Props = {
  */
 class NumberIncrement extends Component<Props> {
   handleValueChange = (direction) => {
-    direction === "increment" ? this.input.stepUp() : this.input.stepDown();
-    return this.props.form.setFieldValue(
-      this.props.field.name,
-      this.input.value
-    );
+    let newValue = this.input.value;
+    if (direction === "increment") {
+      newValue++;
+    } else {
+      newValue--;
+    }
+    return this.props.form.setFieldValue(this.props.field.name, newValue);
   };
 
   render() {
