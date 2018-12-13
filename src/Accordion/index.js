@@ -10,7 +10,7 @@ import Paper from "../Paper";
 type Props = {
   classes: Object,
   items: Array<{
-    title: string,
+    title: any | string,
     contents: any,
   }>,
 };
@@ -24,7 +24,7 @@ class Accordion extends Component<Props> {
           <Paper {...rest} withPadding={false}>
             {items.map((item, index) => (
               <div // AccordionItem
-                key={item.title}
+                key={index}
                 className={classes.item}
               >
                 <button // AccordionButton
@@ -72,6 +72,7 @@ export default withStyles((theme) => ({
   button: {
     display: "flex",
     padding: "12px 16px",
+    textAlign: "left",
   },
   headerTitle: {
     display: "flex",
