@@ -10,9 +10,18 @@ class AccordionContents extends Component<Props> {
   render() {
     const { isOpen, style, ...props } = this.props;
     const height = !isOpen ? 0 : null;
+
+    if (!isOpen) {
+      return null;
+    }
+
     return (
       <div
-        style={{ overflowY: "hidden", maxHeight: height, ...style }}
+        style={{
+          overflowY: "hidden",
+          maxHeight: height,
+          ...style,
+        }}
         {...props}
       />
     );
