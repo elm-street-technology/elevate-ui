@@ -17,6 +17,7 @@ class ModalExample extends Component {
       defaultVisible: false,
       enhancedVisible: false,
       longVisible: false,
+      noFooterVisible: false,
     };
   }
 
@@ -28,7 +29,12 @@ class ModalExample extends Component {
 
   render() {
     const { classes } = this.props;
-    const { defaultVisible, enhancedVisible, longVisible } = this.state;
+    const {
+      defaultVisible,
+      enhancedVisible,
+      longVisible,
+      noFooterVisible,
+    } = this.state;
     return (
       <Paper>
         <div className={classes.section}>
@@ -166,6 +172,29 @@ class ModalExample extends Component {
               senectus et netus et malesuada fames ac turpis egestas.
             </Typography>
             <Typography type="body" gutterBottom>
+              Are you sure you want to perform this action? This is a permanent
+              action. Lorem ipsum dolor sit amet colon! Ipsum dolor! Proceed
+              with caution.
+            </Typography>
+          </Modal>
+        </div>
+        <div className={classes.section}>
+          <Typography type="title">Modal with no footer</Typography>
+          <Button
+            type="button"
+            isOutlined
+            color="secondary"
+            onClick={() => this.handleModalToggle("noFooterVisible")}
+          >
+            Open Modal
+          </Button>
+          <Modal
+            showFooter={false}
+            title="No Footer Modal"
+            visible={noFooterVisible}
+            toggleModal={() => this.handleModalToggle("noFooterVisible")}
+          >
+            <Typography type="body">
               Are you sure you want to perform this action? This is a permanent
               action. Lorem ipsum dolor sit amet colon! Ipsum dolor! Proceed
               with caution.

@@ -45,6 +45,10 @@ type $Props = {
    */
   maskStyles?: Object,
   /**
+   * Should footer with Cancel and Confirm buttons be shown
+   */
+  showFooter: boolean,
+  /**
    * Style object with any applicable overrides
    */
   style?: Object,
@@ -70,8 +74,10 @@ class Modal extends Component<$Props> {
   static defaultProps = {
     cancelText: "Cancel",
     cancelIcon: false,
+    confirmAction: () => null,
     confirmText: "Confirm",
     confirmIcon: false,
+    showFooter: true,
     visible: false,
   };
   render() {
@@ -86,6 +92,7 @@ class Modal extends Component<$Props> {
       confirmIcon,
       titleIcon,
       maskStyles,
+      showFooter,
       style,
       theme,
       title,
@@ -137,26 +144,28 @@ class Modal extends Component<$Props> {
             </div>
           </header>
           <div className={classes.body}>{children}</div>
-          <footer className={classes.footer}>
-            <Button
-              type="button"
-              isOutlined
-              icon={cancelIcon}
-              color="#ccc"
-              className={classes.cancel}
-              onClick={() => toggleModal()}
-            >
-              {cancelText}
-            </Button>
-            <Button
-              type="button"
-              color="secondary"
-              onClick={() => confirmAction()}
-              icon={confirmIcon}
-            >
-              {confirmText}
-            </Button>
-          </footer>
+          {showFooter ? (
+            <footer className={classes.footer}>
+              <Button
+                type="button"
+                isOutlined
+                icon={cancelIcon}
+                color="#ccc"
+                className={classes.cancel}
+                onClick={() => toggleModal()}
+              >
+                {cancelText}
+              </Button>
+              <Button
+                type="button"
+                color="secondary"
+                onClick={() => confirmAction()}
+                icon={confirmIcon}
+              >
+                {confirmText}
+              </Button>
+            </footer>
+          ) : null}
         </Paper>
       </AriaModal>
     );

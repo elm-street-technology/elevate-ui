@@ -59,8 +59,12 @@
       "flowType": {
         "name": "Function"
       },
-      "required": true,
-      "description": "Function to be fired when the confirm button is clicked"
+      "required": false,
+      "description": "Function to be fired when the confirm button is clicked",
+      "defaultValue": {
+        "value": "() => null",
+        "computed": false
+      }
     },
     "confirmText": {
       "flowType": {
@@ -106,6 +110,17 @@
       },
       "required": false,
       "description": "Adjust the mask style properties"
+    },
+    "showFooter": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "Should footer with Cancel and Confirm buttons be shown",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
     },
     "style": {
       "flowType": {
