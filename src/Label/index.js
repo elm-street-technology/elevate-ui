@@ -17,7 +17,7 @@ const styles = (theme) => ({
     width: "100%",
     fontSize: "14px",
     lineHeight: "18px",
-    fontWeight: "700",
+    fontWeight: "600",
     color: theme.colors.gray500,
     marginBottom: "4px",
   },

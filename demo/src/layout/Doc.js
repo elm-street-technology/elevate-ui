@@ -228,7 +228,7 @@ export default withStyles((theme) => ({
     },
     "&:nth-child(1)": {
       fontSize: "1.1rem",
-      fontWeight: "bold",
+      fontWeight: "600",
       backgroundColor: "#e8e8e8",
     },
   },
@@ -254,6 +254,6 @@ export default withStyles((theme) => ({
   },
   code: {
     fontFamily: "monospace",
-    fontWeight: "bold",
+    fontWeight: "600",
   },
 }))(Doc);
