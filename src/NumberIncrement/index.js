@@ -47,9 +47,12 @@ class NumberIncrement extends Component<Props> {
       }
     }
     if (this.props.onChange) {
-      this.props.onChange(newValue);
+      this.props.onChange(newValue.toFixed(2));
     }
-    return this.props.form.setFieldValue(this.props.field.name, newValue);
+    return this.props.form.setFieldValue(
+      this.props.field.name,
+      newValue.toFixed(2)
+    );
   };
 
   render() {
