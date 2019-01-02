@@ -17,13 +17,22 @@
           {
             "name": "signature",
             "type": "object",
-            "raw": "{\n  title: string,\n  contents: any,\n}",
+            "raw": "{\n  title: any | string,\n  contents: any,\n}",
             "signature": {
               "properties": [
                 {
                   "key": "title",
                   "value": {
-                    "name": "string",
+                    "name": "union",
+                    "raw": "any | string",
+                    "elements": [
+                      {
+                        "name": "any"
+                      },
+                      {
+                        "name": "string"
+                      }
+                    ],
                     "required": true
                   }
                 },
@@ -38,7 +47,7 @@
             }
           }
         ],
-        "raw": "Array<{\n  title: string,\n  contents: any,\n}>"
+        "raw": "Array<{\n  title: any | string,\n  contents: any,\n}>"
       },
       "required": true,
       "description": ""
