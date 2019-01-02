@@ -10,13 +10,15 @@ const NumberIncrements = () => (
   <Paper>
     <Formik
       initialValues={{
-        padding: 0,
+        padding: 8,
+        interest: 4.5,
         margin: 0,
       }}
       isInitialValid
       validationSchema={() =>
         Yup.object().shape({
           padding: Yup.number().required("A number is required"),
+          interest: Yup.number().required("A number is required"),
           margin: Yup.number().required("A number is required"),
         })
       }
@@ -33,6 +35,13 @@ const NumberIncrements = () => (
             name="padding"
             label="Padding"
             component={NumberIncrement}
+          />
+          <Field
+            id="interest"
+            name="interest"
+            label="Interest rate (%)"
+            component={NumberIncrement}
+            step={0.1}
           />
           <Field
             id="margin"
