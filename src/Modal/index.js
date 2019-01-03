@@ -230,6 +230,7 @@ const styles = (theme) => ({
     padding: "0",
   },
   body: {
+    width: "100%",
     flex: "0 1 auto",
     padding: "18px 24px",
     overflowY: "scroll",
