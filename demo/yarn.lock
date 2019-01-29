@@ -3154,6 +3154,13 @@ elevate-ui-icons@^0.1.0:
   dependencies:
     react "^16.5.0"
 
+elevate-ui-icons@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/elevate-ui-icons/-/elevate-ui-icons-0.2.0.tgz#e6bdb36e75cb1a0a35f81d8f3dbcd2c3f1722089"
+  integrity sha512-o5FYiLrVZaWfFSE4EB7AWL5aybOm8wKW0zh0EhZMhQul82zJVPrzsRDI/tvHl4oyo491268gy77Dn0qbQ+ViPQ==
+  dependencies:
+    react "^16.5.0"
+
 elevate-ui@*:
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/elevate-ui/-/elevate-ui-0.16.0.tgz#f2757208562455354174fc5da2ba6874ab6950bc"

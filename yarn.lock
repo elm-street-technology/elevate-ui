@@ -1984,10 +1984,10 @@ elegant-spinner@^1.0.1:
   resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
   integrity sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=
 
-elevate-ui-icons@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/elevate-ui-icons/-/elevate-ui-icons-0.1.0.tgz#c8be42d76560107ddf91a23b1d0d4edf98c37912"
-  integrity sha512-haGZOjCHoLjXCf8B1ThsO+jHvFb3i+NCY3KJFZzZzXt2+FQgNQqMjYU/tqHlSOS6dNS8FbaklIiV6kTR3g7PDQ==
+elevate-ui-icons@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/elevate-ui-icons/-/elevate-ui-icons-0.2.0.tgz#e6bdb36e75cb1a0a35f81d8f3dbcd2c3f1722089"
+  integrity sha512-o5FYiLrVZaWfFSE4EB7AWL5aybOm8wKW0zh0EhZMhQul82zJVPrzsRDI/tvHl4oyo491268gy77Dn0qbQ+ViPQ==
   dependencies:
     react "^16.5.0"
 
