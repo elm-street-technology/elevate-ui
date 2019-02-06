@@ -279,6 +279,13 @@ const Sidebar = ({ classes }) => {
 
         <span className={classes.header}>Contributing</span>
         <a
+          href="/Elevate%20Brand%20Guidelines.pdf"
+          className={classes.item}
+          title="Download Brand Guidelines PDF"
+        >
+          Brand Guidelines
+        </a>
+        <a
           href="https://github.com/elm-street-technology/elevate-ui"
           className={classes.item}
           title="View on GitHub"
