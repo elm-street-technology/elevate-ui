@@ -85,7 +85,11 @@ function getChildColor(theme, props) {
           .string();
       }
     } else {
-      return theme.colors.white;
+      if (Color(theme.colors[props.color]).isDark()) {
+        return theme.colors.white;
+      } else {
+        return theme.colors.black;
+      }
     }
   }
 }
