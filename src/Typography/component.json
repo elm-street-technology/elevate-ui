@@ -24,6 +24,13 @@
       "required": false,
       "description": "Accepts any classNames to be passed down to the component."
     },
+    "color": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Accepts a string value to be used as the color for the component."
+    },
     "element": {
       "flowType": {
         "name": "string"
