@@ -10,6 +10,10 @@ type Props = {
    */
   className?: string,
   /**
+   * Accepts a string value to be used as the color for the component.
+   */
+  color?: string,
+  /**
    * What HTML element to use when rendered.
    */
   element?: string,
@@ -44,6 +48,7 @@ const typeElementMap = {
  */
 const Typography = ({
   children,
+  color,
   classes,
   className,
   element: elementProp,
@@ -78,42 +83,42 @@ const styles = () => ({
     fontSize: "36px",
     lineHeight: "48px",
     fontWeight: "600",
-    color: "#2E2E35",
+    color: (props) => props.color || "#2E2E35",
   },
   heading2: {
     fontSize: "32px",
     lineHeight: "44px",
     fontWeight: "600",
-    color: "#2E2E35",
+    color: (props) => props.color || "#2E2E35",
   },
   heading3: {
     fontSize: "28px",
     lineHeight: "40px",
     fontWeight: "600",
-    color: "#2E2E35",
+    color: (props) => props.color || "#2E2E35",
   },
   heading4: {
     fontSize: "24px",
     lineHeight: "36px",
     fontWeight: "600",
-    color: "#2E2E35",
+    color: (props) => props.color || "#2E2E35",
   },
   heading5: {
     fontSize: "20px",
     lineHeight: "32px",
     fontWeight: "600",
-    color: "#2E2E35",
+    color: (props) => props.color || "#2E2E35",
   },
   heading6: {
     fontSize: "18px",
     lineHeight: "30px",
     fontWeight: "600",
-    color: "#2E2E35",
+    color: (props) => props.color || "#2E2E35",
   },
   body: {
-    maxWidth: "600px",
     fontSize: "14px",
     lineHeight: "18px",
+    color: (props) => props.color || null,
   },
   gutterBottom: {
     marginBottom: "0.35em",

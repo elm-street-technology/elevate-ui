@@ -3,42 +3,42 @@
 exports[`renders without crashing, matches the snapshot 1`] = `
 Array [
   <h1
-    className="Typography-root-0-1-1 Typography-title-0-1-2"
+    className="Typography-root-0-1-1 Typography-title-0-1-2 Typography-title-0-1-11"
   >
     Lorem Ipsum Dolor Sit Amet
   </h1>,
   <p
-    className="Typography-root-0-1-1 Typography-body-0-1-8"
+    className="Typography-root-0-1-1 Typography-body-0-1-8 Typography-body-0-1-24"
   >
     Lorem Ipsum Dolor Sit Amet
   </p>,
   <h2
-    className="Typography-root-0-1-1 Typography-heading2-0-1-3 Typography-gutterBottom-0-1-9"
+    className="Typography-root-0-1-1 Typography-heading2-0-1-3 Typography-heading2-0-1-26 Typography-gutterBottom-0-1-9"
   >
     Lorem Ipsum Dolor Sit Amet
   </h2>,
   <h3
-    className="Typography-root-0-1-1 Typography-heading3-0-1-4"
+    className="Typography-root-0-1-1 Typography-heading3-0-1-4 Typography-heading3-0-1-34"
   >
     Lorem Ipsum Dolor Sit Amet
   </h3>,
   <h4
-    className="Typography-root-0-1-1 Typography-heading4-0-1-5"
+    className="Typography-root-0-1-1 Typography-heading4-0-1-5 Typography-heading4-0-1-42"
   >
     Lorem Ipsum Dolor Sit Amet
   </h4>,
   <h5
-    className="Typography-root-0-1-1 Typography-heading5-0-1-6"
+    className="Typography-root-0-1-1 Typography-heading5-0-1-6 Typography-heading5-0-1-50"
   >
     Lorem Ipsum Dolor Sit Amet
   </h5>,
   <h6
-    className="Typography-root-0-1-1 Typography-heading6-0-1-7"
+    className="Typography-root-0-1-1 Typography-heading6-0-1-7 Typography-heading6-0-1-58"
   >
     Lorem Ipsum Dolor Sit Amet
   </h6>,
   <h1
-    className="Typography-root-0-1-1 Typography-title-0-1-2"
+    className="Typography-root-0-1-1 Typography-title-0-1-2 Typography-title-0-1-60"
     component="span"
   >
     Lorem Ipsum Dolor Sit Amet

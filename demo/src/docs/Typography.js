@@ -58,8 +58,8 @@ const Typographies = () => (
     <Typography type="heading6" gutterBottom>
       Heading 6
     </Typography>
-    <Typography type="title" element="span">
-      With component override
+    <Typography type="title" element="span" color="#CCC">
+      With component override and color override
     </Typography>
   </Paper>
 );
