@@ -55,6 +55,9 @@ type State = {
 
 function getChildColor(theme, props) {
   try {
+    if (props.disabled) {
+      return theme.colors["gray300"];
+    }
     Color(props.color); // if string resolves to color
     if (props.isOutlined) {
       return Color(props.color)
@@ -96,6 +99,9 @@ function getChildColor(theme, props) {
 
 function getBackgroundColor(theme, props) {
   try {
+    if (props.disabled) {
+      return theme.colors["gray100"];
+    }
     Color(props.color);
 
     if (props.isOutlined) {
@@ -118,6 +124,9 @@ function getBackgroundColor(theme, props) {
 
 function getHoverColor(theme, props) {
   try {
+    if (props.disabled) {
+      return theme.colors["gray100"];
+    }
     Color(props.color);
     // if the background is too dark fade it instead of lighten
     if (Color(props.color).isDark()) {
@@ -164,6 +173,9 @@ function getHoverColor(theme, props) {
 
 function getRippleColor(theme, props) {
   try {
+    if (props.disabled) {
+      return theme.colors["gray100"];
+    }
     Color(props.color);
 
     if (props.isOutlined) {
@@ -186,6 +198,9 @@ function getRippleColor(theme, props) {
 
 function getBorderColor(theme, props) {
   try {
+    if (props.disabled) {
+      return theme.colors["gray100"];
+    }
     Color(props.color);
     return props.color;
   } catch (error) {
@@ -236,7 +251,7 @@ class Button extends Component<Props, State> {
 
   handleClick = (e) => {
     const button = e.target;
-    const { onClick } = this.props;
+    const { onClick, disabled } = this.props;
 
     let parentOffset = button.getBoundingClientRect();
     let relX = Math.round(e.clientX - parentOffset.left);
@@ -249,8 +264,12 @@ class Button extends Component<Props, State> {
 
     this.toggleRipple();
 
-    // Call this.props.onClick if it exists
-    if (onClick) onClick(e);
+    // Call this.props.onClick if it exists, or don't do anything if disabled
+    if (onClick && !disabled) {
+      onClick(e);
+    } else if (disabled) {
+      e.preventDefault();
+    }
   };
 
   render() {
@@ -318,7 +337,15 @@ const styles = (theme) => ({
     borderRadius: theme.globalBorderRadius,
     transition: theme.transitions.default,
     overflow: "hidden",
-
+    cursor: (props) => {
+      if (props.disabled) {
+        return "not-allowed";
+      } else if (props.element === "a") {
+        return "pointer";
+      } else {
+        return "default";
+      }
+    },
     "&:hover": {
       backgroundColor: (props) => getHoverColor(theme, props),
     },
