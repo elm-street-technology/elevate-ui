@@ -45,7 +45,7 @@ const ButtonExample = () => (
     </Button>
     <br />
     <br />
-    <Button color="#FDE74C" type="button">
+    <Button color="#FFFFFF" type="button">
       White Button
     </Button>
     <br />
@@ -58,6 +58,17 @@ const ButtonExample = () => (
       type="button"
     >
       Button With Link
+    </Button>
+    <br />
+    <br />
+    <Button
+      element="a"
+      href="http://elevate-ui.com"
+      color="rgb(32, 148, 232)"
+      type="button"
+      disabled
+    >
+      Disabled Button With Link
     </Button>
     <br />
     <br />
