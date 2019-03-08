@@ -3,21 +3,21 @@ import checkboxHOC from "react-table/lib/hoc/selectTable";
 
 import Table from "./";
 import ActionButtons from "./ActionButtons";
-import Checkbox from "../Checkbox/UncontrolledCheckbox";
+// import Checkbox from "../Checkbox/UncontrolledCheckbox";
 
 const WrappedTable = checkboxHOC(Table);
-const CheckboxInput = (props) => {
-  return (
-    <Checkbox
-      id={`${props.id}`}
-      checked={props.checked}
-      onChange={() => {
-        props.onClick(props.id, null, props.row);
-      }}
-      withPadding={false}
-    />
-  );
-};
+// const CheckboxInput = (props) => {
+//   return (
+//     <Checkbox
+//       id={`${props.id}`}
+//       checked={props.checked}
+//       onChange={() => {
+//         props.onClick(props.id, null, props.row);
+//       }}
+//       withPadding={false}
+//     />
+//   );
+// };
 
 class CheckboxTable extends Component {
   constructor() {
@@ -107,8 +107,8 @@ class CheckboxTable extends Component {
       toggleAll: this.toggleAll,
       selectType: "checkbox",
       selectWidth: 36,
-      SelectInputComponent: CheckboxInput,
-      SelectAllInputComponent: CheckboxInput,
+      // SelectInputComponent: CheckboxInput,
+      // SelectAllInputComponent: CheckboxInput,
     };
 
     return (
