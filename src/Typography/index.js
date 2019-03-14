@@ -75,53 +75,81 @@ const Typography = ({
   );
 };
 
-const styles = () => ({
+const styles = (theme) => ({
   root: {
     width: "100%",
   },
   title: {
-    fontSize: "36px",
+    fontSize: "32px",
     lineHeight: "48px",
     fontWeight: "600",
     color: (props) => props.color || "#2E2E35",
+
+    [theme.breakpoints(600)]: {
+      fontSize: "36px",
+    },
   },
   heading2: {
-    fontSize: "32px",
+    fontSize: "28px",
     lineHeight: "44px",
     fontWeight: "600",
     color: (props) => props.color || "#2E2E35",
+
+    [theme.breakpoints(600)]: {
+      fontSize: "32px",
+    },
   },
   heading3: {
-    fontSize: "28px",
+    fontSize: "24px",
     lineHeight: "40px",
     fontWeight: "600",
     color: (props) => props.color || "#2E2E35",
+
+    [theme.breakpoints(600)]: {
+      fontSize: "28px",
+    },
   },
   heading4: {
     fontSize: "24px",
     lineHeight: "36px",
     fontWeight: "600",
     color: (props) => props.color || "#2E2E35",
+
+    [theme.breakpoints(600)]: {
+      fontSize: "28px",
+    },
   },
   heading5: {
-    fontSize: "20px",
+    fontSize: "18px",
     lineHeight: "32px",
     fontWeight: "600",
     color: (props) => props.color || "#2E2E35",
+
+    [theme.breakpoints(600)]: {
+      fontSize: "20px",
+    },
   },
   heading6: {
-    fontSize: "18px",
+    fontSize: "16px",
     lineHeight: "30px",
     fontWeight: "600",
     color: (props) => props.color || "#2E2E35",
+
+    [theme.breakpoints(600)]: {
+      fontSize: "18px",
+    },
   },
   body: {
-    fontSize: "14px",
-    lineHeight: "18px",
-    color: (props) => props.color || null,
+    fontSize: "18px",
+    lineHeight: "28px",
+    color: (props) => props.color || "#4b565f",
+
+    [theme.breakpoints(600)]: {
+      fontSize: "20px",
+    },
   },
   gutterBottom: {
-    marginBottom: "0.35em",
+    marginBottom: (props) => (props.type === "body" ? "1.5em" : "0.35em"),
   },
   gutterTop: {
     marginTop: "0.35em",
