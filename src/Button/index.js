@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import withStyles from "../withStyles";
 import Color from "color";
+import { checkString } from "../util";
 
 type $Props = {
   /**
@@ -51,14 +52,6 @@ type $Props = {
 
 type $State = {
   rippleActive: boolean,
-};
-
-const checkString = (colorProp: string): boolean => {
-  if (["primary", "secondary", "tertiary"].includes(colorProp)) {
-    return true;
-  } else {
-    return false;
-  }
 };
 
 const getChildColor = (theme: Object, props: Object): mixed => {
