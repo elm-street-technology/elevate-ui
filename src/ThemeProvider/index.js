@@ -2,20 +2,51 @@
 import React from "react";
 import injectSheet, { ThemeProvider as JSSThemeProvider } from "react-jss";
 import merge from "lodash/merge";
+import Color from "color";
 
-const colors = {
-  primaryLight: "#FFD6D5",
-  primary: "#f15953",
-  primaryDark: "#B23A36",
-  secondaryLight: "#A4EAE4",
-  secondary: "#55C3BA",
-  secondaryDark: "#44B0A7",
-  tertiaryLight: "#B9DFFF",
-  tertiary: "#2e7fc2",
-  tertiaryDark: "#12568F",
-  quaternaryLight: "#FFE9AB",
-  quaternary: "#ffc629",
-  quaternaryDark: "#9A6F00",
+const generateColors = (hex: string) => {
+  const color: Object = {
+    "50": Color(hex)
+      .lighten(0.5)
+      .string(),
+    "100": Color(hex)
+      .lighten(0.4)
+      .string(),
+    "200": Color(hex)
+      .lighten(0.3)
+      .string(),
+    "300": Color(hex)
+      .lighten(0.2)
+      .string(),
+    "400": Color(hex)
+      .lighten(0.1)
+      .string(),
+    "500": hex,
+    "600": Color(hex)
+      .darken(0.1)
+      .string(),
+    "700": Color(hex)
+      .darken(0.2)
+      .string(),
+    "800": Color(hex)
+      .darken(0.3)
+      .string(),
+    "900": Color(hex)
+      .darken(0.4)
+      .string(),
+  };
+  return color;
+};
+
+const colors: Object = {
+  primary: generateColors("#f15953"),
+  secondary: generateColors("#55C3BA"),
+  tertiary: generateColors("#2e7fc2"),
+  yellow: generateColors("#F7C948"),
+  green: generateColors("#4caf50"),
+  purple: generateColors("#673ab7"),
+  pink: generateColors("#e91e63"),
+  orange: generateColors("#ff9800"),
   white: "#fff",
   gray050: "#fbfcfd",
   gray100: "#edf1f4",
@@ -35,6 +66,50 @@ const colors = {
   pinterest: "#bd081c",
   twitter: "#1da1f2",
 };
+
+// backwards compatible colors
+colors.primaryLight = colors.primary[100];
+colors.primaryDark = colors.primary[900];
+colors.secondaryLight = colors.secondary[100];
+colors.secondaryDark = colors.secondary[900];
+colors.tertiaryLight = colors.tertiary[100];
+colors.tertiaryDark = colors.tertiary[900];
+colors.quaternaryLight = colors.yellow[100];
+colors.quaternary = colors.yellow[400];
+colors.quaternaryDark = colors.yellow[900];
+
+// const colors = {
+//   primaryLight: "#FFD6D5",
+//   primary: "#f15953",
+//   primaryDark: "#B23A36",
+//   secondaryLight: "#A4EAE4",
+//   secondary: "#55C3BA",
+//   secondaryDark: "#44B0A7",
+//   tertiaryLight: "#B9DFFF",
+//   tertiary: "#2e7fc2",
+//   tertiaryDark: "#12568F",
+//   quaternaryLight: "#FFE9AB",
+//   quaternary: "#ffc629",
+//   quaternaryDark: "#9A6F00",
+//   white: "#fff",
+//   gray050: "#fbfcfd",
+//   gray100: "#edf1f4",
+//   gray200: "#dde2e7",
+//   gray300: "#ccd2d8",
+//   gray400: "#b3bac1",
+//   gray500: "#888f96",
+//   gray600: "#60686f",
+//   gray700: "#4b565f",
+//   gray800: "#3E464F",
+//   gray900: "#232c35",
+//   black: "#11181e",
+//   error: "#9c2929",
+//   facebook: "#3b5998",
+//   google: "#db4437",
+//   linkedin: "#007bb5",
+//   pinterest: "#bd081c",
+//   twitter: "#1da1f2",
+// };
 
 const alertColors = {
   error: {

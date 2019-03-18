@@ -15,6 +15,16 @@ const ButtonExample = () => (
     </Typography>
     <br />
     <Button type="button">Load More</Button>
+    <br />
+    <br />
+    <Button type="button" color="secondary">
+      Secondary Button
+    </Button>
+    <br />
+    <br />
+    <Button type="button" color="tertiary">
+      Tertiary Button
+    </Button>
     <Typography type="body" gutterBottom gutterTop>
       Stress test of a wide button using {`color="secondary"`}:
     </Typography>
@@ -27,6 +37,16 @@ const ButtonExample = () => (
     <br />
     <Button isOutlined type="button">
       Load More
+    </Button>
+    <br />
+    <br />
+    <Button isOutlined type="button" color="secondary">
+      Secondary Button
+    </Button>
+    <br />
+    <br />
+    <Button isOutlined type="button" color="tertiary">
+      Tertiary Button
     </Button>
     <br />
     <br />
@@ -110,6 +130,11 @@ const ButtonExample = () => (
       type="button"
     >
       Add Lead
+    </Button>
+    <br />
+    <br />
+    <Button color="invalidColor" isOutlined icon={<Person />} type="button">
+      Invalid Color
     </Button>
     <br />
     <br />
