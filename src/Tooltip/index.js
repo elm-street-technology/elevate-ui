@@ -8,6 +8,7 @@ type $Props = {
   classes: Object,
   className?: Object,
   children: any,
+  focusDisable?: boolean,
   position: string,
   text: string,
 };
@@ -34,14 +35,22 @@ class Tooltip extends Component<$Props, $State> {
   toggleTooltip = () => this.setState((state) => ({ open: !state.open }));
 
   render() {
-    const { classes, className, clickEnabled, children } = this.props;
+    const {
+      classes,
+      className,
+      clickEnabled,
+      children,
+      focusDisable,
+    } = this.props;
     const { open } = this.state;
     return (
       <div
         className={classNames(classes.root, open && classes.active, className)}
         onMouseEnter={() => (!clickEnabled ? this.toggleTooltip() : null)}
         onMouseLeave={() => (!clickEnabled ? this.toggleTooltip() : null)}
-        onFocus={() => (!clickEnabled ? this.toggleTooltip() : null)}
+        onFocus={() =>
+          !clickEnabled && !focusDisable ? this.toggleTooltip() : null
+        }
         onClick={() => (clickEnabled ? this.toggleTooltip() : null)}
         onBlur={() => (open ? this.toggleTooltip() : null)}
         role="tooltip"

@@ -72,6 +72,14 @@ const Tooltips = ({ classes }: $Props) => (
         Click for tooltip
       </Button>
     </Tooltip>
+    <Typography type="heading5" gutterBottom>
+      Tooltip On Click
+    </Typography>
+    <Tooltip focusDisable text="🗣 Focus Disabled! 🗣">
+      <Button type="button" color="secondary">
+        Disabled on focus
+      </Button>
+    </Tooltip>
     <Typography type="heading5" gutterTop gutterBottom>
       Tooltip On Icons
     </Typography>
