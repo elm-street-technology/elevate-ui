@@ -340,11 +340,11 @@ export default withStyles((theme) => ({
     transitionDuration: "200ms",
 
     "&:hover": {
-      borderLeft: `4px solid ${theme.colors.secondary}`,
+      borderLeft: `4px solid ${theme.colors.secondary["500"]}`,
     },
   },
   active: {
-    color: theme.colors.secondary,
-    borderLeft: `4px solid ${theme.colors.secondary}`,
+    color: theme.colors.secondary["500"],
+    borderLeft: `4px solid ${theme.colors.secondary["500"]}`,
   },
 }))(Sidebar);

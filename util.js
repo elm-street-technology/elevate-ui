@@ -1,7 +1,5 @@
-
-
 Object.defineProperty(exports, "__esModule", {
-  value: true
+  value: true,
 });
 exports.checkString = void 0;
 

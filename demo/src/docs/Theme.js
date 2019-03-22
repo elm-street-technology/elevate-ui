@@ -1,4 +1,5 @@
 import React from "react";
+import isObject from "lodash/isObject";
 import classNames from "classnames";
 import Link from "elevate-ui-icons/Link";
 import Paper from "elevate-ui/Paper";
@@ -26,18 +27,42 @@ const Theme = ({ classes, theme }) => (
     {theme &&
       theme.colors && (
         <div className={classes.grid}>
-          {Object.keys(theme.colors).map((color) => (
-            <div key={color} className={classes.color}>
-              <div
-                className={classes.colorSwatch}
-                style={{ backgroundColor: theme.colors[color] }}
-              />
-              <div className={classes.colorDetails}>
-                <div className={classes.colorName}>{color}</div>
-                <div className={classes.colorHex}>{theme.colors[color]}</div>
-              </div>
-            </div>
-          ))}
+          {Object.keys(theme.colors).map((color) => {
+            if (isObject(theme.colors[color])) {
+              return Object.keys(theme.colors[color]).map((subColor) => {
+                const docColor = theme.colors[color][subColor];
+                return (
+                  <div key={subColor} className={classes.color}>
+                    <div
+                      className={classes.colorSwatch}
+                      style={{ background: docColor }}
+                    />
+                    <div className={classes.colorDetails}>
+                      <div
+                        className={classes.colorName}
+                      >{`${color} ${subColor}`}</div>
+                      <div className={classes.colorHex}>{docColor}</div>
+                    </div>
+                  </div>
+                );
+              });
+            } else {
+              return (
+                <div key={color} className={classes.color}>
+                  <div
+                    className={classes.colorSwatch}
+                    style={{ backgroundColor: theme.colors[color] }}
+                  />
+                  <div className={classes.colorDetails}>
+                    <div className={classes.colorName}>{color}</div>
+                    <div className={classes.colorHex}>
+                      {theme.colors[color]}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+          })}
         </div>
       )}
     <Hr />
@@ -253,7 +278,7 @@ export default withStyles((theme) => ({
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, 128px)",
+    gridTemplateColumns: "1fr 1fr",
     gridColumnGap: "32px",
     gridRowGap: "32px",
   },
@@ -261,15 +286,15 @@ export default withStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    width: "128px",
-    height: "172px",
+    // width: "128px",
+    height: "auto",
     backgroundColor: "#fff",
     padding: "6px",
     border: `1px solid ${theme.colors.gray300}`,
   },
   colorSwatch: {
-    width: "114px",
-    height: "114px",
+    width: "100%",
+    height: "60px",
   },
   colorDetails: {
     flex: "1",

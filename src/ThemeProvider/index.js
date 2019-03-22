@@ -7,33 +7,33 @@ import Color from "color";
 const generateColors = (hex: string) => {
   const color: Object = {
     "50": Color(hex)
-      .lighten(0.5)
-      .string(),
+      .lighten(0.55)
+      .hex(),
     "100": Color(hex)
-      .lighten(0.4)
-      .string(),
+      .lighten(0.45)
+      .hex(),
     "200": Color(hex)
-      .lighten(0.3)
-      .string(),
+      .lighten(0.35)
+      .hex(),
     "300": Color(hex)
-      .lighten(0.2)
-      .string(),
+      .lighten(0.25)
+      .hex(),
     "400": Color(hex)
-      .lighten(0.1)
-      .string(),
+      .lighten(0.15)
+      .hex(),
     "500": hex,
     "600": Color(hex)
-      .darken(0.1)
-      .string(),
+      .darken(0.15)
+      .hex(),
     "700": Color(hex)
-      .darken(0.2)
-      .string(),
+      .darken(0.25)
+      .hex(),
     "800": Color(hex)
-      .darken(0.3)
-      .string(),
+      .darken(0.35)
+      .hex(),
     "900": Color(hex)
-      .darken(0.4)
-      .string(),
+      .darken(0.45)
+      .hex(),
   };
   return color;
 };
