@@ -4,13 +4,18 @@ import injectSheet, { ThemeProvider as JSSThemeProvider } from "react-jss";
 import merge from "lodash/merge";
 
 const colors = {
+  primaryLight: "#FFD6D5",
   primary: "#f15953",
-  primaryDark: "#d24f45",
-  primaryGlow: "#d24f45", // todo
-  secondary: "#55c3ba",
-  secondaryDark: "#44b0a7",
+  primaryDark: "#B23A36",
+  secondaryLight: "#A4EAE4",
+  secondary: "#55C3BA",
+  secondaryDark: "#44B0A7",
+  tertiaryLight: "#B9DFFF",
   tertiary: "#2e7fc2",
+  tertiaryDark: "#12568F",
+  quaternaryLight: "#FFE9AB",
   quaternary: "#ffc629",
+  quaternaryDark: "#9A6F00",
   white: "#fff",
   gray050: "#fbfcfd",
   gray100: "#edf1f4",
@@ -20,7 +25,7 @@ const colors = {
   gray500: "#888f96",
   gray600: "#60686f",
   gray700: "#4b565f",
-  gray800: "#5a5b5c",
+  gray800: "#3E464F",
   gray900: "#232c35",
   black: "#11181e",
   error: "#9c2929",
