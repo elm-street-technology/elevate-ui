@@ -39,6 +39,13 @@
       "required": true,
       "description": ""
     },
+    "focusDisable": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": ""
+    },
     "position": {
       "flowType": {
         "name": "string"
