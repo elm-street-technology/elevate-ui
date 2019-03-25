@@ -233,6 +233,11 @@ class Button extends Component<Props, State> {
   }
 
   ripple: ?HTMLElement;
+  rippleTimeout: any;
+
+  componentWillUnmount() {
+    clearTimeout(this.rippleTimeout);
+  }
 
   toggleRipple = () => {
     this.setState(
@@ -240,11 +245,11 @@ class Button extends Component<Props, State> {
         rippleActive: !state.rippleActive,
       }),
       () => {
-        return setTimeout(() => {
+        return (this.rippleTimeout = setTimeout(() => {
           this.setState((state) => ({
             rippleActive: !state.rippleActive,
           }));
-        }, 401);
+        }, 401));
       }
     );
   };
