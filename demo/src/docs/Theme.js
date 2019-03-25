@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Fragment } from "react";
+import isObject from "lodash/isObject";
 import classNames from "classnames";
 import Link from "elevate-ui-icons/Link";
 import Paper from "elevate-ui/Paper";
@@ -7,6 +8,7 @@ import withStyles from "elevate-ui/withStyles";
 import Hr from "elevate-ui/Hr";
 import PrismCode from "react-prism";
 import "../layout/prism-elevate.css";
+import Color from "color";
 
 require("prismjs");
 
@@ -23,23 +25,112 @@ const Theme = ({ classes, theme }) => (
         Colors
       </a>
     </Typography>
-    {theme &&
-      theme.colors && (
-        <div className={classes.grid}>
-          {Object.keys(theme.colors).map((color) => (
-            <div key={color} className={classes.color}>
-              <div
-                className={classes.colorSwatch}
-                style={{ backgroundColor: theme.colors[color] }}
-              />
-              <div className={classes.colorDetails}>
-                <div className={classes.colorName}>{color}</div>
-                <div className={classes.colorHex}>{theme.colors[color]}</div>
-              </div>
+    <div className={classes.container}>
+      {theme &&
+        theme.colors && (
+          <Fragment>
+            {Object.keys(theme.colors).map((color) => {
+              if (isObject(theme.colors[color])) {
+                return (
+                  <Fragment key={color}>
+                    <Typography type="heading5" className={classes.heading}>
+                      {color}
+                    </Typography>
+                    <div className={classes.grid}>
+                      {Object.keys(theme.colors[color]).map((subColor) => (
+                        <div
+                          key={subColor}
+                          style={{ background: theme.colors[color][subColor] }}
+                          className={classes.subColor}
+                        >
+                          <div
+                            className={classes.subColorText}
+                            style={{
+                              color: Color(
+                                theme.colors[color][subColor]
+                              ).isDark()
+                                ? theme.colors.white
+                                : theme.colors.gray800,
+                            }}
+                          >
+                            {theme.colors[color][subColor]}
+                          </div>
+                          <div
+                            className={classes.subColorText}
+                            style={{
+                              color: Color(
+                                theme.colors[color][subColor]
+                              ).isDark()
+                                ? theme.colors.white
+                                : theme.colors.gray800,
+                            }}
+                          >
+                            {subColor}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </Fragment>
+                );
+              }
+            })}
+          </Fragment>
+        )}
+
+      {/* Only bringing back black & white 
+            since those are the only other colors that need to be displayed 
+          and are also not part of an object */}
+      {theme &&
+        theme.colors && (
+          <div>
+            <Typography type="heading5" style={{ margin: "24px 0px" }}>
+              Other Colors
+            </Typography>
+            <div className={classes.bottomContainer}>
+              {Object.keys(theme.colors).map((color) => {
+                if (
+                  (!isObject(theme.colors[color]) &&
+                    theme.colors[color] === theme.colors.black) ||
+                  theme.colors[color] === theme.colors.white
+                ) {
+                  return (
+                    <div
+                      key={color}
+                      style={{ background: theme.colors[color] }}
+                      className={classNames(
+                        classes.otherColor,
+                        theme.colors[color] === theme.colors.white &&
+                          classes.addBorder
+                      )}
+                    >
+                      <div
+                        className={classes.subColorText}
+                        style={{
+                          color: Color(theme.colors[color]).isDark()
+                            ? theme.colors.white
+                            : theme.colors.gray800,
+                        }}
+                      >
+                        {color}
+                      </div>
+                      <div
+                        className={classes.subColorText}
+                        style={{
+                          color: Color(theme.colors[color]).isDark()
+                            ? theme.colors.white
+                            : theme.colors.gray800,
+                        }}
+                      >
+                        {theme.colors[color]}
+                      </div>
+                    </div>
+                  );
+                }
+              })}
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        )}
+    </div>
     <Hr />
     <Typography type="title" gutterBottom>
       <a
@@ -249,27 +340,54 @@ export default withStyles((theme) => ({
   },
   headingLink: {
     textDecoration: "none",
-    color: theme.colors["gray900"],
+    color: theme.colors.gray["900"],
+  },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+
+    [theme.breakpoints(600)]: {
+      padding: "24px",
+    },
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, 128px)",
-    gridColumnGap: "32px",
-    gridRowGap: "32px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+    marginBottom: "48px",
+    borderRadius: "12px",
+  },
+  bottomContainer: {
+    display: "flex",
+  },
+  heading: {
+    marginTop: "12px",
+    marginBottom: "12px",
   },
   color: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    width: "128px",
-    height: "172px",
+    height: "auto",
     backgroundColor: "#fff",
     padding: "6px",
     border: `1px solid ${theme.colors.gray300}`,
   },
+  subColor: {
+    display: "flex",
+    justifyContent: "space-between",
+    height: "140px",
+    padding: "12px",
+    transition: "all .3s ease",
+  },
+  subColorText: {
+    // color: theme.colors.gray800,
+    letterSpacing: ".6px",
+    fontSize: "14px",
+    fontWeight: "600",
+  },
   colorSwatch: {
-    width: "114px",
-    height: "114px",
+    width: "100%",
+    height: "60px",
   },
   colorDetails: {
     flex: "1",
@@ -289,10 +407,22 @@ export default withStyles((theme) => ({
     fontSize: "14px",
   },
   deprecated: {
-    color: theme.colors["gray400"],
+    color: theme.colors.gray["400"],
     fontStyle: "italic",
   },
   codePadding: {
     padding: "0 !important",
+  },
+  otherColor: {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "200px",
+    height: "140px",
+    padding: "12px",
+    transition: "all .3s ease",
+    marginRight: "12px",
+  },
+  addBorder: {
+    border: `1px solid ${theme.colors.gray300}`,
   },
 }))(Theme);

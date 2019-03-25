@@ -16,7 +16,10 @@
       "params": [
         {
           "name": "e",
-          "type": null
+          "type": {
+            "name": "Object",
+            "alias": "Object"
+          }
         }
       ],
       "returns": null

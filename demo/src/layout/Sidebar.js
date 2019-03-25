@@ -1,5 +1,33 @@
 import React from "react";
+import classNames from "classnames";
 import withStyles from "elevate-ui/withStyles";
+import Input from "elevate-ui-icons/Input";
+import AttachMoney from "elevate-ui-icons/AttachMoney";
+import TextFields from "elevate-ui-icons/TextFields";
+import FormatListBulleted from "elevate-ui-icons/FormatListBulleted";
+import PlaylistAdd from "elevate-ui-icons/PlaylistAdd";
+import CheckBox from "elevate-ui-icons/CheckBox";
+import GroupAdd from "elevate-ui-icons/GroupAdd";
+import RadioButtonChecked from "elevate-ui-icons/RadioButtonChecked";
+import ViewWeek from "elevate-ui-icons/ViewWeek";
+import Calendar from "elevate-ui-icons/Calendar";
+import Brush from "elevate-ui-icons/Brush";
+import ColorLens from "elevate-ui-icons/ColorLens";
+import GridOff from "elevate-ui-icons/GridOff";
+import CropPortrait from "elevate-ui-icons/CropPortrait";
+import TextFormat from "elevate-ui-icons/TextFormat";
+import Warning from "elevate-ui-icons/Warning";
+import FilterNone from "elevate-ui-icons/FilterNone";
+import Crop75 from "elevate-ui-icons/Crop75";
+import BorderHorizontal from "elevate-ui-icons/BorderHorizontal";
+import BorderAll from "elevate-ui-icons/BorderAll";
+import InsertComment from "elevate-ui-icons/InsertComment";
+import InsertEmoticon from "elevate-ui-icons/InsertEmoticon";
+import Straighten from "elevate-ui-icons/Straighten";
+import RssFeed from "elevate-ui-icons/RssFeed";
+import AssignmentTurnedIn from "elevate-ui-icons/AssignmentTurnedIn";
+import FormatListNumbered from "elevate-ui-icons/FormatListNumbered";
+
 import { Link, NavLink } from "react-router-dom";
 
 const Sidebar = ({ classes }) => {
@@ -66,6 +94,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/input"
         >
+          <Input className={classes.navIcon} size={16} />
           Input
         </NavLink>
 
@@ -74,6 +103,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/currency-input"
         >
+          <AttachMoney className={classes.navIcon} size={16} />
           Currency Input
         </NavLink>
 
@@ -82,6 +112,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/textarea"
         >
+          <TextFields className={classes.navIcon} size={16} />
           Textarea
         </NavLink>
 
@@ -90,6 +121,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/select"
         >
+          <FormatListBulleted className={classes.navIcon} size={16} />
           Select
         </NavLink>
 
@@ -98,6 +130,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/multi-select"
         >
+          <PlaylistAdd className={classes.navIcon} size={16} />
           MultiSelect
         </NavLink>
 
@@ -106,6 +139,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/checkbox"
         >
+          <CheckBox className={classes.navIcon} size={16} />
           Checkbox
         </NavLink>
 
@@ -114,6 +148,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/checkbox-group"
         >
+          <GroupAdd className={classes.navIcon} size={16} />
           CheckboxGroup
         </NavLink>
 
@@ -122,6 +157,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/radio-group"
         >
+          <RadioButtonChecked className={classes.navIcon} size={16} />
           RadioGroup
         </NavLink>
 
@@ -130,6 +166,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/button-group"
         >
+          <ViewWeek className={classes.navIcon} size={16} />
           ButtonGroup
         </NavLink>
 
@@ -138,6 +175,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/datetime"
         >
+          <Calendar className={classes.navIcon} size={16} />
           Datetime
         </NavLink>
 
@@ -146,6 +184,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/number-increment"
         >
+          <Calendar className={classes.navIcon} size={16} />
           NumberIncrement
         </NavLink>
 
@@ -154,6 +193,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/color-picker"
         >
+          <Brush className={classes.navIcon} size={16} />
           ColorPicker
         </NavLink>
 
@@ -163,6 +203,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/theme"
         >
+          <ColorLens className={classes.navIcon} size={16} />
           Theme
         </NavLink>
         <NavLink
@@ -170,6 +211,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/theme-overrides"
         >
+          <GridOff className={classes.navIcon} size={16} />
           Theme Overrides
         </NavLink>
 
@@ -178,6 +220,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/typography"
         >
+          <TextFormat className={classes.navIcon} size={16} />
           Typography
         </NavLink>
 
@@ -186,6 +229,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/paper"
         >
+          <CropPortrait className={classes.navIcon} size={16} />
           Paper
         </NavLink>
 
@@ -194,6 +238,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/alert"
         >
+          <Warning className={classes.navIcon} size={16} />
           Alert
         </NavLink>
 
@@ -202,6 +247,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/modal"
         >
+          <FilterNone className={classes.navIcon} size={16} />
           Modal
         </NavLink>
 
@@ -210,6 +256,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/button"
         >
+          <Crop75 className={classes.navIcon} size={16} />
           Button
         </NavLink>
 
@@ -218,6 +265,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/hr"
         >
+          <BorderHorizontal className={classes.navIcon} size={16} />
           Horizontal Rule
         </NavLink>
 
@@ -226,6 +274,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/table"
         >
+          <BorderAll className={classes.navIcon} size={16} />
           Table
         </NavLink>
 
@@ -234,6 +283,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/tooltip"
         >
+          <InsertComment className={classes.navIcon} size={16} />
           Tooltip
         </NavLink>
 
@@ -242,6 +292,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/icon"
         >
+          <InsertEmoticon className={classes.navIcon} size={16} />
           Icon
         </NavLink>
 
@@ -250,6 +301,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/accordion"
         >
+          <Straighten className={classes.navIcon} size={16} />
           Accordion
         </NavLink>
 
@@ -258,6 +310,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/feed"
         >
+          <RssFeed className={classes.navIcon} size={16} />
           Feed
         </NavLink>
 
@@ -267,6 +320,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/signup"
         >
+          <AssignmentTurnedIn className={classes.navIcon} size={16} />
           Sign up
         </NavLink>
         <NavLink
@@ -274,6 +328,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/query-form"
         >
+          <FormatListNumbered className={classes.navIcon} size={16} />
           Query Form
         </NavLink>
 
@@ -287,7 +342,7 @@ const Sidebar = ({ classes }) => {
         </a>
         <a
           href="https://github.com/elm-street-technology/elevate-ui"
-          className={classes.item}
+          className={classNames(classes.item, classes.last)}
           title="View on GitHub"
         >
           View on GitHub
@@ -303,11 +358,11 @@ export default withStyles((theme) => ({
     flexDirection: "column",
     width: "100%",
     backgroundColor: theme.colors.white,
+    marginBottom: "24px",
   },
   logoLink: {
     display: "flex",
-    margin: "0 auto 8px",
-    padding: "32px 24px 12px",
+    marginTop: "24px",
   },
   nav: {
     display: "flex",
@@ -315,36 +370,48 @@ export default withStyles((theme) => ({
     paddingLeft: "24px",
   },
   header: {
-    fontSize: "12px",
+    fontSize: "13px",
+    fontWeight: "600",
     lineHeight: "1",
-    color: "#b3bac1",
-    fontWeight: "500",
+    color: theme.colors.gray500,
     textTransform: "uppercase",
-    padding: "16px",
-    borderBottom: `1px solid ${theme.colors.gray200}`,
-    marginBottom: "12px",
+    letterSpacing: ".8px",
+    padding: "12px 8px",
+    marginTop: "24px",
+    marginLeft: "4px",
   },
   item: {
     flexShrink: "0",
     display: "flex",
-    color: theme.colors.gray800,
-    fontSize: "16px",
-    fontWeight: "600",
+    alignItems: "center",
+    color: theme.colors.gray600,
+    fontSize: "14px",
+    fontWeight: "500",
     lineHeight: "14px",
+    letterSpacing: ".4px",
     textDecoration: "none",
-    padding: "6px 16px",
+    padding: "12px 8px",
     borderLeft: `4px solid transparent`,
     margin: "4px 0",
     transitionProperty: "all",
     transitionTimingFunction: "ease-in-out",
-    transitionDuration: "200ms",
+    transitionDuration: "250ms",
 
     "&:hover": {
-      borderLeft: `4px solid ${theme.colors.secondary}`,
+      borderLeft: `4px solid ${theme.colors.secondary["500"]}`,
     },
   },
   active: {
-    color: theme.colors.secondary,
-    borderLeft: `4px solid ${theme.colors.secondary}`,
+    color: theme.colors.gray900,
+    fontWeight: "600",
+    padding: "12px 14px",
+    borderLeft: `4px solid ${theme.colors.secondary["500"]}`,
+  },
+  navIcon: {
+    color: theme.colors.gray500,
+    marginRight: "10px",
+  },
+  last: {
+    marginBottom: "48px",
   },
 }))(Sidebar);
