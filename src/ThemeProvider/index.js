@@ -3,30 +3,116 @@ import React from "react";
 import injectSheet, { ThemeProvider as JSSThemeProvider } from "react-jss";
 import merge from "lodash/merge";
 
-const colors = {
-  primaryLight: "#FFD6D5",
-  primary: "#f15953",
-  primaryDark: "#B23A36",
-  secondaryLight: "#A4EAE4",
-  secondary: "#55C3BA",
-  secondaryDark: "#44B0A7",
-  tertiaryLight: "#B9DFFF",
-  tertiary: "#2e7fc2",
-  tertiaryDark: "#12568F",
-  quaternaryLight: "#FFE9AB",
-  quaternary: "#ffc629",
-  quaternaryDark: "#9A6F00",
+const colors: Object = {
+  primary: {
+    "050": "#FFF5F5",
+    "100": "#FFE4E4",
+    "200": "#FFD4D4",
+    "300": "#F99E9B",
+    "400": "#F17772",
+    "500": "#F15953",
+    "600": "#D2413B",
+    "700": "#A82B26",
+    "800": "#821410",
+    "900": "#610404",
+  },
+  secondary: {
+    "050": "#F3FFFE",
+    "100": "#EBFAF9",
+    "200": "#DAF2F1",
+    "300": "#9EE5E0",
+    "400": "#68D0C8",
+    "500": "#55C3BA",
+    "600": "#2EA59B",
+    "700": "#168C82",
+    "800": "#086B62",
+    "900": "#014A44",
+  },
+  tertiary: {
+    "050": "#E9F5FF",
+    "100": "#E1EDF8",
+    "200": "#D6E4F0",
+    "300": "#80B7E4",
+    "400": "#4891CD",
+    "500": "#2E7FC2",
+    "600": "#19629E",
+    "700": "#105188",
+    "800": "#073E6C",
+    "900": "#023052",
+  },
+  yellow: {
+    "050": "#FFFCF0",
+    "100": "#FFF8E5",
+    "200": "#FFF2CE",
+    "300": "#FFE292",
+    "400": "#F7CF61",
+    "500": "#F7C948",
+    "600": "#C99400",
+    "700": "#905710",
+    "800": "#844118",
+    "900": "#672F0D",
+  },
+  green: {
+    "050": "#EFFFF0",
+    "100": "#E0F9E0",
+    "200": "#D4F4D4",
+    "300": "#9EE9A1",
+    "400": "#6DCA71",
+    "500": "#4CAF50",
+    "600": "#37983A",
+    "700": "#1E7C21",
+    "800": "#105E12",
+    "900": "#043E06",
+  },
+  purple: {
+    "050": "#F7F3FF",
+    "100": "#F1EAFF",
+    "200": "#EAE2F8",
+    "300": "#A081D9",
+    "400": "#835BCD",
+    "500": "#673AB7",
+    "600": "#51279B",
+    "700": "#421987",
+    "800": "#34126F",
+    "900": "#240754",
+  },
+  pink: {
+    "050": "#FFF2F9",
+    "100": "#FDE5F2",
+    "200": "#F9DBEC",
+    "300": "#FF94C2",
+    "400": "#F25087",
+    "500": "#E91E63",
+    "600": "#C91854",
+    "700": "#A91354",
+    "800": "#800C49",
+    "900": "#5C0B33",
+  },
+  orange: {
+    "050": "#FEF5F0",
+    "100": "#FFF0E7",
+    "200": "#FFEADE",
+    "300": "#FFC4A3",
+    "400": "#F5A375",
+    "500": "#EF8E58",
+    "600": "#C65D21",
+    "700": "#8C3D10",
+    "800": "#77340D",
+    "900": "#572508",
+  },
+  gray: {
+    "050": "#fbfcfd",
+    "100": "#edf1f4",
+    "200": "#dde2e7",
+    "300": "#ccd2d8",
+    "400": "#b3bac1",
+    "500": "#888f96",
+    "600": "#60686f",
+    "700": "#4b565f",
+    "800": "#3E464F",
+    "900": "#232c35",
+  },
   white: "#fff",
-  gray050: "#fbfcfd",
-  gray100: "#edf1f4",
-  gray200: "#dde2e7",
-  gray300: "#ccd2d8",
-  gray400: "#b3bac1",
-  gray500: "#888f96",
-  gray600: "#60686f",
-  gray700: "#4b565f",
-  gray800: "#3E464F",
-  gray900: "#232c35",
   black: "#11181e",
   error: "#9c2929",
   facebook: "#3b5998",
@@ -36,10 +122,33 @@ const colors = {
   twitter: "#1da1f2",
 };
 
+// backwards compatible colors
+colors.primaryLight = colors.primary["050"];
+colors.primaryDark = colors.primary["900"];
+colors.secondaryLight = colors.secondary["050"];
+colors.secondaryDark = colors.secondary["900"];
+colors.tertiaryLight = colors.tertiary["050"];
+colors.tertiaryDark = colors.tertiary["900"];
+colors.quaternaryLight = colors.yellow["050"];
+colors.quaternary = colors.yellow["500"];
+colors.quaternaryDark = colors.yellow["900"];
+
+// backwards compatible grays
+colors.gray050 = colors.gray["050"];
+colors.gray100 = colors.gray["100"];
+colors.gray200 = colors.gray["200"];
+colors.gray300 = colors.gray["300"];
+colors.gray400 = colors.gray["400"];
+colors.gray500 = colors.gray["500"];
+colors.gray600 = colors.gray["600"];
+colors.gray700 = colors.gray["700"];
+colors.gray800 = colors.gray["800"];
+colors.gray900 = colors.gray["900"];
+
 const alertColors = {
   error: {
     color: "#9c2929",
-    backgroundColor: "#fcf2f2",
+    backgroundColor: colors.primary["050"],
     borderColor: "#f6dddd",
   },
   info: {

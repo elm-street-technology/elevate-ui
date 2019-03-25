@@ -132,7 +132,7 @@ const styles = (theme) => ({
     borderRadius: theme.globalBorderRadius,
 
     "& a[href]": {
-      color: theme.colors.secondary,
+      color: theme.colors.secondary["500"],
       textDecoration: "none",
     },
     "& a[href]:hover": {

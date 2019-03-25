@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import withStyles from "../withStyles";
 import classNames from "classnames";
 import get from "lodash/get";
+import { checkString } from "../util";
 
 import Scaffold from "../Scaffold";
 import without from "lodash/without";
@@ -35,17 +36,28 @@ type Props = {
 };
 
 function getBackgroundColor(theme, props) {
-  if (props.color !== "primary" && props.color !== "secondary") {
-    return props.color;
-  } else {
-    return theme.colors[props.color];
+  try {
+    if (checkString(props.color)) {
+      return theme.colors[props.color]["500"];
+    } else {
+      if (Color(props.color)) {
+        return props.color;
+      }
+    }
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn(err);
+    return theme.colors.black;
   }
 }
 
 function getSpanColor(theme, props) {
+  const background = getBackgroundColor(theme, props);
+  console.log(background);
+
   let backgroundColor;
-  if (props.color === "primary" || props.color === "secondary") {
-    backgroundColor = theme.colors[props.color];
+  if (checkString(props.color)) {
+    backgroundColor = theme.colors[props.color]["500"];
   } else {
     backgroundColor = props.color;
   }
@@ -57,6 +69,12 @@ function getSpanColor(theme, props) {
   } else {
     return theme.colors["gray600"];
   }
+
+  // // if (Color(background).isDark()) {
+  // //   return theme.colors.white;
+  // // } else {
+  // //   return theme.colors.gray900;
+  // // }
 }
 
 /**

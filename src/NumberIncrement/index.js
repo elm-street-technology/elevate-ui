@@ -155,7 +155,7 @@ const styles = (theme) => ({
     alignItems: "center",
     height: "auto",
     width: 40,
-    backgroundColor: theme.colors["primary"],
+    backgroundColor: theme.colors.primary["500"],
     color: "#fff",
   },
   buttonLeft: {

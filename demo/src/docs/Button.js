@@ -7,14 +7,30 @@ import Paper from "elevate-ui/Paper";
 import Person from "elevate-ui-icons/Person";
 import Cart from "elevate-ui-icons/Cart";
 
-const ButtonExample = () => (
+const ButtonExample = ({ classes }) => (
   <Paper>
-    <h2>Standard Button</h2>
+    <Typography
+      type="heading5"
+      className={classes.heading}
+      style={{ marginTop: "0px" }}
+    >
+      Standard Button
+    </Typography>
     <Typography type="body" gutterBottom gutterTop>
       Default Props, using {`type="button"`}
     </Typography>
     <br />
     <Button type="button">Load More</Button>
+    <br />
+    <br />
+    <Button type="button" color="secondary">
+      Secondary Button
+    </Button>
+    <br />
+    <br />
+    <Button type="button" color="tertiary">
+      Tertiary Button
+    </Button>
     <Typography type="body" gutterBottom gutterTop>
       Stress test of a wide button using {`color="secondary"`}:
     </Typography>
@@ -23,10 +39,22 @@ const ButtonExample = () => (
     </Button>
     <br />
     <br />
-    <h2>Outlined Buttons</h2>
+    <Typography type="heading5" className={classes.heading}>
+      Outlined Buttons
+    </Typography>
     <br />
     <Button isOutlined type="button">
       Load More
+    </Button>
+    <br />
+    <br />
+    <Button isOutlined type="button" color="secondary">
+      Secondary Button
+    </Button>
+    <br />
+    <br />
+    <Button isOutlined type="button" color="tertiary">
+      Tertiary Button
     </Button>
     <br />
     <br />
@@ -38,7 +66,9 @@ const ButtonExample = () => (
     </Button>
     <br />
     <br />
-    <h2>Custom Color Buttons</h2>
+    <Typography type="heading5" className={classes.heading}>
+      Custom Color Buttons
+    </Typography>
     <br />
     <Button color="rgb(19, 30, 177)" type="button">
       Filter Results
@@ -77,7 +107,9 @@ const ButtonExample = () => (
     </Button>
     <br />
     <br />
-    <h2>Buttons With Icons</h2>
+    <Typography type="heading5" className={classes.heading}>
+      Buttons With Icons
+    </Typography>
     <br />
     <Button color="primary" icon={<Person />} type="button">
       Add Lead
@@ -95,7 +127,9 @@ const ButtonExample = () => (
     </Button>
     <br />
     <br />
-    <h2>Disabled Buttons</h2>
+    <Typography type="heading5" className={classes.heading}>
+      Disabled Buttons
+    </Typography>
     <br />
     <Button disabled color="primary" icon={<Person />} type="button">
       Add Lead
@@ -113,6 +147,11 @@ const ButtonExample = () => (
     </Button>
     <br />
     <br />
+    <Button color="invalidColor" isOutlined icon={<Person />} type="button">
+      Invalid Color
+    </Button>
+    <br />
+    <br />
   </Paper>
 );
 
@@ -127,5 +166,8 @@ export default withStyles(() => ({
   },
   exampleContainer: {
     margin: "15px 0",
+  },
+  heading: {
+    marginTop: "48px",
   },
 }))(ButtonExample);

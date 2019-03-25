@@ -3,8 +3,9 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import withStyles from "../withStyles";
 import Color from "color";
+import { checkString } from "../util";
 
-type Props = {
+type $Props = {
   /**
    * Children to be passed to the component.
    */
@@ -49,174 +50,160 @@ type Props = {
   disabled?: boolean,
 };
 
-type State = {
+type $State = {
   rippleActive: boolean,
 };
 
-function getChildColor(theme, props) {
+const getChildColor = (theme: Object, props: Object) => {
+  let color;
   try {
+    // if the button is disabled
     if (props.disabled) {
       return theme.colors["gray300"];
     }
-    Color(props.color); // if string resolves to color
-    if (props.isOutlined) {
-      return Color(props.color)
-        .darken(0.25)
-        .string();
-    } else {
-      if (Color(props.color).isDark()) {
-        return theme.colors.white;
+    // if the button is using one of the string keys for color
+    if (checkString(props.color)) {
+      color = theme.colors[props.color]["500"];
+      if (props.isOutlined) {
+        return color;
       } else {
-        return theme.colors.black;
-      }
-    }
-  } catch (error) {
-    if (props.isOutlined) {
-      return Color(theme.colors[props.color])
-        .darken(0.25) // darken the outlined button text a bit to give us better contrast
-        .string();
-    } else if (props.disabled) {
-      return theme.colors["gray300"];
-    } else if (props.isOutlined) {
-      if (props.color !== "primary" && props.color !== "secondary") {
-        return Color(props.color)
-          .darken(0.25) // darken the outlined button text a bit to give us better contrast
-          .string();
-      } else {
-        return Color(theme.colors[props.color])
-          .darken(0.25) // darken the outlined button text a bit to give us better contrast
-          .string();
+        return Color(color).isDark() ? theme.colors.white : theme.colors.black;
       }
     } else {
-      if (Color(theme.colors[props.color]).isDark()) {
-        return theme.colors.white;
+      if (Color(props.color)) {
+        if (props.isOutlined) {
+          return Color(props.color).string();
+        } else {
+          return Color(props.color).isDark()
+            ? theme.colors.white
+            : theme.colors.black;
+        }
       } else {
-        return theme.colors.black;
+        throw new Error("Not a valid color string for prop type 'color'");
       }
     }
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn(err);
+    return theme.colors.white;
   }
-}
+};
 
-function getBackgroundColor(theme, props) {
+const getBackgroundColor = (theme: Object, props: Object) => {
   try {
-    if (props.disabled) {
-      return theme.colors["gray100"];
-    }
-    Color(props.color);
-
-    if (props.isOutlined) {
-      return "transparent";
-    }
-
-    return props.color;
-  } catch (error) {
-    if (props.isOutlined) {
-      return "transparent";
-    } else if (props.disabled) {
-      return theme.colors["gray100"];
-    } else if (theme.colors[props.color]) {
-      return theme.colors[props.color];
-    } else {
-      return theme.colors.black;
-    }
-  }
-}
-
-function getHoverColor(theme, props) {
-  try {
-    if (props.disabled) {
-      return theme.colors["gray100"];
-    }
-    Color(props.color);
-    // if the background is too dark fade it instead of lighten
-    if (Color(props.color).isDark()) {
-      return Color(props.color)
-        .fade(0.75)
-        .string();
-    } else {
-      return Color(props.color)
-        .lighten(0.55)
-        .string();
-    }
-  } catch (error) {
     if (props.disabled && props.isOutlined) {
-      // if disabled and outlined
       return "transparent";
-    } else if (props.disabled) {
-      // if disabled
+    }
+    if (props.disabled) {
       return theme.colors["gray100"];
-    } else if (props.isOutlined) {
-      // if is outlined and using primary or secondary
-      // if the background is too dark fade it instead of lighten
-      if (Color(theme.colors[props.color]).isDark()) {
-        return Color(theme.colors[props.color])
-          .fade(0.75)
-          .string();
+    }
+    let color;
+    if (checkString(props.color)) {
+      color = theme.colors[props.color]["500"];
+      if (props.isOutlined) {
+        return "transparent";
+      } else {
+        return color;
       }
-      return Color(theme.colors[props.color])
-        .lighten(0.52)
-        .string();
     } else {
-      // anything else
-      // if the background is too dark fade it instead of lighten
-      if (Color(theme.colors[props.color]).isDark()) {
-        return Color(theme.colors[props.color])
-          .fade(0.75)
-          .string();
+      if (Color(props.color)) {
+        if (props.isOutlined) {
+          return "transparent";
+        }
+        return props.color;
       }
-      return Color(theme.colors[props.color])
-        .darken(0.1)
-        .string();
     }
-  }
-}
-
-function getRippleColor(theme, props) {
-  try {
-    if (props.disabled) {
-      return theme.colors["gray100"];
-    }
-    Color(props.color);
-
-    if (props.isOutlined) {
-      return Color(props.color)
-        .lighten(0.45)
-        .string();
-    } else {
-      return props.color;
-    }
-  } catch (error) {
-    if (props.isOutlined) {
-      return Color(theme.colors[props.color])
-        .lighten(0.45)
-        .string();
-    } else {
-      return theme.colors[props.color];
-    }
-  }
-}
-
-function getBorderColor(theme, props) {
-  try {
-    if (props.disabled) {
-      return theme.colors["gray100"];
-    }
-    Color(props.color);
-    return props.color;
-  } catch (error) {
-    if (props.disabled) {
-      return theme.colors["gray100"];
-    } else if (!props.disabled && theme.colors[props.color]) {
-      return theme.colors[props.color];
-    }
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn(err);
     return theme.colors.black;
   }
-}
+};
+
+const getHoverColor = (theme: Object, props: $Props) => {
+  try {
+    if (props.disabled) {
+      return theme.colors["gray100"];
+    }
+    if (checkString(props.color)) {
+      if (props.isOutlined) {
+        return theme.colors[props.color]["50"];
+      }
+      if (Color(theme.colors[props.color]["500"]).isDark()) {
+        return theme.colors[props.color]["300"];
+      } else {
+        return theme.colors[props.color]["700"];
+      }
+    } else {
+      if (Color(props.color)) {
+        if (props.isOutlined) {
+          return Color(props.color)
+            .lighten(0.5)
+            .string();
+        }
+        if (Color(props.color).isDark()) {
+          return Color(props.color)
+            .lighten(0.2)
+            .string();
+        } else {
+          return Color(props.color)
+            .darken(0.2)
+            .string();
+        }
+      }
+    }
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn(err);
+    return theme.colors["gray700"];
+  }
+};
+
+const getRippleColor = (theme: Object, props: $Props) => {
+  try {
+    if (props.disabled) {
+      return theme.colors["gray100"];
+    }
+    if (checkString(props.color)) {
+      if (props.isOutlined) {
+        return theme.colors[props.color]["200"];
+      }
+      return theme.colors[props.color]["500"];
+    } else {
+      if (Color(props.color)) {
+        return props.color;
+      }
+    }
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn(err);
+    return theme.colors.black;
+  }
+};
+
+const getBorderColor = (theme: Object, props: $Props) => {
+  try {
+    if (props.disabled) {
+      return theme.colors["gray100"];
+    }
+    if (checkString(props.color)) {
+      return theme.colors[props.color]["500"];
+    } else {
+      if (Color(props.color)) {
+        return props.color;
+      }
+    }
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn(err);
+    return theme.colors.black;
+  }
+};
 
 /**
  * A component used to render a styled button.
  */
-class Button extends Component<Props, State> {
+class Button extends Component<$Props, $State> {
   static defaultProps = {
     color: "primary",
     element: "button",
@@ -249,7 +236,7 @@ class Button extends Component<Props, State> {
     );
   };
 
-  handleClick = (e) => {
+  handleClick = (e: Object) => {
     const button = e.target;
     const { onClick, disabled } = this.props;
 
@@ -322,7 +309,7 @@ class Button extends Component<Props, State> {
   }
 }
 
-const styles = (theme) => ({
+const styles = (theme: Object): Object => ({
   root: {
     display: "inline-flex",
     position: "relative",
@@ -346,7 +333,7 @@ const styles = (theme) => ({
         return "default";
       }
     },
-    "&:hover": {
+    "&:hover, &:active": {
       backgroundColor: (props) => getHoverColor(theme, props),
     },
   },
