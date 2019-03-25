@@ -54,7 +54,7 @@ type $State = {
   rippleActive: boolean,
 };
 
-const getChildColor = (theme: Object, props: Object): mixed => {
+const getChildColor = (theme: Object, props: Object) => {
   let color;
   try {
     // if the button is disabled
@@ -89,7 +89,7 @@ const getChildColor = (theme: Object, props: Object): mixed => {
   }
 };
 
-const getBackgroundColor = (theme: Object, props: Object): mixed => {
+const getBackgroundColor = (theme: Object, props: Object) => {
   try {
     if (props.disabled && props.isOutlined) {
       return "transparent";
@@ -120,7 +120,7 @@ const getBackgroundColor = (theme: Object, props: Object): mixed => {
   }
 };
 
-const getHoverColor = (theme: Object, props: $Props): mixed => {
+const getHoverColor = (theme: Object, props: $Props) => {
   try {
     if (props.disabled) {
       return theme.colors["gray100"];
@@ -159,7 +159,7 @@ const getHoverColor = (theme: Object, props: $Props): mixed => {
   }
 };
 
-const getRippleColor = (theme: Object, props: $Props): mixed => {
+const getRippleColor = (theme: Object, props: $Props) => {
   try {
     if (props.disabled) {
       return theme.colors["gray100"];
@@ -181,7 +181,7 @@ const getRippleColor = (theme: Object, props: $Props): mixed => {
   }
 };
 
-const getBorderColor = (theme: Object, props: $Props): mixed => {
+const getBorderColor = (theme: Object, props: $Props) => {
   try {
     if (props.disabled) {
       return theme.colors["gray100"];

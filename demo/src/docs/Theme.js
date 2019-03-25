@@ -8,6 +8,7 @@ import withStyles from "elevate-ui/withStyles";
 import Hr from "elevate-ui/Hr";
 import PrismCode from "react-prism";
 import "../layout/prism-elevate.css";
+import Color from "color";
 
 require("prismjs");
 
@@ -31,20 +32,41 @@ const Theme = ({ classes, theme }) => (
             {Object.keys(theme.colors).map((color) => {
               if (isObject(theme.colors[color])) {
                 return (
-                  <Fragment>
+                  <Fragment key={color}>
                     <Typography type="heading5" className={classes.heading}>
                       {color}
                     </Typography>
                     <div className={classes.grid}>
                       {Object.keys(theme.colors[color]).map((subColor) => (
                         <div
+                          key={subColor}
                           style={{ background: theme.colors[color][subColor] }}
                           className={classes.subColor}
                         >
-                          <div className={classes.subColorText}>
+                          <div
+                            className={classes.subColorText}
+                            style={{
+                              color: Color(
+                                theme.colors[color][subColor]
+                              ).isDark()
+                                ? theme.colors.white
+                                : theme.colors.gray800,
+                            }}
+                          >
                             {theme.colors[color][subColor]}
                           </div>
-                          <div className={classes.subColorText}>{subColor}</div>
+                          <div
+                            className={classes.subColorText}
+                            style={{
+                              color: Color(
+                                theme.colors[color][subColor]
+                              ).isDark()
+                                ? theme.colors.white
+                                : theme.colors.gray800,
+                            }}
+                          >
+                            {subColor}
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -73,6 +95,7 @@ const Theme = ({ classes, theme }) => (
                 ) {
                   return (
                     <div
+                      key={color}
                       style={{ background: theme.colors[color] }}
                       className={classNames(
                         classes.otherColor,
@@ -80,8 +103,24 @@ const Theme = ({ classes, theme }) => (
                           classes.addBorder
                       )}
                     >
-                      <div className={classes.subColorText}>{color}</div>
-                      <div className={classes.subColorText}>
+                      <div
+                        className={classes.subColorText}
+                        style={{
+                          color: Color(theme.colors[color]).isDark()
+                            ? theme.colors.white
+                            : theme.colors.gray800,
+                        }}
+                      >
+                        {color}
+                      </div>
+                      <div
+                        className={classes.subColorText}
+                        style={{
+                          color: Color(theme.colors[color]).isDark()
+                            ? theme.colors.white
+                            : theme.colors.gray800,
+                        }}
+                      >
                         {theme.colors[color]}
                       </div>
                     </div>
@@ -341,7 +380,7 @@ export default withStyles((theme) => ({
     transition: "all .3s ease",
   },
   subColorText: {
-    color: theme.colors.gray800,
+    // color: theme.colors.gray800,
     letterSpacing: ".6px",
     fontSize: "14px",
     fontWeight: "600",

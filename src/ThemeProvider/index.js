@@ -4,6 +4,18 @@ import injectSheet, { ThemeProvider as JSSThemeProvider } from "react-jss";
 import merge from "lodash/merge";
 
 const colors: Object = {
+  primary: {
+    "050": "#FFF5F5",
+    "100": "#FFE4E4",
+    "200": "#FFD4D4",
+    "300": "#F99E9B",
+    "400": "#F17772",
+    "500": "#F15953",
+    "600": "#D2413B",
+    "700": "#A82B26",
+    "800": "#821410",
+    "900": "#610404",
+  },
   secondary: {
     "050": "#F3FFFE",
     "100": "#EBFAF9",
@@ -15,18 +27,6 @@ const colors: Object = {
     "700": "#168C82",
     "800": "#086B62",
     "900": "#014A44",
-  },
-  elevateRed: {
-    "050": "#FFF5F5",
-    "100": "#FFE4E4",
-    "200": "#FFD4D4",
-    "300": "#F99E9B",
-    "400": "#F17772",
-    "500": "#F15953",
-    "600": "#D2413B",
-    "700": "#A82B26",
-    "800": "#821410",
-    "900": "#610404",
   },
   tertiary: {
     "050": "#E9F5FF",
@@ -122,12 +122,9 @@ const colors: Object = {
   twitter: "#1da1f2",
 };
 
-// console.log(colors);
-
 // backwards compatible colors
-colors.primary = colors.elevateRed["500"];
-colors.primaryLight = colors.elevateRed["050"];
-colors.primaryDark = colors.elevateRed["900"];
+colors.primaryLight = colors.primary["050"];
+colors.primaryDark = colors.primary["900"];
 colors.secondaryLight = colors.secondary["050"];
 colors.secondaryDark = colors.secondary["900"];
 colors.tertiaryLight = colors.tertiary["050"];
