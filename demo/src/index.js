@@ -7,7 +7,19 @@ import { unregister } from "./registerServiceWorker";
 import Main from "./layout/Main";
 
 render(
-  <ThemeProvider>
+  <ThemeProvider
+    theme={{
+      overrides: {
+        EuiPaper: {
+          withPadding: {
+            "@media screen and (min-width: 600px)": {
+              padding: "20px",
+            },
+          },
+        },
+      },
+    }}
+  >
     <Router>
       <Main />
     </Router>

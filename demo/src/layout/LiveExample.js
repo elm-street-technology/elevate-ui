@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import withStyles from "elevate-ui/withStyles";
 
 import Typography from "elevate-ui/Typography";
-import Paper from "elevate-ui/Paper";
-import Button from "elevate-ui/Button";
 import PrismCode from "react-prism";
 import "./prism-elevate.css";
 require("prismjs");
@@ -38,42 +36,29 @@ class LiveExample extends Component<Props, State> {
         <div className={classes.exampleHeader}>
           <Typography
             id="example"
-            type="heading2"
+            type="heading5"
             className={classes.subHeading}
           >
             Live Example
           </Typography>
-          <div>
-            <Button
-              onClick={this.toggleSource}
-              type="button"
-              color="primary"
-              className={classes.button}
-            >
-              {this.state.showSource ? "Hide Source Code" : "Show Source Code"}
-            </Button>
-          </div>
         </div>
-        <div
-          className={this.state.showSource ? classes.hidden : classes.visible}
-        >
-          <Element />
+        <div className={classes.exampleContainer}>
+          <Element className={classes.example} />
         </div>
-        <div
-          className={this.state.showSource ? classes.visible : classes.hidden}
-        >
-          <Paper>
-            <PrismCode component="pre" className="language-javascript">
-              {code}
-            </PrismCode>
-          </Paper>
+        <Typography id="example" type="heading5" className={classes.subHeading}>
+          Source code for example
+        </Typography>
+        <div className={classes.exampleContainer}>
+          <PrismCode component="pre" className="language-javascript">
+            {code}
+          </PrismCode>
         </div>
       </div>
     );
   }
 }
 
-export default withStyles(() => ({
+export default withStyles((theme) => ({
   root: {
     display: "flex",
     position: "relative",
@@ -86,10 +71,17 @@ export default withStyles(() => ({
     justifyContent: "spaceBetween",
     alignItems: "center",
   },
+  example: {
+    padding: "24px 0px !important",
+  },
   subHeading: {
     display: "block",
-    margin: "1.5em 0",
-    fontSize: "1.5rem",
+    margin: "1.5em 0 .25em",
+    fontSize: "16px",
+    fontWeight: "600",
+    letterSpacing: ".8px",
+    color: theme.colors.gray600,
+    textTransform: "uppercase",
   },
   button: {
     width: "175px",
@@ -99,5 +91,10 @@ export default withStyles(() => ({
   },
   visible: {
     display: "block",
+  },
+  exampleContainer: {
+    display: "flex",
+    flexDirection: "column",
+    marginBottom: "48px",
   },
 }))(LiveExample);

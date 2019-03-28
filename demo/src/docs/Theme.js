@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import isObject from "lodash/isObject";
 import classNames from "classnames";
 import Link from "elevate-ui-icons/Link";
-import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import withStyles from "elevate-ui/withStyles";
 import Hr from "elevate-ui/Hr";
@@ -13,13 +12,25 @@ import Color from "color";
 require("prismjs");
 
 const Theme = ({ classes, theme }) => (
-  <Paper>
-    <Typography type="title">{`<ThemeProvider />`}</Typography>
-    <Typography type="body" style={{ marginBottom: "32px" }}>
-      Elevate-UI uses React-JSS under the hood. The ThemeProvider documentation
-      can be found here. https://github.com/cssinjs/theming#themeprovider
-    </Typography>
-    <Typography type="title" gutterBottom>
+  <div className={classes.wrapper}>
+    <div className={classes.headingContainer}>
+      <Typography type="title">{`<ThemeProvider />`}</Typography>
+      <Typography type="body">
+        Elevate-UI uses React-JSS under the hood.
+        <div className={classes.linkContainer}>
+          The ThemeProvider documentation can be found here: {""}
+          <a
+            className={classes.link}
+            target="blank"
+            href="https://github.com/cssinjs/theming#themeprovider"
+          >
+            https://github.com/cssinjs/theming#themeprovider
+          </a>
+        </div>
+      </Typography>
+    </div>
+
+    <Typography type="title" gutterBottom className={classes.heading}>
       <a href="#colors" name="colors" className={classes.headingLink}>
         <Link />
         Colors
@@ -132,7 +143,7 @@ const Theme = ({ classes, theme }) => (
         )}
     </div>
     <Hr />
-    <Typography type="title" gutterBottom>
+    <Typography type="title" gutterBottom className={classes.heading}>
       <a
         href="#responsive-breakpoints"
         name="responsive-breakpoints"
@@ -146,10 +157,10 @@ const Theme = ({ classes, theme }) => (
       Elevate-UI ships with a "breakpoints" function that allows the user to
       pass a number and receive a responsive media query in return.
     </Typography>
-    <Typography type="heading3" gutterBottom>
+    <Typography type="heading3" gutterBottom className={classes.heading}>
       Example
     </Typography>
-    <Paper withPadding={false}>
+    <div style={{ marginBottom: "48px" }}>
       <PrismCode component="pre" className="language-javascript">
         {`
         const styles = (theme) => ({
@@ -172,9 +183,9 @@ const Theme = ({ classes, theme }) => (
         }
         `}
       </PrismCode>
-    </Paper>
+    </div>
     <Hr />
-    <Typography type="title" gutterBottom>
+    <Typography type="title" gutterBottom className={classes.heading}>
       <a
         href="#global-properties"
         name="global-properties"
@@ -184,113 +195,119 @@ const Theme = ({ classes, theme }) => (
         Global Properties
       </a>
     </Typography>
+    <div className={classes.exampleHeader}>
+      <Typography id="example" type="heading5" className={classes.subHeading}>
+        Usage examples
+      </Typography>
+    </div>
     <Typography type="heading4" gutterBottom>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
+      <Typography
+        className={classNames(classes.codePadding, classes.propHeading)}
       >
         {`globalBorderRadius`}
-      </PrismCode>
+      </Typography>
     </Typography>
-    <Typography type="heading6">Usage Example</Typography>
-    <Paper withPadding={false}>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`
+    <PrismCode
+      component="pre"
+      className={classNames(
+        "language-javascript",
+        classes.codePadding,
+        classes.codeBlock
+      )}
+    >
+      {`
         const style = (theme) => ({
           button: {
             borderRadius: theme.globalBorderRadius,
           },
         });
         `}
-      </PrismCode>
-    </Paper>
-    <Typography type="heading4" gutterBottom>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`globalBoxShadow`}
-      </PrismCode>
+    </PrismCode>
+    <Typography
+      className={classNames(classes.codePadding, classes.propHeading)}
+      type="heading4"
+      gutterBottom
+    >
+      {`globalBoxShadow`}
     </Typography>
-    <Typography type="heading6">Usage Example</Typography>
-    <Paper withPadding={false}>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`
+    <PrismCode
+      component="pre"
+      className={classNames(
+        "language-javascript",
+        classes.codePadding,
+        classes.codeBlock
+      )}
+    >
+      {`
         const style = (theme) => ({
           profileImage: {
             boxShadow: theme.globalBoxShadow,
           },
         });
         `}
-      </PrismCode>
-    </Paper>
-    <Typography type="heading4" gutterBottom>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`globalPadding`}
-      </PrismCode>
+    </PrismCode>
+    <Typography
+      className={classNames(classes.codePadding, classes.propHeading)}
+      type="heading4"
+      gutterBottom
+    >
+      {`globalPadding`}
     </Typography>
-    <Typography type="heading6">Usage Example</Typography>
-    <Paper withPadding={false}>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`
+    <PrismCode
+      component="pre"
+      className={classNames(
+        "language-javascript",
+        classes.codePadding,
+        classes.codeBlock
+      )}
+    >
+      {`
         const style = (theme) => ({
           grid: {
             ...theme.globalPadding,
           },
         });
         `}
-      </PrismCode>
-    </Paper>
-    <Typography type="heading4" gutterBottom>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`transition`}
-      </PrismCode>
+    </PrismCode>
+    <Typography
+      className={classNames(classes.codePadding, classes.propHeading)}
+      type="heading4"
+      gutterBottom
+    >
+      {`transition`}
     </Typography>
-    <Typography type="heading6">Usage Example</Typography>
-    <Paper withPadding={false}>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`
+    <PrismCode
+      component="pre"
+      className={classNames(
+        "language-javascript",
+        classes.codePadding,
+        classes.codeBlock
+      )}
+    >
+      {`
         const style = (theme) => ({
           button: {
             transition: theme.transitions['default'], // 'all 200ms linear'
           }
         });
         `}
-      </PrismCode>
-    </Paper>
-    <Typography type="heading4" gutterBottom>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`typography`}
-      </PrismCode>
+    </PrismCode>
+    <Typography
+      className={classNames(classes.codePadding, classes.propHeading)}
+      type="heading4"
+      gutterBottom
+    >
+      {`typography`}
     </Typography>
-    <Typography type="heading6">Usage Example</Typography>
-    <Paper withPadding={false}>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`
+    <PrismCode
+      component="pre"
+      className={classNames(
+        "language-javascript",
+        classes.codePadding,
+        classes.codeBlock
+      )}
+    >
+      {`
         const style = (theme) => ({
           caption: {
             color: theme.typography['bodyColor'], // '#2E2E35'
@@ -299,23 +316,24 @@ const Theme = ({ classes, theme }) => (
           }
         });
         `}
-      </PrismCode>
-    </Paper>
-    <Typography type="heading4" gutterBottom>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`zIndex`}
-      </PrismCode>
+    </PrismCode>
+    <Typography
+      className={classNames(classes.codePadding, classes.propHeading)}
+      type="heading4"
+      gutterBottom
+    >
+      {`zIndex`}{" "}
+      <span className={classes.propSubHeading}>(Available Values)</span>
     </Typography>
-    <Typography type="heading6">Available Values</Typography>
-    <Paper withPadding={false}>
-      <PrismCode
-        component="pre"
-        className={classNames("language-javascript", classes.codePadding)}
-      >
-        {`
+    <PrismCode
+      component="pre"
+      className={classNames(
+        "language-javascript",
+        classes.codePadding,
+        classes.codeBlock
+      )}
+    >
+      {`
         const zIndex = {
           buttonBase: 0,
           buttonChildren: 1,
@@ -327,9 +345,8 @@ const Theme = ({ classes, theme }) => (
           modal: 2000,
         };
         `}
-      </PrismCode>
-    </Paper>
-  </Paper>
+    </PrismCode>
+  </div>
 );
 
 export default withStyles((theme) => ({
@@ -338,6 +355,11 @@ export default withStyles((theme) => ({
       fontWeight: 800,
     },
   },
+  link: {
+    color: `${theme.colors.tertiary["600"]} !important`,
+    textDecoration: "none",
+    wordWrap: "break-word",
+  },
   headingLink: {
     textDecoration: "none",
     color: theme.colors.gray["900"],
@@ -345,10 +367,6 @@ export default withStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
-
-    [theme.breakpoints(600)]: {
-      padding: "24px",
-    },
   },
   grid: {
     display: "grid",
@@ -358,9 +376,13 @@ export default withStyles((theme) => ({
   },
   bottomContainer: {
     display: "flex",
+    marginBottom: "48px",
+  },
+  headingContainer: {
+    marginBottom: "24px",
   },
   heading: {
-    marginTop: "12px",
+    marginTop: "48px",
     marginBottom: "12px",
   },
   color: {
@@ -380,10 +402,10 @@ export default withStyles((theme) => ({
     transition: "all .3s ease",
   },
   subColorText: {
-    // color: theme.colors.gray800,
     letterSpacing: ".6px",
-    fontSize: "14px",
+    fontSize: "13px",
     fontWeight: "600",
+    fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
   },
   colorSwatch: {
     width: "100%",
@@ -410,8 +432,29 @@ export default withStyles((theme) => ({
     color: theme.colors.gray["400"],
     fontStyle: "italic",
   },
+  codeBlock: {
+    marginBottom: "48px !important",
+  },
   codePadding: {
     padding: "0 !important",
+  },
+  propHeading: {
+    color: theme.colors.black,
+    fontSize: "18px",
+  },
+  propSubHeading: {
+    color: theme.colors.gray600,
+    fontSize: "16px",
+    letterSpacing: ".5px",
+  },
+  subHeading: {
+    display: "block",
+    margin: "1.5em 0 .25em",
+    fontWeight: "600",
+    fontSize: "16px",
+    letterSpacing: ".8px",
+    color: theme.colors.gray600,
+    textTransform: "uppercase",
   },
   otherColor: {
     display: "flex",
@@ -424,5 +467,19 @@ export default withStyles((theme) => ({
   },
   addBorder: {
     border: `1px solid ${theme.colors.gray300}`,
+  },
+  linkContainer: {
+    marginTop: "32px",
+  },
+  wrapper: {
+    maxWidth: "800px",
+    width: "100%",
+    margin: "45px auto",
+    padding: "12px",
+
+    [theme.breakpoints(900)]: {
+      margin: "45px auto 45px 80px",
+      padding: "0px",
+    },
   },
 }))(Theme);

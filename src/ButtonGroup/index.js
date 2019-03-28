@@ -52,9 +52,6 @@ function getBackgroundColor(theme, props) {
 }
 
 function getSpanColor(theme, props) {
-  const background = getBackgroundColor(theme, props);
-  console.log(background);
-
   let backgroundColor;
   if (checkString(props.color)) {
     backgroundColor = theme.colors[props.color]["500"];

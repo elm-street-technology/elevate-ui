@@ -7,7 +7,7 @@ import CheckboxGroup from "elevate-ui/CheckboxGroup";
 import Button from "elevate-ui/Button";
 
 const CheckboxGroups = () => (
-  <Paper>
+  <Paper style={{ paddingLeft: "32px" }}>
     <Formik
       initialValues={{ colors: [] }}
       validationSchema={() =>

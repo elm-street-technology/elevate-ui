@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-import Paper from "elevate-ui/Paper";
 import Select from "elevate-ui/Select";
 import Button from "elevate-ui/Button";
 
@@ -59,7 +58,7 @@ class Selects extends Component {
 
   render() {
     return (
-      <Paper>
+      <div style={{ margin: "16px 0px" }}>
         <Formik
           initialValues={{
             color: "",
@@ -88,7 +87,7 @@ class Selects extends Component {
                 items={roygbiv}
                 component={Select}
               />
-              <div style={{ maxWidth: "180px" }}>
+              <div style={{ maxWidth: "180px", margin: "48px 0px" }}>
                 <Field
                   id="color2"
                   name="color2"
@@ -112,7 +111,7 @@ class Selects extends Component {
             </Form>
           )}
         />
-      </Paper>
+      </div>
     );
   }
 }

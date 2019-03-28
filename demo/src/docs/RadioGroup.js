@@ -7,7 +7,7 @@ import RadioGroup from "elevate-ui/RadioGroup";
 import Button from "elevate-ui/Button";
 
 const RadioGroups = () => (
-  <Paper>
+  <Paper style={{ paddingLeft: "32px" }}>
     <Formik
       initialValues={{ color: null }}
       validationSchema={() =>

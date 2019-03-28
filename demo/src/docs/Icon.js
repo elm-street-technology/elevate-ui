@@ -1,6 +1,5 @@
 import React from "react";
 
-import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import * as AllIcons from "elevate-ui-icons";
 import Icon from "elevate-ui-icons/Icon";
@@ -10,7 +9,7 @@ const Icons = ({ classes }) => {
   const iconKeys = Object.keys(AllIcons);
 
   return (
-    <Paper>
+    <div>
       <Typography type="title">{`<Icon />`}</Typography>
       <Typography type="body">
         Search for icons:{" "}
@@ -38,7 +37,7 @@ const Icons = ({ classes }) => {
           );
         })}
       </div>
-    </Paper>
+    </div>
   );
 };
 

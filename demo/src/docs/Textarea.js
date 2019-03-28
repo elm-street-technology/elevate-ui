@@ -2,12 +2,11 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-import Paper from "elevate-ui/Paper";
 import Textarea from "elevate-ui/Textarea";
 import Button from "elevate-ui/Button";
 
 const TextAreas = () => (
-  <Paper>
+  <div>
     <Formik
       initialValues={{
         story: "",
@@ -32,7 +31,7 @@ const TextAreas = () => (
         </Form>
       )}
     />
-  </Paper>
+  </div>
 );
 
 export default TextAreas;

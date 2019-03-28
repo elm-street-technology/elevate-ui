@@ -1,12 +1,12 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 
-import Paper from "elevate-ui/Paper";
 import ColorPicker from "elevate-ui/ColorPicker";
 import Button from "elevate-ui/Button";
+import Paper from "elevate-ui/Paper";
 
 const ColorPickers = () => (
-  <Paper>
+  <Paper style={{ marginTop: "24px" }}>
     <Formik
       initialValues={{
         hexColor: "#d0021b",
@@ -27,14 +27,16 @@ const ColorPickers = () => (
             label="Hex Color"
             component={ColorPicker}
           />
-          <Field
-            id="rgbColor"
-            name="rgbColor"
-            label="RGB Color"
-            colorMode="rgb"
-            disableAlpha={true}
-            component={ColorPicker}
-          />
+          <div style={{ margin: "32px 0px" }}>
+            <Field
+              id="rgbColor"
+              name="rgbColor"
+              label="RGB Color"
+              colorMode="rgb"
+              disableAlpha={true}
+              component={ColorPicker}
+            />
+          </div>
           <Field
             id="rgbaColor"
             name="rgbaColor"
