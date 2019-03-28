@@ -27,6 +27,7 @@ import Straighten from "elevate-ui-icons/Straighten";
 import RssFeed from "elevate-ui-icons/RssFeed";
 import AssignmentTurnedIn from "elevate-ui-icons/AssignmentTurnedIn";
 import FormatListNumbered from "elevate-ui-icons/FormatListNumbered";
+import AddCircleOutline from "elevate-ui-icons/AddCircleOutline";
 
 import { Link, NavLink } from "react-router-dom";
 
@@ -184,7 +185,7 @@ const Sidebar = ({ classes }) => {
           className={classes.item}
           to="/number-increment"
         >
-          <Calendar className={classes.navIcon} size={16} />
+          <AddCircleOutline className={classes.navIcon} size={16} />
           NumberIncrement
         </NavLink>
 
