@@ -16,128 +16,158 @@ type $Props = {
 };
 
 const Tooltips = ({ classes }: $Props) => (
-  <Paper>
-    <Typography type="heading5" gutterBottom>
+  <div>
+    <Typography style={{ paddingTop: "16px" }} type="heading5" gutterBottom>
       Default Tooltip
     </Typography>
-    <Tooltip text="Save your changes and exit...">
-      <Button type="button" onClick={() => alert("Button onClick fired")}>
-        Save
-      </Button>
-    </Tooltip>
-    <Typography type="heading5" gutterTop gutterBottom>
+    <Paper>
+      <Tooltip text="Save your changes and exit...">
+        <Button type="button" onClick={() => alert("Button onClick fired")}>
+          Save
+        </Button>
+      </Tooltip>
+    </Paper>
+    <Typography
+      className={classes.heading}
+      type="heading5"
+      gutterTop
+      gutterBottom
+    >
       Tooltip With Position Prop
     </Typography>
-    <div className={classes.tooltipContainer}>
-      <Tooltip text="🙌 Great work 🙌" position="right">
-        <Button
-          type="button"
-          isOutlined
-          onClick={() => alert("Button onClick fired")}
+    <Paper>
+      <div className={classes.tooltipContainer}>
+        <Tooltip text="🙌 Great work 🙌" position="right">
+          <Button
+            type="button"
+            isOutlined
+            onClick={() => alert("Button onClick fired")}
+          >
+            Tooltip Right
+          </Button>
+        </Tooltip>
+      </div>
+      <div className={classes.tooltipContainer}>
+        <Tooltip text="🍻 Cheers! 🍻" position="bottom">
+          <Button
+            type="button"
+            isOutlined
+            onClick={() => alert("Button onClick fired")}
+          >
+            Tooltip Bottom
+          </Button>
+        </Tooltip>
+      </div>
+      <div className={classes.tooltipContainer}>
+        <Tooltip
+          text="🍕🍕 Pizza Is Really Awesome! I could eat pizza everyday! Mmm... cheesy.🍕🍕"
+          position="left"
         >
-          Tooltip Right
-        </Button>
-      </Tooltip>
-    </div>
-    <div className={classes.tooltipContainer}>
-      <Tooltip text="🍻 Cheers! 🍻" position="bottom">
-        <Button
-          type="button"
-          isOutlined
-          onClick={() => alert("Button onClick fired")}
-        >
-          Tooltip Bottom
-        </Button>
-      </Tooltip>
-    </div>
-    <div className={classes.tooltipContainer}>
-      <Tooltip
-        text="🍕🍕 Pizza Is Really Awesome! I could eat pizza everyday! Mmm... cheesy.🍕🍕"
-        position="left"
-      >
-        <Button
-          type="button"
-          isOutlined
-          onClick={() => alert("Button onClick fired")}
-        >
-          Tooltip Left
-        </Button>
-      </Tooltip>
-    </div>
-    <Typography type="heading5" gutterBottom>
+          <Button
+            type="button"
+            isOutlined
+            onClick={() => alert("Button onClick fired")}
+          >
+            Tooltip Left
+          </Button>
+        </Tooltip>
+      </div>
+    </Paper>
+    <Typography className={classes.heading} type="heading5" gutterBottom>
       Tooltip On Click
     </Typography>
-    <Tooltip clickEnabled text="🗣 You clicked! 🗣">
-      <Button type="button" color="secondary">
-        Click for tooltip
-      </Button>
-    </Tooltip>
-    <Typography type="heading5" gutterBottom>
+    <Paper>
+      <Tooltip clickEnabled text="🗣 You clicked! 🗣">
+        <Button type="button" color="secondary">
+          Click for tooltip
+        </Button>
+      </Tooltip>
+    </Paper>
+    <Typography className={classes.heading} type="heading5" gutterBottom>
       Tooltip On Click
     </Typography>
-    <Tooltip focusDisable text="🗣 Focus Disabled! 🗣">
-      <Button type="button" color="secondary">
-        Disabled on focus
-      </Button>
-    </Tooltip>
-    <Typography type="heading5" gutterTop gutterBottom>
+    <Paper>
+      <Tooltip focusDisable text="🗣 Focus Disabled! 🗣">
+        <Button type="button" color="secondary">
+          Disabled on focus
+        </Button>
+      </Tooltip>
+    </Paper>
+    <Typography
+      className={classes.heading}
+      type="heading5"
+      gutterTop
+      gutterBottom
+    >
       Tooltip On Icons
     </Typography>
-    <Tooltip text="Explains some important information...">
-      <InfoOutline />
-    </Tooltip>
-    <Typography type="heading5" gutterTop gutterBottom>
+    <Paper>
+      <Tooltip text="Explains some important information...">
+        <InfoOutline />
+      </Tooltip>
+    </Paper>
+    <Typography
+      className={classes.heading}
+      type="heading5"
+      gutterTop
+      gutterBottom
+    >
       Tooltip Inside A Form
     </Typography>
-    <Formik
-      initialValues={{
-        email: "",
-      }}
-      validationSchema={() =>
-        Yup.object().shape({
-          email: Yup.string()
-            .email("Invalid email address")
-            .required("Email is required"),
-        })
-      }
-      onSubmit={(values) => {
-        alert(values.email);
-      }}
-      render={({ isSubmitting, isValid }) => (
-        <Form id="emailForm" noValidate style={{ maxWidth: "420px" }}>
-          <Field
-            id="email"
-            name="email"
-            label={
-              <div
-                style={{
-                  display: "flex",
-                  flexFlow: "row nowrap",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                Email{" "}
-                <Tooltip text="Email is required so we can keep you informed">
-                  <InfoOutline />
-                </Tooltip>
-              </div>
-            }
-            component={Input}
-          />
-          <Button type="submit" disabled={!isValid || isSubmitting}>
-            Submit
-          </Button>
-        </Form>
-      )}
-    />
-  </Paper>
+    <Paper>
+      <Formik
+        initialValues={{
+          email: "",
+        }}
+        validationSchema={() =>
+          Yup.object().shape({
+            email: Yup.string()
+              .email("Invalid email address")
+              .required("Email is required"),
+          })
+        }
+        onSubmit={(values) => {
+          alert(values.email);
+        }}
+        render={({ isSubmitting, isValid }) => (
+          <Form id="emailForm" noValidate style={{ maxWidth: "420px" }}>
+            <Field
+              id="email"
+              name="email"
+              label={
+                <div
+                  style={{
+                    display: "flex",
+                    flexFlow: "row nowrap",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  Email{" "}
+                  <Tooltip text="Email is required so we can keep you informed">
+                    <InfoOutline />
+                  </Tooltip>
+                </div>
+              }
+              component={Input}
+            />
+            <Button type="submit" disabled={!isValid || isSubmitting}>
+              Submit
+            </Button>
+          </Form>
+        )}
+      />
+    </Paper>
+  </div>
 );
 
 const styles = () => ({
   tooltipContainer: {
     display: "inline-block",
     marginRight: "10px",
+  },
+  heading: {
+    paddingTop: "32px",
   },
 });
 export default withStyles(styles, { name: "EuiTooltips" })(Tooltips);

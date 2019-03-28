@@ -165,11 +165,16 @@ export default withStyles((theme) => ({
     alignItems: "center",
     alignSelf: "stretch",
     width: "100%",
+    height: "auto",
     margin: "0 auto",
-    padding: "8px",
+
+    [theme.breakpoints(600)]: {
+      padding: "12px",
+    },
 
     [theme.breakpoints(900)]: {
-      paddingLeft: "248px", // sidebar width + 8px padding
+      paddingLeft: "264px",
+      paddingRight: "32px", // sidebar width + 8px padding
     },
   },
   underlay: {

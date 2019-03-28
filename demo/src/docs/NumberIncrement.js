@@ -2,9 +2,9 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-import Paper from "elevate-ui/Paper";
 import NumberIncrement from "elevate-ui/NumberIncrement";
 import Button from "elevate-ui/Button";
+import Paper from "elevate-ui/Paper";
 
 const NumberIncrements = () => (
   <Paper>
@@ -36,13 +36,15 @@ const NumberIncrements = () => (
             label="Padding"
             component={NumberIncrement}
           />
-          <Field
-            id="interest"
-            name="interest"
-            label="Interest rate (%)"
-            component={NumberIncrement}
-            step={0.1}
-          />
+          <div style={{ margin: "48px 0px" }}>
+            <Field
+              id="interest"
+              name="interest"
+              label="Interest rate (%)"
+              component={NumberIncrement}
+              step={0.1}
+            />
+          </div>
           <Field
             id="margin"
             name="margin"

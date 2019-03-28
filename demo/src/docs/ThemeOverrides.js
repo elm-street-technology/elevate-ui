@@ -1,10 +1,11 @@
 import React from "react";
+import withStyles from "elevate-ui/withStyles";
 import Paper from "elevate-ui/Paper";
 import ThemeProvider from "elevate-ui/ThemeProvider";
 import Typography from "elevate-ui/Typography";
 import InputDocs from "./Input";
 
-const ThemeOverrides = () => (
+const ThemeOverrides = ({ classes }) => (
   <ThemeProvider
     theme={{
       colors: {
@@ -47,20 +48,38 @@ const ThemeOverrides = () => (
       },
     }}
   >
-    <Paper style={{ marginBottom: "8px" }}>
-      <Typography type="title">Theme Overrides</Typography>
-      <Typography type="body" gutterTop gutterBottom>
-        Elevate-UI allows you to declare theme-level overrides for components.
-        For example, if you want to change the border color of every Input
-        component, you can declare it in the theme.
-      </Typography>
+    <Paper className={classes.wrapper}>
+      <div className={classes.headingContainer}>
+        <Typography type="title">Theme Overrides</Typography>
+        <Typography type="body" gutterTop gutterBottom>
+          Elevate-UI allows you to declare theme-level overrides for components.
+          For example, if you want to change the border color of every Input
+          component, you can declare it in the theme.
+        </Typography>
+      </div>
+
       <Typography type="body" gutterTop style={{ marginBottom: "32px" }}>
+        <span role="img" aria-label="star">
+          ⭐️
+        </span>{" "}
         You can nest ThemeProviders and overrides will only be applied to the
         child component. Neat!
       </Typography>
+      <InputDocs />
     </Paper>
-    <InputDocs />
   </ThemeProvider>
 );
 
-export default ThemeOverrides;
+export default withStyles((theme) => ({
+  headingContainer: {
+    marginBottom: "24px",
+  },
+  wrapper: {
+    maxWidth: "800px",
+    margin: "45px auto",
+
+    [theme.breakpoints(900)]: {
+      margin: "45px auto 45px 80px",
+    },
+  },
+}))(ThemeOverrides);

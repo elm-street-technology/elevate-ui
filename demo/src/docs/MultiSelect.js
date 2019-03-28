@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-import Paper from "elevate-ui/Paper";
 import MultiSelect from "elevate-ui/MultiSelect";
 import Button from "elevate-ui/Button";
 
@@ -67,7 +66,7 @@ class MultiSelects extends Component {
 
   render() {
     return (
-      <Paper>
+      <div>
         <Formik
           initialValues={{
             colors: [],
@@ -98,7 +97,7 @@ class MultiSelects extends Component {
             }, 1000);
           }}
           render={({ isSubmitting, isValid }) => (
-            <Form noValidate style={{ maxWidth: "420px" }}>
+            <Form noValidate style={{ maxWidth: "420px", margin: "32px 0px" }}>
               <Field
                 id="colors"
                 name="colors"
@@ -106,22 +105,26 @@ class MultiSelects extends Component {
                 items={roygbiv}
                 component={MultiSelect}
               />
-              <Field
-                id="colors2"
-                name="colors2"
-                label="Favorite Colors (with closeOnSelect)"
-                items={cmyk}
-                component={MultiSelect}
-                closeOnSelect
-              />
-              <Field
-                id="cities"
-                name="cities"
-                label="Cities (with custom tags allowed)"
-                items={cities}
-                component={MultiSelect}
-                tags={true}
-              />
+              <div style={{ margin: "32px 0px" }}>
+                <Field
+                  id="colors2"
+                  name="colors2"
+                  label="Favorite Colors (with closeOnSelect)"
+                  items={cmyk}
+                  component={MultiSelect}
+                  closeOnSelect
+                />
+              </div>
+              <div style={{ margin: "32px 0px" }}>
+                <Field
+                  id="cities"
+                  name="cities"
+                  label="Cities (with custom tags allowed)"
+                  items={cities}
+                  component={MultiSelect}
+                  tags={true}
+                />
+              </div>
               <Field
                 id="states"
                 name="states"
@@ -138,7 +141,7 @@ class MultiSelects extends Component {
             </Form>
           )}
         />
-      </Paper>
+      </div>
     );
   }
 }

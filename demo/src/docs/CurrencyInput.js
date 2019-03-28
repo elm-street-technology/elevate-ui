@@ -2,12 +2,11 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-import Paper from "elevate-ui/Paper";
 import CurrencyInput from "elevate-ui/CurrencyInput";
 import Button from "elevate-ui/Button";
 
 const CurrencyInputs = () => (
-  <Paper>
+  <div>
     <Formik
       initialValues={{ homePrice: 140000, taxes: 895.94 }}
       validationSchema={() =>
@@ -44,7 +43,7 @@ const CurrencyInputs = () => (
         </Form>
       )}
     />
-  </Paper>
+  </div>
 );
 
 export default CurrencyInputs;

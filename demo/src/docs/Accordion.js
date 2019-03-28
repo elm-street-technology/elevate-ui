@@ -1,5 +1,4 @@
 import React from "react";
-import Paper from "elevate-ui/Paper";
 import Typography from "elevate-ui/Typography";
 import Accordion from "elevate-ui/Accordion";
 import {
@@ -12,7 +11,7 @@ const items = [
   {
     title: "Accordion Title 1",
     contents: (
-      <div>
+      <Typography type="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem elit,
         commodo vitae hendrerit eu, luctus nec ipsum. Lorem ipsum dolor sit
         amet, consectetur adipiscing elit. Etiam commodo, erat ut tempus
@@ -47,13 +46,13 @@ const items = [
         tempor sed. Fusce pretium purus vel felis egestas venenatis. In et
         lectus ut risus pulvinar porta. Sed a urna suscipit, posuere erat et,
         volutpat dolor.
-      </div>
+      </Typography>
     ),
   },
   {
     title: "Accordion Title 2",
     contents: (
-      <div>
+      <Typography type="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem elit,
         commodo vitae hendrerit eu, luctus nec ipsum. Lorem ipsum dolor sit
         amet, consectetur adipiscing elit. Etiam commodo, erat ut tempus
@@ -66,13 +65,13 @@ const items = [
         tempor sed. Fusce pretium purus vel felis egestas venenatis. In et
         lectus ut risus pulvinar porta. Sed a urna suscipit, posuere erat et,
         volutpat dolor.
-      </div>
+      </Typography>
     ),
   },
   {
     title: "Accordion Title 3",
     contents: (
-      <div>
+      <Typography type="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem elit,
         commodo vitae hendrerit eu, luctus nec ipsum. Lorem ipsum dolor sit
         amet, consectetur adipiscing elit. Etiam commodo, erat ut tempus
@@ -85,7 +84,7 @@ const items = [
         tempor sed. Fusce pretium purus vel felis egestas venenatis. In et
         lectus ut risus pulvinar porta. Sed a urna suscipit, posuere erat et,
         volutpat dolor.
-      </div>
+      </Typography>
     ),
   },
   {
@@ -107,8 +106,8 @@ const items = [
 ];
 
 const AccordionExample = () => (
-  <Paper>
-    <Typography type="heading3" gutterBottom>
+  <div>
+    <Typography style={{ marginTop: "24px" }} type="heading5">
       Default Accordion
     </Typography>
     <Accordion
@@ -116,10 +115,10 @@ const AccordionExample = () => (
       style={{ marginTop: "16px", marginBottom: "32px" }}
     />
 
-    <Typography type="heading3" gutterTop gutterBottom>
+    <Typography type="heading5" style={{ marginTop: "80px" }}>
       State Reducer: singleOpen
     </Typography>
-    <Typography type="body" gutterBottom>
+    <Typography type="body">
       Only allows one accordion panel to be open at a time.
     </Typography>
     <Accordion
@@ -128,10 +127,10 @@ const AccordionExample = () => (
       style={{ marginTop: "16px", marginBottom: "32px" }}
     />
 
-    <Typography type="heading3" gutterTop gutterBottom>
+    <Typography type="heading5" style={{ marginTop: "80px" }}>
       State Reducer: preventClose
     </Typography>
-    <Typography type="body" gutterBottom>
+    <Typography type="body">
       Requires at least one accordion panel to be open.
     </Typography>
     <Accordion
@@ -140,10 +139,10 @@ const AccordionExample = () => (
       style={{ marginTop: "16px", marginBottom: "32px" }}
     />
 
-    <Typography type="heading3" gutterTop gutterBottom>
+    <Typography type="heading5" style={{ marginTop: "80px" }}>
       State Reducer: combineReducers
     </Typography>
-    <Typography type="body" gutterBottom>
+    <Typography type="body">
       Combination of the singleOpen and preventClose reducers.
     </Typography>
     <Accordion
@@ -151,7 +150,7 @@ const AccordionExample = () => (
       stateReducer={combineReducers(singleOpen, preventClose)}
       style={{ marginTop: "16px" }}
     />
-  </Paper>
+  </div>
 );
 
 export default AccordionExample;

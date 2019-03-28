@@ -9,7 +9,7 @@ import Checkbox from "elevate-ui/Checkbox";
 import Button from "elevate-ui/Button";
 
 const Checkboxes = () => (
-  <Paper>
+  <Paper withPadding>
     <Typography type="body">
       While the majority of form-related checkboxes will use the{" "}
       <Link to="/checkbox-group">{`<CheckboxGroup />`}</Link> component, there

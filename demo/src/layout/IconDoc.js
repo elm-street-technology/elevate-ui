@@ -19,7 +19,7 @@ type State = {
 const IconExample = (props) => {
   const { classes } = props;
   return (
-    <div>
+    <Paper>
       <div className={classes.iconContainer}>
         <Icon name="AlarmOn" color="#55c3ba" size={34} />
       </div>
@@ -29,7 +29,7 @@ const IconExample = (props) => {
       <div className={classes.iconContainer}>
         <Icon name="Pool" color="#f15953" size={48} />
       </div>
-    </div>
+    </Paper>
   );
 };
 
@@ -66,17 +66,16 @@ class IconDoc extends Component<Props, State> {
     // const documentation = require(`elevate-ui/src/Icon/component.json`);
 
     return (
-      <Paper>
-        <Typography type="title">{`<Icon />`}</Typography>
-        <Typography type="body">
-          {/* {`${
-            documentation.description
-          } In addition to all the Material Design Icons – we also ship a handful
-          of custom icons.`} */}
-        </Typography>
-        <LiveExample
-          element={() => <IconExample classes={classes} />}
-          code={`
+      <div style={{ width: "100%", height: "auto" }}>
+        <div className={classes.container}>
+          <Typography type="title">{`<Icon />`}</Typography>
+          <Typography type="body">
+            In addition to all the Material Design Icons– we also ship a handful
+            of custom icons.
+          </Typography>
+          <LiveExample
+            element={() => <IconExample classes={classes} />}
+            code={`
 const IconExample = (props) => {
   const { classes } = props;
   return (
@@ -94,34 +93,40 @@ const IconExample = (props) => {
   );
 };
           `}
-        />
-        <div className={classes.formContainer}>
-          <form>
-            <label htmlFor="searchTerm" className={classes.label}>
-              Icon Search
-            </label>
-            <input
-              id="searchTerm"
-              type="text"
-              name="searchTerm"
-              className={classes.input}
-              onChange={this.handleInputChange}
-            />
-          </form>
+          />
+          <Typography type="heading5" style={{ margin: "48px 0px" }}>
+            Search for icons
+          </Typography>
+          <div className={classes.formContainer}>
+            <form>
+              <label htmlFor="searchTerm" className={classes.label}>
+                Icon Search
+              </label>
+              <input
+                id="searchTerm"
+                type="text"
+                name="searchTerm"
+                className={classes.input}
+                onChange={this.handleInputChange}
+              />
+            </form>
+          </div>
+          <Paper style={{ marginTop: "40px" }}>
+            <div className={classes.grid}>
+              {icons.map((name) => {
+                return (
+                  <div key={name} className={classes.box}>
+                    <div className={classes.icon}>
+                      <Icon name={name} />
+                    </div>
+                    <div className={classes.name}>{name}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </Paper>
         </div>
-        <div className={classes.grid}>
-          {icons.map((name) => {
-            return (
-              <div key={name} className={classes.box}>
-                <div className={classes.icon}>
-                  <Icon name={name} />
-                </div>
-                <div className={classes.name}>{name}</div>
-              </div>
-            );
-          })}
-        </div>
-      </Paper>
+      </div>
     );
   }
 }
@@ -130,10 +135,9 @@ export default withStyles((theme) => ({
   grid: {
     display: "grid",
     margin: "80px auto",
-    position: "relative",
-    gridTemplateColumns: "repeat(1, 1fr)",
+    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
     gridColumnGap: "20px",
-    gridRowGap: "80px",
+    gridRowGap: "100px",
     maxWidth: "100%",
   },
   box: {
@@ -146,6 +150,21 @@ export default withStyles((theme) => ({
     textAlign: "center",
     overflow: "hidden",
   },
+  container: {
+    maxWidth: "800px",
+    margin: "45px auto",
+    height: "auto",
+    width: "100%",
+    padding: "12px",
+
+    [theme.breakpoints(600)]: {
+      padding: "24px 0px",
+    },
+
+    [theme.breakpoints(900)]: {
+      margin: "45px auto 45px 80px",
+    },
+  },
   icon: {
     position: "relative",
     flex: "0 1 auto",
@@ -155,15 +174,7 @@ export default withStyles((theme) => ({
     position: "relative",
     flex: "0 1 auto",
     display: "inline-block",
-  },
-  [theme.breakpoints(600)]: {
-    grid: { gridTemplateColumns: "repeat(2, 1fr)" },
-  },
-  [theme.breakpoints(900)]: {
-    grid: { gridTemplateColumns: "repeat(4, 1fr)" },
-  },
-  [theme.breakpoints(1200)]: {
-    grid: { gridTemplateColumns: "repeat(6, 1fr)" },
+    fontSize: "14px",
   },
   input: {
     display: "block",
@@ -202,7 +213,7 @@ export default withStyles((theme) => ({
     marginBottom: "4px",
   },
   formContainer: {
-    margin: "40px 0 0",
+    margin: "16px 0 0",
   },
   iconContainer: {
     display: "inline-block",

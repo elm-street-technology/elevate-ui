@@ -38,7 +38,7 @@ class ModalExample extends Component {
     return (
       <Paper>
         <div className={classes.section}>
-          <Typography type="title">Default</Typography>
+          <Typography type="heading5">Default</Typography>
           <Button
             type="button"
             isOutlined
@@ -61,7 +61,7 @@ class ModalExample extends Component {
           </Modal>
         </div>
         <div className={classes.section}>
-          <Typography type="title">Enhanced</Typography>
+          <Typography type="heading5">Enhanced</Typography>
           <Button
             type="button"
             isOutlined
@@ -96,7 +96,7 @@ class ModalExample extends Component {
           </Modal>
         </div>
         <div className={classes.section}>
-          <Typography type="title">Large Content Modal</Typography>
+          <Typography type="heading5">Large Content Modal</Typography>
           <Button
             type="button"
             isOutlined
@@ -179,7 +179,7 @@ class ModalExample extends Component {
           </Modal>
         </div>
         <div className={classes.section}>
-          <Typography type="title">Modal with no footer</Typography>
+          <Typography type="heading5">Modal with no footer</Typography>
           <Button
             type="button"
             isOutlined

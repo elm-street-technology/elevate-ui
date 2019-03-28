@@ -1,5 +1,4 @@
 import React from "react";
-import Paper from "elevate-ui/Paper";
 import Table from "elevate-ui/Table";
 import CheckboxTable from "elevate-ui/Table/CheckboxTable";
 import Typography from "elevate-ui/Typography";
@@ -80,19 +79,7 @@ const Tables = () => {
   ];
 
   return (
-    <Paper>
-      <Typography type="title">{`<Table />`}</Typography>
-      <Typography type="body">
-        The {`<Table />`} component extends{" "}
-        <a
-          href="https://react-table.js.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React-Table
-        </a>{" "}
-        with an opinionated default configuration and styling.
-      </Typography>
+    <div>
       <Table
         data={data}
         columns={columns}
@@ -101,24 +88,23 @@ const Tables = () => {
         filterable
         style={{ marginTop: "24px", marginBottom: "24px" }}
       />
-      <Typography type="title">{`<CheckboxTable />`}</Typography>
+      <Typography
+        style={{ marginTop: "100px" }}
+        type="title"
+      >{`<CheckboxTable />`}</Typography>
       <CheckboxTable
         data={data}
         columns={columns}
         defaultPageSize={10}
         defaultSorted={[{ id: "startDate", desc: true }]}
         filterable
-        style={{ marginTop: "24px" }}
         actions={[
           {
             title: "Log selection",
-            callback: (selection) => {
-              console.log(selection);
-            },
           },
         ]}
       />
-    </Paper>
+    </div>
   );
 };
 

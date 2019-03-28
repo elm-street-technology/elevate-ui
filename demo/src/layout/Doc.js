@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import withStyles from "elevate-ui/withStyles";
-import classNames from "classnames";
 
-import Paper from "elevate-ui/Paper";
+import MethodsTable from "./MethodsTable";
+import PropsTable from "./PropsTable";
+
 import Typography from "elevate-ui/Typography";
 import LiveExample from "./LiveExample";
 import FlowTypes from "./FlowTypes";
@@ -14,135 +15,6 @@ type Props = {
 
 type State = {
   fileText: string,
-};
-
-const PropsTable = (props) => {
-  const { classes, componentProps } = props;
-  return (
-    <div>
-      <Typography type="heading2" id="props" className={classes.subHeading}>
-        Available Props
-      </Typography>
-      <div className={classes.table}>
-        <div className={classes.row}>
-          <div className={classes.col}>
-            <strong>Prop Name</strong>
-          </div>
-          <div className={classes.col}>
-            <strong>Flow Type</strong>
-          </div>
-          <div className={classes.col}>
-            <strong>Required</strong>
-          </div>
-          <div className={classes.col}>
-            <strong>Default Value</strong>
-          </div>
-          <div className={classNames(classes.col, classes.description)}>
-            <strong>Description</strong>
-          </div>
-        </div>
-        {componentProps &&
-          componentProps.map((componentProp) => {
-            return (
-              <div key={componentProp[0]} className={classes.row}>
-                <div className={classes.col}>
-                  <pre>
-                    <code className={classes.code}>{componentProp[0]}</code>
-                  </pre>
-                </div>
-                <div className={classes.col}>
-                  {componentProp[1].flowType && componentProp[1].flowType.name}
-                </div>
-                <div className={classes.col}>
-                  {componentProp[1].required ? `true` : `false`}
-                </div>
-                <div className={classes.col}>
-                  {componentProp[1].defaultValue &&
-                    componentProp[1].defaultValue.value}
-                </div>
-                <div className={classNames(classes.col, classes.description)}>
-                  {componentProp[1].description}
-                </div>
-              </div>
-            );
-          })}
-      </div>
-      <hr className={classes.hr} />
-    </div>
-  );
-};
-
-const MethodsTable = (props) => {
-  const { classes, componentMethods } = props;
-  return (
-    <div>
-      <Typography type="heading2" id="props" className={classes.subHeading}>
-        Available Methods
-      </Typography>
-      <div className={classes.table}>
-        <div className={classes.row}>
-          <div className={classes.col}>
-            <strong>Method Name</strong>
-          </div>
-          <div className={classes.col}>
-            <strong>Doc Block</strong>
-          </div>
-          <div className={classes.col}>
-            <strong>Modifiers</strong>
-          </div>
-          <div className={classes.col}>
-            <strong>Params</strong>
-          </div>
-          <div className={classes.col}>
-            <strong>Returns</strong>
-          </div>
-        </div>
-        {componentMethods &&
-          componentMethods.map((componentMethod) => {
-            return (
-              <div key={componentMethod[1].name} className={classes.row}>
-                <div className={classes.col}>
-                  <pre>
-                    <code className={classes.code}>
-                      {componentMethod[1].name}
-                    </code>
-                  </pre>
-                </div>
-                <div className={classes.col}>
-                  {componentMethod[1].docblock && componentMethod[1].docblock}
-                </div>
-                <div className={classes.col}>
-                  {componentMethod[1].modifiers}
-                </div>
-                <div className={classes.col}>
-                  {componentMethod[1].params.length > 0
-                    ? componentMethod[1].params.map((param) => (
-                        <pre key={param.name}>
-                          <code className={classes.code}>{param.name}</code>
-                        </pre>
-                      ))
-                    : ""}
-                </div>
-                <div className={classes.col}>
-                  {componentMethod[1].returns ? (
-                    <pre>
-                      <code className={classes.code}>
-                        {JSON.stringify(componentMethod[1].returns)}
-                      </code>
-                    </pre>
-                  ) : (
-                    <pre>
-                      <code className={classes.code}>null</code>
-                    </pre>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-      </div>
-      <hr className={classes.hr} />
-    </div>
-  );
 };
 
 class Doc extends Component<Props, State> {
@@ -178,21 +50,24 @@ class Doc extends Component<Props, State> {
       documentation.methods && Object.entries(documentation.methods);
 
     return (
-      <Paper>
-        <Typography type="title">{`<${
-          documentation.displayName
-        } />`}</Typography>
-        <Typography type="body">{documentation.description}</Typography>
-        <LiveExample element={Example} code={fileText} />
-        <hr className={classes.hr} />
-        {componentProps && (
-          <PropsTable {...this.props} componentProps={componentProps} />
-        )}
-        {componentMethods.length > 0 && (
-          <MethodsTable {...this.props} componentMethods={componentMethods} />
-        )}
-        {folder === "Feed" ? <FlowTypes folder={folder} /> : null}
-      </Paper>
+      <div className={classes.container}>
+        <div className={classes.descriptionContainer}>
+          <div className={classes.headingContainer}>
+            <Typography gutterBottom type="title">{`<${
+              documentation.displayName
+            } />`}</Typography>
+            <Typography type="body">{documentation.description}</Typography>
+          </div>
+          <LiveExample element={Example} code={fileText} />
+          {componentProps && (
+            <PropsTable {...this.props} componentProps={componentProps} />
+          )}
+          {componentMethods.length > 0 && (
+            <MethodsTable {...this.props} componentMethods={componentMethods} />
+          )}
+          {folder === "Feed" ? <FlowTypes folder={folder} /> : null}
+        </div>
+      </div>
     );
   }
 }
@@ -204,41 +79,11 @@ export default withStyles((theme) => ({
     flexFlow: "column",
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    margin: "15px 0",
     background: theme.colors.white,
     border: `1px solid ${theme.colors.gray200}`,
     borderRadius: theme.globalBorderRadius,
     overflowY: "auto",
     WebkitOverflowScrolling: "touch",
-  },
-  row: {
-    display: "flex",
-    position: "relative",
-    flex: "1",
-    flexFlow: "row nowrap",
-    justifyContent: "flex-start",
-    alignItems: "stretch",
-    width: "100%",
-
-    "&:nth-child(odd) $col": {
-      backgroundColor: "#fff",
-    },
-    "&:nth-child(even) $col": {
-      backgroundColor: "#fbfbfb",
-    },
-    "&:nth-child(1)": {
-      fontSize: "1.1rem",
-      fontWeight: "600",
-      backgroundColor: "#e8e8e8",
-    },
-  },
-  col: {
-    flex: "1",
-    minWidth: "128px",
-    padding: "20px 8px",
-  },
-  description: {
-    minWidth: "240px",
   },
   hr: {
     margin: "25px 0",
@@ -247,13 +92,31 @@ export default withStyles((theme) => ({
     border: "none",
     backgroundColor: "#dadcde",
   },
-  subHeading: {
-    display: "block",
-    margin: "1.5em 0",
-    fontSize: "1.5rem",
-  },
   code: {
     fontFamily: "monospace",
     fontWeight: "600",
+    fontSize: "14px",
+  },
+  descriptionContainer: {
+    maxWidth: "800px",
+    margin: "45px auto",
+
+    [theme.breakpoints(900)]: {
+      margin: "45px auto 45px 80px",
+    },
+  },
+  headingContainer: {
+    marginBottom: "24px",
+  },
+  container: {
+    width: "100%",
+    padding: "12px",
+
+    [theme.breakpoints(600)]: {
+      padding: "24px 0px",
+    },
+
+    border: "none",
+    background: "#fafafa",
   },
 }))(Doc);

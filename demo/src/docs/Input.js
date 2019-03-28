@@ -1,13 +1,13 @@
 import React from "react";
+import withStyles from "elevate-ui/withStyles";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-import Paper from "elevate-ui/Paper";
 import Input from "elevate-ui/Input";
 import Button from "elevate-ui/Button";
 
 const Inputs = () => (
-  <Paper>
+  <div>
     <Formik
       initialValues={{ name: "", hiddenField: "coolbeans" }}
       validationSchema={() =>
@@ -38,7 +38,17 @@ const Inputs = () => (
         </Form>
       )}
     />
-  </Paper>
+  </div>
 );
 
-export default Inputs;
+export default withStyles((theme) => ({
+  container: {
+    border: "none",
+    background: "#fafafa",
+    padding: "12px",
+
+    [theme.breakpoints(600)]: {
+      padding: "24px 0px",
+    },
+  },
+}))(Inputs);
