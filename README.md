@@ -1,6 +1,6 @@
 [<img src="https://github.com/elm-street-technology/elevate-ui/raw/develop/elevate-ui-logo.png" width="280" />](https://www.elevate-ui.com)
 
-[<img src="https://img.shields.io/npm/v/elevate-ui.svg?style=flat-square" />](https://www.npmjs.com/package/elevate-ui)
+[<img src="https://img.shields.io/npm/v/elevate-ui.svg?style=flat-square" />](https://www.npmjs.com/package/elevate-ui) [![Build Status](https://travis-ci.com/elm-street-technology/elevate-ui.svg?branch=develop)](https://travis-ci.com/elm-street-technology/elevate-ui) ![David](https://img.shields.io/david/elm-street-technology/elevate-ui.svg?style=flat-square)
 
 ## [Docs + Demo](https://www.elevate-ui.com)
 
