@@ -8,6 +8,7 @@
 !/src
 !/scripts
 /index.js
+/util.js
 
 # misc
 .DS_Store
