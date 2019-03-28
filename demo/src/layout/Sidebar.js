@@ -28,6 +28,7 @@ import RssFeed from "elevate-ui-icons/RssFeed";
 import AssignmentTurnedIn from "elevate-ui-icons/AssignmentTurnedIn";
 import FormatListNumbered from "elevate-ui-icons/FormatListNumbered";
 import AddCircleOutline from "elevate-ui-icons/AddCircleOutline";
+import FormatColorFill from "elevate-ui-icons/FormatColorFill";
 
 import { Link, NavLink } from "react-router-dom";
 
@@ -214,6 +215,15 @@ const Sidebar = ({ classes }) => {
         >
           <GridOff className={classes.navIcon} size={16} />
           Theme Overrides
+        </NavLink>
+
+        <NavLink
+          className={classes.item}
+          activeClassName={classes.active}
+          to="/color"
+        >
+          <FormatColorFill className={classes.navIcon} size={16} />
+          Color
         </NavLink>
 
         <NavLink
