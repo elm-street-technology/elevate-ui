@@ -8,6 +8,7 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
 suppress_comment=\\(.\\|\n\\)*\\$FlowBug
 
 [ignore]
+.*/demo/.*
 
 [version]
 ^0.80.0
