@@ -122,6 +122,8 @@ const colors: Object = {
   twitter: "#1da1f2",
 };
 
+colors.elevateRed = colors.primary;
+
 // backwards compatible colors
 colors.primaryLight = colors.primary["050"];
 colors.primaryDark = colors.primary["900"];

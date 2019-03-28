@@ -16,6 +16,7 @@ const Home = Loadable({ loader: () => import("../docs/Home") });
 const SignupForm = Loadable({ loader: () => import("../docs/SignupForm") });
 const QueryForm = Loadable({ loader: () => import("../docs/QueryForm") });
 const Theme = Loadable({ loader: () => import("../docs/Theme") });
+const Color = Loadable({ loader: () => import("../docs/Color") });
 const ThemeOverrides = Loadable({
   loader: () => import("../docs/ThemeOverrides"),
 });
@@ -113,6 +114,7 @@ class Main extends Component {
             <Route path="/query-form" component={QueryForm} />
             <Route path="/theme" component={Theme} />
             <Route path="/theme-overrides" component={ThemeOverrides} />
+            <Route path="/color" component={Color} />
             <Route
               path="/accordion"
               render={() => <Doc folder="Accordion" />}
