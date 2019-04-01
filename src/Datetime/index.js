@@ -25,6 +25,9 @@ type $Props = {
   withScaffold: boolean,
 };
 
+/**
+ * A Date/Time component for use in forms. The <Datetime /> component is a styled wrapper around React-Datepicker.
+ */
 const Datetime = ({
   classes,
   className,
