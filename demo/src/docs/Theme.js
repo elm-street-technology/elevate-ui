@@ -342,7 +342,6 @@ const Theme = ({ classes, theme }) => (
           tableLoadingActive: 2,
           tableResizer: 10,
           tooltip: 1000,
-          dropdown: 1500,
           modal: 2000,
         };
         `}
