@@ -10,7 +10,7 @@ import { generatePalette } from "elevate-ui/Color";
 
 require("prismjs");
 
-const customPalette = generatePalette("#ba4a22");
+const customPalette = generatePalette("#9EE5E0");
 
 const ColorDoc = ({ classes, theme }) => (
   <div className={classes.wrapper}>

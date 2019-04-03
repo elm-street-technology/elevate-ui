@@ -30,17 +30,18 @@ type Props = {
    * Type of text to be used.
    */
   // prettier-ignore
-  type: "title"| "body"| "heading2"| "heading3"| "heading4"| "heading5"| "heading6"
+  type: "title"| "body"| "body2"| "heading2"| "heading3"| "heading4"| "heading5"| "heading6"
 };
 
 const typeElementMap = {
   title: "h1",
   body: "p",
+  body2: "p",
   heading2: "h2",
   heading3: "h3",
   heading4: "h4",
   heading5: "h5",
-  heading6: "h6",
+  subHeading: "h6",
 };
 
 /**
@@ -110,13 +111,13 @@ const styles = (theme) => ({
     },
   },
   heading4: {
-    fontSize: "24px",
+    fontSize: "20px",
     lineHeight: "36px",
     fontWeight: "600",
     color: (props) => props.color || "#2E2E35",
 
     [theme.breakpoints(600)]: {
-      fontSize: "28px",
+      fontSize: "24px",
     },
   },
   heading5: {
@@ -126,10 +127,10 @@ const styles = (theme) => ({
     color: (props) => props.color || "#2E2E35",
 
     [theme.breakpoints(600)]: {
-      fontSize: "20px",
+      fontSize: "21px",
     },
   },
-  heading6: {
+  subHeading: {
     fontSize: "16px",
     lineHeight: "30px",
     fontWeight: "600",
@@ -146,6 +147,15 @@ const styles = (theme) => ({
 
     [theme.breakpoints(600)]: {
       fontSize: "20px",
+    },
+  },
+  body2: {
+    fontSize: "14px",
+    lineHeight: "26px",
+    color: (props) => props.color || "#11181e",
+
+    [theme.breakpoints(600)]: {
+      fontSize: "16px",
     },
   },
   gutterBottom: {

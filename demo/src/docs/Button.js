@@ -11,7 +11,11 @@ const ButtonExample = ({ classes }) => (
   <div>
     <br />
     <Typography type="heading5" gutterTop gutterBottom>
-      Standard Buttons
+      Primary Buttons
+    </Typography>
+    <Typography style={{ marginBottom: "8px" }} type="body2" gutterTop>
+      These are buttons to be used for primary actions. In most cases, we'll
+      want 1 primary action per page.
     </Typography>
     <Paper>
       <Typography type="body" gutterBottom gutterTop>
@@ -21,14 +25,15 @@ const ButtonExample = ({ classes }) => (
       <br />
       <br />
       <Button type="button" color="secondary">
-        Secondary Button
+        Sign up
       </Button>
       <br />
       <br />
       <Button type="button" color="tertiary">
-        Tertiary Button
+        Sign in
       </Button>
     </Paper>
+
     <Paper style={{ marginTop: "32px" }}>
       <Typography type="body" gutterBottom gutterTop>
         Stress test of a wide button using {`color="secondary"`}:
@@ -44,8 +49,37 @@ const ButtonExample = ({ classes }) => (
     </Paper>
     <br />
     <br />
+    <Typography type="heading5" gutterTop gutterBottom>
+      Secondary Buttons
+    </Typography>
+    <Typography style={{ marginBottom: "8px" }} type="body2" gutterTop>
+      These are buttons to be used for secondary actions. This style allows us
+      to de-emphasize secondary actions in turn emphasizing primary actions.
+    </Typography>
+    <Paper>
+      <Button isSecondary type="button" color="primary">
+        Cancel
+      </Button>
+      <br />
+      <br />
+      <Button isSecondary type="button" color="tertiary">
+        Update
+      </Button>
+      <br />
+      <br />
+      <Typography style={{ marginBottom: "8px" }} type="body" gutterTop>
+        Passing in a custom hex value of {`color="#9EE5E0"`}:
+      </Typography>
+      <Button isSecondary type="button" color="#9EE5E0">
+        Log in
+      </Button>
+    </Paper>
     <Typography type="heading5" gutterBottom className={classes.heading}>
       Outlined Buttons
+    </Typography>
+    <Typography style={{ marginBottom: "8px" }} type="body2" gutterTop>
+      Outlined button are to be used for any actions not falling under primary
+      or secondary.
     </Typography>
     <Paper>
       <Button isOutlined type="button">

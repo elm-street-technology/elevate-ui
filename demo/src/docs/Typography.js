@@ -55,10 +55,10 @@ const Typographies = () => (
       porttitor sapien mauris at nunc. Cras id nisi tincidunt, egestas ligula a,
       posuere augue. Proin sit amet facilisis nisl.
     </Typography>
-    <Typography type="heading6" gutterBottom>
-      Heading 6
+    <Typography type="subHeading" gutterBottom>
+      subHeading
     </Typography>
-    <Typography type="title" element="span" color="#CCC" gutterBottom>
+    <Typography type="subHeading" element="div" color="#55C3BA" gutterBottom>
       With component override and color override
     </Typography>
     <br />

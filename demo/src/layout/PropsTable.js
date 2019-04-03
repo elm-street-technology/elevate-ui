@@ -48,9 +48,9 @@ const PropsTable = (props) => {
                   {componentProp[1].defaultValue &&
                     componentProp[1].defaultValue.value}
                 </div>
-                <div className={classNames(classes.col, classes.description)}>
+                <Typography type="body2" className={classes.col}>
                   {componentProp[1].description}
-                </div>
+                </Typography>
               </div>
             );
           })}
@@ -91,11 +91,11 @@ export default withStyles((theme) => ({
       paddingRight: "12px",
     },
   },
-  description: {
-    fontSize: "16px",
-    color: theme.colors.black,
-    lineHeight: "1.5",
-  },
+  // description: {
+  //   fontSize: "16px",
+  //   color: theme.colors.black,
+  //   lineHeight: "1.5",
+  // },
   label: {
     color: theme.colors.gray500,
     fontSize: "13px",

@@ -62,7 +62,7 @@ const styles = (theme) => ({
       (theme.alertColors[props.color] &&
         theme.alertColors[props.color].backgroundColor) ||
       "#fff",
-    borderRadius: "2px",
+    borderRadius: "6px",
     borderColor: (props) =>
       (theme.alertColors[props.color] &&
         theme.alertColors[props.color].borderColor) ||
@@ -102,6 +102,13 @@ const styles = (theme) => ({
           theme.alertColors[props.color].color) ||
         "#000",
       wordBreak: "break-word", // long URLs or emails should break+wrap to the next line
+    },
+
+    "& p": {
+      color: (props) =>
+        (theme.alertColors[props.color] &&
+          theme.alertColors[props.color].color) ||
+        "#4b565f",
     },
   },
 });

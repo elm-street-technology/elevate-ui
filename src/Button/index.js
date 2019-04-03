@@ -40,6 +40,10 @@ type $Props = {
    */
   isOutlined: boolean,
   /**
+   * Allows the component to be styled as an outlined button.
+   */
+  isSecondary: boolean,
+  /**
    * Function to be passed to the component on click.
    */
   onClick?: Function,
@@ -56,6 +60,7 @@ type $State = {
 
 const getChildColor = (theme: Object, props: Object) => {
   let color;
+  let darkColor;
   try {
     // if the button is disabled
     if (props.disabled) {
@@ -64,8 +69,11 @@ const getChildColor = (theme: Object, props: Object) => {
     // if the button is using one of the string keys for color
     if (checkString(props.color)) {
       color = theme.colors[props.color]["500"];
+      darkColor = theme.colors[props.color]["900"];
       if (props.isOutlined) {
         return color;
+      } else if (props.isSecondary) {
+        return darkColor;
       } else {
         return Color(color).isDark() ? theme.colors.white : theme.colors.black;
       }
@@ -73,6 +81,17 @@ const getChildColor = (theme: Object, props: Object) => {
       if (Color(props.color)) {
         if (props.isOutlined) {
           return Color(props.color).string();
+        }
+        if (props.isSecondary) {
+          if (Color(props.color).isLight()) {
+            return Color(props.color)
+              .darken(0.8)
+              .string();
+          } else {
+            return Color(props.color)
+              .darken(0.5)
+              .string();
+          }
         } else {
           return Color(props.color).isDark()
             ? theme.colors.white
@@ -98,10 +117,15 @@ const getBackgroundColor = (theme: Object, props: Object) => {
       return theme.colors["gray100"];
     }
     let color;
+    let lightColor;
     if (checkString(props.color)) {
       color = theme.colors[props.color]["500"];
+      lightColor = theme.colors[props.color]["050"];
       if (props.isOutlined) {
         return "transparent";
+      }
+      if (props.isSecondary) {
+        return lightColor;
       } else {
         return color;
       }
@@ -109,6 +133,17 @@ const getBackgroundColor = (theme: Object, props: Object) => {
       if (Color(props.color)) {
         if (props.isOutlined) {
           return "transparent";
+        }
+        if (props.isSecondary) {
+          if (Color(props.color).isLight()) {
+            return Color(props.color)
+              .lighten(0.25)
+              .string();
+          } else {
+            return Color(props.color)
+              .lighten(0.5)
+              .string();
+          }
         }
         return props.color;
       }
@@ -127,7 +162,10 @@ const getHoverColor = (theme: Object, props: $Props) => {
     }
     if (checkString(props.color)) {
       if (props.isOutlined) {
-        return theme.colors[props.color]["50"];
+        return theme.colors[props.color]["050"];
+      }
+      if (props.isSecondary) {
+        return theme.colors[props.color]["200"];
       }
       if (Color(theme.colors[props.color]["500"]).isDark()) {
         return theme.colors[props.color]["300"];
@@ -139,6 +177,11 @@ const getHoverColor = (theme: Object, props: $Props) => {
         if (props.isOutlined) {
           return Color(props.color)
             .lighten(0.5)
+            .string();
+        }
+        if (props.isSecondary) {
+          return Color(props.color)
+            .lighten(0.2)
             .string();
         }
         if (Color(props.color).isDark()) {
@@ -165,7 +208,7 @@ const getRippleColor = (theme: Object, props: $Props) => {
       return theme.colors["gray100"];
     }
     if (checkString(props.color)) {
-      if (props.isOutlined) {
+      if (props.isOutlined || props.isSecondary) {
         return theme.colors[props.color]["200"];
       }
       return theme.colors[props.color]["500"];
@@ -209,6 +252,7 @@ class Button extends Component<$Props, $State> {
     element: "button",
     iconAlign: "left",
     isOutlined: false,
+    isSecondary: false,
   };
 
   constructor(props) {
