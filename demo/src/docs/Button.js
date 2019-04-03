@@ -196,6 +196,7 @@ const ButtonExample = ({ classes }) => (
       </Button>
       <br />
       <br />
+      {/* {this will generate a console warning} */}
       <Button color="invalidColor" isOutlined icon={<Person />} type="button">
         Invalid Color
       </Button>
