@@ -74,6 +74,8 @@ const Datetime = ({
 
 const styles = (theme) => ({
   root: {
+    display: "block",
+    position: "relative",
     "& .react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle, .react-datepicker-popper[data-placement^='top'] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow": {
       marginLeft: -8,
       position: "absolute",
@@ -135,9 +137,10 @@ const styles = (theme) => ({
       color: theme.colors.black,
       border: `1px solid ${theme.colors.gray["200"]}`,
       borderRadius: theme.globalBorderRadius,
-      display: "inline-block",
+      display: "inline-flex",
       position: "relative",
       boxShadow: theme.shadows[2],
+      height: 265,
     },
 
     "& .react-datepicker--time-only .react-datepicker__triangle": {
@@ -162,7 +165,7 @@ const styles = (theme) => ({
     },
 
     "& .react-datepicker-popper": {
-      zIndex: 1,
+      zIndex: theme.zIndex.dropdown,
     },
 
     "& .react-datepicker-popper[data-placement^='bottom']": {
