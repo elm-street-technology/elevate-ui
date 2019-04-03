@@ -111,7 +111,6 @@ const ButtonExample = ({ classes }) => (
     <Typography
       type="heading5"
       style={{ marginBottom: "8px" }}
-      gutterButtom
       className={classes.heading}
     >
       Custom Color Buttons

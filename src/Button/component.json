@@ -121,7 +121,7 @@
         "name": "boolean"
       },
       "required": false,
-      "description": "Allows the component to be styled as an outlined button.",
+      "description": "Allows the component to be styled as a secondary button.",
       "defaultValue": {
         "value": "false",
         "computed": false

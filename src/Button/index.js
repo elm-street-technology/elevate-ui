@@ -319,6 +319,7 @@ class Button extends Component<$Props, $State> {
       iconAlign,
       innerClassName,
       isOutlined,
+      isSecondary,
       theme,
       ...rest
     } = this.props;
