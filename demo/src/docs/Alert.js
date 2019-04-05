@@ -12,17 +12,17 @@ const AlertExample = () => (
       <Paper>
         <div style={{ padding: "8px 0" }}>
           <Alert color="success">
-            <Typography type="body">Success!</Typography>
+            <Typography type="body2">Success!</Typography>
           </Alert>
         </div>
         <div style={{ padding: "8px 0" }}>
           <Alert color="error" icon={<ErrorOutline />}>
             <div>
-              <Typography type="body">
+              <Typography type="body2">
                 Our records indicate you are not active or eligible with the MLS
                 due to your MLS subscription type or dues.
               </Typography>
-              <Typography type="body" style={{ marginTop: "8px" }}>
+              <Typography type="body2" style={{ marginTop: "8px" }}>
                 If you think this is a mistake, please contact{" "}
                 <a
                   href="mailto:salessupport@elmstreettechnology.com"
@@ -55,27 +55,27 @@ const AlertExample = () => (
       <Paper>
         <div style={{ padding: "8px 0" }}>
           <Alert color="success">
-            <Typography type="body">{`<Alert color="success">`}</Typography>
+            <Typography type="body2">{`<Alert color="success">`}</Typography>
           </Alert>
         </div>
         <div style={{ padding: "8px 0" }}>
           <Alert color="error">
-            <Typography type="body">{`<Alert color="error">`}</Typography>
+            <Typography type="body2">{`<Alert color="error">`}</Typography>
           </Alert>
         </div>
         <div style={{ padding: "8px 0" }}>
           <Alert color="info">
-            <Typography type="body">{`<Alert color="info">`}</Typography>
+            <Typography type="body2">{`<Alert color="info">`}</Typography>
           </Alert>
         </div>
         <div style={{ padding: "8px 0" }}>
           <Alert color="warning">
-            <Typography type="body">{`<Alert color="warning">`}</Typography>
+            <Typography type="body2">{`<Alert color="warning">`}</Typography>
           </Alert>
         </div>
         <div style={{ padding: "8px 0" }}>
           <Alert color="asdf">
-            <Typography type="body">
+            <Typography type="body2">
               {`<Alert color="asdf"> (invalid name, fallback to b&w)`}
             </Typography>
           </Alert>

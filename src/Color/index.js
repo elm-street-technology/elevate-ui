@@ -3,7 +3,7 @@ import Color from "color";
 
 exports.generatePalette = (hex: string) => {
   const color: Object = {
-    "50": Color(hex)
+    "050": Color(hex)
       .lighten(0.5)
       .string(),
     "100": Color(hex)

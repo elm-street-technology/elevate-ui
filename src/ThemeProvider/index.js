@@ -53,7 +53,7 @@ const colors: Object = {
     "900": "#672F0D",
   },
   green: {
-    "050": "#EFFFF0",
+    "050": "#f4fff5",
     "100": "#E0F9E0",
     "200": "#D4F4D4",
     "300": "#9EE9A1",
@@ -149,24 +149,24 @@ colors.gray900 = colors.gray["900"];
 
 const alertColors = {
   error: {
-    color: "#9c2929",
+    color: colors.primary["900"],
     backgroundColor: colors.primary["050"],
-    borderColor: "#f6dddd",
+    borderColor: colors.primary["200"],
   },
   info: {
-    color: "#0c5460",
-    backgroundColor: "#d1ecf1",
-    borderColor: "#bee5eb",
+    color: colors.tertiary["900"],
+    backgroundColor: colors.tertiary["050"],
+    borderColor: colors.tertiary["200"],
   },
   success: {
-    color: "#246761",
-    backgroundColor: "#ecf8f7",
-    borderColor: "#d2e8e6",
+    color: colors.green["900"],
+    backgroundColor: colors.green["050"],
+    borderColor: colors.green["200"],
   },
   warning: {
-    color: "#856404",
-    backgroundColor: "#fff3cd",
-    borderColor: "#ffeeba",
+    color: colors.yellow["900"],
+    backgroundColor: colors.yellow["050"],
+    borderColor: colors.yellow["200"],
   },
 };
 

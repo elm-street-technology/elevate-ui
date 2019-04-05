@@ -116,6 +116,17 @@
         "computed": false
       }
     },
+    "isSecondary": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "Allows the component to be styled as an outlined button.",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
     "onClick": {
       "flowType": {
         "name": "Function"

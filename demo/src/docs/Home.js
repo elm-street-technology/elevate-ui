@@ -23,7 +23,7 @@ const Home = ({ classes }) => (
       href="https://github.com/elm-street-technology/elevate-ui"
       target="_blank"
       rel="noopener noreferrer"
-      isOutlined
+      isSecondary
     >
       Learn more on GitHub
     </Button>
