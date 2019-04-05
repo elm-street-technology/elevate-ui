@@ -136,7 +136,7 @@ class Modal extends Component<$Props> {
                 type="button"
                 aria-label="Close"
                 isOutlined
-                color="#000"
+                color={"#232c35"}
                 onClick={() => toggleModal()}
               >
                 <Close />
@@ -225,6 +225,11 @@ const styles = (theme) => ({
     height: "42px",
     borderRadius: "50%",
     borderColor: "transparent",
+    "&:hover": {
+      "& svg": {
+        fill: theme.colors.white,
+      },
+    },
   },
   closeInner: {
     padding: "0",
