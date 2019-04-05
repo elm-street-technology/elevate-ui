@@ -23,6 +23,10 @@ type $Props = {
   label: string,
   theme: Object,
   withScaffold: boolean,
+  /**
+   * onChange event to fire when a date changes.
+   */
+  onChange?: Function,
 };
 
 /**
@@ -37,6 +41,7 @@ const Datetime = ({
   label,
   theme,
   withScaffold = true,
+  onChange,
   ...rest
 }: $Props) =>
   withScaffold ? (
@@ -53,7 +58,10 @@ const Datetime = ({
           timeCaption="Time"
           locale="en"
           onBlur={(date) => setFieldTouched(name, date)} // overrides `field.onBlur`
-          onChange={(date) => setFieldValue(name, date)}
+          onChange={(date) => {
+            setFieldValue(name, date);
+            onChange && onChange(date);
+          }}
           {...rest}
         />
       </div>
@@ -66,7 +74,10 @@ const Datetime = ({
         timeCaption="Time"
         locale="en"
         onBlur={(date) => setFieldTouched(name, date)} // overrides `field.onBlur`
-        onChange={(date) => setFieldValue(name, date)}
+        onChange={(date) => {
+          setFieldValue(name, date);
+          onChange && onChange(date);
+        }}
         {...rest}
       />
     </div>

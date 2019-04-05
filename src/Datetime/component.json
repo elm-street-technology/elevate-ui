@@ -62,6 +62,13 @@
         "value": "true",
         "computed": false
       }
+    },
+    "onChange": {
+      "flowType": {
+        "name": "Function"
+      },
+      "required": false,
+      "description": "onChange event to fire when a date changes."
     }
   }
 }
