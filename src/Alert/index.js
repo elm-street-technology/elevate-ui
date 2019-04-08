@@ -67,7 +67,7 @@ const styles = (theme) => ({
       (theme.alertColors[props.color] &&
         theme.alertColors[props.color].borderColor) ||
       "#eee",
-    borderWidth: "1px",
+    borderWidth: "2px",
     borderStyle: "solid",
   },
   icon: {

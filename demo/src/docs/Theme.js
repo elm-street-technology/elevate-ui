@@ -274,6 +274,29 @@ const Theme = ({ classes, theme }) => (
       type="heading4"
       gutterBottom
     >
+      {`spacing`}
+    </Typography>
+    <PrismCode
+      component="pre"
+      className={classNames(
+        "language-javascript",
+        classes.codePadding,
+        classes.codeBlock
+      )}
+    >
+      {`
+        const style = (theme) => ({
+          grid: {
+            marginTop: theme.spacing.unit * 4,
+          },
+        });
+        `}
+    </PrismCode>
+    <Typography
+      className={classNames(classes.codePadding, classes.propHeading)}
+      type="heading4"
+      gutterBottom
+    >
       {`transition`}
     </Typography>
     <PrismCode
@@ -381,6 +404,7 @@ export default withStyles((theme) => ({
   },
   headingContainer: {
     marginBottom: "24px",
+    marginTop: "45px",
   },
   heading: {
     marginTop: "48px",
@@ -475,11 +499,11 @@ export default withStyles((theme) => ({
   wrapper: {
     maxWidth: "800px",
     width: "100%",
-    margin: "45px auto",
+    margin: "24px auto",
     padding: "12px",
 
     [theme.breakpoints(900)]: {
-      margin: "45px auto 45px 80px",
+      margin: "24px auto 45px 80px",
       padding: "0px",
     },
   },
