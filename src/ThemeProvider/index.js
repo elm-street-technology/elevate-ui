@@ -261,6 +261,10 @@ const zIndex = {
   modal: 2000,
 };
 
+const spacing = {
+  unit: 16,
+};
+
 const defaultTheme = {
   alertColors,
   breakpoints,
@@ -269,6 +273,7 @@ const defaultTheme = {
   globalBoxShadow,
   globalPadding,
   shadows,
+  spacing,
   transitions,
   typography,
   zIndex,
