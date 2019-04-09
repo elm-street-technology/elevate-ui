@@ -11,6 +11,7 @@ const PropsTable = (props) => {
       <Typography type="heading5" id="props" className={classes.subHeading}>
         Available Props
       </Typography>
+
       <div className={classes.table}>
         <div className={classes.row}>
           <div className={classes.col}>
