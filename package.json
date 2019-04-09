@@ -24,11 +24,12 @@
     "generate-docs": "./scripts/generateDocs.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "color": "^3.1.0",
     "downshift": "^2.2.3",
     "elevate-ui-icons": "^0.2.0",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "react": "^16.5.2",
     "react-aria-modal": "^3.0.1",

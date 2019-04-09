@@ -31,6 +31,7 @@ import AddCircleOutline from "elevate-ui-icons/AddCircleOutline";
 import FormatColorFill from "elevate-ui-icons/FormatColorFill";
 
 import ElevateUILogo from "./ElevateUILogo";
+import Version from "./Version";
 
 import { Link, NavLink } from "react-router-dom";
 
@@ -40,7 +41,12 @@ const Sidebar = ({ classes }) => {
       <Link className={classes.logoLink} to="/" title="Back to Home">
         <ElevateUILogo />
       </Link>
+
       <nav className={classes.nav}>
+        <div className={classes.versionContainter}>
+          <Version />
+        </div>
+
         <span className={classes.header}>Forms</span>
         <NavLink
           activeClassName={classes.active}
@@ -376,5 +382,8 @@ export default withStyles((theme) => ({
   },
   last: {
     marginBottom: "48px",
+  },
+  versionContainter: {
+    marginLeft: theme.spacing.unit * 0.75,
   },
 }))(Sidebar);
