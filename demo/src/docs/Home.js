@@ -6,12 +6,7 @@ import Button from "elevate-ui/Button";
 const Home = ({ classes }) => (
   <div className={classes.container}>
     <Typography type="title">Welcome</Typography>
-    <Typography
-      type="body"
-      style={{
-        margin: "8px 0 16px",
-      }}
-    >
+    <Typography type="body" className={classes.body}>
       Elevate-UI is an opinionated toolkit of React components and patterns used
       for the rapid prototyping and development of web apps and sites for Elm
       Street Technology. It seeks to establish best practices around
@@ -34,7 +29,7 @@ export default withStyles((theme) => ({
   container: {
     width: "100%",
     padding: "12px",
-    maxWidth: "800px",
+    maxWidth: "680px",
     margin: "45px auto",
     border: "none",
     background: "#fafafa",
@@ -44,7 +39,15 @@ export default withStyles((theme) => ({
     },
 
     [theme.breakpoints(900)]: {
-      margin: "45px auto 45px 80px",
+      margin: "45px 45px 45px 80px",
+    },
+  },
+  body: {
+    margin: "8px 0 16px",
+    paddingRight: "12px",
+
+    [theme.breakpoints(600)]: {
+      paddingRight: "64px",
     },
   },
 }))(Home);

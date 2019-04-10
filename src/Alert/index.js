@@ -91,9 +91,9 @@ const styles = (theme) => ({
         theme.alertColors[props.color].color) ||
       "#000",
     fontSize: "14px",
+    letterSpacing: ".3px",
     lineHeight: "20px",
-    fontWeight: "600",
-    padding: "10px 16px",
+    padding: "16px 24px",
 
     // Override default link styling
     "& a": {
