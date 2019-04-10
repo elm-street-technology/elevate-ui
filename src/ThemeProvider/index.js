@@ -5,7 +5,7 @@ import merge from "lodash/merge";
 
 const colors: Object = {
   primary: {
-    "050": "#FFF5F5",
+    "050": "#ffeded",
     "100": "#FFE4E4",
     "200": "#FFD4D4",
     "300": "#F99E9B",
@@ -204,6 +204,10 @@ const globalPadding = {
   },
 };
 
+const spacing = {
+  unit: 16,
+};
+
 const shadowKeyUmbraOpacity = 0.2;
 const shadowKeyPenumbraOpacity = 0.14;
 const shadowAmbientShadowOpacity = 0.12;
@@ -259,10 +263,6 @@ const zIndex = {
   tooltip: 1000,
   dropdown: 1500,
   modal: 2000,
-};
-
-const spacing = {
-  unit: 16,
 };
 
 const defaultTheme = {

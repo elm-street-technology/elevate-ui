@@ -13,9 +13,25 @@ import Doc from "./Doc";
 import IconDoc from "./IconDoc";
 
 const Home = Loadable({ loader: () => import("../docs/Home") });
+const Colors = Loadable({ loader: () => import("../docs/Colors") });
+const Borders = Loadable({ loader: () => import("../docs/Borders") });
+const Breakpoints = Loadable({ loader: () => import("../docs/Breakpoints") });
+const ColorPalette = Loadable({ loader: () => import("../docs/ColorPalette") });
+const FullScreenLoader = Loadable({
+  loader: () => import("../docs/FullScreenLoader"),
+});
+const Padding = Loadable({ loader: () => import("../docs/Padding") });
+const Shadows = Loadable({ loader: () => import("../docs/Shadows") });
+const Spacing = Loadable({ loader: () => import("../docs/Spacing") });
+const Transitions = Loadable({ loader: () => import("../docs/Transitions") });
+const TypographyTheme = Loadable({
+  loader: () => import("../docs/TypographyTheme"),
+});
+const zIndex = Loadable({
+  loader: () => import("../docs/zIndex"),
+});
 const SignupForm = Loadable({ loader: () => import("../docs/SignupForm") });
 const QueryForm = Loadable({ loader: () => import("../docs/QueryForm") });
-const Theme = Loadable({ loader: () => import("../docs/Theme") });
 const Color = Loadable({ loader: () => import("../docs/Color") });
 const ThemeOverrides = Loadable({
   loader: () => import("../docs/ThemeOverrides"),
@@ -112,9 +128,19 @@ class Main extends Component {
             <Route path="/icon" render={() => <IconDoc />} />
             <Route path="/signup" component={SignupForm} />
             <Route path="/query-form" component={QueryForm} />
-            <Route path="/theme" component={Theme} />
+            <Route path="/full-screen-loader" component={FullScreenLoader} />
             <Route path="/theme-overrides" component={ThemeOverrides} />
             <Route path="/color" component={Color} />
+            <Route path="/colors" component={Colors} />
+            <Route path="/breakpoints" component={Breakpoints} />
+            <Route path="/borders" component={Borders} />
+            <Route path="/color-palette" component={ColorPalette} />
+            <Route path="/padding" component={Padding} />
+            <Route path="/shadows" component={Shadows} />
+            <Route path="/spacing" component={Spacing} />
+            <Route path="/transitions" component={Transitions} />
+            <Route path="/typography-theme" component={TypographyTheme} />
+            <Route path="/z-index" component={zIndex} />
             <Route
               path="/accordion"
               render={() => <Doc folder="Accordion" />}
@@ -175,7 +201,7 @@ export default withStyles((theme) => ({
     },
 
     [theme.breakpoints(900)]: {
-      paddingLeft: "264px",
+      paddingLeft: "300px",
       paddingRight: "32px", // sidebar width + 8px padding
     },
   },

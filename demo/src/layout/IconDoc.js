@@ -3,6 +3,7 @@ import withStyles from "elevate-ui/withStyles";
 
 import LiveExample from "./LiveExample";
 import Paper from "elevate-ui/Paper";
+import Alert from "elevate-ui/Alert";
 import Typography from "elevate-ui/Typography";
 import * as AllIcons from "elevate-ui-icons";
 import Icon from "elevate-ui-icons/Icon";
@@ -70,28 +71,40 @@ class IconDoc extends Component<Props, State> {
         <div className={classes.container}>
           <Typography type="title">{`<Icon />`}</Typography>
           <Typography type="body">
-            In addition to all the Material Design Icons– we also ship a handful
+            In addition to all the Material Design Icons, we also ship a handful
             of custom icons.
           </Typography>
+          <Alert style={{ marginTop: "16px" }} color="info">
+            <Typography type="body" style={{ fontSize: "16px" }}>
+              Icons live in a separate Github repo {""}
+              <a
+                className={classes.link}
+                href="https://github.com/elm-street-technology/elevate-ui-icons"
+              >
+                here
+              </a>
+              .
+            </Typography>
+          </Alert>
           <LiveExample
             element={() => <IconExample classes={classes} />}
             code={`
-const IconExample = (props) => {
-  const { classes } = props;
-  return (
-    <div>
-      <div className={classes.iconContainer}>
-        <Icon name="AlarmOn" color="#55c3ba" size={34} />
-      </div>
-      <div className={classes.iconContainer}>
-        <Icon name="AddCircleOutline" color="rgb(77, 77, 77)" size={24} />
-      </div>
-      <div className={classes.iconContainer}>
-        <Icon name="Pool" color="#f15953" size={48} />
-      </div>
-    </div>
-  );
-};
+    const IconExample = (props) => {
+      const { classes } = props;
+      return (
+        <div>
+          <div className={classes.iconContainer}>
+            <Icon name="AlarmOn" color="#55c3ba" size={34} />
+          </div>
+          <div className={classes.iconContainer}>
+            <Icon name="AddCircleOutline" color="rgb(77, 77, 77)" size={24} />
+          </div>
+          <div className={classes.iconContainer}>
+            <Icon name="Pool" color="#f15953" size={48} />
+          </div>
+        </div>
+      );
+    };
           `}
           />
           <Typography type="heading5" style={{ margin: "48px 0px" }}>
@@ -151,7 +164,7 @@ export default withStyles((theme) => ({
     overflow: "hidden",
   },
   container: {
-    maxWidth: "800px",
+    maxWidth: "680px",
     margin: "45px auto",
     height: "auto",
     width: "100%",
@@ -162,7 +175,7 @@ export default withStyles((theme) => ({
     },
 
     [theme.breakpoints(900)]: {
-      margin: "45px auto 45px 80px",
+      margin: "45px 45px 45px 80px",
     },
   },
   icon: {
@@ -219,5 +232,15 @@ export default withStyles((theme) => ({
     display: "inline-block",
     verticalAlign: "middle",
     margin: "10px 18px",
+  },
+  link: {
+    color: theme.colors.gray["900"],
+    textDecoration: "none",
+    fontWeight: "600",
+    transition: theme.transitions.default,
+
+    "&:hover": {
+      color: theme.colors.tertiary["700"],
+    },
   },
 }))(IconDoc);
