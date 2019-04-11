@@ -65,7 +65,7 @@ class CurrencyInput extends Component {
           initialValue = initialValue.replace(/\./g, "");
         }
 
-        if (props.decimalSeparator != ".") {
+        if (props.decimalSeparator !== ".") {
           // fix the decimal separator
           initialValue = initialValue.replace(
             new RegExp(props.decimalSeparator, "g"),
