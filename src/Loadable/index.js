@@ -1,9 +1,9 @@
 import ReactLoadable from "react-loadable";
-import FullScreenLoader from "./FullScreenLoader";
+import FullscreenLoader from "./FullscreenLoader";
 
 const Loadable = (options) =>
   ReactLoadable({
-    loading: FullScreenLoader,
+    loading: FullscreenLoader,
     delay: 300,
     ...options,
   });

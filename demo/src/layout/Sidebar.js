@@ -293,7 +293,7 @@ class Sidebar extends Component {
               to="/full-screen-loader"
             >
               <MoreHoriz className={classes.navIcon} size={16} />
-              FullScreenLoader
+              FullscreenLoader
             </NavLink>
           </div>
         ),

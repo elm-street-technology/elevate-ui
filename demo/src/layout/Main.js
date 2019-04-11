@@ -17,8 +17,8 @@ const Colors = Loadable({ loader: () => import("../docs/Colors") });
 const Borders = Loadable({ loader: () => import("../docs/Borders") });
 const Breakpoints = Loadable({ loader: () => import("../docs/Breakpoints") });
 const ColorPalette = Loadable({ loader: () => import("../docs/ColorPalette") });
-const FullScreenLoader = Loadable({
-  loader: () => import("../docs/FullScreenLoader"),
+const FullscreenLoader = Loadable({
+  loader: () => import("../docs/FullscreenLoader"),
 });
 const Padding = Loadable({ loader: () => import("../docs/Padding") });
 const Shadows = Loadable({ loader: () => import("../docs/Shadows") });
@@ -128,7 +128,7 @@ class Main extends Component {
             <Route path="/icon" render={() => <IconDoc />} />
             <Route path="/signup" component={SignupForm} />
             <Route path="/query-form" component={QueryForm} />
-            <Route path="/full-screen-loader" component={FullScreenLoader} />
+            <Route path="/full-screen-loader" component={FullscreenLoader} />
             <Route path="/theme-overrides" component={ThemeOverrides} />
             <Route path="/color" component={Color} />
             <Route path="/colors" component={Colors} />

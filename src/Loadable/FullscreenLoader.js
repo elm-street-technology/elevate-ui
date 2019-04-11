@@ -2,7 +2,7 @@ import React from "react";
 import withStyles from "../withStyles";
 
 /* Animated SVG thanks to @sherb at http://samherbert.net/svg-loaders/ */
-const FullScreenLoader = ({
+const FullscreenLoader = ({
   classes,
   error,
   isLoading,
@@ -148,6 +148,6 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { name: "EuiFullScreenLoader" })(
-  FullScreenLoader
+export default withStyles(styles, { name: "EuiFullscreenLoader" })(
+  FullscreenLoader
 );
