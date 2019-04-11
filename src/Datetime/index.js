@@ -53,7 +53,7 @@ const Datetime = ({
       <div className={classNames(classes.root, className)}>
         <ReactDatePicker
           name={name}
-          selected={value || new Date()}
+          selected={value || null}
           timeFormat="h:mma"
           timeCaption="Time"
           locale="en"
