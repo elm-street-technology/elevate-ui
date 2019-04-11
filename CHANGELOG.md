@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Master branch / update deployments to come from Master (Eric Stout)
 - This changelog! (Eric Stout)
 - Theme Spacing now added to ThemeProvider, allowing a proper spacing system (Dillon Morris)
+- Transparent Button Styles (Eric Stout)
 
 ### Updated
 
@@ -22,7 +23,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Bugfix
 
-- Fix `FullscreenLoader` file name in git to fix build failures (Eric Stout)
+- Fix `FullscreenLoader` file name in git to fix build failures - BREAKING CHANGE!!! - (Eric Stout)
 - Fix JSS export name to match EUI naming conventions (Eric Stout)
+
+### Chores
+
+- Surpress ESLint warnings by rewriting code (Eric Stout)
 
 [1.0.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...v0.38.2

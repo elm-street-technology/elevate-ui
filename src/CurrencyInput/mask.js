@@ -29,7 +29,7 @@ export default function mask(
 
   value = String(value); //if the given value is a Number, let's convert into String to manipulate that
 
-  if (value.length == 0) {
+  if (value.length === 0) {
     return {
       value: 0,
       maskedValue: "",
