@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import withStyles from "elevate-ui/withStyles";
-
+import PrismCode from "react-prism";
 import LiveExample from "./LiveExample";
 import Paper from "elevate-ui/Paper";
 import Alert from "elevate-ui/Alert";
@@ -76,7 +76,7 @@ class IconDoc extends Component<Props, State> {
           </Typography>
           <Alert style={{ marginTop: "16px" }} color="info">
             <Typography type="body" style={{ fontSize: "16px" }}>
-              Icons live in a separate Github repo {""}
+              Icons live in a separate GitHub repo {""}
               <a
                 className={classes.link}
                 href="https://github.com/elm-street-technology/elevate-ui-icons"
@@ -107,6 +107,24 @@ class IconDoc extends Component<Props, State> {
     };
           `}
           />
+          <div className={classes.iconExample}>
+            <Typography type="heading5">Importing by icon name</Typography>
+            <Typography type="body" className={classes.subheading}>
+              Below is the preffered method of importing icons:
+            </Typography>
+            <PrismCode component="pre" className="language-javascript">
+              {`
+        import AlarmOn from 'elevate-ui-icons/AlarmOn';
+
+        <AlarmOn color="#ba4a55" size={20} />
+                `}
+            </PrismCode>
+            <Typography type="body" className={classes.subheading}>
+              Here we are importing by the name of the icon, as opposed to
+              bringing the entire icons package along for the ride.
+            </Typography>
+          </div>
+
           <Typography type="heading5" style={{ margin: "48px 0px" }}>
             Search for icons
           </Typography>
@@ -119,6 +137,7 @@ class IconDoc extends Component<Props, State> {
                 id="searchTerm"
                 type="text"
                 name="searchTerm"
+                placeholder="Edit, Add, AlarmOn, etc..."
                 className={classes.input}
                 onChange={this.handleInputChange}
               />
@@ -242,5 +261,9 @@ export default withStyles((theme) => ({
     "&:hover": {
       color: theme.colors.tertiary["700"],
     },
+  },
+  iconExample: {
+    marginTop: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 6,
   },
 }))(IconDoc);

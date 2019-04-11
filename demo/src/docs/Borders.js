@@ -5,7 +5,7 @@ import withStyles from "elevate-ui/withStyles";
 import CheckCircle from "elevate-ui-icons/CheckCircle";
 import "../layout/prism-elevate.css";
 
-const Breakpoints = ({ classes }) => (
+const Borders = ({ classes }) => (
   <div className={classes.wrapper}>
     <div className={classes.headingContainer}>
       <Typography type="title" gutterBottom>{`Borders`}</Typography>
@@ -117,4 +117,4 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { name: "Breakpoints" })(Breakpoints);
+export default withStyles(styles, { name: "Borders" })(Borders);

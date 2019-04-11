@@ -141,7 +141,7 @@ export default withStyles((theme) => ({
     padding: "12px",
 
     [theme.breakpoints(900)]: {
-      margin: "45px 45px 45px 0px",
+      margin: "45px 45px 45px -220px",
       padding: "0px",
     },
   },

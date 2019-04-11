@@ -64,7 +64,7 @@ export default withStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     borderBottom: `1px solid ${theme.colors["gray200"]}`,
-    transition: "all 2s ease-in-out",
+    transition: theme.transitions.accordion,
 
     "&:last-child": {
       borderBottom: "none",

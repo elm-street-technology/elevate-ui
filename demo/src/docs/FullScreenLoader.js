@@ -18,7 +18,7 @@ const FullScreenLoader = ({ classes }) => (
 
     <PrismCode component="pre" className="language-javascript">
       {` 
-    import FullScreenLoader from 'elevate-ui/Loadable/FullscreenLoader';
+    import FullScreenLoader from 'elevate-ui/Loadable/FullScreenLoader';
 
     const state = {
       loading: false,
@@ -26,7 +26,7 @@ const FullScreenLoader = ({ classes }) => (
     
     render() {
       if (this.state.loading) {
-        <FullscreenLoader pastDelay />
+        <FullScreenLoader pastDelay />
       } 
     }
       `}
@@ -52,7 +52,7 @@ const FullScreenLoader = ({ classes }) => (
 
     <PrismCode component="pre" className="language-javascript">
       {` 
-      <FullscreenLoader pastDelay={() => setTimeout(() => true, 300)} />
+      <FullScreenLoader pastDelay={() => setTimeout(() => true, 300)} />
       `}
     </PrismCode>
 
@@ -75,7 +75,7 @@ const styles = (theme) => ({
     padding: "12px",
 
     [theme.breakpoints(900)]: {
-      margin: "45px auto 90px 100px",
+      margin: "45px auto 90px 80px",
       padding: "0px",
     },
   },

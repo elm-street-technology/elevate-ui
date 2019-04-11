@@ -179,6 +179,7 @@ const typography = {
 
 const transitions = {
   default: "all 200ms linear",
+  accordion: "all 2s ease-in-out",
 };
 
 const breakpoints = (minWidth: number) => {
