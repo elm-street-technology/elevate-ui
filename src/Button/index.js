@@ -16,7 +16,7 @@ type $Props = {
    */
   className: string,
   /**
-   * Color to be applied to the Button component. Can be "primary", "secondary", or any custom value.
+   * Color to be applied to the Button component. Can be "primary", "secondary", "tertiary", "transparent" or any custom value.
    */
   color: string,
   /**
@@ -44,6 +44,10 @@ type $Props = {
    */
   isSecondary: boolean,
   /**
+   * Allows the component to be styled without button styling until hovered.
+   */
+  isTransparent: boolean,
+  /**
    * Function to be passed to the component on click.
    */
   onClick?: Function,
@@ -70,7 +74,7 @@ const getChildColor = (theme: Object, props: Object) => {
     if (checkString(props.color)) {
       color = theme.colors[props.color]["500"];
       darkColor = theme.colors[props.color]["900"];
-      if (props.isOutlined) {
+      if (props.isOutlined || props.isTransparent) {
         return color;
       } else if (props.isSecondary) {
         return darkColor;
@@ -79,7 +83,7 @@ const getChildColor = (theme: Object, props: Object) => {
       }
     } else {
       if (Color(props.color)) {
-        if (props.isOutlined) {
+        if (props.isOutlined || props.isTransparent) {
           return Color(props.color).string();
         }
         if (props.isSecondary) {
@@ -110,7 +114,10 @@ const getChildColor = (theme: Object, props: Object) => {
 
 const getBackgroundColor = (theme: Object, props: Object) => {
   try {
-    if (props.disabled && props.isOutlined) {
+    if (
+      (props.disabled && props.isOutlined) ||
+      (props.disabled && props.isTransparent)
+    ) {
       return "transparent";
     }
     if (props.disabled) {
@@ -121,7 +128,7 @@ const getBackgroundColor = (theme: Object, props: Object) => {
     if (checkString(props.color)) {
       color = theme.colors[props.color]["500"];
       lightColor = theme.colors[props.color]["050"];
-      if (props.isOutlined) {
+      if (props.isOutlined || props.isTransparent) {
         return "transparent";
       }
       if (props.isSecondary) {
@@ -131,7 +138,7 @@ const getBackgroundColor = (theme: Object, props: Object) => {
       }
     } else {
       if (Color(props.color)) {
-        if (props.isOutlined) {
+        if (props.isOutlined || props.isTransparent) {
           return "transparent";
         }
         if (props.isSecondary) {
@@ -161,7 +168,7 @@ const getHoverColor = (theme: Object, props: $Props) => {
       return theme.colors["gray100"];
     }
     if (checkString(props.color)) {
-      if (props.isOutlined) {
+      if (props.isOutlined || props.isTransparent) {
         return theme.colors[props.color]["050"];
       }
       if (props.isSecondary) {
@@ -174,7 +181,7 @@ const getHoverColor = (theme: Object, props: $Props) => {
       }
     } else {
       if (Color(props.color)) {
-        if (props.isOutlined) {
+        if (props.isOutlined || props.isTransparent) {
           return Color(props.color)
             .lighten(0.5)
             .string();
@@ -208,7 +215,7 @@ const getRippleColor = (theme: Object, props: $Props) => {
       return theme.colors["gray100"];
     }
     if (checkString(props.color)) {
-      if (props.isOutlined || props.isSecondary) {
+      if (props.isOutlined || props.isSecondary || props.isTransparent) {
         return theme.colors[props.color]["200"];
       }
       return theme.colors[props.color]["500"];
@@ -226,8 +233,11 @@ const getRippleColor = (theme: Object, props: $Props) => {
 
 const getBorderColor = (theme: Object, props: $Props) => {
   try {
-    if (props.disabled) {
+    if (props.disabled && !props.isTransparent) {
       return theme.colors["gray100"];
+    }
+    if (props.isTransparent) {
+      return "transparent";
     }
     if (checkString(props.color)) {
       return theme.colors[props.color]["500"];
@@ -253,6 +263,7 @@ class Button extends Component<$Props, $State> {
     iconAlign: "left",
     isOutlined: false,
     isSecondary: false,
+    isTransparent: false,
   };
 
   constructor(props) {
@@ -320,6 +331,7 @@ class Button extends Component<$Props, $State> {
       innerClassName,
       isOutlined,
       isSecondary,
+      isTransparent,
       theme,
       ...rest
     } = this.props;

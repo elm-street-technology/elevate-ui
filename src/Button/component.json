@@ -52,7 +52,7 @@
         "name": "string"
       },
       "required": false,
-      "description": "Color to be applied to the Button component. Can be \"primary\", \"secondary\", or any custom value.",
+      "description": "Color to be applied to the Button component. Can be \"primary\", \"secondary\", \"tertiary\", \"transparent\" or any custom value.",
       "defaultValue": {
         "value": "\"primary\"",
         "computed": false
@@ -122,6 +122,17 @@
       },
       "required": false,
       "description": "Allows the component to be styled as an outlined button.",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
+    "isTransparent": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": false,
+      "description": "Allows the component to be styled without button styling until hovered.",
       "defaultValue": {
         "value": "false",
         "computed": false
