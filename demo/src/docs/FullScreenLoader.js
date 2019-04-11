@@ -4,13 +4,13 @@ import Typography from "elevate-ui/Typography";
 import withStyles from "elevate-ui/withStyles";
 import "../layout/prism-elevate.css";
 
-const FullScreenLoader = ({ classes }) => (
+const FullscreenLoader = ({ classes }) => (
   <div className={classes.wrapper}>
     <div className={classes.headingContainer}>
       <Typography
         type="title"
         gutterBottom
-      >{`<FullScreenLoader />`}</Typography>
+      >{`<FullscreenLoader />`}</Typography>
       <Typography type="body" className={classes.subheading}>
         A component you can show for loading states.
       </Typography>
@@ -18,7 +18,7 @@ const FullScreenLoader = ({ classes }) => (
 
     <PrismCode component="pre" className="language-javascript">
       {` 
-    import FullScreenLoader from 'elevate-ui/Loadable/FullScreenLoader';
+    import FullscreenLoader from 'elevate-ui/Loadable/FullscreenLoader';
 
     const state = {
       loading: false,
@@ -26,7 +26,7 @@ const FullScreenLoader = ({ classes }) => (
     
     render() {
       if (this.state.loading) {
-        <FullScreenLoader pastDelay />
+        <FullscreenLoader pastDelay />
       } 
     }
       `}
@@ -52,7 +52,7 @@ const FullScreenLoader = ({ classes }) => (
 
     <PrismCode component="pre" className="language-javascript">
       {` 
-      <FullScreenLoader pastDelay={() => setTimeout(() => true, 300)} />
+      <FullscreenLoader pastDelay={() => setTimeout(() => true, 300)} />
       `}
     </PrismCode>
 
@@ -61,7 +61,7 @@ const FullScreenLoader = ({ classes }) => (
       type="body"
       className={classes.subheading}
     >
-      This makes it so the FullScreenLoader doesn't appear unless the state has
+      This makes it so the FullscreenLoader doesn't appear unless the state has
       been loading for more than 300ms.
     </Typography>
   </div>
@@ -155,6 +155,6 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { name: "FullScreenLoader" })(
-  FullScreenLoader
+export default withStyles(styles, { name: "FullscreenLoader" })(
+  FullscreenLoader
 );
