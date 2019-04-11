@@ -108,6 +108,33 @@ const ButtonExample = ({ classes }) => (
     </Paper>
     <br />
     <br />
+    <Typography type="heading5" gutterTop gutterBottom>
+      Transparent Buttons
+    </Typography>
+    <Typography style={{ marginBottom: "8px" }} type="body2" gutterTop>
+      Transparent buttons allow you to use the structure and functionality of a
+      standard button but appear just as text until hovered or clicked.
+    </Typography>
+    <Paper>
+      <Button isTransparent type="button" color="primary">
+        Cancel
+      </Button>
+      <br />
+      <br />
+      <Button isTransparent type="button" color="tertiary">
+        Update
+      </Button>
+      <br />
+      <br />
+      <Typography style={{ marginBottom: "8px" }} type="body" gutterTop>
+        Passing in a custom hex value of {`color="#bada55"`}:
+      </Typography>
+      <Button isTransparent type="button" color="#bada55">
+        Log in
+      </Button>
+    </Paper>
+    <br />
+    <br />
     <Typography
       type="heading5"
       style={{ marginBottom: "8px" }}
