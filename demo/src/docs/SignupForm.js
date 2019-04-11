@@ -60,7 +60,7 @@ export default withStyles((theme) => ({
     margin: "45px auto",
 
     [theme.breakpoints(900)]: {
-      margin: "45px 45px 45px 80px",
+      margin: "45px 45px 45px -200px",
     },
 
     [theme.breakpoints(600)]: {

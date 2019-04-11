@@ -40,6 +40,23 @@ const Transitions = ({ classes }) => (
       </PrismCode>
       <div />
     </div>
+    <Typography
+      type="body"
+      className={classes.subheading}
+      style={{ fontSize: "18px", marginTop: "24px" }}
+    >
+      We also have another tansition value stored in the theme called
+      "accordion":
+    </Typography>
+
+    <PrismCode component="pre" className="language-javascript">
+      {` 
+    const transitions = {
+      default: "all 200ms linear",
+      accordion: "all 2s ease-in-out",
+    };
+      `}
+    </PrismCode>
 
     <Typography
       type="body"

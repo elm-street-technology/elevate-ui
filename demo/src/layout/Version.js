@@ -29,14 +29,15 @@ class Version extends Component<Props, State> {
   }
 
   getVersion = async () => {
-    await axios
+    return await axios
       .get(
         "https://api.github.com/repos/elm-street-technology/elevate-ui/tags?per_page=1"
       )
       .then((response) => {
         const latest = first(response.data);
         return this.setState({ version: latest && latest.name });
-      });
+      })
+      .catch(() => this.setState({ version: "v0.00.00" }));
   };
 
   render() {

@@ -68,14 +68,12 @@ const zIndex = ({ classes }) => (
       style={{ fontSize: "18px", marginTop: "16px" }}
     />
 
-    <Typography
-      type="body"
-      className={classes.subheading}
-      style={{ fontSize: "18px", marginTop: "24px" }}
-    >
-      This allows us to avoid, for example, writing the below just to make sure
-      our element appears on top:
-    </Typography>
+    <Alert className={classes.alertContainer} color="warning">
+      <Typography type="body" style={{ fontSize: "18px" }}>
+        This allows us to avoid, for example, writing the below just to make
+        sure our element appears on top:
+      </Typography>
+    </Alert>
 
     <PrismCode component="pre" className="language-javascript">
       {` 

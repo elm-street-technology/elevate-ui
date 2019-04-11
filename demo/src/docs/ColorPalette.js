@@ -19,7 +19,7 @@ const ColorPalette = ({ classes, theme }) => {
         </Typography>
       </div>
       <div className={classes.alertContainer}>
-        <Alert color="warning">
+        <Alert color="info">
           <Typography type="heading5">Tip</Typography>
           <Typography type="body" style={{ fontSize: "16px" }}>
             Check out{" "}
@@ -144,19 +144,19 @@ const ColorPalette = ({ classes, theme }) => {
 
 const styles = (theme) => ({
   wrapper: {
-    maxWidth: "680px",
     width: "100%",
     margin: "45px auto",
     padding: "12px",
 
     [theme.breakpoints(900)]: {
-      margin: "45px 45px 45px 80px",
+      margin: "45px 45px 45px 220px",
       padding: "0px",
     },
   },
   container: {
     display: "flex",
     flexDirection: "column",
+    maxWidth: "680px",
   },
   heading: {
     marginTop: theme.spacing.unit * 2,
@@ -234,6 +234,7 @@ const styles = (theme) => ({
   headingContainer: {
     marginTop: theme.spacing.unit * 1.5,
     marginBottom: theme.spacing.unit * 1.5,
+    maxWidth: "680px",
   },
   link: {
     textDecoration: "none",
@@ -250,6 +251,7 @@ const styles = (theme) => ({
   },
   alertContainer: {
     marginTop: theme.spacing.unit * 2.5,
+    maxWidth: "680px",
   },
 });
 

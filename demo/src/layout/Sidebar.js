@@ -418,6 +418,7 @@ class Sidebar extends Component {
               href="/Elevate%20Brand%20Guidelines.pdf"
               className={classes.item}
               title="Download Brand Guidelines PDF"
+              target="blank"
             >
               Brand Guidelines
             </a>
@@ -425,6 +426,7 @@ class Sidebar extends Component {
               href="https://github.com/elm-street-technology/elevate-ui"
               className={classNames(classes.item, classes.last)}
               title="View on GitHub"
+              target="blank"
             >
               View on GitHub
             </a>
@@ -514,7 +516,8 @@ export default withStyles((theme) => ({
     marginBottom: "48px",
   },
   versionContainter: {
-    marginLeft: theme.spacing.unit * 0.75,
+    paddingLeft: theme.spacing.unit * 1.25,
+    marginLeft: -8,
     marginTop: theme.spacing.unit * -0.5,
     marginBottom: theme.spacing.unit,
     borderBottom: `1px solid ${theme.colors.gray["200"]}`,

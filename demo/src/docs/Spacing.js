@@ -7,7 +7,7 @@ import Sizing from "./images/sizing.png";
 import "../layout/prism-elevate.css";
 import Alert from "elevate-ui/Alert";
 
-const Breakpoints = ({ classes }) => (
+const Spacing = ({ classes }) => (
   <div className={classes.wrapper}>
     <div className={classes.headingContainer}>
       <Typography type="title" gutterBottom>{`Spacing`}</Typography>
@@ -214,4 +214,4 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { name: "Breakpoints" })(Breakpoints);
+export default withStyles(styles, { name: "Spacing" })(Spacing);

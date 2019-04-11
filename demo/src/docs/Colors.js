@@ -31,11 +31,13 @@ const Colors = ({ classes }) => (
     </div>
   );
   
-  export default withStyles((theme) => ({
-      heading: {
-        color: theme.colors.primary["500"]
-      }
-  }))(Heading);
+  const styles = (theme) => ({
+    heading: {
+      color: theme.colors.primary["500"]
+    }
+  })
+      
+  export default withStyles(styles)(Heading);
           `}
         </PrismCode>
         <div className={classes.example}>
