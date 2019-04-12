@@ -34,6 +34,7 @@ const ColorPalette = ({ classes, theme }) => {
         {theme &&
           theme.colors && (
             <Fragment>
+              {/* eslint-disable-next-line array-callback-return */}
               {Object.keys(theme.colors).map((color) => {
                 if (isObject(theme.colors[color])) {
                   return (
@@ -94,6 +95,7 @@ const ColorPalette = ({ classes, theme }) => {
                 Other Colors
               </Typography>
               <div className={classes.bottomContainer}>
+                {/* eslint-disable-next-line array-callback-return */}
                 {Object.keys(theme.colors).map((color) => {
                   if (
                     (!isObject(theme.colors[color]) &&
