@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import injectSheet, { ThemeProvider as JSSThemeProvider } from "react-jss";
+import { GlobalNotificationProvider } from "../GlobalNotification";
 import merge from "lodash/merge";
 
 const colors: Object = {
@@ -364,7 +365,9 @@ const ThemeProvider = ({ children, theme, withReset = true, ...rest }: any) => {
   const mergedTheme = theme ? merge(defaultTheme, theme) : defaultTheme;
   return (
     <JSSThemeProvider theme={mergedTheme} {...rest}>
-      {withReset ? <GlobalsAndReset>{children}</GlobalsAndReset> : children}
+      <GlobalNotificationProvider>
+        {withReset ? <GlobalsAndReset>{children}</GlobalsAndReset> : children}
+      </GlobalNotificationProvider>
     </JSSThemeProvider>
   );
 };

@@ -40,6 +40,7 @@ import AssignmentTurnedIn from "elevate-ui-icons/AssignmentTurnedIn";
 import FormatListNumbered from "elevate-ui-icons/FormatListNumbered";
 import AddCircleOutline from "elevate-ui-icons/AddCircleOutline";
 import FormatColorFill from "elevate-ui-icons/FormatColorFill";
+import Notifications from "elevate-ui-icons/Notifications";
 
 import ElevateUILogo from "./ElevateUILogo";
 import Version from "./Version";
@@ -214,6 +215,15 @@ class Sidebar extends Component {
             >
               <Warning className={classes.navIcon} size={16} />
               Alert
+            </NavLink>
+
+            <NavLink
+              activeClassName={classes.active}
+              className={classes.item}
+              to="/global-notification"
+            >
+              <Notifications className={classes.navIcon} size={16} />
+              Global Notification
             </NavLink>
 
             <NavLink

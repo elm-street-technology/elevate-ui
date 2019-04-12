@@ -2,10 +2,10 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="Toggle-scaffold-0-1-1"
+  className="Toggle-scaffold-0-1-2"
 >
   <label
-    className="Toggle-root-0-1-2"
+    className="Toggle-root-0-1-3"
     onKeyDown={[Function]}
     tabIndex="0"
   >
@@ -24,7 +24,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       value={false}
     />
     <span
-      className="Toggle-toggle-0-1-3 Toggle-withPadding-0-1-4"
+      className="Toggle-toggle-0-1-4 Toggle-withPadding-0-1-5"
     >
       <svg
         viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       </svg>
     </span>
     <span
-      className="Toggle-label-0-1-5"
+      className="Toggle-label-0-1-6"
     >
       Test Checkbox
     </span>
