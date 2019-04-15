@@ -1,11 +1,12 @@
 // @flow
 import React from "react";
 import injectSheet, { ThemeProvider as JSSThemeProvider } from "react-jss";
+import { GlobalNotificationProvider } from "../GlobalNotification";
 import merge from "lodash/merge";
 
 const colors: Object = {
   primary: {
-    "050": "#FFF5F5",
+    "050": "#ffeded",
     "100": "#FFE4E4",
     "200": "#FFD4D4",
     "300": "#F99E9B",
@@ -179,6 +180,7 @@ const typography = {
 
 const transitions = {
   default: "all 200ms linear",
+  accordion: "all 2s ease-in-out",
 };
 
 const breakpoints = (minWidth: number) => {
@@ -186,6 +188,10 @@ const breakpoints = (minWidth: number) => {
     return new Error("Must enter a valid minWidth to use theme breakpoints");
   }
   return `@media (min-width: ${minWidth}px)`;
+};
+
+const borders = {
+  default: `1px solid ${colors.gray["200"]}`,
 };
 
 const globalBorderRadius = "4px";
@@ -202,6 +208,10 @@ const globalPadding = {
   [breakpoints.desktop]: {
     padding: "24px",
   },
+};
+
+const spacing = {
+  unit: 16,
 };
 
 const shadowKeyUmbraOpacity = 0.2;
@@ -261,12 +271,9 @@ const zIndex = {
   modal: 2000,
 };
 
-const spacing = {
-  unit: 16,
-};
-
 const defaultTheme = {
   alertColors,
+  borders,
   breakpoints,
   colors,
   globalBorderRadius,
@@ -363,7 +370,9 @@ const ThemeProvider = ({ children, theme, withReset = true, ...rest }: any) => {
   const mergedTheme = theme ? merge(defaultTheme, theme) : defaultTheme;
   return (
     <JSSThemeProvider theme={mergedTheme} {...rest}>
-      {withReset ? <GlobalsAndReset>{children}</GlobalsAndReset> : children}
+      <GlobalNotificationProvider>
+        {withReset ? <GlobalsAndReset>{children}</GlobalsAndReset> : children}
+      </GlobalNotificationProvider>
     </JSSThemeProvider>
   );
 };

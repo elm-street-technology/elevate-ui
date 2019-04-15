@@ -19,7 +19,7 @@ class BaseAccordion extends Component<Props, State> {
   };
 
   state = {
-    openIndexes: [0],
+    openIndexes: [],
   };
 
   getState(state: State = this.state) {

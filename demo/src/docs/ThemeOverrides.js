@@ -75,11 +75,11 @@ export default withStyles((theme) => ({
     marginBottom: "24px",
   },
   wrapper: {
-    maxWidth: "800px",
+    maxWidth: "680px",
     margin: "45px auto",
 
     [theme.breakpoints(900)]: {
-      margin: "45px auto 45px 80px",
+      margin: "45px auto 90px 100px",
     },
   },
 }))(ThemeOverrides);

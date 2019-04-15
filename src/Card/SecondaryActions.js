@@ -73,6 +73,6 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { name: "SecondaryActions" })(
+export default withStyles(styles, { name: "EuiSecondaryActions" })(
   enhanceWithClickOutside(SecondaryActions)
 );

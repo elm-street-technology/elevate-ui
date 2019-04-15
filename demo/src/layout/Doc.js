@@ -98,11 +98,11 @@ export default withStyles((theme) => ({
     fontSize: "14px",
   },
   descriptionContainer: {
-    maxWidth: "800px",
+    maxWidth: "680px",
     margin: "45px auto",
 
     [theme.breakpoints(900)]: {
-      margin: "45px auto 45px 80px",
+      margin: "45px 45px 45px 80px",
     },
   },
   headingContainer: {

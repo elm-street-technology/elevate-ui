@@ -11,6 +11,7 @@ const PropsTable = (props) => {
       <Typography type="heading5" id="props" className={classes.subHeading}>
         Available Props
       </Typography>
+
       <div className={classes.table}>
         <div className={classes.row}>
           <div className={classes.col}>
@@ -91,13 +92,8 @@ export default withStyles((theme) => ({
       paddingRight: "12px",
     },
   },
-  // description: {
-  //   fontSize: "16px",
-  //   color: theme.colors.black,
-  //   lineHeight: "1.5",
-  // },
   label: {
-    color: theme.colors.gray500,
+    color: theme.colors.gray["600"],
     fontSize: "13px",
     fontWeight: "600",
     textTransform: "uppercase",
@@ -113,7 +109,7 @@ export default withStyles((theme) => ({
     fontSize: "16px",
     fontWeight: "600",
     letterSpacing: ".8px",
-    color: theme.colors.gray600,
+    color: theme.colors.gray["600"],
     textTransform: "uppercase",
     marginBottom: "8px",
   },

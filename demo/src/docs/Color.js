@@ -135,13 +135,13 @@ export default withStyles((theme) => ({
     border: `1px solid ${theme.colors.gray300}`,
   },
   wrapper: {
-    maxWidth: "800px",
+    maxWidth: "680px",
     width: "100%",
     margin: "45px auto",
     padding: "12px",
 
     [theme.breakpoints(900)]: {
-      margin: "45px auto 45px 80px",
+      margin: "45px auto 90px 100px",
       padding: "0px",
     },
   },

@@ -62,6 +62,13 @@ const Typographies = () => (
       With component override and color override
     </Typography>
     <br />
+    <Typography type="heading4" gutterBottom>
+      subHeading2
+    </Typography>
+    <Typography type="subHeading2" element="div" color="#55C3BA" gutterBottom>
+      Intended to be used for labels in tables and elsewhere.
+    </Typography>
+    <br />
     <br />
     <Typography type="heading4" gutterBottom>
       body

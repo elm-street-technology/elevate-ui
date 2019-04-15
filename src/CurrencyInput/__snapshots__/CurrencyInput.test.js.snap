@@ -2,10 +2,10 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="Scaffold-root-0-1-2"
+  className="Scaffold-root-0-1-3"
 >
   <input
-    className="CurrencyInput-root-0-1-1"
+    className="CurrencyInput-root-0-1-2"
     id="homeValue"
     name=""
     onBlur={[Function]}

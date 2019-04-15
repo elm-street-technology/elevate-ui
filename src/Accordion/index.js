@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from "react";
 import withStyles from "../withStyles";
+import classNames from "classnames";
 import ChevronRight from "elevate-ui-icons/ChevronRight";
 
 import BaseAccordion from "./BaseAccordion";
@@ -34,11 +35,11 @@ class Accordion extends Component<Props> {
                   <span className={classes.headerTitle}>{item.title}</span>
                   <div className={classes.headerIcon}>
                     <ChevronRight
-                      className={
-                        openIndexes.includes(index)
-                          ? classes.rotateMinus90
-                          : classes.rotate90
-                      }
+                      className={classNames({
+                        [classes.chevron]: true,
+                        [classes.rotateMinus90]: openIndexes.includes(index),
+                        [classes.rotate90]: !openIndexes.includes(index),
+                      })}
                     />
                   </div>
                 </button>
@@ -64,6 +65,7 @@ export default withStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     borderBottom: `1px solid ${theme.colors["gray200"]}`,
+    transition: theme.transitions.accordion,
 
     "&:last-child": {
       borderBottom: "none",
@@ -71,12 +73,21 @@ export default withStyles((theme) => ({
   },
   button: {
     display: "flex",
-    padding: "12px 16px",
+    padding: "16px",
     textAlign: "left",
+    alignItems: "center",
+
+    "&:focus": {
+      outline: "none",
+    },
   },
   headerTitle: {
     display: "flex",
     fontWeight: "600",
+    color: theme.colors.gray["600"],
+    letterSpacing: ".8px",
+    fontSize: "14px",
+    textTransform: "uppercase",
   },
   headerIcon: {
     flexShrink: "0",
@@ -88,7 +99,11 @@ export default withStyles((theme) => ({
   content: {
     display: "flex",
     flexDirection: "column",
-    padding: "8px 16px 16px",
+    padding: "0px 16px 16px",
+    transition: "all 2s ease-in-out",
+  },
+  chevron: {
+    color: theme.colors.gray["500"],
   },
   rotateMinus90: {
     transform: "rotate(-90deg)",

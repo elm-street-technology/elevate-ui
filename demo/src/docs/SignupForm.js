@@ -56,11 +56,11 @@ export default withStyles((theme) => ({
   container: {
     width: "100%",
     padding: "12px",
-    maxWidth: "800px",
+    maxWidth: "680px",
     margin: "45px auto",
 
     [theme.breakpoints(900)]: {
-      margin: "45px auto 45px 80px",
+      margin: "45px auto 90px 100px",
     },
 
     [theme.breakpoints(600)]: {
