@@ -58,8 +58,9 @@ const GlobalNotification = ({ classes, theme, dispatchNotification }) => {
             Show Success
           </Button>
           <Button
+            isSecondary
             type="button"
-            color={theme.colors.primary["700"]}
+            color="primary"
             onClick={() =>
               dispatchNotification({
                 title: "Error",
@@ -71,6 +72,7 @@ const GlobalNotification = ({ classes, theme, dispatchNotification }) => {
             Show Error
           </Button>
           <Button
+            isSecondary
             type="button"
             color={theme.colors.yellow["500"]}
             onClick={() =>
