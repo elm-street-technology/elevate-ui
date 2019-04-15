@@ -24,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Include dynamic version number under EUI Logo (Dillon Morris/Eric Stout)
 - Set Datetime value to null if no value exists (Eric Stout)
 - Accordions closed by default (Eric Stout)
-- Accordion caret color updated to match font color
+- Accordion caret color updated to match font color (Eric Stout)
 
 ### Bugfix
 
@@ -35,4 +35,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Surpress ESLint warnings by rewriting code (Eric Stout)
 
-[1.0.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...v0.38.2
+[1.0.0]: https://github.com/elm-street-technology/elevate-ui/compare/v1.0.0...v0.38.2
