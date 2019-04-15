@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Theme Spacing now added to ThemeProvider, allowing a proper spacing system (Dillon Morris)
 - Transparent Button Styles (Eric Stout)
 - Global Notification functionality (Eric Stout)
+- "body2" type/variant to the Typography component (Dillon Morris)
+- Default border style (Dillon Morris)
 
 ### Updated
 
@@ -21,10 +23,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Expanded and Re-organized documentation (Dillon Morris)
 - Include dynamic version number under EUI Logo (Dillon Morris/Eric Stout)
 - Set Datetime value to null if no value exists (Eric Stout)
+- Accordions closed by default (Eric Stout)
+- Accordion caret color updated to match font color
 
 ### Bugfix
 
-- Fix `FullscreenLoader` file name in git to fix build failures - BREAKING CHANGE!!! - (Eric Stout)
+- Fix `FullscreenLoader` file name in git to fix build failures - **BREAKING CHANGE!!!** - (Eric Stout)
 - Fix JSS export name to match EUI naming conventions (Eric Stout)
 
 ### Chores
