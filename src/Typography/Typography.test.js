@@ -15,6 +15,7 @@ const WrappedTypographies = () => (
     <Typography type="heading4">Lorem Ipsum Dolor Sit Amet</Typography>
     <Typography type="heading5">Lorem Ipsum Dolor Sit Amet</Typography>
     <Typography type="subHeading">Lorem Ipsum Dolor Sit Amet</Typography>
+    <Typography type="subHeading2">Lorem Ipsum Dolor Sit Amet</Typography>
     <Typography type="title" component="span">
       Lorem Ipsum Dolor Sit Amet
     </Typography>
