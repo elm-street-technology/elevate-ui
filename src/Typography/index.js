@@ -140,6 +140,13 @@ const styles = (theme) => ({
       fontSize: "18px",
     },
   },
+  subHeading2: {
+    color: theme.colors.gray["600"],
+    fontSize: "13px",
+    fontWeight: "600",
+    textTransform: "uppercase",
+    letterSpacing: ".8px",
+  },
   body: {
     fontSize: "18px",
     lineHeight: "28px",
