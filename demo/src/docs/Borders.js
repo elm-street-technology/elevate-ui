@@ -9,9 +9,36 @@ const Borders = ({ classes }) => (
   <div className={classes.wrapper}>
     <div className={classes.headingContainer}>
       <Typography type="title" gutterBottom>{`Borders`}</Typography>
+      <Typography type="body">
+        Below is an example of how to set a default border on an element:
+      </Typography>
+      <PrismCode component="pre" className="language-javascript">
+        {` 
+    const style = (theme) => ({
+      sidebar: {
+        borderRight: theme.borders["default"],
+      },
+    });
+      `}
+      </PrismCode>
       <Typography type="body" className={classes.subheading}>
-        We currently have 1 value to reference for borders, it is for the
-        borderRadius property:
+        Below are the styles we have set for our default border:
+      </Typography>
+      <PrismCode component="pre" className="language-javascript">
+        {` 
+    const borders = {
+      default: "1px solid #dde2e7",
+    };
+      `}
+      </PrismCode>
+    </div>
+
+    <div className={classes.headingContainer}>
+      <Typography gutterBottom type="heading4" style={{ marginTop: "64px" }}>
+        globalBorderRadius
+      </Typography>
+      <Typography type="body">
+        We also have a globalBorderRadius property:
       </Typography>
     </div>
     <div>
@@ -34,7 +61,7 @@ const Borders = ({ classes }) => (
 
       <PrismCode component="pre" className="language-javascript">
         {` 
-        const globalBorderRadius = "4px";
+    const globalBorderRadius = "4px";
       `}
       </PrismCode>
       <div />
@@ -49,9 +76,15 @@ const Borders = ({ classes }) => (
         <div className={classes.listIcon}>
           <CheckCircle size={22} color="#168C82" />
         </div>
-        <div>
-          Elevate-UI ships with a globalBorderRadius variable set to 4px.
+        <div>Elevate-UI ships with a globalBorderRadius.</div>
+      </div>
+    </Typography>
+    <Typography element="div" className={classes.body} type="body">
+      <div className={classes.listItem}>
+        <div className={classes.listIcon}>
+          <CheckCircle size={22} color="#168C82" />
         </div>
+        <div>Elevate-UI ships with a "default" border style.</div>
       </div>
     </Typography>
     <Typography element="div" className={classes.body} type="body">
@@ -60,17 +93,7 @@ const Borders = ({ classes }) => (
           <CheckCircle size={22} color="#168C82" />
         </div>
         <div>
-          This is the preferred method of setting borderRadius an any element.
-        </div>
-      </div>
-    </Typography>
-    <Typography element="div" className={classes.body} type="body">
-      <div className={classes.listItem}>
-        <div className={classes.listIcon}>
-          <CheckCircle size={22} color="#168C82" />
-        </div>
-        <div>
-          This is the default border radius for the EUI Button, Paper Component.
+          These are the preferred border styles to be used across Elevate UI.
         </div>
       </div>
     </Typography>
@@ -98,7 +121,7 @@ const styles = (theme) => ({
     marginBottom: theme.spacing.unit * 1.5,
   },
   subheading: {
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing.unit * 3,
     marginBottom: theme.spacing.unit,
   },
   sectionHeading: {

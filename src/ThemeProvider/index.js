@@ -189,6 +189,10 @@ const breakpoints = (minWidth: number) => {
   return `@media (min-width: ${minWidth}px)`;
 };
 
+const borders = {
+  default: `1px solid ${colors.gray["200"]}`,
+};
+
 const globalBorderRadius = "4px";
 const globalBoxShadow =
   "0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)";
@@ -268,6 +272,7 @@ const zIndex = {
 
 const defaultTheme = {
   alertColors,
+  borders,
   breakpoints,
   colors,
   globalBorderRadius,
