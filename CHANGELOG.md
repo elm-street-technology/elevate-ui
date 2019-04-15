@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - This changelog! (Eric Stout)
 - Theme Spacing now added to ThemeProvider, allowing a proper spacing system (Dillon Morris)
 - Transparent Button Styles (Eric Stout)
+- Global Notification functionality (Eric Stout)
 
 ### Updated
 

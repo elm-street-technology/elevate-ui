@@ -17,6 +17,9 @@ const Colors = Loadable({ loader: () => import("../docs/Colors") });
 const Borders = Loadable({ loader: () => import("../docs/Borders") });
 const Breakpoints = Loadable({ loader: () => import("../docs/Breakpoints") });
 const ColorPalette = Loadable({ loader: () => import("../docs/ColorPalette") });
+const GlobalNotification = Loadable({
+  loader: () => import("../docs/GlobalNotification"),
+});
 const FullscreenLoader = Loadable({
   loader: () => import("../docs/FullscreenLoader"),
 });
@@ -140,6 +143,7 @@ class Main extends Component {
             <Route path="/spacing" component={Spacing} />
             <Route path="/transitions" component={Transitions} />
             <Route path="/typography-theme" component={TypographyTheme} />
+            <Route path="/global-notification" component={GlobalNotification} />
             <Route path="/z-index" component={zIndex} />
             <Route
               path="/accordion"

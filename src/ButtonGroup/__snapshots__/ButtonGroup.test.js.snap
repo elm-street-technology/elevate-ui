@@ -2,25 +2,25 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="Scaffold-root-0-1-7"
+  className="Scaffold-root-0-1-8"
 >
   <label
-    className="Label-root-0-1-8"
+    className="Label-root-0-1-9"
   >
     Test ButtonGroup
   </label>
   <div
-    className="ButtonGroup-toggles-0-1-1 ButtonGroup-inline-0-1-2"
+    className="ButtonGroup-toggles-0-1-2 ButtonGroup-inline-0-1-3"
   >
     <label
-      className="ButtonGroup-button-0-1-4"
+      className="ButtonGroup-button-0-1-5"
     >
       <span>
         Teal
       </span>
       <input
         checked={false}
-        className="ButtonGroup-hiddenInput-0-1-3"
+        className="ButtonGroup-hiddenInput-0-1-4"
         id="teal"
         name="buttongroup"
         onChange={[Function]}
@@ -29,14 +29,14 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       />
     </label>
     <label
-      className="ButtonGroup-button-0-1-4"
+      className="ButtonGroup-button-0-1-5"
     >
       <span>
         Brown
       </span>
       <input
         checked={false}
-        className="ButtonGroup-hiddenInput-0-1-3"
+        className="ButtonGroup-hiddenInput-0-1-4"
         id="brown"
         name="buttongroup"
         onChange={[Function]}
@@ -45,14 +45,14 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       />
     </label>
     <label
-      className="ButtonGroup-button-0-1-4"
+      className="ButtonGroup-button-0-1-5"
     >
       <span>
         Black
       </span>
       <input
         checked={false}
-        className="ButtonGroup-hiddenInput-0-1-3"
+        className="ButtonGroup-hiddenInput-0-1-4"
         id="black"
         name="buttongroup"
         onChange={[Function]}
@@ -61,14 +61,14 @@ exports[`renders without crashing, matches the snapshot 1`] = `
       />
     </label>
     <label
-      className="ButtonGroup-button-0-1-4"
+      className="ButtonGroup-button-0-1-5"
     >
       <span>
         Pink
       </span>
       <input
         checked={false}
-        className="ButtonGroup-hiddenInput-0-1-3"
+        className="ButtonGroup-hiddenInput-0-1-4"
         id="pink"
         name="buttongroup"
         onChange={[Function]}

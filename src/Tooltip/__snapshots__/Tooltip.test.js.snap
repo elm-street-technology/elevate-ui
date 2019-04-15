@@ -3,7 +3,7 @@
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
   aria-hidden={true}
-  className="Tooltip-root-0-1-1 Tooltip-root-0-1-3"
+  className="Tooltip-root-0-1-2 Tooltip-root-0-1-4"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}

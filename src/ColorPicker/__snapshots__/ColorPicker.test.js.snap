@@ -2,17 +2,17 @@
 
 exports[`renders without crashing, matches the snapshot 1`] = `
 <div
-  className="Scaffold-root-0-1-6"
+  className="Scaffold-root-0-1-7"
 >
   <div
-    className="ColorPicker-root-0-1-1"
+    className="ColorPicker-root-0-1-2"
   >
     <div
-      className="ColorPicker-swatch-0-1-3"
+      className="ColorPicker-swatch-0-1-4"
       onClick={[Function]}
     >
       <div
-        className="ColorPicker-color-0-1-2"
+        className="ColorPicker-color-0-1-3"
         style={
           Object {
             "backgroundColor": "rgba(255, 255, 255, 100)",
