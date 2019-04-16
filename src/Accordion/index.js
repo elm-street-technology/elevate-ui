@@ -10,6 +10,7 @@ import Paper from "../Paper";
 
 type Props = {
   classes: Object,
+  openIndexes?: Array<number>,
   items: Array<{
     title: any | string,
     contents: any,
@@ -18,9 +19,9 @@ type Props = {
 
 class Accordion extends Component<Props> {
   render() {
-    const { classes, items, ...rest } = this.props;
+    const { classes, items, openIndexes, ...rest } = this.props;
     return (
-      <BaseAccordion {...rest}>
+      <BaseAccordion {...rest} openIndexes={openIndexes}>
         {({ openIndexes, handleItemClick }) => (
           <Paper {...rest} withPadding={false}>
             {items.map((item, index) => (
