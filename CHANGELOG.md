@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2019-04-11
+## [1.0.1] - 2019-04-16
+
+### Bugfix
+
+- Splits out openIndexes prop from spread to avoid warning and DOM Render of prop in Paper Component (Mike Bondi)
+
+## [1.0.0] - 2019-04-15
 
 ### Added
 
@@ -24,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Include dynamic version number under EUI Logo (Dillon Morris/Eric Stout)
 - Set Datetime value to null if no value exists (Eric Stout)
 - Accordions closed by default (Eric Stout)
-- Accordion caret color updated to match font color
+- Accordion caret color updated to match font color (Eric Stout)
 
 ### Bugfix
 
@@ -35,4 +41,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Surpress ESLint warnings by rewriting code (Eric Stout)
 
-[1.0.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...v0.38.2
+[1.0.1]: https://github.com/elm-street-technology/elevate-ui/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/elm-street-technology/elevate-ui/compare/v1.0.0...v0.38.2
