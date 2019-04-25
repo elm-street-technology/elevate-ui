@@ -10,6 +10,19 @@
       "required": true,
       "description": ""
     },
+    "openIndexes": {
+      "flowType": {
+        "name": "Array",
+        "elements": [
+          {
+            "name": "number"
+          }
+        ],
+        "raw": "Array<number>"
+      },
+      "required": false,
+      "description": ""
+    },
     "items": {
       "flowType": {
         "name": "Array",

@@ -33,7 +33,8 @@ sourceComponents.forEach((sourceComponent) => {
     endsWith(sourceComponent, "src/withStyles") ||
     endsWith(sourceComponent, "src/Loadable") ||
     endsWith(sourceComponent, "src/ThemeProvider") ||
-    endsWith(sourceComponent, "src/Color")
+    endsWith(sourceComponent, "src/Color") ||
+    endsWith(sourceComponent, "src/GlobalNotification")
   ) {
     console.log(
       `Skipping documentation for the ${sourceComponent} directory...`.yellow
