@@ -5,10 +5,16 @@ import classNames from "classnames";
 
 type $Props = {
   classes: Object,
+  /**
+   * Accepts any classNames to be passed down to the component.
+   */
   className: string,
   children: any,
 };
 
+/**
+ * A component that contains styled "tabs" to be used for navigation. Expects children to be one or more `<Tab />` components. See the source code for more information on how the Tab component is used.
+ */
 const TabNavigation = ({ classes, className, children }: $Props) => (
   <div className={classNames(classes.root, className)}>{children}</div>
 );

@@ -1,0 +1,42 @@
+{
+  "description": "A component meant to be wrapped in `<TabNavigation />` that allows you to create a \"tab-style\" navigation.",
+  "displayName": "Tab",
+  "methods": [],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "element": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": "Accepts any element to be used as the component base."
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Accepts any classNames to be passed down to the component."
+    },
+    "children": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": ""
+    },
+    "isActive": {
+      "flowType": {
+        "name": "boolean"
+      },
+      "required": true,
+      "description": "Should the tab show an active state."
+    }
+  }
+}

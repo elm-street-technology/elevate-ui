@@ -5,20 +5,46 @@ import classNames from "classnames";
 
 type $Props = {
   classes: Object,
-  Element: any,
+  /**
+   * Accepts any element to be used as the component base.
+   */
+  element: any,
+  /**
+   * Accepts any classNames to be passed down to the component.
+   */
   className?: string,
   children: any,
+  /**
+   * Should the tab show an active state.
+   */
   isActive: boolean,
 };
 
-const Tab = ({ classes, Element, children, isActive, ...rest }: $Props) => (
-  <Element
-    {...rest}
-    className={classNames({ [classes.root]: true, [classes.active]: isActive })}
-  >
-    {children}
-  </Element>
-);
+/**
+ * A component meant to be wrapped in `<TabNavigation />` that allows you to create a "tab-style" navigation.
+ */
+const Tab = ({
+  classes,
+  element,
+  children,
+  className,
+  isActive,
+  ...rest
+}: $Props) => {
+  const Element = element || "button";
+  return (
+    <Element
+      {...rest}
+      className={classNames({
+        [classes.root]: true,
+        [classes.active]: isActive,
+        className,
+      })}
+    >
+      {children}
+    </Element>
+  );
+};
 
 const styles = (theme) => ({
   root: {
@@ -26,6 +52,7 @@ const styles = (theme) => ({
     fontSize: "15px",
     fontWeight: "600",
     letterSpacing: ".5px",
+    lineHeight: 1,
     textTransform: "uppercase",
     borderLeft: `4px solid ${theme.colors.gray["100"]}`,
     transition: theme.transitions.default,
