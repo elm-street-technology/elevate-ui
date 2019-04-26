@@ -9,12 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- TabNavigation and Tab components to easily create tab navigation systems
-- TabNavigation and Tab documentation
+- TabNavigation and Tab components to easily create tab navigation systems (Eric Stout)
+- TabNavigation and Tab documentation (Eric Stout)
 
 ### Bugfix
 
-- Remove GlobalNotification from automatic doc-gen
+- Remove GlobalNotification from automatic doc-gen (Eric Stout)
 
 ## [1.0.1] - 2019-04-16
 
