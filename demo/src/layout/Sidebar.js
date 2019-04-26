@@ -41,6 +41,8 @@ import FormatListNumbered from "elevate-ui-icons/FormatListNumbered";
 import AddCircleOutline from "elevate-ui-icons/AddCircleOutline";
 import FormatColorFill from "elevate-ui-icons/FormatColorFill";
 import Notifications from "elevate-ui-icons/Notifications";
+import TabIcon from "elevate-ui-icons/Tab";
+import NavigationIcon from "elevate-ui-icons/Navigation";
 
 import ElevateUILogo from "./ElevateUILogo";
 import Version from "./Version";
@@ -278,6 +280,24 @@ class Sidebar extends Component {
             >
               <InsertEmoticon className={classes.navIcon} size={16} />
               Icon
+            </NavLink>
+
+            <NavLink
+              activeClassName={classes.active}
+              className={classes.item}
+              to="/tab"
+            >
+              <TabIcon className={classes.navIcon} size={16} />
+              Tab
+            </NavLink>
+
+            <NavLink
+              activeClassName={classes.active}
+              className={classes.item}
+              to="/tab-navigation"
+            >
+              <NavigationIcon className={classes.navIcon} size={16} />
+              Tab Navigation
             </NavLink>
 
             <NavLink

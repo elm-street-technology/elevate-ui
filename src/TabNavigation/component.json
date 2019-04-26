@@ -1,0 +1,28 @@
+{
+  "description": "A component that contains styled \"tabs\" to be used for navigation. Expects children to be one or more `<Tab />` components. See the source code for more information on how the Tab component is used.",
+  "displayName": "TabNavigation",
+  "methods": [],
+  "props": {
+    "classes": {
+      "flowType": {
+        "name": "Object"
+      },
+      "required": true,
+      "description": ""
+    },
+    "className": {
+      "flowType": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Accepts any classNames to be passed down to the component."
+    },
+    "children": {
+      "flowType": {
+        "name": "any"
+      },
+      "required": true,
+      "description": ""
+    }
+  }
+}

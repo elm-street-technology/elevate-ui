@@ -128,6 +128,11 @@ class Main extends Component {
             <Route path="/hr" render={() => <Doc folder="Hr" />} />
             <Route path="/modal" render={() => <Doc folder="Modal" />} />
             <Route path="/tooltip" render={() => <Doc folder="Tooltip" />} />
+            <Route
+              path="/tab-navigation"
+              render={() => <Doc folder="TabNavigation" />}
+            />
+            <Route path="/tab" render={() => <Doc folder="Tab" />} />
             <Route path="/icon" render={() => <IconDoc />} />
             <Route path="/signup" component={SignupForm} />
             <Route path="/query-form" component={QueryForm} />
