@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing, matches the snapshot 1`] = `
+<div
+  className="TabNavigation-root-0-1-2"
+>
+  <div
+    className="TabNavigation-root-0-1-2"
+  >
+    Home
+  </div>
+  <div
+    className="TabNavigation-root-0-1-2"
+  >
+    About
+  </div>
+</div>
+`;
