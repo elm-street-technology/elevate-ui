@@ -30,6 +30,7 @@ class Accordion extends Component<Props> {
                 className={classes.item}
               >
                 <button // AccordionButton
+                  type="button"
                   className={classes.button}
                   onClick={() => handleItemClick(index)}
                 >
