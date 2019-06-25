@@ -31,6 +31,7 @@ class Accordion extends Component<Props> {
               >
                 <button // AccordionButton
                   className={classes.button}
+                  type="button"
                   onClick={() => handleItemClick(index)}
                 >
                   <span className={classes.headerTitle}>{item.title}</span>
