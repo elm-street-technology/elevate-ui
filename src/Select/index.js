@@ -270,7 +270,7 @@ class Select extends Component<Props, State> {
                 )
                 .map((item, index) => (
                   <div
-                    key={item.value}
+                    key={index}
                     className={classNames({
                       [classes.dropdownItem]: true,
                       [classes.dropdownItemActive]: highlightedIndex === index,
