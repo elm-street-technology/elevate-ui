@@ -45,12 +45,26 @@ class CheckboxTable extends Component {
       selection.push(key);
     }
     // update the state
+    const { toggleSelectionCallBack } = this.props;
+    if (toggleSelectionCallBack) {
+      toggleSelectionCallBack({ selection });
+    }
     this.setState({ selection });
   };
 
   toggleAll = (all = false) => {
     // Quick escape to reset all
+
+    const { toggleAllCallback } = this.props;
+
     if (all) {
+      // hook for additional actions outside the component
+      if (toggleAllCallback) {
+        toggleAllCallback({
+          selectAll: false,
+          selection: [],
+        });
+      }
       this.setState({
         selectAll: false,
         selection: [],
@@ -74,6 +88,13 @@ class CheckboxTable extends Component {
       // we just push all the IDs onto the selection array
       currentRecords.forEach((item) => {
         selection.push(item._original.id);
+      });
+    }
+    // hook for additional actions outside the component
+    if (toggleAllCallback) {
+      toggleAllCallback({
+        selectAll,
+        selection,
       });
     }
     this.setState({ selectAll, selection });
