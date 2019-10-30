@@ -17,6 +17,10 @@ type Props = {
   form: Object,
   id: string,
   /**
+   * Number of decimal places to display.  Number must be 0 or greater.  2 is the default.
+   */
+  places: number,
+  /**
    * Text input to be used as the label for inside the component.
    */
   label: string,
@@ -32,6 +36,8 @@ type Props = {
  */
 class NumberIncrement extends Component<Props> {
   handleValueChange = (direction) => {
+    const places = this.props.places >= 0 ? this.props.places : 2;
+
     let newValue = Number(this.input.value);
     if (direction === "increment") {
       if (this.props.step) {
@@ -47,11 +53,11 @@ class NumberIncrement extends Component<Props> {
       }
     }
     if (this.props.onChange) {
-      this.props.onChange(newValue.toFixed(2));
+      this.props.onChange(newValue.toFixed(places));
     }
     return this.props.form.setFieldValue(
       this.props.field.name,
-      newValue.toFixed(2)
+      newValue.toFixed(places)
     );
   };
 
