@@ -39,7 +39,7 @@
     "react-input-autosize": "^2.2.1",
     "react-jss": "^8.6.1",
     "react-loadable": "4.0.5",
-    "react-table": "^6.8.6"
+    "react-table": "6.8.6"
   },
   "peerDependencies": {
     "formik": ">0.11.11",
