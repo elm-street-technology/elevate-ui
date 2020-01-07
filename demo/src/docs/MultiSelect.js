@@ -14,6 +14,7 @@ const roygbiv = [
   { label: "Indigo", value: "Indigo" },
   { label: "Violet", value: "Violet" },
 ];
+
 const cmyk = [
   { label: "Cyan", value: "Cyan" },
   { label: "Magenta", value: "Magenta" },
@@ -29,16 +30,16 @@ const cities = [
 ];
 
 const states = [
-  { label: "Arizona", value: "Arizona" },
-  { label: "California", value: "California" },
-  { label: "Ohio", value: "Ohio" },
-  { label: "Maine", value: "Maine" },
-  { label: "Michigan", value: "Michigan" },
-  { label: "Washington", value: "Washington" },
-  { label: "Oregon", value: "Oregon" },
-  { label: "New York", value: "New York" },
-  { label: "Florida", value: "Florida" },
-  { label: "Montana", value: "Montana" },
+  { label: "Arizona", value: "Arizona", note: "AZ" },
+  { label: "California", value: "California", note: "CA" },
+  { label: "Ohio", value: "Ohio", note: "OH" },
+  { label: "Maine", value: "Maine", note: "ME" },
+  { label: "Michigan", value: "Michigan", note: "MI" },
+  { label: "Washington", value: "Washington", note: "WA" },
+  { label: "Oregon", value: "Oregon", note: "OR" },
+  { label: "New York", value: "New York", note: "NY" },
+  { label: "Florida", value: "Florida", note: "FL" },
+  { label: "Montana", value: "Montana", note: "MT" },
 ];
 
 class MultiSelects extends Component {
@@ -125,16 +126,18 @@ class MultiSelects extends Component {
                   tags={true}
                 />
               </div>
-              <Field
-                id="states"
-                name="states"
-                label="States (with search functionality and custom tags)"
-                items={[{ label: "Minnesota", value: "Minnesota" }]}
-                component={MultiSelect}
-                onSearch={this.onSearch}
-                tags={true}
-                loading={this.state.loading}
-              />
+              <div style={{ margin: "32px 0px" }}>
+                <Field
+                  id="states"
+                  name="states"
+                  label="States (with search, custom tags, and notes)"
+                  items={states}
+                  component={MultiSelect}
+                  onSearch={this.onSearch}
+                  tags={true}
+                  loading={this.state.loading}
+                />
+              </div>
               <Button type="submit" disabled={!isValid || isSubmitting}>
                 Submit
               </Button>

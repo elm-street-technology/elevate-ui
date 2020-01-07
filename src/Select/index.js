@@ -29,6 +29,7 @@ import Scaffold from "../Scaffold";
 type Item = {
   label: string,
   value: string,
+  note?: string,
 };
 type Items = Array<Item>;
 
@@ -282,6 +283,11 @@ class Select extends Component<Props, State> {
                     })}
                   >
                     {itemToString(item)}
+                    {item.note && (
+                      <span className={classes.dropdownItemNote}>
+                        {item.note}
+                      </span>
+                    )}
                   </div>
                 ))}
             </div>
@@ -360,6 +366,12 @@ const styles = (theme) => ({
     lineHeight: "20px",
     fontWeight: "400",
     padding: "8px 12px",
+  },
+  dropdownItemNote: {
+    fontSize: "14px",
+    position: "absolute",
+    right: "10px",
+    color: theme.colors.gray400,
   },
   dropdownItemActive: {
     backgroundColor: theme.colors.gray100,

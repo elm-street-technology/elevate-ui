@@ -9,10 +9,10 @@ exports[`renders without crashing, matches the snapshot 1`] = `
   role="combobox"
 >
   <div
-    className="Scaffold-root-0-1-10"
+    className="Scaffold-root-0-1-11"
   >
     <div
-      className="Select-root-0-1-2 Select-root-0-1-9"
+      className="Select-root-0-1-2 Select-root-0-1-10"
       onClick={[Function]}
     >
       <input

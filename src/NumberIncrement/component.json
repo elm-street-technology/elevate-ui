@@ -51,6 +51,13 @@
       "required": true,
       "description": ""
     },
+    "places": {
+      "flowType": {
+        "name": "number"
+      },
+      "required": true,
+      "description": "Number of decimal places to display.  Number must be 0 or greater.  2 is the default."
+    },
     "label": {
       "flowType": {
         "name": "string"

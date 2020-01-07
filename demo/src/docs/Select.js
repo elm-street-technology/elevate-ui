@@ -14,23 +14,25 @@ const roygbiv = [
   { label: "Indigo", value: "indigo" },
   { label: "Violet", value: "violet" },
 ];
+
 const cmyk = [
   { label: "Cyan", value: "cyan" },
   { label: "Magenta", value: "magenta" },
   { label: "Yellow", value: "yellow" },
   { label: "Black", value: "black" },
 ];
+
 const states = [
-  { label: "Arizona", value: "Arizona" },
-  { label: "California", value: "California" },
-  { label: "Ohio", value: "Ohio" },
-  { label: "Maine", value: "Maine" },
-  { label: "Michigan", value: "Michigan" },
-  { label: "Washington", value: "Washington" },
-  { label: "Oregon", value: "Oregon" },
-  { label: "New York", value: "New York" },
-  { label: "Florida", value: "Florida" },
-  { label: "Montana", value: "Montana" },
+  { label: "Arizona", value: "Arizona", note: "AZ" },
+  { label: "California", value: "California", note: "CA" },
+  { label: "Ohio", value: "Ohio", note: "OH" },
+  { label: "Maine", value: "Maine", note: "ME" },
+  { label: "Michigan", value: "Michigan", note: "MI" },
+  { label: "Washington", value: "Washington", note: "WA" },
+  { label: "Oregon", value: "Oregon", note: "OR" },
+  { label: "New York", value: "New York", note: "NY" },
+  { label: "Florida", value: "Florida", note: "FL" },
+  { label: "Montana", value: "Montana", note: "MT" },
 ];
 
 class Selects extends Component {
@@ -99,8 +101,8 @@ class Selects extends Component {
               <Field
                 id="states"
                 name="states"
-                label="States (with search functionality)"
-                items={[{ label: "Minnesota", value: "Minnesota" }]}
+                label="States (with search functionality and notes)"
+                items={states}
                 component={Select}
                 onSearch={this.onSearch}
                 loading={this.state.loading}
