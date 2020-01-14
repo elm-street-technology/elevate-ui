@@ -34,6 +34,8 @@ type Item = {
 type Items = Array<Item>;
 
 type Props = {
+  /** Additional properties to set on the internal input. */
+  inputProps: Object,
   classes: Object,
   /**
    * Accepts any classNames to be passed down to the component.
@@ -212,6 +214,7 @@ class Select extends Component<Props, State> {
       form: { errors, setFieldTouched, touched },
       label,
       withScaffold = true,
+      inputProps,
     } = this.props;
 
     const { inputValue, items } = this.state;
@@ -247,6 +250,7 @@ class Select extends Component<Props, State> {
                   onChange: this.onInputChange,
                   onFocus: !isOpen ? openMenu : closeMenu,
                   value: !isOpen ? selectedItem.label : inputValue,
+                  ...inputProps,
                 })}
                 onBlur={(selection) => setFieldTouched(name, selection)}
               />
