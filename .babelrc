@@ -1,7 +1,9 @@
 {
-  "presets": ["@babel/env", "@babel/preset-react"],
+  "presets": ["react-app"],
   "plugins": [
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-transform-flow-strip-types"
+    "transform-flow-strip-types",
+    "transform-es2015-modules-commonjs",
+    "transform-object-rest-spread",
+    "transform-decorators-legacy"
   ]
 }
