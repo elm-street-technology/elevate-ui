@@ -110,6 +110,7 @@ class ButtonGroup extends Component<Props> {
   render() {
     const {
       classes,
+      className,
       field: { name, value },
       form: { errors, touched, values },
       items,
@@ -119,7 +120,7 @@ class ButtonGroup extends Component<Props> {
 
     return (
       <Scaffold label={label} error={get(touched, name) && get(errors, name)}>
-        <div className={classNames(classes.toggles, classes.inline)}>
+        <div className={classNames(className, classes.toggles, classes.inline)}>
           {items.map((item) => {
             const input = item.value;
             return (
@@ -132,8 +133,8 @@ class ButtonGroup extends Component<Props> {
                         ? classes.buttonActive
                         : null
                       : values[name] === item.value
-                        ? classes.buttonActive
-                        : null
+                      ? classes.buttonActive
+                      : null
                   )}
                 >
                   <span>{item.label}</span>
