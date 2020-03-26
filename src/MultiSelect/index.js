@@ -109,9 +109,7 @@ const getSelectedItems = (props) => {
   // (they won't show up in the dropdown items but they'll show as selected)
   if (value && value.length > 0) {
     value.forEach((singleValue) => {
-      const existingItem = items.find(
-        (item) => singleValue.indexOf(item.value) > -1
-      );
+      const existingItem = items.find((item) => singleValue === item.value);
       if (existingItem) {
         selectedItems.push(existingItem);
       } else {
