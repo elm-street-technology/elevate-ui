@@ -17,7 +17,7 @@ npm-debug.log
 yarn-error.log
 
 # lockfiles
-# yarn.lock
+yarn.lock
 package-lock.json
 
 # programmatically generated files
