@@ -117,22 +117,23 @@ class ButtonGroup extends Component<Props> {
       label,
       multiSelect,
     } = this.props;
+    const error = get(touched, name) && get(errors, name);
+    const selectedValue = get(values, name);
 
     return (
-      <Scaffold label={label} error={get(touched, name) && get(errors, name)}>
+      <Scaffold label={label} error={error}>
         <div className={classNames(className, classes.toggles, classes.inline)}>
           {items.map((item) => {
-            const input = item.value;
             return (
               <Fragment key={item.value}>
                 <label
                   className={classNames(
                     classes.button,
-                    Array.isArray(values[name])
-                      ? values[name].includes(item.value)
+                    Array.isArray(selectedValue)
+                      ? selectedValue.includes(item.value)
                         ? classes.buttonActive
                         : null
-                      : values[name] === item.value
+                      : selectedValue === item.value
                       ? classes.buttonActive
                       : null
                   )}
@@ -145,7 +146,7 @@ class ButtonGroup extends Component<Props> {
                     className={classes.hiddenInput}
                     checked={
                       multiSelect
-                        ? value.indexOf(item.value) > -1
+                        ? value.includes(item.value)
                         : value === item.value
                     }
                     value={item.value}
