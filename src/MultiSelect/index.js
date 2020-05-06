@@ -94,12 +94,19 @@ type State = {
   items: Items,
 };
 
+const getFieldValues = (props) => {
+  if (!props.field || !props.field.value) {
+    return;
+  } else if (!Array.isArray(props.field.value)) {
+    return [props.field.value];
+  }
+  return props.field.value;
+};
+
 const itemToString = (item) => (item ? item.label : "");
 const getSelectedItems = (props) => {
-  const {
-    field: { value },
-    items,
-  } = props;
+  const { items } = props;
+  const value = getFieldValues(props);
 
   let selectedItems = [];
 
@@ -107,7 +114,7 @@ const getSelectedItems = (props) => {
   // part of the this.props.items collection that gets passed in. We'll want
   // to add these so we have access to them in this.state.selectedItems
   // (they won't show up in the dropdown items but they'll show as selected)
-  if (value && value.length > 0) {
+  if (value && Array.isArray(value) && value.length > 0) {
     value.forEach((singleValue) => {
       const existingItem = items.find((item) => singleValue === item.value);
       if (existingItem) {
@@ -144,11 +151,8 @@ class MultiSelect extends Component<Props, State> {
         items: props.items || [],
       };
     }
-    if (
-      props.field &&
-      props.field.value &&
-      props.field.value.length !== state.selectedItems.length
-    ) {
+    const fieldValues = getFieldValues(props);
+    if (fieldValues && fieldValues.length !== state.selectedItems.length) {
       return {
         inputValue: "",
         selectedItems: getSelectedItems(props),
@@ -215,12 +219,14 @@ class MultiSelect extends Component<Props, State> {
 
   onAddTag = (item) => {
     const {
-      field: { name, value },
+      field: { name },
       form: { setFieldValue },
       tags,
     } = this.props;
+    const value = getFieldValues(this.props);
     const { inputValue, selectedItems } = this.state;
 
+    const updatedValue = Array.isArray(value) ? [...value] : [];
     if (item) {
       const updatedSelectedItems = [...selectedItems];
       updatedSelectedItems.push(item);
@@ -229,10 +235,14 @@ class MultiSelect extends Component<Props, State> {
         inputValue: "",
       });
 
-      const updatedValue = [...value];
       updatedValue.push(item.value);
       setFieldValue(name, updatedValue);
-    } else if (tags && inputValue !== "" && !value.includes(inputValue)) {
+    } else if (
+      tags &&
+      inputValue !== "" &&
+      Array.isArray(value) &&
+      !value.includes(inputValue)
+    ) {
       const updatedSelectedItems = [...selectedItems];
       updatedSelectedItems.push({ label: inputValue, value: inputValue });
       this.setState({
@@ -240,7 +250,6 @@ class MultiSelect extends Component<Props, State> {
         inputValue: "",
       });
 
-      const updatedValue = [...value];
       updatedValue.push(inputValue);
       setFieldValue(name, updatedValue);
     }
@@ -248,9 +257,10 @@ class MultiSelect extends Component<Props, State> {
 
   onRemoveTag = (item) => {
     const {
-      field: { name, value },
+      field: { name },
       form: { setFieldValue },
     } = this.props;
+    const value = getFieldValues(this.props);
     const { selectedItems } = this.state;
 
     const stateIndex =
@@ -260,23 +270,24 @@ class MultiSelect extends Component<Props, State> {
     updatedSelectedItems.splice(stateIndex, 1);
     this.setState({ selectedItems: updatedSelectedItems });
 
-    const index = value && value.findIndex((val) => val === item.value);
-    const updatedValue = [...value];
-    updatedValue.splice(index, 1);
+    const updatedValue = Array.isArray(value)
+      ? [...value.filter((val) => val !== item.value)]
+      : [];
     setFieldValue(name, updatedValue);
   };
 
   popValue() {
     const {
-      field: { name, value },
+      field: { name },
       form: { setFieldValue },
     } = this.props;
+    const value = getFieldValues(this.props);
     const { selectedItems } = this.state;
     const updatedSelectedItems = [...selectedItems];
     updatedSelectedItems.pop();
     this.setState({ selectedItems: updatedSelectedItems });
 
-    const updatedValue = [...value];
+    const updatedValue = Array.isArray(value) ? [...value] : [];
     updatedValue.pop();
     setFieldValue(name, updatedValue);
   }
@@ -378,11 +389,12 @@ class MultiSelect extends Component<Props, State> {
     const {
       classes,
       className,
-      field: { name, value },
+      field: { name },
       form: { errors, touched },
       label,
       withScaffold = true,
     } = this.props;
+    const value = getFieldValues(this.props);
 
     const { selectedItems, items } = this.state;
 
@@ -454,7 +466,7 @@ class MultiSelect extends Component<Props, State> {
                     className={classNames({
                       [classes.dropdownItem]: true,
                       [classes.dropdownItemSelected]:
-                        value &&
+                        Array.isArray(value) &&
                         value.findIndex((val) => val.value === item.value) > -1,
                       [classes.dropdownItemActive]: highlightedIndex === index,
                     })}
